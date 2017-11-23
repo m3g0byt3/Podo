@@ -16,6 +16,10 @@
 		41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */; };
 		419DC7361FC705CE003A3C45 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7351FC705CE003A3C45 /* Constants.swift */; };
 		419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */; };
+		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */; };
+		41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */; };
+		41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41D1F1731FC78EE800F12C20 /* PodoColors.clr */; };
+		41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1781FC7908E00F12C20 /* R.generated.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
 		B59440046E43C73F9F737D42 /* Pods_PodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */; };
 		CD80C1C7512D6728FC11D3DC /* Pods_PodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE37FEA68995A95EE9E55FBC /* Pods_PodoUITests.framework */; };
@@ -55,6 +59,10 @@
 		41494ADD1FC6C6950089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		419DC7351FC705CE003A3C45 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
+		41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningAnimator.swift; sourceTree = "<group>"; };
+		41D1F1731FC78EE800F12C20 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
+		41D1F1781FC7908E00F12C20 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B615A5FF118833E14B0AC2E /* Pods-Podo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.debug.xcconfig"; sourceTree = "<group>"; };
 		A3171AEBAEF479E5D8132E90 /* Pods-Podo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +126,8 @@
 		41494AAB1FC6C6570089F088 /* Podo */ = {
 			isa = PBXGroup;
 			children = (
+				41D1F1771FC7907D00F12C20 /* Constants */,
+				41D1F16D1FC785CD00F12C20 /* Transitions */,
 				41F84A791FC6C71B0056698C /* Controllers */,
 				41F84A781FC6C6F20056698C /* Supporting Files */,
 				41F84A771FC6C6E60056698C /* Application */,
@@ -143,6 +153,24 @@
 				41494ACE1FC6C6570089F088 /* Info.plist */,
 			);
 			path = PodoUITests;
+			sourceTree = "<group>";
+		};
+		41D1F16D1FC785CD00F12C20 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */,
+				41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		41D1F1771FC7907D00F12C20 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				41D1F1781FC7908E00F12C20 /* R.generated.swift */,
+				419DC7351FC705CE003A3C45 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		41F84A751FC6C6D50056698C /* Storyboards */ = {
@@ -174,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				41494AB81FC6C6570089F088 /* Info.plist */,
-				419DC7351FC705CE003A3C45 /* Constants.swift */,
+				41D1F1731FC78EE800F12C20 /* PodoColors.clr */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,8 +210,8 @@
 		41F84A791FC6C71B0056698C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */,
 				413FD5071FC7107500BB16B3 /* MainViewController.swift */,
+				419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,6 +247,7 @@
 			buildConfigurationList = 41494AD11FC6C6570089F088 /* Build configuration list for PBXNativeTarget "Podo" */;
 			buildPhases = (
 				7859FDCFD688373B0060AEB3 /* [CP] Check Pods Manifest.lock */,
+				41D1F1721FC78CD900F12C20 /* R.swift run script */,
 				41494AA51FC6C6560089F088 /* Sources */,
 				41494AA61FC6C6560089F088 /* Frameworks */,
 				41494AA71FC6C6560089F088 /* Resources */,
@@ -328,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */,
+				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
 				41494AB21FC6C6570089F088 /* Main.storyboard in Resources */,
 			);
@@ -350,6 +380,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		41D1F1721FC78CD900F12C20 /* R.swift run script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "R.swift run script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
 		5DCD34022B29AAE6B003589E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,8 +536,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */,
+				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
+				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				419DC7361FC705CE003A3C45 /* Constants.swift in Sources */,
 				413FD5081FC7107500BB16B3 /* MainViewController.swift in Sources */,
 			);

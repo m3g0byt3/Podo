@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +22,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="0gL-dt-dND">
                         <barButtonItem key="leftBarButtonItem" image="SideMenuIcon" id="wNP-pD-Vby">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="showSideMenu:" destination="BYZ-38-t0r" id="F0M-gr-PA6"/>
                             </connections>
@@ -42,7 +40,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CpZ-i5-8JO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="PodoGreen"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -56,8 +53,5 @@
     </scenes>
     <resources>
         <image name="SideMenuIcon" width="28" height="28"/>
-        <namedColor name="PodoGreen">
-            <color red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
