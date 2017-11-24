@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
+        navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
     }
     
     //MARK: - Control handlers
