@@ -12,8 +12,15 @@ import SnapKit
 class SideMenuViewController: UIViewController {
 
     //MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureHandler(_:)))
+        view.addGestureRecognizer(tapGesture)
         view.backgroundColor = R.clr.podoColors.blue()
+    }
+    
+    //MARK: - Control handlers
+    @objc private func tapGestureHandler(_ sender: UITapGestureRecognizer) {
+        dismiss(animated: true)
     }
 }
