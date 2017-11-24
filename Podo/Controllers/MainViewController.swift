@@ -9,6 +9,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    //MARK: - Properties
+    private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -20,6 +23,8 @@ class MainViewController: UIViewController {
     //MARK: - Control handlers
     @IBAction private func showSideMenu(_ sender: UIBarButtonItem) {
         let sideMenuVC = SideMenuViewController()
+        sideMenuVC.modalPresentationStyle = .custom
+        sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
         present(sideMenuVC, animated: true)
     }
 }
