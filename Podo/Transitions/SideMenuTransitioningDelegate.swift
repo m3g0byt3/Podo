@@ -12,13 +12,11 @@ import UIKit
 class SideMenuTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        //TODO: Add some code here: return SideMenuTransitioningAnimator()
-        return nil
+        return SideMenuTransitioningAnimator(for: .presentation)
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        //TODO: Add some code here: return SideMenuTransitioningAnimator()
-        return nil
+        return SideMenuTransitioningAnimator(for: .dismissal)
     }
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
