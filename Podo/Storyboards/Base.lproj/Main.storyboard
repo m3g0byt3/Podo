@@ -23,7 +23,7 @@
                     <navigationItem key="navigationItem" id="0gL-dt-dND">
                         <barButtonItem key="leftBarButtonItem" image="SideMenuIcon" id="wNP-pD-Vby">
                             <connections>
-                                <action selector="showSideMenu:" destination="BYZ-38-t0r" id="F0M-gr-PA6"/>
+                                <action selector="sideMenuButtonHandler:" destination="BYZ-38-t0r" id="m82-t6-heA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
