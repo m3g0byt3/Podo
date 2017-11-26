@@ -17,9 +17,12 @@ extension UIViewController {
         }
         
         set {
-            navigationController?.navigationBar.frame.origin.x += newValue
-            navigationController?.toolbar.frame.origin.x += newValue
             view.frame.origin.x += newValue
+            navigationController?.navigationBar.frame.origin.x += newValue
+            // Change toolBar origin only if it isn't hidden, or it will be misplaced
+            if let isToolbarHidden = navigationController?.isToolbarHidden, !isToolbarHidden {
+                navigationController?.toolbar?.frame.origin.x += newValue
+            }
         }
     }
 }
