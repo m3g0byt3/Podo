@@ -6,7 +6,6 @@
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class SideMenuTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
