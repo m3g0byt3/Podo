@@ -27,25 +27,32 @@ class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitio
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let toVC = transitionContext.viewController(forKey: .to) else { return }
         let animatedView: UIView
-        let finalFrame: CGRect
+        let animatedViewController: UIViewController?
+        let finalViewFrame: CGRect
+        let viewControllerOffset: CGFloat
         
         switch action {
         case .presentation:
             guard let toView = transitionContext.view(forKey: .to) else { return }
-            finalFrame = transitionContext.finalFrame(for: toVC)
-            toView.frame = CGRect(origin: CGPoint(x: -finalFrame.width, y: toView.frame.origin.y),
-                                  size: finalFrame.size)
+            finalViewFrame = transitionContext.finalFrame(for: toVC)
+            viewControllerOffset = finalViewFrame.width
+            toView.frame = CGRect(origin: CGPoint(x: -finalViewFrame.width, y: toView.frame.origin.y),
+                                  size: finalViewFrame.size)
             transitionContext.containerView.addSubview(toView)
             animatedView = toView
+            animatedViewController = transitionContext.viewController(forKey: .from)?.contentViewController
         case .dismissal:
             guard let fromView = transitionContext.view(forKey: .from) else { return }
-            finalFrame = CGRect(origin: CGPoint(x: -fromView.frame.width, y: fromView.frame.origin.y),
+            finalViewFrame = CGRect(origin: CGPoint(x: -fromView.frame.width, y: fromView.frame.origin.y),
                                 size: fromView.frame.size)
+            viewControllerOffset = -finalViewFrame.width
             animatedView = fromView
+            animatedViewController = transitionContext.viewController(forKey: .to)?.contentViewController
         }
         
         UIView.animate(withDuration: AnimationDuration.normal, animations: {
-            animatedView.frame = finalFrame
+            animatedView.frame = finalViewFrame
+            animatedViewController?.horizontalContentLayoutOffset = viewControllerOffset
         }) { _ in
             let status = !transitionContext.transitionWasCancelled
             // After a failed presentation or successful dismissal, remove the view.
