@@ -23,7 +23,7 @@ struct DimmingViewAlpha {
 }
 
 struct SideMenu {
-    static let widthRatio: CGFloat = 0.45
+    static let widthRatio: CGFloat = 0.7
     
     @available(*, unavailable) init() {}
 }
