@@ -10,13 +10,9 @@ import UIKit
 
 class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let action: Action
+    private let action: PresentationType
     
-    enum Action {
-        case presentation, dismissal
-    }
-    
-    init(for action: Action) {
+    init(for action: PresentationType) {
         self.action = action
     }
     
