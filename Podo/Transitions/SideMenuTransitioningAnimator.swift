@@ -10,10 +10,10 @@ import UIKit
 
 class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let action: PresentationType
+    private var presentationType: PresentationType
     
-    init(for action: PresentationType) {
-        self.action = action
+    init(for type: PresentationType) {
+        self.presentationType = type
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -27,7 +27,7 @@ class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitio
         let finalViewFrame: CGRect
         let viewControllerOffset: CGFloat
         
-        switch action {
+        switch presentationType {
         case .presentation:
             guard let toView = transitionContext.view(forKey: .to) else { return }
             finalViewFrame = transitionContext.finalFrame(for: toVC)
@@ -52,7 +52,7 @@ class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitio
         }) { _ in
             let status = !transitionContext.transitionWasCancelled
             // After a failed presentation or successful dismissal, remove the view.
-            if (self.action == .dismissal && status) || (self.action == .presentation && !status) {
+            if (self.presentationType == .dismissal && status) || (self.presentationType == .presentation && !status) {
                 animatedView.removeFromSuperview()
             }
             
