@@ -16,6 +16,8 @@
 		41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */; };
 		419DC7361FC705CE003A3C45 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7351FC705CE003A3C45 /* Constants.swift */; };
 		419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */; };
+		41A9FC6C1FCDA16C007443D7 /* UIViewController+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */; };
+		41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6F1FCDC042007443D7 /* PresentationType.swift */; };
 		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */; };
 		41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */; };
 		41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41D1F1731FC78EE800F12C20 /* PodoColors.clr */; };
@@ -62,6 +64,8 @@
 		41494ADD1FC6C6950089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		419DC7351FC705CE003A3C45 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UINavigationController.swift"; sourceTree = "<group>"; };
+		41A9FC6F1FCDC042007443D7 /* PresentationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
 		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
 		41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningAnimator.swift; sourceTree = "<group>"; };
 		41D1F1731FC78EE800F12C20 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		41D1F16D1FC785CD00F12C20 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				41A9FC6F1FCDC042007443D7 /* PresentationType.swift */,
 				41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */,
 				41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */,
 				41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */,
@@ -186,6 +191,7 @@
 			children = (
 				41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */,
 				41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */,
+				41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -556,6 +562,8 @@
 				41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
+				41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */,
+				41A9FC6C1FCDA16C007443D7 /* UIViewController+UINavigationController.swift in Sources */,
 				41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,

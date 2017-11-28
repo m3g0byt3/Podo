@@ -14,6 +14,8 @@ class SideMenuViewController: UIViewController {
     //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
-        view.backgroundColor = R.clr.podoColors.blue()
+        
+        view.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
     }
 }

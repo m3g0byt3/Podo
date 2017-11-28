@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
 
     //MARK: - Control handlers
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
-        let sideMenuVC = SideMenuViewController()
+        let sideMenuVC = SideMenuViewController.navigationControllerInstance()
         sideMenuVC.modalPresentationStyle = .custom
         sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
         present(sideMenuVC, animated: true)
