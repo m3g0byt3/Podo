@@ -15,6 +15,13 @@ struct AnimationDuration {
     @available(*, unavailable) init() {}
 }
 
+struct DimmingViewAlpha {
+    static let initial: CGFloat = 0.0
+    static let final: CGFloat = 0.25
+    
+    @available(*, unavailable) init() {}
+}
+
 struct SideMenu {
     static let widthRatio: CGFloat = 0.45
     

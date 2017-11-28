@@ -15,7 +15,7 @@ class SideMenuPresentationController: UIPresentationController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissPresentedViewController))
         this.frame = container.frame
         this.backgroundColor = .black
-        this.alpha = 0
+        this.alpha = DimmingViewAlpha.initial
         this.clipsToBounds = true
         this.addGestureRecognizer(tapGestureRecognizer)
         return this
@@ -30,7 +30,7 @@ class SideMenuPresentationController: UIPresentationController {
     override func presentationTransitionWillBegin() {
         dimmingView.map { containerView?.addSubview($0) }
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] _ in
-            self?.dimmingView?.alpha = 0.5
+            self?.dimmingView?.alpha = DimmingViewAlpha.final
         })
     }
     
@@ -42,7 +42,7 @@ class SideMenuPresentationController: UIPresentationController {
     
     override func dismissalTransitionWillBegin() {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] _ in
-            self?.dimmingView?.alpha = 0
+            self?.dimmingView?.alpha = DimmingViewAlpha.initial
         })
     }
     
