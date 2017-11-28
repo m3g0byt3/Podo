@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
         navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
         
