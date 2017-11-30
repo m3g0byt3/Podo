@@ -13,10 +13,16 @@ class MainViewController: UIViewController {
     
     //MARK: - Properties
     private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
+    
     private lazy var squareView: UIView = { this in
         this.backgroundColor = R.clr.podoColors.blue()
         return this
     }(UIView())
+    
+    private lazy var edgePanGesture: UIScreenEdgePanGestureRecognizer = { this in
+        this.edges = .left
+        return this
+    }(UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:))))
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,6 +32,7 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
         navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
         
+        view.addGestureRecognizer(edgePanGesture)
         view.addSubview(squareView)
         squareView.snp.makeConstraints { make in
             make.size.equalToSuperview().multipliedBy(0.5)
@@ -35,6 +42,20 @@ class MainViewController: UIViewController {
 
     //MARK: - Control handlers
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
+        showSideMenu()
+    }
+    
+    @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            showSideMenu()
+        default:
+            sideMenuTransitioningDelegate.interactorClosure?(sender)
+        }
+    }
+    
+    //MARK: - Private API
+    private func showSideMenu() {
         let sideMenuVC = SideMenuViewController.navigationControllerInstance()
         sideMenuVC.modalPresentationStyle = .custom
         sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
