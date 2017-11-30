@@ -1,3 +1,24 @@
-PODFILE CHECKSUM: db97fd97202b5a8db42dde716493d6a84831b3f1
+PODS:
+  - Nimble (7.0.2)
+  - Quick (1.2.0)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.0)
+  - Quick (~> 1.2.0)
+  - R.swift (~> 4.0.0)
+  - SnapKit (~> 4.0)
+
+SPEC CHECKSUMS:
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 047778165f7863817906c2caed8c5deebc46706a
 
 COCOAPODS: 1.2.1
