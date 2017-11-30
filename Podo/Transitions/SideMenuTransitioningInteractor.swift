@@ -13,6 +13,12 @@ class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
     //MARK: - Properties
     private let presentationType: PresentationType
     private weak var containerView: UIView?
+    private var boundaryTransitionPercentage: CGFloat {
+        switch presentationType {
+        case .presentation: return SideMenu.boundaryTransitionPercentage + SideMenu.boundaryTransitionPercentageOffset
+        case .dismissal: return SideMenu.boundaryTransitionPercentage - SideMenu.boundaryTransitionPercentageOffset
+        }
+    }
     
     //MARK: - Inits
     init(for type: PresentationType) {
@@ -23,17 +29,18 @@ class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
     func updateAnimationBasedOn(recognizer: UIPanGestureRecognizer) {
         guard let container = containerView else { return }
         
+        func transitionPercentageFor(_ recognizer: UIPanGestureRecognizer, in view: UIView) -> CGFloat {
+            let translation = recognizer.translation(in: view)
+            return fabs(translation.x / view.frame.width)
+        }
+        
         switch recognizer.state {
         case .began:
             recognizer.setTranslation(CGPoint.zero, in: container)
         case .changed:
-            let translation = recognizer.translation(in: container)
-            let transitionPercentage = fabs(translation.x / container.frame.width)
-            update(transitionPercentage)
+            update(transitionPercentageFor(recognizer, in: container))
         default:
-            let translation = recognizer.translation(in: container)
-            let transitionPercentage = fabs(translation.x / container.frame.width)
-            if (transitionPercentage > SideMenu.boundaryTransitionPercentage) {
+            if (transitionPercentageFor(recognizer, in: container) > boundaryTransitionPercentage) {
                 finish()
             } else {
                 cancel()

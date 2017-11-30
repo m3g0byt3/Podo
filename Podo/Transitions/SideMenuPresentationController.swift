@@ -13,7 +13,7 @@ class SideMenuPresentationController: UIPresentationController {
     //MARK: - Properties
     private lazy var dimmingView: UIView? = { this in
         guard let container = self.containerView else { return nil }
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissPresentedViewController))
+        let tapGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panHandler(_:)))
         this.frame = container.frame
         this.backgroundColor = .black
         this.alpha = DimmingViewAlpha.initial
@@ -23,8 +23,15 @@ class SideMenuPresentationController: UIPresentationController {
     }(UIView())
     
     //MARK: - Control handlers
-    @objc private func dismissPresentedViewController() {
-        presentedViewController.dismiss(animated: true)
+    @objc private func panHandler(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            presentedViewController.dismiss(animated: true)
+        default:
+            if let transitionDelegate = presentedViewController.transitioningDelegate as? SideMenuTransitioningDelegate {
+                transitionDelegate.interactorClosure?(sender)
+            }
+        }
     }
     
     //MARK: - Public API

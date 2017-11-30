@@ -28,7 +28,9 @@ struct SideMenu {
     /// Width ratio between screen width and side menu width
     static let widthRatio: CGFloat = 0.7
     /// Boundary value to decide complete or cancel interactive transition if pan gesture has ended
-    static let boundaryTransitionPercentage: CGFloat = 0.55
+    static let boundaryTransitionPercentage: CGFloat = 0.50
+    // Offset that may be added to or substracted from `boundaryTransitionPercentage` for better visual experience
+    static let boundaryTransitionPercentageOffset: CGFloat = 0.05
     
     @available(*, unavailable) init() {}
 }
