@@ -19,12 +19,14 @@ struct R: Rswift.Validatable {
   /// This `R.clr` struct is generated, and contains static references to 1 color palettes.
   /// NOTE: R.clr is deprecated and will be removed in a future R.swift version.
   struct clr {
-    /// This `R.clr.podoColors` struct is generated, and contains static references to 3 colors.
+    /// This `R.clr.podoColors` struct is generated, and contains static references to 4 colors.
     struct podoColors {
       /// <span style='background-color: #33CCFF; color: #CC3300; padding: 1px 3px;'>#33CCFF</span> blue
       static let blue = Rswift.ColorPaletteItemResource(name: "blue", red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
       static let green = Rswift.ColorPaletteItemResource(name: "green", red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> orange
+      static let orange = Rswift.ColorPaletteItemResource(name: "orange", red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
       /// <span style='background-color: #FFFFFF; color: #000000; padding: 1px 3px;'>#FFFFFF</span> white
       static let white = Rswift.ColorPaletteItemResource(name: "white", red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
       
@@ -40,6 +42,13 @@ struct R: Rswift.Validatable {
       /// UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       static func green(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> orange
+      /// 
+      /// UIColor(red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
+      static func orange(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
       }
       
       /// <span style='background-color: #FFFFFF; color: #000000; padding: 1px 3px;'>#FFFFFF</span> white
