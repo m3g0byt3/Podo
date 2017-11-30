@@ -10,7 +10,7 @@ import UIKit
 
 class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private var presentationType: PresentationType
+    private let presentationType: PresentationType
     
     init(for type: PresentationType) {
         self.presentationType = type
