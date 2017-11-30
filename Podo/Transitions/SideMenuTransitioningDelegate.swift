@@ -16,6 +16,15 @@ class SideMenuTransitioningDelegate: NSObject {
     //MARK: - Properties
     private weak var interactor: SideMenuTransitioningInteractor?
     var interactorClosure: InteractorClosure? { return interactor?.updateAnimationBasedOn }
+    
+    //MARK: - Private API
+    private func interactorForPresentationOfType(_ type: PresentationType) -> SideMenuTransitioningInteractor {
+        // Create new SideMenuTransitioningInteractor instance of given type
+        let presentationInteractor = SideMenuTransitioningInteractor(for: type)
+        // Update our private weak property `interactor` because we need reference to the SideMenuTransitioningInteractor instance
+        interactor = presentationInteractor
+        return presentationInteractor
+    }
 }
 
 extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
@@ -33,13 +42,10 @@ extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        let presentationInteractor = SideMenuTransitioningInteractor(for: .presentation)
-        interactor = presentationInteractor
-        return presentationInteractor
+        return interactorForPresentationOfType(.presentation)
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        //TODO: return correct interaction Controller for dismissal
-        return nil
+        return interactorForPresentationOfType(.dismissal)
     }
 }
