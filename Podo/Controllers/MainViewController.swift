@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(edgePanGesture)
         view.addSubview(squareView)
         squareView.snp.makeConstraints { make in
-            make.size.equalToSuperview().multipliedBy(0.5)
+            make.size.equalToSuperview().dividedBy(2)
             make.center.equalToSuperview()
         }
     }
