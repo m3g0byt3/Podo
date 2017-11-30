@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
             make.center.equalToSuperview()
         }
     }
-
+    
     //MARK: - Control handlers
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
         showSideMenu()

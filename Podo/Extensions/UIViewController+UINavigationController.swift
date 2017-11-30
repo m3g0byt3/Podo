@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-
+    
     class func navigationControllerInstance() -> UINavigationController {
         let rootViewController = self.init()
         return UINavigationController(rootViewController: rootViewController)

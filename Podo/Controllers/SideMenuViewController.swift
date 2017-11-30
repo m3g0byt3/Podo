@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class SideMenuViewController: UIViewController {
-
+    
     //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
