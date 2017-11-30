@@ -8,13 +8,18 @@
 
 import UIKit
 
-class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class SideMenuTransitioningAnimator: NSObject {
     
+    //MARK: - Properties
     private let presentationType: PresentationType
     
+    //MARK: - Inits
     init(for type: PresentationType) {
         self.presentationType = type
     }
+}
+
+extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return AnimationDuration.normal
@@ -40,7 +45,7 @@ class SideMenuTransitioningAnimator: NSObject, UIViewControllerAnimatedTransitio
         case .dismissal:
             guard let fromView = transitionContext.view(forKey: .from) else { return }
             finalViewFrame = CGRect(origin: CGPoint(x: -fromView.frame.width, y: fromView.frame.origin.y),
-                                size: fromView.frame.size)
+                                    size: fromView.frame.size)
             viewControllerOffset = -finalViewFrame.width
             animatedView = fromView
             animatedViewController = transitionContext.viewController(forKey: .to)?.contentViewController

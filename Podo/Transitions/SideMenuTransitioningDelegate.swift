@@ -8,17 +8,22 @@
 
 import UIKit
 
-class SideMenuTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
+class SideMenuTransitioningDelegate: NSObject {
     
+    //MARK: - Typealiases
     typealias InteractorClosure = (UIPanGestureRecognizer) -> Void
     
+    //MARK: - Properties
     private weak var interactor: SideMenuTransitioningInteractor?
     var interactorClosure: InteractorClosure? { return interactor?.updateAnimationBasedOn }
+}
+
+extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SideMenuTransitioningAnimator(for: .presentation)
     }
-
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SideMenuTransitioningAnimator(for: .dismissal)
     }

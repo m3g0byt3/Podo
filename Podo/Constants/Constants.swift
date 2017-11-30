@@ -16,14 +16,18 @@ struct AnimationDuration {
 }
 
 struct DimmingViewAlpha {
+    /// Alpha level at the beginning of presentation
     static let initial: CGFloat = 0.0
+    /// Alpha level at the end of presentation
     static let final: CGFloat = 0.25
     
     @available(*, unavailable) init() {}
 }
 
 struct SideMenu {
+    /// Width ratio between screen width and side menu width
     static let widthRatio: CGFloat = 0.7
+    /// Boundary value to decide complete or cancel interactive transition if pan gesture has ended
     static let boundaryTransitionPercentage: CGFloat = 0.55
     
     @available(*, unavailable) init() {}

@@ -10,6 +10,7 @@ import UIKit
 
 class SideMenuPresentationController: UIPresentationController {
     
+    //MARK: - Properties
     private lazy var dimmingView: UIView? = { this in
         guard let container = self.containerView else { return nil }
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissPresentedViewController))
@@ -21,6 +22,12 @@ class SideMenuPresentationController: UIPresentationController {
         return this
     }(UIView())
     
+    //MARK: - Control handlers
+    @objc private func dismissPresentedViewController() {
+        presentedViewController.dismiss(animated: true)
+    }
+    
+    //MARK: - Public API
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let container = containerView else { return UIScreen.main.bounds }
         return CGRect(x: 0, y: 0, width: container.frame.width * SideMenu.widthRatio,
@@ -50,9 +57,5 @@ class SideMenuPresentationController: UIPresentationController {
         if completed {
             dimmingView?.removeFromSuperview()
         }
-    }
-    
-    @objc private func dismissPresentedViewController() {
-        presentedViewController.dismiss(animated: true)
     }
 }

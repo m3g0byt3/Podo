@@ -8,7 +8,7 @@
 
 import Foundation
 
+/// Represents type of presentation
 enum PresentationType {
-    
     case presentation, dismissal
 }
