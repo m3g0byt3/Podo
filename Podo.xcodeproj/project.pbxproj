@@ -19,6 +19,7 @@
 		41A9FC6C1FCDA16C007443D7 /* UIViewController+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */; };
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
 		41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6F1FCDC042007443D7 /* PresentationType.swift */; };
+		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
 		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */; };
 		41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */; };
 		41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41D1F1731FC78EE800F12C20 /* PodoColors.clr */; };
@@ -68,6 +69,7 @@
 		41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UINavigationController.swift"; sourceTree = "<group>"; };
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
 		41A9FC6F1FCDC042007443D7 /* PresentationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
+		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
 		41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningAnimator.swift; sourceTree = "<group>"; };
 		41D1F1731FC78EE800F12C20 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		41494AAB1FC6C6570089F088 /* Podo */ = {
 			isa = PBXGroup;
 			children = (
+				41C9EB481FD409DA000D77DD /* Views */,
 				41E8FA031FCB33A100AB453D /* Extensions */,
 				41D1F1771FC7907D00F12C20 /* Constants */,
 				41D1F16D1FC785CD00F12C20 /* Transitions */,
@@ -166,6 +169,16 @@
 				41494ACE1FC6C6570089F088 /* Info.plist */,
 			);
 			path = PodoUITests;
+			sourceTree = "<group>";
+		};
+		41C9EB481FD409DA000D77DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */,
+				41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */,
+				41C8C2551FD42225007EC44B /* RoundShadowView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		41D1F16D1FC785CD00F12C20 /* Transitions */ = {
@@ -273,6 +286,7 @@
 			buildConfigurationList = 41494AD11FC6C6570089F088 /* Build configuration list for PBXNativeTarget "Podo" */;
 			buildPhases = (
 				7859FDCFD688373B0060AEB3 /* [CP] Check Pods Manifest.lock */,
+				41F57F4B1FD4887500AD8D64 /* Copy colors pallete */,
 				41D1F1721FC78CD900F12C20 /* R.swift run script */,
 				41494AA51FC6C6560089F088 /* Sources */,
 				41494AA61FC6C6560089F088 /* Frameworks */,
@@ -587,6 +601,7 @@
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */,
+				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				419DC7361FC705CE003A3C45 /* Constants.swift in Sources */,
 				413FD5081FC7107500BB16B3 /* MainViewController.swift in Sources */,
 			);
