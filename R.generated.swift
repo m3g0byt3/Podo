@@ -19,12 +19,14 @@ struct R: Rswift.Validatable {
   /// This `R.clr` struct is generated, and contains static references to 1 color palettes.
   /// NOTE: R.clr is deprecated and will be removed in a future R.swift version.
   struct clr {
-    /// This `R.clr.podoColors` struct is generated, and contains static references to 4 colors.
+    /// This `R.clr.podoColors` struct is generated, and contains static references to 5 colors.
     struct podoColors {
       /// <span style='background-color: #33CCFF; color: #CC3300; padding: 1px 3px;'>#33CCFF</span> blue
       static let blue = Rswift.ColorPaletteItemResource(name: "blue", red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
       static let green = Rswift.ColorPaletteItemResource(name: "green", red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
+      static let background = Rswift.ColorPaletteItemResource(name: "background", red: 0.9450980392, green: 0.9490196078, blue: 0.9294117647, alpha: 1.0)
       /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> orange
       static let orange = Rswift.ColorPaletteItemResource(name: "orange", red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
       /// <span style='background-color: #FFFFFF; color: #000000; padding: 1px 3px;'>#FFFFFF</span> white
@@ -42,6 +44,13 @@ struct R: Rswift.Validatable {
       /// UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       static func green(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
+      /// 
+      /// UIColor(red: 0.9450980392, green: 0.9490196078, blue: 0.9294117647, alpha: 1.0)
+      static func background(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9450980392, green: 0.9490196078, blue: 0.9294117647, alpha: 1.0)
       }
       
       /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> orange
@@ -88,10 +97,17 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `MetroTrainIcon`.
+    static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
     /// Image `SideMenuIcon`.
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
+    
+    /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
+    static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.metroTrainIcon, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "SideMenuIcon", bundle: ..., traitCollection: ...)`
     static func sideMenuIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -101,13 +117,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
+    /// Nib `CardsTableViewCell`.
+    static let cardsTableViewCell = _R.nib._CardsTableViewCell()
+    
+    /// `UINib(name: "CardsTableViewCell", in: bundle)`
+    static func cardsTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.cardsTableViewCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `CardsTableViewCell`.
+    static let cardsTableViewCell: Rswift.ReuseIdentifier<CardsTableViewCell> = Rswift.ReuseIdentifier(identifier: "CardsTableViewCell")
+    
     fileprivate init() {}
   }
   
@@ -160,6 +187,20 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _CardsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = CardsTableViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "CardsTableViewCell"
+      let name = "CardsTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> CardsTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CardsTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -182,9 +223,15 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Main"
+      let test2 = StoryboardViewControllerResource<MainViewController>(identifier: "TEST2")
+      
+      func test2(_: Void = ()) -> MainViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: test2)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().test2() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'test2' could not be loaded from storyboard 'Main' as 'MainViewController'.") }
       }
       
       fileprivate init() {}
