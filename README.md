@@ -5,7 +5,7 @@ Non-official iOS application for top-up russian contactless metropolitan multi-t
 
 ![](Screenshots/iPhone1.png)
 
-(Not an actual design, just a very early Sketch prototype.)
+(Not an actual application design, just very early Sketch prototype.)
 
 Project Status
 ----------------
@@ -36,7 +36,7 @@ Requirements
 Used 3rd party libraries and frameworks
 ----------------
 * [Moya](https://github.com/Moya)
-* [R.swift] (https://github.com/mac-cain13/R.swift)
+* [R.swift](https://github.com/mac-cain13/R.swift)
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
 * [Realm](https://github.com/realm/realm-cocoa)
 * [Typhoon](https://github.com/appsquickly/Typhoon)
