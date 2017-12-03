@@ -24,16 +24,19 @@ class MainViewController: UIViewController {
         return this
     }(UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:))))
     
+    private lazy var tableViewDelegate = TableViewDelegate()
+    
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            setupTableView()
+        }
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationItem()
         view.addGestureRecognizer(edgePanGesture)
-        view.addSubview(squareView)
-        squareView.snp.makeConstraints { make in
-            make.size.equalToSuperview().dividedBy(2)
-            make.center.equalToSuperview()
-        }
     }
     
     //MARK: - Control handlers
@@ -69,5 +72,13 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
         navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
         navigationItem.titleView = titleViewContainer
+    }
+    
+    private func setupTableView() {
+        tableView.register(R.nib.cardsTableViewCell)
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.dataSource = tableViewDelegate
+        tableView.backgroundColor = R.clr.podoColors.background()
     }
 }
