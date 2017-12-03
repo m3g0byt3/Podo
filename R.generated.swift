@@ -223,15 +223,9 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Main"
-      let test2 = StoryboardViewControllerResource<MainViewController>(identifier: "TEST2")
-      
-      func test2(_: Void = ()) -> MainViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: test2)
-      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'Main', but couldn't be loaded.") }
-        if _R.storyboard.main().test2() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'test2' could not be loaded from storyboard 'Main' as 'MainViewController'.") }
       }
       
       fileprivate init() {}
