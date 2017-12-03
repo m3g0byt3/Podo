@@ -27,11 +27,7 @@ class MainViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
-        navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
-        
+        setupNavigationItem()
         view.addGestureRecognizer(edgePanGesture)
         view.addSubview(squareView)
         squareView.snp.makeConstraints { make in
@@ -60,5 +56,18 @@ class MainViewController: UIViewController {
         sideMenuVC.modalPresentationStyle = .custom
         sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
         present(sideMenuVC, animated: true)
+    }
+    
+    private func setupNavigationItem() {
+        let titleViewContainer = UIView()
+        let titleView = UIImageView(image: R.image.metroTrainIcon())
+        titleViewContainer.addSubview(titleView)
+        titleView.contentMode = .scaleAspectFit
+        titleView.snp.makeConstraints { $0.edges.equalToSuperview().inset(3) }
+
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
+        navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
+        navigationItem.titleView = titleViewContainer
     }
 }
