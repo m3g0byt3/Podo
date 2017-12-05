@@ -19,12 +19,12 @@ class MainViewController: UIViewController {
         return this
     }(UIView())
     
+    private lazy var tableViewDelegate = TableViewProvider()
     private lazy var edgePanGesture: UIScreenEdgePanGestureRecognizer = { this in
         this.edges = .left
         return this
     }(UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:))))
     
-    private lazy var tableViewDelegate = TableViewDelegate()
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
