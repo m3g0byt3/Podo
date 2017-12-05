@@ -34,3 +34,14 @@ struct SideMenu {
     
     @available(*, unavailable) init() {}
 }
+
+struct MainMenu {
+    /// Insets between titleView icon and its container
+    static let imageInset: CGFloat = 5
+    /// tableView's estimatedHeightForRowAt
+    static let estimatedRowHeight: CGFloat = 75
+    /// Ratio between screen height and height of transportCardsView
+    static let verticalInsetRatio: CGFloat = 0.25
+    
+    @available(*, unavailable) init() {}
+}
