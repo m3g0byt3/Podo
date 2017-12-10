@@ -473,7 +473,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp ~/Library/Colors/PodoColors.clr $SRCROOT/Podo/Supporting\\ Files/";
+			shellScript = "if [[ ~/Library/Colors/PodoColors.clr -nt $SRCROOT/Podo/Supporting\\ Files/PodoColors.clr ]]\n    then cp ~/Library/Colors/PodoColors.clr $SRCROOT/Podo/Supporting\\ Files/\nfi";
 		};
 		5DCD34022B29AAE6B003589E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
