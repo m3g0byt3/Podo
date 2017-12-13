@@ -16,17 +16,12 @@ class MainViewController: UIViewController {
     private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
     private weak var transportCardsView: UIView?
     private lazy var tableViewDelegate = TableViewProvider()
-    private lazy var edgePanGesture: UIScreenEdgePanGestureRecognizer = { this in
-        this.edges = .left
-        return this
-    }(UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:))))
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationItem()
         setupTableView()
-        view.addGestureRecognizer(edgePanGesture)
+        setupMiscellaneousUI()
     }
     
     //MARK: - Control handlers
@@ -51,23 +46,6 @@ class MainViewController: UIViewController {
         present(sideMenuVC, animated: true)
     }
     
-    private func setupNavigationItem() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
-        navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
-        
-        guard let navBarHeight = navigationController?.navigationBar.frame.height else { return }
-        
-        let titleViewContainerFrame = CGRect(x: 0, y: 0, width: navBarHeight, height: navBarHeight)
-        let titleImageView = UIImageView(image: R.image.metroTrainIcon())
-        titleImageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = UIView(frame: titleViewContainerFrame)
-        navigationItem.titleView?.addSubview(titleImageView)
-        titleImageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(MainMenu.imageInset) }
-    }
     
     private func setupTableView() {
         let tableViewVerticalInset = view.bounds.height * MainMenu.verticalInsetRatio
@@ -88,6 +66,13 @@ class MainViewController: UIViewController {
         tableView.dataSource = tableViewDelegate
         tableView.delegate = self
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
+    }
+    
+    private func setupMiscellaneousUI() {
+        let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:)))
+        edgePanGesture.edges = .left
+        view.addGestureRecognizer(edgePanGesture)
+        navigationItem.titleView = TitleView()
     }
 }
 
