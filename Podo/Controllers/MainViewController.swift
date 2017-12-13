@@ -12,31 +12,18 @@ import SnapKit
 class MainViewController: UIViewController {
     
     //MARK: - Properties
+    @IBOutlet private weak var tableView: UITableView!
+    private weak var transportCardsView: UIView?
+    private var tableViewVerticalInset: CGFloat { return view.bounds.height * MainMenu.verticalInsetRatio }
     private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
-    
-    private lazy var squareView: UIView = { this in
-        this.backgroundColor = R.clr.podoColors.blue()
-        return this
-    }(UIView())
-    
-    private lazy var edgePanGesture: UIScreenEdgePanGestureRecognizer = { this in
-        this.edges = .left
-        return this
-    }(UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:))))
-    
-    private lazy var tableViewDelegate = TableViewDelegate()
-    
-    @IBOutlet private weak var tableView: UITableView! {
-        didSet {
-            setupTableView()
-        }
-    }
+    private lazy var tableViewDatasource = TableViewProvider()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationItem()
-        view.addGestureRecognizer(edgePanGesture)
+        setupTableView()
+        setupCardsViewController()
+        setupMiscellaneousUI()
     }
     
     //MARK: - Control handlers
@@ -61,24 +48,49 @@ class MainViewController: UIViewController {
         present(sideMenuVC, animated: true)
     }
     
-    private func setupNavigationItem() {
-        let titleViewContainer = UIView()
-        let titleView = UIImageView(image: R.image.metroTrainIcon())
-        titleViewContainer.addSubview(titleView)
-        titleView.contentMode = .scaleAspectFit
-        titleView.snp.makeConstraints { $0.edges.equalToSuperview().inset(3) }
-
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
-        navigationItem.leftBarButtonItem?.tintColor = R.clr.podoColors.white()
-        navigationItem.titleView = titleViewContainer
+    private func setupCardsViewController() {
+        guard let cardsViewController = CardsViewController.storyboardInstance() else { return }
+        addChildViewController(cardsViewController)
+        tableView.addSubview(cardsViewController.view)
+        cardsViewController.didMove(toParentViewController: self)
+        transportCardsView = cardsViewController.view
+        cardsViewController.view.snp.makeConstraints { make in
+            make.centerX.width.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(tableView.snp.top)
+                .offset(tableViewVerticalInset * MainMenu.verticalInsetRatio)
+                .priority(.low)
+        }
     }
     
     private func setupTableView() {
         tableView.register(R.nib.cardsTableViewCell)
-        tableView.separatorStyle = .none
-        tableView.allowsSelection = false
-        tableView.dataSource = tableViewDelegate
-        tableView.backgroundColor = R.clr.podoColors.background()
+        tableView.dataSource = tableViewDatasource
+        tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
+    }
+    
+    private func setupMiscellaneousUI() {
+        let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:)))
+        edgePanGesture.edges = .left
+        view.addGestureRecognizer(edgePanGesture)
+        navigationItem.titleView = TitleView()
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return MainMenu.estimatedRowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let transportCardsView = transportCardsView,
+            let transportCardsViewIndex = tableView.subviews.index(of: transportCardsView) {
+            tableView.exchangeSubview(at: 0, withSubviewAt: transportCardsViewIndex)
+        }
     }
 }

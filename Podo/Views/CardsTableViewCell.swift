@@ -9,11 +9,8 @@
 import UIKit
 
 class CardsTableViewCell: UITableViewCell {
-
-    @IBOutlet private weak var cardView: UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.backgroundColor = R.clr.podoColors.background()
-    }
+    //TODO: Add actual implementation
+    
+    @IBOutlet private weak var cardView: UIView!
 }

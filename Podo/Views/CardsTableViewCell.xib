@@ -69,7 +69,6 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="xwO-AW-7pB" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-4" id="ILo-kF-imE"/>
                     <constraint firstItem="xwO-AW-7pB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="IMw-fC-sVz"/>
@@ -77,6 +76,7 @@
                     <constraint firstItem="xwO-AW-7pB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="u2z-wg-oIZ"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cardView" destination="xwO-AW-7pB" id="vXm-j9-fvS"/>

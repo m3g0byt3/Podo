@@ -19,10 +19,12 @@ struct R: Rswift.Validatable {
   /// This `R.clr` struct is generated, and contains static references to 1 color palettes.
   /// NOTE: R.clr is deprecated and will be removed in a future R.swift version.
   struct clr {
-    /// This `R.clr.podoColors` struct is generated, and contains static references to 5 colors.
+    /// This `R.clr.podoColors` struct is generated, and contains static references to 6 colors.
     struct podoColors {
       /// <span style='background-color: #33CCFF; color: #CC3300; padding: 1px 3px;'>#33CCFF</span> blue
       static let blue = Rswift.ColorPaletteItemResource(name: "blue", red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
+      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> green-IB
+      static let greenIB = Rswift.ColorPaletteItemResource(name: "green-IB", red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
       static let green = Rswift.ColorPaletteItemResource(name: "green", red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
@@ -37,6 +39,13 @@ struct R: Rswift.Validatable {
       /// UIColor(red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
       static func blue(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> green-IB
+      /// 
+      /// UIColor(red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      static func greenIB(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
       }
       
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
@@ -97,12 +106,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
     /// Image `MetroTrainIcon`.
     static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
     /// Image `SideMenuIcon`.
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
+    /// Image `TransportCardMask`.
+    static let transportCardMask = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardMask")
     
     /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
     static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -114,24 +125,45 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.sideMenuIcon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "TransportCardMask", bundle: ..., traitCollection: ...)`
+    static func transportCardMask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transportCardMask, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
+    /// Nib `CardsCollectionViewCell`.
+    static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `CardsTableViewCell`.
     static let cardsTableViewCell = _R.nib._CardsTableViewCell()
+    /// Nib `TitleView`.
+    static let titleView = _R.nib._TitleView()
+    
+    /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
+    static func cardsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.cardsCollectionViewCell)
+    }
     
     /// `UINib(name: "CardsTableViewCell", in: bundle)`
     static func cardsTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.cardsTableViewCell)
     }
     
+    /// `UINib(name: "TitleView", in: bundle)`
+    static func titleView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.titleView)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `CardsCollectionViewCell`.
+    static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
     /// Reuse identifier `CardsTableViewCell`.
     static let cardsTableViewCell: Rswift.ReuseIdentifier<CardsTableViewCell> = Rswift.ReuseIdentifier(identifier: "CardsTableViewCell")
     
@@ -143,21 +175,28 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
+    /// Storyboard `CardsViewController`.
+    static let cardsViewController = _R.storyboard.cardsViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
+    /// Storyboard `MainViewController`.
+    static let mainViewController = _R.storyboard.mainViewController()
+    
+    /// `UIStoryboard(name: "CardsViewController", bundle: ...)`
+    static func cardsViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.cardsViewController)
+    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
+    /// `UIStoryboard(name: "MainViewController", bundle: ...)`
+    static func mainViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.mainViewController)
     }
     
     fileprivate init() {}
@@ -184,9 +223,33 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _TitleView.validate()
+      try _CardsCollectionViewCell.validate()
+    }
+    
+    struct _CardsCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = CardsCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "CardsCollectionViewCell"
+      let name = "CardsCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> CardsCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CardsCollectionViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "TransportCardMask", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransportCardMask' is used in nib 'CardsCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _CardsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = CardsTableViewCell
       
@@ -201,12 +264,36 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _TitleView: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "TitleView"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "MetroTrainIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MetroTrainIcon' is used in nib 'TitleView', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try main.validate()
+      try mainViewController.validate()
+    }
+    
+    struct cardsViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = CardsViewController
+      
+      let bundle = R.hostingBundle
+      let name = "CardsViewController"
+      
+      fileprivate init() {}
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
@@ -218,14 +305,14 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct mainViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
-      let name = "Main"
+      let name = "MainViewController"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'MainViewController', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
