@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		413FD5081FC7107500BB16B3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413FD5071FC7107500BB16B3 /* MainViewController.swift */; };
 		41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AAC1FC6C6570089F088 /* AppDelegate.swift */; };
-		41494AB21FC6C6570089F088 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494AB01FC6C6570089F088 /* Main.storyboard */; };
+		41494AB21FC6C6570089F088 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494AB01FC6C6570089F088 /* MainViewController.storyboard */; };
 		41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41494AB31FC6C6570089F088 /* Assets.xcassets */; };
 		41494AC21FC6C6570089F088 /* PodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AC11FC6C6570089F088 /* PodoTests.swift */; };
 		41494ACD1FC6C6570089F088 /* PodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494ACC1FC6C6570089F088 /* PodoUITests.swift */; };
@@ -20,6 +20,7 @@
 		41A5E7921FDAC30100A835F5 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7911FDAC30100A835F5 /* TitleView.swift */; };
 		41A5E7971FDAC3EB00A835F5 /* NibSettableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7961FDAC3EB00A835F5 /* NibSettableView.swift */; };
 		41A5E7991FDAC44800A835F5 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A5E7981FDAC44800A835F5 /* TitleView.xib */; };
+		41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */; };
 		41A9FC6C1FCDA16C007443D7 /* UIViewController+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */; };
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
 		41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6F1FCDC042007443D7 /* PresentationType.swift */; };
@@ -61,7 +62,7 @@
 		413FD5071FC7107500BB16B3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		41494AA91FC6C6570089F088 /* Podo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41494AAC1FC6C6570089F088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		41494AB11FC6C6570089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41494AB11FC6C6570089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
 		41494AB31FC6C6570089F088 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41494AB81FC6C6570089F088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41494ABD1FC6C6570089F088 /* PodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +78,8 @@
 		41A5E7911FDAC30100A835F5 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		41A5E7961FDAC3EB00A835F5 /* NibSettableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibSettableView.swift; sourceTree = "<group>"; };
 		41A5E7981FDAC44800A835F5 /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		41A5E79F1FDB3AAF00A835F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CardsViewController.storyboard; sourceTree = "<group>"; };
+		41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardInstance.swift"; sourceTree = "<group>"; };
 		41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UINavigationController.swift"; sourceTree = "<group>"; };
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
 		41A9FC6F1FCDC042007443D7 /* PresentationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 				41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */,
 				41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */,
 				419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */,
+				41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,7 +254,7 @@
 		41F84A751FC6C6D50056698C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				41494AB01FC6C6570089F088 /* Main.storyboard */,
+				41494AB01FC6C6570089F088 /* MainViewController.storyboard */,
 				41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -436,7 +440,7 @@
 				41A5E7991FDAC44800A835F5 /* TitleView.xib in Resources */,
 				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
-				41494AB21FC6C6570089F088 /* Main.storyboard in Resources */,
+				41494AB21FC6C6570089F088 /* MainViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +633,7 @@
 			files = (
 				41C9EB471FD407E4000D77DD /* TableViewProvider.swift in Sources */,
 				41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */,
+				41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
 				41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */,
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
@@ -681,12 +686,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		41494AB01FC6C6570089F088 /* Main.storyboard */ = {
+		41494AB01FC6C6570089F088 /* MainViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				41494AB11FC6C6570089F088 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */ = {
