@@ -9,7 +9,9 @@
 import UIKit
 
 struct AnimationDuration {
+    /// Normal animation duration
     static let normal: TimeInterval = 0.30
+    /// Short animation duration
     static let short: TimeInterval = 0.15
     
     @available(*, unavailable) init() {}
@@ -40,8 +42,18 @@ struct MainMenu {
     static let imageInset: CGFloat = 5
     /// tableView's estimatedHeightForRowAt
     static let estimatedRowHeight: CGFloat = 75
-    /// Ratio between screen height and height of transportCardsView
+    /// Ratio between screen height and height of CardsViewController
     static let verticalInsetRatio: CGFloat = 0.25
+    /// Ratio between UICollectionView height and height of its superView
+    static let collectionViewHeightRatio: CGFloat = 0.5
+    /// Inset between top of UICollectionView height and top of its superView
+    static let collectionViewTopInset: CGFloat = 25
+    /// Ratio between UICollectionViewCell height and height of UICollectionView
+    static let cellHeightToSuperViewHeightRatio: CGFloat = 0.99
+    /// Left and right margins in UICollectionViewCell (set in IB)
+    static let cellLeftRightMargins: CGFloat = 8 * 2
+    /// Ratio between width and height of standard sized credit cards
+    static let cardViewHeightWidthRatio: CGFloat = 0.628
     
     @available(*, unavailable) init() {}
 }

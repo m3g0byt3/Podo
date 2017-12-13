@@ -13,14 +13,16 @@ class MainViewController: UIViewController {
     
     //MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
-    private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
     private weak var transportCardsView: UIView?
-    private lazy var tableViewDelegate = TableViewProvider()
-
+    private var tableViewVerticalInset: CGFloat { return view.bounds.height * MainMenu.verticalInsetRatio }
+    private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
+    private lazy var tableViewDatasource = TableViewProvider()
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupCardsViewController()
         setupMiscellaneousUI()
     }
     
@@ -46,25 +48,24 @@ class MainViewController: UIViewController {
         present(sideMenuVC, animated: true)
     }
     
-    
-    private func setupTableView() {
-        let tableViewVerticalInset = view.bounds.height * MainMenu.verticalInsetRatio
-        let transportCardsView = UIView()
-        transportCardsView.backgroundColor = R.clr.podoColors.green()
-        tableView.addSubview(transportCardsView)
-        self.transportCardsView = transportCardsView
-        transportCardsView.snp.makeConstraints { make in
+    private func setupCardsViewController() {
+        guard let cardsViewController = CardsViewController.storyboardInstance() else { return }
+        addChildViewController(cardsViewController)
+        tableView.addSubview(cardsViewController.view)
+        cardsViewController.didMove(toParentViewController: self)
+        transportCardsView = cardsViewController.view
+        cardsViewController.view.snp.makeConstraints { make in
             make.centerX.width.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.bottom.equalToSuperview().inset(-tableViewVerticalInset * MainMenu.verticalInsetRatio)
+            make.bottom.equalTo(tableView.snp.top)
+                .offset(tableViewVerticalInset * MainMenu.verticalInsetRatio)
+                .priority(.low)
         }
-        
+    }
+    
+    private func setupTableView() {
         tableView.register(R.nib.cardsTableViewCell)
-        tableView.separatorStyle = .none
-        tableView.allowsSelection = false
-        tableView.showsVerticalScrollIndicator = false
-        tableView.dataSource = tableViewDelegate
-        tableView.delegate = self
+        tableView.dataSource = tableViewDatasource
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
     }
     
