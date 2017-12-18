@@ -13,24 +13,31 @@ class SideMenuPresentationController: UIPresentationController {
     //MARK: - Properties
     private lazy var dimmingView: UIView? = { this in
         guard let container = self.containerView else { return nil }
-        let tapGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panHandler(_:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureHandler(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureHandler(_:)))
+        this.addGestureRecognizer(panGestureRecognizer)
+        this.addGestureRecognizer(tapGestureRecognizer)
         this.frame = container.frame
         this.backgroundColor = .black
         this.alpha = DimmingViewAlpha.initial
         this.clipsToBounds = true
-        this.addGestureRecognizer(tapGestureRecognizer)
         return this
     }(UIView())
     
     //MARK: - Control handlers
-    @objc private func panHandler(_ sender: UIPanGestureRecognizer) {
-        switch sender.state {
-        case .began:
+    @objc private func gestureHandler(_ sender: UIGestureRecognizer) {
+        let transitionDelegate = presentedViewController.transitioningDelegate as? SideMenuTransitioningDelegate
+        
+        switch sender {
+        case is UITapGestureRecognizer:
+            transitionDelegate?.interactivePresentation = false
             presentedViewController.dismiss(animated: true)
-        default:
-            if let transitionDelegate = presentedViewController.transitioningDelegate as? SideMenuTransitioningDelegate {
-                transitionDelegate.interactorClosure?(sender)
-            }
+        case let sender as UIPanGestureRecognizer where sender.state == .began:
+            transitionDelegate?.interactivePresentation = true
+            presentedViewController.dismiss(animated: true)
+        case let sender as UIPanGestureRecognizer:
+            transitionDelegate?.interactorClosure?(sender)
+        default: break
         }
     }
     
