@@ -133,14 +133,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `CardsTableViewCell`.
     static let cardsTableViewCell = _R.nib._CardsTableViewCell()
-    /// Nib `TitleView`.
-    static let titleView = _R.nib._TitleView()
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
     static func cardsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -150,11 +148,6 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "CardsTableViewCell", in: bundle)`
     static func cardsTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.cardsTableViewCell)
-    }
-    
-    /// `UINib(name: "TitleView", in: bundle)`
-    static func titleView(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.titleView)
     }
     
     fileprivate init() {}
@@ -228,7 +221,6 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _TitleView.validate()
       try _CardsCollectionViewCell.validate()
     }
     
@@ -259,21 +251,6 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> CardsTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CardsTableViewCell
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _TitleView: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "TitleView"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "MetroTrainIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MetroTrainIcon' is used in nib 'TitleView', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
