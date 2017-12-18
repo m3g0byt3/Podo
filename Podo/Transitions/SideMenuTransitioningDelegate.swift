@@ -15,7 +15,13 @@ class SideMenuTransitioningDelegate: NSObject {
     
     //MARK: - Properties
     private weak var interactor: SideMenuTransitioningInteractor?
+    var interactivePresentation: Bool
     var interactorClosure: InteractorClosure? { return interactor?.updateAnimationBasedOn }
+    
+    //MARK: - Inits
+    init(interactivePresentation: Bool = true) {
+        self.interactivePresentation = interactivePresentation
+    }
     
     //MARK: - Private API
     private func interactorForPresentationOfType(_ type: PresentationType) -> SideMenuTransitioningInteractor {
@@ -42,10 +48,10 @@ extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactorForPresentationOfType(.presentation)
+        return interactivePresentation ? interactorForPresentationOfType(.presentation) : nil
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactorForPresentationOfType(.dismissal)
+        return interactivePresentation ? interactorForPresentationOfType(.dismissal) : nil
     }
 }

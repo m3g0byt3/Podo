@@ -28,12 +28,14 @@ class MainViewController: UIViewController {
     
     //MARK: - Control handlers
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
+        sideMenuTransitioningDelegate.interactivePresentation = false
         showSideMenu()
     }
     
     @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
         switch sender.state {
         case .began:
+            sideMenuTransitioningDelegate.interactivePresentation = true
             showSideMenu()
         default:
             sideMenuTransitioningDelegate.interactorClosure?(sender)
