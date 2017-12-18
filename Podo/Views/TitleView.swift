@@ -2,20 +2,34 @@
 //  TitleView.swift
 //  Podo
 //
-//  Created by m3g0byt3 on 08/12/2017.
+//  Created by m3g0byt3 on 18/12/2017.
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
 import UIKit
 
-class TitleView: NibSettableView {
+class TitleView: UIView {
     
-    //TODO: Add actual implementation
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
     
-    @IBOutlet private weak var imageView: UIImageView!
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
     
-    override func updateConstraints() {
+    private func setup() {
+        let imageView = UIImageView(image: R.image.metroTrainIcon())
+        addSubview(imageView)
         imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(MainMenu.imageInset) }
-        super.updateConstraints()
+    }
+    
+    override func didMoveToSuperview() {
+        self.snp.updateConstraints { make in
+            make.center.height.equalToSuperview()
+            make.width.equalTo(self.snp.height)
+        }
     }
 }
