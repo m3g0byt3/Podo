@@ -26,7 +26,7 @@ class SideMenuViewController: UIViewController {
         
         view.addSubview(squareView)
         squareView.snp.makeConstraints { make in
-            make.size.equalToSuperview().multipliedBy(MainMenu.collectionViewHeightRatio)
+            make.size.equalToSuperview().multipliedBy(0.5)
             make.center.equalToSuperview()
         }
     }

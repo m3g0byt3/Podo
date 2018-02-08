@@ -10,27 +10,57 @@ import UIKit
 import SnapKit
 
 class CardsViewController: UIViewController {
-    
+
+    // MARK: - IBOutlets
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
+
+    // MARK: - Properties
+    /// DataSource for collectionView
     private lazy var collectionViewDatasource = СollectionViewProvider()
+    /// Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
+    private var viewInitialSize: CGSize?
+    /// Returns ratio between initial and current height of this VC's view
+    private var parentViewHeightRatio: CGFloat? {
+        guard let viewInitialSize = viewInitialSize else { return nil }
+        return view.bounds.height / viewInitialSize.height
+    }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupCollectionViewConstraints()
+        viewInitialSize = view.bounds.size
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let ratio = parentViewHeightRatio {
+            collectionView.alpha = min(1, ratio)
+            collectionView.transform = CGAffineTransform(scaleX: max(1, ratio), y: max(1, ratio))
+        }
+    }
+    
+    // MARK: - Private API
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)
         collectionView.dataSource = collectionViewDatasource
-        collectionView.backgroundColor = .clear
-        collectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().inset(MainMenu.collectionViewTopInset)
-            make.height.equalToSuperview().multipliedBy(MainMenu.collectionViewHeightRatio)
-        }
+    }
+
+    private func setupCollectionViewConstraints() {
+        // First deactivate top-to-superview IB constrait..
+        NSLayoutConstraint.deactivate([collectionViewTopConstraint])
+        // ..Then add fixed height constrait - to avoid wrong collectionView initial centering
+        collectionView.snp.makeConstraints { $0.height.equalTo(view.bounds.height) }
     }
 }
 
+// MARK: - UICollectionViewDelegate protocol implementation
 extension MainViewController: UICollectionViewDelegate {
-    //TODO: Add actual implementation
+    // TODO: Add actual implementation
 }

@@ -44,16 +44,14 @@ struct MainMenu {
     static let estimatedRowHeight: CGFloat = 75
     /// Ratio between screen height and height of CardsViewController
     static let verticalInsetRatio: CGFloat = 0.25
-    /// Ratio between UICollectionView height and height of its superView
-    static let collectionViewHeightRatio: CGFloat = 0.5
-    /// Inset between top of UICollectionView height and top of its superView
-    static let collectionViewTopInset: CGFloat = 25
     /// Ratio between UICollectionViewCell height and height of UICollectionView
-    static let cellHeightToSuperViewHeightRatio: CGFloat = 0.99
-    /// Left and right margins in UICollectionViewCell (set in IB)
+    static let cellHeightToSuperViewHeightRatio: CGFloat = 0.60
+    /// Left and right margins in UICollectionViewCell (as set in the IB)
     static let cellLeftRightMargins: CGFloat = 8 * 2
     /// Ratio between width and height of standard sized credit cards
     static let cardViewHeightWidthRatio: CGFloat = 0.628
-    
+    /// Ratio between height of tableView and offset for cardView
+    static let tableViewToCardViewOffsetRatio: CGFloat = 0.05
+
     @available(*, unavailable) init() {}
 }
