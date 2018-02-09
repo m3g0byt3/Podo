@@ -50,8 +50,10 @@ struct MainMenu {
     static let cellLeftRightMargins: CGFloat = 8 * 2
     /// Ratio between width and height of standard sized credit cards
     static let cardViewHeightWidthRatio: CGFloat = 0.628
-    /// Ratio between height of tableView and offset for cardView
+    /// Ratio between height of tableView and offset for bottom of CardsViewController's view
     static let tableViewToCardViewOffsetRatio: CGFloat = 0.05
+    /// Offset for constraint between bottom of CardsViewController's view and bottom of UICollectionView
+    static let collectionViewBottomOffset: CGFloat = -16
 
     @available(*, unavailable) init() {}
 }
