@@ -14,6 +14,7 @@ class CardsViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var collectionViewBottomConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
     /// DataSource for collectionView
@@ -34,7 +35,7 @@ class CardsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupCollectionViewConstraints()
+        setupCollectionViewTopConstraint()
         viewInitialSize = view.bounds.size
     }
     
@@ -50,9 +51,11 @@ class CardsViewController: UIViewController {
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)
         collectionView.dataSource = collectionViewDatasource
+        // Apply offset to bottom-to-superview IB constrait
+        collectionViewBottomConstraint.constant = MainMenu.collectionViewBottomOffset
     }
 
-    private func setupCollectionViewConstraints() {
+    private func setupCollectionViewTopConstraint() {
         // First deactivate top-to-superview IB constrait..
         NSLayoutConstraint.deactivate([collectionViewTopConstraint])
         // ..Then add fixed height constrait - to avoid wrong collectionView initial centering
