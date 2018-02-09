@@ -54,7 +54,7 @@ class CardsFlowLayout: UICollectionViewFlowLayout {
         
         let offsetStep = collectionView.contentSize.width / CGFloat(collectionView.numberOfItems(inSection: 0))
         let offsetMultiplier = round((proposedContentOffset.x + initialInsets) / offsetStep)
-        let offset = offsetStep * offsetMultiplier - initialInsets
+        let offset = offsetStep * offsetMultiplier - initialInsets + MainMenu.collectionViewBottomOffset / 2
         
         return CGPoint(x: offset, y: 0)
     }
