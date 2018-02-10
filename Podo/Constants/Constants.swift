@@ -13,7 +13,7 @@ struct AnimationDuration {
     static let normal: TimeInterval = 0.30
     /// Short animation duration
     static let short: TimeInterval = 0.15
-    
+
     @available(*, unavailable) init() {}
 }
 
@@ -22,7 +22,7 @@ struct DimmingViewAlpha {
     static let initial: CGFloat = 0.0
     /// Alpha level at the end of presentation
     static let final: CGFloat = 0.25
-    
+
     @available(*, unavailable) init() {}
 }
 
@@ -33,7 +33,7 @@ struct SideMenu {
     static let boundaryTransitionPercentage: CGFloat = 0.50
     // Offset that may be added to or substracted from `boundaryTransitionPercentage` for better visual experience
     static let boundaryTransitionPercentageOffset: CGFloat = 0.05
-    
+
     @available(*, unavailable) init() {}
 }
 

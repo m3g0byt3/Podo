@@ -10,7 +10,7 @@ import UIKit
 
 @available(iOS 9, *)
 public extension UIViewController {
-    
+
     var safeAreaLayoutGuide: UILayoutGuide {
         let identifier = "com.m3g0byt3.safeAreaLayoutGuide"
         // Early exit if we're on iOS 11.x
@@ -18,7 +18,7 @@ public extension UIViewController {
             return view.safeAreaLayoutGuide
         }
         // Early exit if we already have layoutGuide
-        if let layoutGuide = view.layoutGuides.first(where: { $0.identifier == identifier}) {
+        if let layoutGuide = view.layoutGuides.first(where: { $0.identifier == identifier }) {
             return layoutGuide
         }
         // Create new layoutGuide

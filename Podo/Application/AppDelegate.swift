@@ -14,13 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         appearanceSetup()
-        
+
         return true
     }
-    
-    private func appearanceSetup() {        
+
+    private func appearanceSetup() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().barStyle = .black
@@ -28,4 +27,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = R.clr.podoColors.green()
     }
 }
-

@@ -13,14 +13,14 @@ class TableViewProvider: NSObject {
 }
 
 extension TableViewProvider: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Add actual implementation
+        // TODO: Add actual implementation
         return 10
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Add actual implementation
+        // TODO: Add actual implementation
         return tableView.dequeueReusableCell(withIdentifier: R.nib.cardsTableViewCell.identifier, for: indexPath)
     }
 }

@@ -26,19 +26,19 @@ class CardsViewController: UIViewController {
         guard let viewInitialSize = viewInitialSize else { return nil }
         return view.bounds.height / viewInitialSize.height
     }
-    
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupCollectionViewTopConstraint()
         viewInitialSize = view.bounds.size
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if let ratio = parentViewHeightRatio {
@@ -46,7 +46,7 @@ class CardsViewController: UIViewController {
             collectionView.transform = CGAffineTransform(scaleX: max(1, ratio), y: max(1, ratio))
         }
     }
-    
+
     // MARK: - Private API
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)

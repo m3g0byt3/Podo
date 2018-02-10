@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    
+
     open var contentViewController: UIViewController? {
         switch self {
         case let navigationController as UINavigationController:

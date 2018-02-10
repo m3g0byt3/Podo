@@ -9,18 +9,18 @@
 import UIKit
 
 class СollectionViewProvider: NSObject {
-    
+
 }
 
 extension СollectionViewProvider: UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //TODO: Add actual implementation
+        // TODO: Add actual implementation
         return 10
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //TODO: Add actual implementation
+        // TODO: Add actual implementation
         return collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.cardsCollectionViewCell.identifier, for: indexPath)
     }
 }

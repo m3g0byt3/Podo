@@ -9,23 +9,23 @@
 import UIKit
 
 class TitleView: UIView {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let imageView = UIImageView(image: R.image.metroTrainIcon())
         addSubview(imageView)
         imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(MainMenu.imageInset) }
     }
-    
+
     override func didMoveToSuperview() {
         self.snp.updateConstraints { make in
             make.center.height.equalToSuperview()

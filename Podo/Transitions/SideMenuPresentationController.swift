@@ -9,8 +9,8 @@
 import UIKit
 
 class SideMenuPresentationController: UIPresentationController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private lazy var dimmingView: UIView? = { this in
         guard let container = self.containerView else { return nil }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureHandler(_:)))
@@ -23,11 +23,11 @@ class SideMenuPresentationController: UIPresentationController {
         this.clipsToBounds = true
         return this
     }(UIView())
-    
-    //MARK: - Control handlers
+
+    // MARK: - Control handlers
     @objc private func gestureHandler(_ sender: UIGestureRecognizer) {
         let transitionDelegate = presentedViewController.transitioningDelegate as? SideMenuTransitioningDelegate
-        
+
         switch sender {
         case is UITapGestureRecognizer:
             transitionDelegate?.interactivePresentation = false
@@ -40,14 +40,14 @@ class SideMenuPresentationController: UIPresentationController {
         default: break
         }
     }
-    
-    //MARK: - Public API
+
+    // MARK: - Public API
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let container = containerView else { return UIScreen.main.bounds }
         return CGRect(x: 0, y: 0, width: container.frame.width * SideMenu.widthRatio,
                       height: container.frame.height)
     }
-    
+
     override func presentationTransitionWillBegin() {
         dimmingView.map { containerView?.addSubview($0) }
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [unowned self] _ in
@@ -57,13 +57,13 @@ class SideMenuPresentationController: UIPresentationController {
             self.presentingViewController.horizontalContentLayoutOffset += self.frameOfPresentedViewInContainerView.width
         })
     }
-    
+
     override func presentationTransitionDidEnd(_ completed: Bool) {
         if !completed {
             dimmingView?.removeFromSuperview()
         }
     }
-    
+
     override func dismissalTransitionWillBegin() {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [unowned self] _ in
             self.dimmingView?.alpha = DimmingViewAlpha.initial
@@ -72,7 +72,7 @@ class SideMenuPresentationController: UIPresentationController {
             self.presentingViewController.horizontalContentLayoutOffset -= self.frameOfPresentedViewInContainerView.width * 2
         })
     }
-    
+
     override func dismissalTransitionDidEnd(_ completed: Bool) {
         if completed {
             dimmingView?.removeFromSuperview()

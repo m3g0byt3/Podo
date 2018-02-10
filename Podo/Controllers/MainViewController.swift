@@ -10,28 +10,30 @@ import UIKit
 import SnapKit
 
 class MainViewController: UIViewController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
     private weak var transportCardsView: UIView?
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * MainMenu.verticalInsetRatio }
+    /// sideMenuTransitioningDelegate isn't weak because VC doesn't store reference to its transitioningDelegate
+    // swiftlint:disable:next weak_delegate
     private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
     private lazy var tableViewDatasource = TableViewProvider()
-    
-    //MARK: - Lifecycle
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupCardsViewController()
         setupMiscellaneousUI()
     }
-    
-    //MARK: - Control handlers
+
+    // MARK: - Control handlers
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
         sideMenuTransitioningDelegate.interactivePresentation = false
         showSideMenu()
     }
-    
+
     @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
         switch sender.state {
         case .began:
@@ -41,15 +43,15 @@ class MainViewController: UIViewController {
             sideMenuTransitioningDelegate.interactorClosure?(sender)
         }
     }
-    
-    //MARK: - Private API
+
+    // MARK: - Private API
     private func showSideMenu() {
         let sideMenuVC = SideMenuViewController.navigationControllerInstance()
         sideMenuVC.modalPresentationStyle = .custom
         sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
         present(sideMenuVC, animated: true)
     }
-    
+
     private func setupCardsViewController() {
         guard let cardsViewController = CardsViewController.storyboardInstance() else { return }
         addChildViewController(cardsViewController)
@@ -63,13 +65,13 @@ class MainViewController: UIViewController {
                 .offset(tableView.bounds.height * MainMenu.tableViewToCardViewOffsetRatio)
         }
     }
-    
+
     private func setupTableView() {
         tableView.register(R.nib.cardsTableViewCell)
         tableView.dataSource = tableViewDatasource
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
     }
-    
+
     private func setupMiscellaneousUI() {
         let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:)))
         edgePanGesture.edges = .left
@@ -79,15 +81,15 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return MainMenu.estimatedRowHeight
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let transportCardsView = transportCardsView,
             let transportCardsViewIndex = tableView.subviews.index(of: transportCardsView) {

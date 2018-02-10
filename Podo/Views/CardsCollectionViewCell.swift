@@ -10,10 +10,5 @@ import UIKit
 
 class CardsCollectionViewCell: UICollectionViewCell {
 
-    //TODO: Add actual implementation
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // TODO: Add actual implementation
 }
