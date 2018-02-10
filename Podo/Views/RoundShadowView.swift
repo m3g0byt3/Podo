@@ -8,23 +8,24 @@
 
 import UIKit
 
-class RoundShadowView: UIView {
-    
-    private struct Values {
+final class RoundShadowView: UIView {
+
+    // MARK: - Constants
+    private enum Values {
         static let cornerRadiusRatio: CGFloat = 0.10
         static let shadowOffset = CGSize(width: 0, height: 1)
         static let shadowOpacity: Float = 0.20
-        
-        @available(*, unavailable) init() {}
     }
-    
+
+    // MARK: - Public API
     override var bounds: CGRect {
         didSet {
             layer.cornerRadius = bounds.height * Values.cornerRadiusRatio
         }
     }
-    
+
     override func awakeFromNib() {
+        super.awakeFromNib()
         backgroundColor = R.clr.podoColors.white()
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor

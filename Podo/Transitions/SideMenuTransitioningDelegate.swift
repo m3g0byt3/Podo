@@ -8,22 +8,22 @@
 
 import UIKit
 
-class SideMenuTransitioningDelegate: NSObject {
-    
-    //MARK: - Typealiases
+final class SideMenuTransitioningDelegate: NSObject {
+
+    // MARK: - Typealiases
     typealias InteractorClosure = (UIPanGestureRecognizer) -> Void
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private weak var interactor: SideMenuTransitioningInteractor?
     var interactivePresentation: Bool
     var interactorClosure: InteractorClosure? { return interactor?.updateAnimationBasedOn }
-    
-    //MARK: - Inits
+
+    // MARK: - Inits
     init(interactivePresentation: Bool = true) {
         self.interactivePresentation = interactivePresentation
     }
-    
-    //MARK: - Private API
+
+    // MARK: - Private API
     private func interactorForPresentationOfType(_ type: PresentationType) -> SideMenuTransitioningInteractor {
         // Create new SideMenuTransitioningInteractor instance of given type
         let presentationInteractor = SideMenuTransitioningInteractor(for: type)
@@ -33,24 +33,29 @@ class SideMenuTransitioningDelegate: NSObject {
     }
 }
 
+// MARK: - UIViewControllerTransitioningDelegate protocol conformance
 extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SideMenuTransitioningAnimator(for: .presentation)
     }
-    
+
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SideMenuTransitioningAnimator(for: .dismissal)
     }
-    
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
         return SideMenuPresentationController(presentedViewController: presented, presenting: presenting)
     }
-    
+
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactivePresentation ? interactorForPresentationOfType(.presentation) : nil
     }
-    
+
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactivePresentation ? interactorForPresentationOfType(.dismissal) : nil
     }

@@ -8,28 +8,29 @@
 
 import UIKit
 
-class SideMenuTransitioningAnimator: NSObject {
-    
-    //MARK: - Properties
+final class SideMenuTransitioningAnimator: NSObject {
+
+    // MARK: - Properties
     private let presentationType: PresentationType
-    
-    //MARK: - Inits
+
+    // MARK: - Inits
     init(for type: PresentationType) {
         self.presentationType = type
     }
 }
 
+// MARK: - UIViewControllerAnimatedTransitioning protocol conformance
 extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
-    
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return AnimationDuration.normal
+        return Constant.AnimationDuration.normal
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let toVC = transitionContext.viewController(forKey: .to) else { return }
         let animatedView: UIView
         let finalViewFrame: CGRect
-        
+
         switch presentationType {
         case .presentation:
             guard let toView = transitionContext.view(forKey: .to) else { return }
@@ -44,17 +45,17 @@ extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
                                     size: fromView.frame.size)
             animatedView = fromView
         }
-        
-        UIView.animate(withDuration: AnimationDuration.normal, animations: {
+
+        UIView.animate(withDuration: Constant.AnimationDuration.normal, animations: {
             animatedView.frame = finalViewFrame
-        }) { _ in
+        }, completion: { _ in
             let status = !transitionContext.transitionWasCancelled
             // After a failed presentation or successful dismissal, remove the view.
             if (self.presentationType == .dismissal && status) || (self.presentationType == .presentation && !status) {
                 animatedView.removeFromSuperview()
             }
-            
+
             transitionContext.completeTransition(status)
-        }
+        })
     }
 }
