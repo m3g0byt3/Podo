@@ -10,6 +10,7 @@ target 'Podo' do
   # Pods for main target
   pod 'SnapKit', '~> 4.0'
   pod 'R.swift', '~> 4.0.0'
+  pod 'SwiftLint'
 
   target 'PodoTests' do
     inherit! :search_paths

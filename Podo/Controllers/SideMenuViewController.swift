@@ -9,21 +9,20 @@
 import UIKit
 import SnapKit
 
-class SideMenuViewController: UIViewController {
-    
-    //MARK: - Properties
+final class SideMenuViewController: UIViewController {
+
+    // MARK: - Properties
     private lazy var squareView: UIView = { this in
         this.backgroundColor = R.clr.podoColors.orange()
         return this
     }(UIView())
-    
-    //MARK: - Lifecycle
-    override func loadView() {
-        super.loadView()
-        
+
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
-        
+
         view.addSubview(squareView)
         squareView.snp.makeConstraints { make in
             make.size.equalToSuperview().multipliedBy(0.5)

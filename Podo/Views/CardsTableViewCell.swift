@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CardsTableViewCell: UITableViewCell {
-    
-    //TODO: Add actual implementation
-    
+final class CardsTableViewCell: UITableViewCell {
+
+    // MARK: - IBOutlets
     @IBOutlet private weak var cardView: UIView!
+
+    // TODO: Add actual implementation
 }

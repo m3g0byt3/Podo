@@ -36,7 +36,7 @@
 		41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41D1F1731FC78EE800F12C20 /* PodoColors.clr */; };
 		41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1781FC7908E00F12C20 /* R.generated.swift */; };
 		41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */; };
-		41E4B0C11FE7B32100D39971 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4B0C01FE7B32100D39971 /* TitleView.swift */; };
+		41E4B0C11FE7B32100D39971 /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */; };
 		41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */; };
 		41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
@@ -98,7 +98,7 @@
 		41D1F1731FC78EE800F12C20 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
 		41D1F1781FC7908E00F12C20 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresentationController.swift; sourceTree = "<group>"; };
-		41E4B0C01FE7B32100D39971 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
 		41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HorizontalContentLayoutOffset.swift"; sourceTree = "<group>"; };
 		41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContentViewController.swift"; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 				41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */,
 				41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */,
 				412097451FDD701900AA16DB /* CardsFlowLayout.swift */,
-				41E4B0C01FE7B32100D39971 /* TitleView.swift */,
+				41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +346,7 @@
 				7859FDCFD688373B0060AEB3 /* [CP] Check Pods Manifest.lock */,
 				41F57F4B1FD4887500AD8D64 /* Copy colors pallete */,
 				41D1F1721FC78CD900F12C20 /* R.swift run script */,
+				419423E6202F4681004FCB8E /* Swiftlint run script */,
 				41494AA51FC6C6560089F088 /* Sources */,
 				41494AA61FC6C6560089F088 /* Frameworks */,
 				41494AA71FC6C6560089F088 /* Resources */,
@@ -481,6 +482,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		419423E6202F4681004FCB8E /* Swiftlint run script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint run script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
 		41D1F1721FC78CD900F12C20 /* R.swift run script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,9 +530,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Podo/Pods-Podo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -545,13 +565,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PodoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7859FDCFD688373B0060AEB3 /* [CP] Check Pods Manifest.lock */ = {
@@ -560,13 +583,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Podo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		90F49F3AA846F6101994557C /* [CP] Check Pods Manifest.lock */ = {
@@ -575,13 +601,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PodoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9432EF32C41235247D936B8D /* [CP] Copy Pods Resources */ = {
@@ -605,9 +634,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PodoUITests/Pods-PodoUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -620,9 +654,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -664,7 +703,7 @@
 				412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */,
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
-				41E4B0C11FE7B32100D39971 /* TitleView.swift in Sources */,
+				41E4B0C11FE7B32100D39971 /* NavigationBarTitleView.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */,

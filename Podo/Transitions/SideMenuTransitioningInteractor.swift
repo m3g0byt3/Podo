@@ -8,32 +8,32 @@
 
 import UIKit
 
-class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
-    
-    //MARK: - Properties
+final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
+
+    // MARK: - Properties
     private let presentationType: PresentationType
     private weak var containerView: UIView?
     private var boundaryTransitionPercentage: CGFloat {
         switch presentationType {
-        case .presentation: return SideMenu.boundaryTransitionPercentage + SideMenu.boundaryTransitionPercentageOffset
-        case .dismissal: return SideMenu.boundaryTransitionPercentage - SideMenu.boundaryTransitionPercentageOffset
+        case .presentation: return Constant.SideMenu.boundaryTransitionPercentage + Constant.SideMenu.boundaryTransitionPercentageOffset
+        case .dismissal: return Constant.SideMenu.boundaryTransitionPercentage - Constant.SideMenu.boundaryTransitionPercentageOffset
         }
     }
-    
-    //MARK: - Inits
+
+    // MARK: - Inits
     init(for type: PresentationType) {
         self.presentationType = type
     }
-    
-    //MARK: - Public API
+
+    // MARK: - Public API
     func updateAnimationBasedOn(recognizer: UIPanGestureRecognizer) {
         guard let container = containerView else { return }
-        
+
         func transitionPercentageFor(_ recognizer: UIPanGestureRecognizer, in view: UIView) -> CGFloat {
             let translation = recognizer.translation(in: view)
             return fabs(translation.x / view.frame.width)
         }
-        
+
         switch recognizer.state {
         case .began:
             recognizer.setTranslation(CGPoint.zero, in: container)
@@ -47,8 +47,8 @@ class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
             }
         }
     }
-    
-    //MARK: - UIPercentDrivenInteractiveTransition protocol conformance
+
+    // MARK: - UIPercentDrivenInteractiveTransition protocol conformance
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         super.startInteractiveTransition(transitionContext)
         containerView = transitionContext.containerView

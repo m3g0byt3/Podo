@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIViewController {
-    
+
     open var horizontalContentLayoutOffset: CGFloat {
-        
+
         get {
             return view.frame.origin.x
         }
-        
+
         set {
             view.frame.origin.x += newValue
             navigationController?.navigationBar.frame.origin.x += newValue
