@@ -29,7 +29,7 @@ opt_in_rules:
  - prohibited_super_call
  - redundant_nil_coalescing
  - sorted_first_last
- - sorted_imports
+# - sorted_imports
  - vertical_parameter_alignment_on_call
 
 # Rules customization
