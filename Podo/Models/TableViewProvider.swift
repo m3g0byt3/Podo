@@ -8,10 +8,11 @@
 
 import UIKit
 
-class TableViewProvider: NSObject {
-
+final class TableViewProvider: NSObject {
+    // TODO: Add actual implementation
 }
 
+// MARK: - UITableViewDataSource protocol conformance
 extension TableViewProvider: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

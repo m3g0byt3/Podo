@@ -9,7 +9,7 @@
 import XCTest
 @testable import Podo
 
-class PodoTests: XCTestCase {
+final class PodoTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

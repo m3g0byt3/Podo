@@ -15,7 +15,7 @@ extension UIViewController {
         return storyboard.instantiateInitialViewController() as? T
     }
 
-    class func storyboardInstance() -> Self? {
+    static func storyboardInstance() -> Self? {
         return storyboardInstancePrivate()
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 /// Horizontally-scrolled, paginated UICollectionViewFlowLayout
-class CardsFlowLayout: UICollectionViewFlowLayout {
+final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - Properties
     private lazy var setupInitialInsets: Void = { [weak self] in
@@ -26,8 +26,8 @@ class CardsFlowLayout: UICollectionViewFlowLayout {
     override var itemSize: CGSize {
         get {
             guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
-            let height = collectionView.frame.height * MainMenu.cellHeightToSuperViewHeightRatio
-            let width = height / MainMenu.cardViewHeightWidthRatio + MainMenu.cellLeftRightMargins
+            let height = collectionView.frame.height * Constant.MainMenu.cellHeightToSuperViewHeightRatio
+            let width = height / Constant.MainMenu.cardViewHeightWidthRatio + Constant.MainMenu.cellLeftRightMargins
 
             return CGSize(width: width, height: height)
         }
@@ -55,7 +55,7 @@ class CardsFlowLayout: UICollectionViewFlowLayout {
 
         let offsetStep = collectionView.contentSize.width / CGFloat(collectionView.numberOfItems(inSection: 0))
         let offsetMultiplier = round((proposedContentOffset.x + initialInsets) / offsetStep)
-        let offset = offsetStep * offsetMultiplier - initialInsets + MainMenu.collectionViewBottomOffset / 2
+        let offset = offsetStep * offsetMultiplier - initialInsets + Constant.MainMenu.collectionViewBottomOffset / 2
 
         return CGPoint(x: offset, y: 0)
     }

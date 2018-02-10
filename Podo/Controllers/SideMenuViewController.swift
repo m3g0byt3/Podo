@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class SideMenuViewController: UIViewController {
+final class SideMenuViewController: UIViewController {
 
     // MARK: - Properties
     private lazy var squareView: UIView = { this in

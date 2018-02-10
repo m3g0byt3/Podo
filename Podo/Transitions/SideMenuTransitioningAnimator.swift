@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuTransitioningAnimator: NSObject {
+final class SideMenuTransitioningAnimator: NSObject {
 
     // MARK: - Properties
     private let presentationType: PresentationType
@@ -19,10 +19,11 @@ class SideMenuTransitioningAnimator: NSObject {
     }
 }
 
+// MARK: - UIViewControllerAnimatedTransitioning protocol conformance
 extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return AnimationDuration.normal
+        return Constant.AnimationDuration.normal
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -45,7 +46,7 @@ extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
             animatedView = fromView
         }
 
-        UIView.animate(withDuration: AnimationDuration.normal, animations: {
+        UIView.animate(withDuration: Constant.AnimationDuration.normal, animations: {
             animatedView.frame = finalViewFrame
         }, completion: { _ in
             let status = !transitionContext.transitionWasCancelled

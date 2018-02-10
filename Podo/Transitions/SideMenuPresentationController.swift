@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuPresentationController: UIPresentationController {
+final class SideMenuPresentationController: UIPresentationController {
 
     // MARK: - Properties
     private lazy var dimmingView: UIView? = { this in
@@ -19,7 +19,7 @@ class SideMenuPresentationController: UIPresentationController {
         this.addGestureRecognizer(tapGestureRecognizer)
         this.frame = container.frame
         this.backgroundColor = .black
-        this.alpha = DimmingViewAlpha.initial
+        this.alpha = Constant.DimmingViewAlpha.initial
         this.clipsToBounds = true
         return this
     }(UIView())
@@ -44,14 +44,14 @@ class SideMenuPresentationController: UIPresentationController {
     // MARK: - Public API
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let container = containerView else { return UIScreen.main.bounds }
-        return CGRect(x: 0, y: 0, width: container.frame.width * SideMenu.widthRatio,
+        return CGRect(x: 0, y: 0, width: container.frame.width * Constant.SideMenu.widthRatio,
                       height: container.frame.height)
     }
 
     override func presentationTransitionWillBegin() {
         dimmingView.map { containerView?.addSubview($0) }
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [unowned self] _ in
-            self.dimmingView?.alpha = DimmingViewAlpha.final
+            self.dimmingView?.alpha = Constant.DimmingViewAlpha.final
         })
         presentingViewController.transitionCoordinator?.animateAlongsideTransition(in: presentingViewController.view, animation: { [unowned self] _ in
             self.presentingViewController.horizontalContentLayoutOffset += self.frameOfPresentedViewInContainerView.width
@@ -66,7 +66,7 @@ class SideMenuPresentationController: UIPresentationController {
 
     override func dismissalTransitionWillBegin() {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [unowned self] _ in
-            self.dimmingView?.alpha = DimmingViewAlpha.initial
+            self.dimmingView?.alpha = Constant.DimmingViewAlpha.initial
         })
         presentingViewController.transitionCoordinator?.animateAlongsideTransition(in: presentingViewController.view, animation: { [unowned self] _ in
             self.presentingViewController.horizontalContentLayoutOffset -= self.frameOfPresentedViewInContainerView.width * 2

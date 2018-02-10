@@ -9,15 +9,17 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
+
+    // MARK: - IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
-    @IBOutlet private weak var tableView: UITableView!
-    private weak var transportCardsView: UIView?
-    private var tableViewVerticalInset: CGFloat { return view.bounds.height * MainMenu.verticalInsetRatio }
-    /// sideMenuTransitioningDelegate isn't weak because VC doesn't store reference to its transitioningDelegate
+    // sideMenuTransitioningDelegate isn't weak because VC doesn't store reference to its transitioningDelegate
     // swiftlint:disable:next weak_delegate
     private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
+    private weak var transportCardsView: UIView?
+    private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
     private lazy var tableViewDatasource = TableViewProvider()
 
     // MARK: - Lifecycle
@@ -62,7 +64,7 @@ class MainViewController: UIViewController {
             make.centerX.width.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(tableView.snp.top)
-                .offset(tableView.bounds.height * MainMenu.tableViewToCardViewOffsetRatio)
+                .offset(tableView.bounds.height * Constant.MainMenu.tableViewToCardViewOffsetRatio)
         }
     }
 
@@ -76,10 +78,11 @@ class MainViewController: UIViewController {
         let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:)))
         edgePanGesture.edges = .left
         view.addGestureRecognizer(edgePanGesture)
-        navigationItem.titleView = TitleView()
+        navigationItem.titleView = NavigationBarTitleView()
     }
 }
 
+// MARK: - UITableViewDelegate protocol conformance
 extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,7 +90,7 @@ extension MainViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return MainMenu.estimatedRowHeight
+        return Constant.MainMenu.estimatedRowHeight
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

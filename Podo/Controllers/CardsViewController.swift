@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class CardsViewController: UIViewController {
+final class CardsViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -52,7 +52,7 @@ class CardsViewController: UIViewController {
         collectionView.register(R.nib.cardsCollectionViewCell)
         collectionView.dataSource = collectionViewDatasource
         // Apply offset to bottom-to-superview IB constrait
-        collectionViewBottomConstraint.constant = MainMenu.collectionViewBottomOffset
+        collectionViewBottomConstraint.constant = Constant.MainMenu.collectionViewBottomOffset
     }
 
     private func setupCollectionViewTopConstraint() {
@@ -63,7 +63,7 @@ class CardsViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDelegate protocol implementation
+// MARK: - UICollectionViewDelegate protocol conformance
 extension MainViewController: UICollectionViewDelegate {
     // TODO: Add actual implementation
 }

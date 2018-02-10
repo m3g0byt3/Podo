@@ -8,10 +8,11 @@
 
 import UIKit
 
-class СollectionViewProvider: NSObject {
-
+final class СollectionViewProvider: NSObject {
+    // TODO: Add actual implementation
 }
 
+// MARK: - UICollectionViewDataSource protocol conformance
 extension СollectionViewProvider: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

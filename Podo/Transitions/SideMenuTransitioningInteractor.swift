@@ -8,15 +8,15 @@
 
 import UIKit
 
-class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
+final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
 
     // MARK: - Properties
     private let presentationType: PresentationType
     private weak var containerView: UIView?
     private var boundaryTransitionPercentage: CGFloat {
         switch presentationType {
-        case .presentation: return SideMenu.boundaryTransitionPercentage + SideMenu.boundaryTransitionPercentageOffset
-        case .dismissal: return SideMenu.boundaryTransitionPercentage - SideMenu.boundaryTransitionPercentageOffset
+        case .presentation: return Constant.SideMenu.boundaryTransitionPercentage + Constant.SideMenu.boundaryTransitionPercentageOffset
+        case .dismissal: return Constant.SideMenu.boundaryTransitionPercentage - Constant.SideMenu.boundaryTransitionPercentageOffset
         }
     }
 

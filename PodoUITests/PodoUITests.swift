@@ -8,7 +8,7 @@
 
 import XCTest
 
-class PodoUITests: XCTestCase {
+final class PodoUITests: XCTestCase {
 
     override func setUp() {
         super.setUp()

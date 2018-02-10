@@ -8,16 +8,16 @@
 
 import UIKit
 
-class RoundShadowView: UIView {
+final class RoundShadowView: UIView {
 
-    private struct Values {
+    // MARK: - Constants
+    private enum Values {
         static let cornerRadiusRatio: CGFloat = 0.10
         static let shadowOffset = CGSize(width: 0, height: 1)
         static let shadowOpacity: Float = 0.20
-
-        @available(*, unavailable) init() {}
     }
 
+    // MARK: - Public API
     override var bounds: CGRect {
         didSet {
             layer.cornerRadius = bounds.height * Values.cornerRadiusRatio

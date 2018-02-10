@@ -36,7 +36,7 @@
 		41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41D1F1731FC78EE800F12C20 /* PodoColors.clr */; };
 		41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1781FC7908E00F12C20 /* R.generated.swift */; };
 		41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */; };
-		41E4B0C11FE7B32100D39971 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4B0C01FE7B32100D39971 /* TitleView.swift */; };
+		41E4B0C11FE7B32100D39971 /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */; };
 		41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */; };
 		41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
@@ -98,7 +98,7 @@
 		41D1F1731FC78EE800F12C20 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
 		41D1F1781FC7908E00F12C20 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresentationController.swift; sourceTree = "<group>"; };
-		41E4B0C01FE7B32100D39971 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
 		41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HorizontalContentLayoutOffset.swift"; sourceTree = "<group>"; };
 		41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContentViewController.swift"; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 				41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */,
 				41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */,
 				412097451FDD701900AA16DB /* CardsFlowLayout.swift */,
-				41E4B0C01FE7B32100D39971 /* TitleView.swift */,
+				41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -703,7 +703,7 @@
 				412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */,
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
-				41E4B0C11FE7B32100D39971 /* TitleView.swift in Sources */,
+				41E4B0C11FE7B32100D39971 /* NavigationBarTitleView.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */,

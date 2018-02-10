@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuTransitioningDelegate: NSObject {
+final class SideMenuTransitioningDelegate: NSObject {
 
     // MARK: - Typealiases
     typealias InteractorClosure = (UIPanGestureRecognizer) -> Void
@@ -33,6 +33,7 @@ class SideMenuTransitioningDelegate: NSObject {
     }
 }
 
+// MARK: - UIViewControllerTransitioningDelegate protocol conformance
 extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController,
