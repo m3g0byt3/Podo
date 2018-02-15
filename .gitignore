@@ -63,3 +63,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+
+# Realm aux files
+**/*.mx
+**/*.lock
