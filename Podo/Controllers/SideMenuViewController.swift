@@ -12,21 +12,35 @@ import SnapKit
 final class SideMenuViewController: UIViewController {
 
     // MARK: - Properties
-    private lazy var squareView: UIView = { this in
-        this.backgroundColor = R.clr.podoColors.orange()
-        return this
-    }(UIView())
+    private lazy var tableViewDataSource = SideMenuTableViewProvider()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMiscellaneousUI()
+        setupTableView()
+    }
+
+    // MARK: - Private API
+    private func setupTableView() {
+        let tableView = UITableView()
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = self
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        tableView.register(R.nib.sideMenuTableViewCell)
+    }
+
+    private func setupMiscellaneousUI() {
         view.backgroundColor = .white
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
+    }
+}
 
-        view.addSubview(squareView)
-        squareView.snp.makeConstraints { make in
-            make.size.equalToSuperview().multipliedBy(0.5)
-            make.center.equalToSuperview()
-        }
+// MARK: - UITableViewDelegate protocol conformance
+extension SideMenuViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

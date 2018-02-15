@@ -87,14 +87,22 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
     /// Resource file `PodoColors.clr`.
     static let podoColorsClr = Rswift.FileResource(bundle: R.hostingBundle, name: "PodoColors", pathExtension: "clr")
+    /// Resource file `sideMenuEntries.realm`.
+    static let sideMenuEntriesRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuEntries", pathExtension: "realm")
     
     /// `bundle.url(forResource: "PodoColors", withExtension: "clr")`
     static func podoColorsClr(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.podoColorsClr
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "sideMenuEntries", withExtension: "realm")`
+    static func sideMenuEntriesRealm(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sideMenuEntriesRealm
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -133,12 +141,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `CardsTableViewCell`.
     static let cardsTableViewCell = _R.nib._CardsTableViewCell()
+    /// Nib `SideMenuTableViewCell`.
+    static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
     static func cardsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -150,15 +160,22 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.cardsTableViewCell)
     }
     
+    /// `UINib(name: "SideMenuTableViewCell", in: bundle)`
+    static func sideMenuTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.sideMenuTableViewCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
     /// Reuse identifier `CardsTableViewCell`.
     static let cardsTableViewCell: Rswift.ReuseIdentifier<CardsTableViewCell> = Rswift.ReuseIdentifier(identifier: "CardsTableViewCell")
+    /// Reuse identifier `SideMenuTableViewCell`.
+    static let sideMenuTableViewCell: Rswift.ReuseIdentifier<SideMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "SideMenuTableViewCell")
     
     fileprivate init() {}
   }
@@ -251,6 +268,20 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> CardsTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CardsTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SideMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = SideMenuTableViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "SideMenuTableViewCell"
+      let name = "SideMenuTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SideMenuTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SideMenuTableViewCell
       }
       
       fileprivate init() {}
