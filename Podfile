@@ -11,6 +11,7 @@ target 'Podo' do
   pod 'SnapKit', '~> 4.0'
   pod 'R.swift', '~> 4.0.0'
   pod 'SwiftLint'
+  pod 'RealmSwift'
 
   target 'PodoTests' do
     inherit! :search_paths
@@ -18,6 +19,7 @@ target 'Podo' do
     # Pods for testing
     pod 'Quick', '~> 1.2.0'
     pod 'Nimble', '~> 7.0.0'
+    pod 'RealmSwift'
 
   end
 
@@ -27,6 +29,7 @@ target 'Podo' do
     # Pods for testing
     pod 'Quick', '~> 1.2.0'
     pod 'Nimble', '~> 7.0.0'
+    pod 'RealmSwift'
 
   end
 
