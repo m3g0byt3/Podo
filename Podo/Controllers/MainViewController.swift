@@ -20,7 +20,7 @@ final class MainViewController: UIViewController {
     private let sideMenuTransitioningDelegate = SideMenuTransitioningDelegate()
     private weak var transportCardsView: UIView?
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
-    private lazy var tableViewDatasource = TableViewProvider()
+    private lazy var tableViewDatasource = MainMenuTableViewProvider()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {

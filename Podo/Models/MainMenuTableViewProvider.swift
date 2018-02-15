@@ -1,5 +1,5 @@
 //
-//  TableViewDelegate.swift
+//  MainMenuTableViewProvider.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 03/12/2017.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class TableViewProvider: NSObject {
+final class MainMenuTableViewProvider: NSObject {
     // TODO: Add actual implementation
 }
 
 // MARK: - UITableViewDataSource protocol conformance
-extension TableViewProvider: UITableViewDataSource {
+extension MainMenuTableViewProvider: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: Add actual implementation
