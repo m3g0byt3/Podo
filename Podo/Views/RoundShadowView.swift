@@ -26,6 +26,11 @@ final class RoundShadowView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+    }
+
+    // MARK: - Private API
+    private func setup() {
         backgroundColor = R.clr.podoColors.white()
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
