@@ -6,20 +6,57 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuTableViewCell" id="KGk-i7-Jjw" customClass="SideMenuTableViewCell" customModule="Podo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SideMenuTableViewCell" rowHeight="307" id="KGk-i7-Jjw" customClass="SideMenuTableViewCell" customModule="Podo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="722" height="307"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="684" height="306.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4H-60-V5x">
+                        <rect key="frame" x="0.0" y="0.0" width="684" height="306.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-oC-zLb">
+                                <rect key="frame" x="0.0" y="0.0" width="306.5" height="306.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="8Fv-dR-o7W"/>
+                                    <constraint firstAttribute="width" secondItem="fIw-oC-zLb" secondAttribute="height" multiplier="1:1" id="aXH-3h-QF2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE8-0z-YQF">
+                                <rect key="frame" x="306.5" y="0.0" width="377.5" height="306.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="u4H-60-V5x" secondAttribute="trailing" id="5hw-Qz-1SH"/>
+                    <constraint firstItem="u4H-60-V5x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fsH-6U-T8q"/>
+                    <constraint firstAttribute="bottom" secondItem="u4H-60-V5x" secondAttribute="bottom" id="yii-pg-4AP"/>
+                    <constraint firstItem="u4H-60-V5x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zpx-Jn-toT"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="customImageView" destination="fIw-oC-zLb" id="XVQ-Ej-9Vn"/>
+                <outlet property="customTextLabel" destination="OE8-0z-YQF" id="33N-5D-o5o"/>
+            </connections>
+            <point key="canvasLocation" x="-483" y="-332.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Placeholder" width="166" height="166"/>
+    </resources>
 </document>

@@ -24,15 +24,25 @@ final class SideMenuViewController: UIViewController {
     // MARK: - Private API
     private func setupTableView() {
         let tableView = UITableView()
+        // `-1` to hide bottom separator
+        let tableViewHeight = CGFloat(tableViewDataSource.entriesCount) * Constant.SideMenu.rowHeight - 1
+
         tableView.dataSource = tableViewDataSource
         tableView.delegate = self
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        tableView.isScrollEnabled = false
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = R.clr.podoColors.white()
+        tableView.rowHeight = Constant.SideMenu.rowHeight
         tableView.register(R.nib.sideMenuTableViewCell)
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(tableViewHeight)
+        }
     }
 
     private func setupMiscellaneousUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = R.clr.podoColors.green()
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
     }
 }
