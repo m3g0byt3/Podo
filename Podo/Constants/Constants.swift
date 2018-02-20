@@ -25,6 +25,8 @@ enum Constant {
     }
 
     enum SideMenu {
+        /// tableView's rowHeight
+        static let rowHeight: CGFloat = 50
         /// Width ratio between screen width and side menu width
         static let widthRatio: CGFloat = 0.7
         /// Boundary value to decide complete or cancel interactive transition if pan gesture has ended

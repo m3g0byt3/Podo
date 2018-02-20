@@ -16,6 +16,7 @@ final class SideMenuTableViewProvider: NSObject {
 
     // MARK: - Properties
     private let entries: Results<SideMenuEntry>
+    var entriesCount: Int { return entries.count }
 
     // MARK: - Inits
     override init() {
@@ -32,7 +33,7 @@ final class SideMenuTableViewProvider: NSObject {
 extension SideMenuTableViewProvider: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
+        return entriesCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
