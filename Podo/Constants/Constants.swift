@@ -21,10 +21,12 @@ enum Constant {
         /// Alpha level at the beginning of presentation
         static let initial: CGFloat = 0.0
         /// Alpha level at the end of presentation
-        static let final: CGFloat = 0.25
+        static let final: CGFloat = 0.5
     }
 
     enum SideMenu {
+        /// tableView's rowHeight
+        static let rowHeight: CGFloat = 50
         /// Width ratio between screen width and side menu width
         static let widthRatio: CGFloat = 0.7
         /// Boundary value to decide complete or cancel interactive transition if pan gesture has ended

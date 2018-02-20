@@ -72,6 +72,8 @@ final class MainViewController: UIViewController {
         tableView.register(R.nib.cardsTableViewCell)
         tableView.dataSource = tableViewDatasource
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = Constant.MainMenu.estimatedRowHeight
     }
 
     private func setupMiscellaneousUI() {
@@ -84,14 +86,6 @@ final class MainViewController: UIViewController {
 
 // MARK: - UITableViewDelegate protocol conformance
 extension MainViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constant.MainMenu.estimatedRowHeight
-    }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let transportCardsView = transportCardsView,
