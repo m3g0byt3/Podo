@@ -65,6 +65,7 @@ final class MainViewController: UIViewController {
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(tableView.snp.top)
                 .offset(tableView.bounds.height * Constant.MainMenu.tableViewToCardViewOffsetRatio)
+                .priority(.high)
         }
     }
 
