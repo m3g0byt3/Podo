@@ -12,7 +12,7 @@ extension SideMenuEntry {
     /**
      Fabric method that creates immutable view model for UI
     */
-    var viewModel: SideMenuEntryViewModel {
-        return SideMenuEntryViewModel(title: title, type: type)
+    var viewModel: SideMenuEntryViewModel? {
+        return SideMenuEntryViewModel(title: title, type: type, icon: icon)
     }
 }
