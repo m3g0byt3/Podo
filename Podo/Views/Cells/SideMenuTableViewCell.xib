@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,18 +21,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="684" height="306.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4H-60-V5x">
-                        <rect key="frame" x="0.0" y="0.0" width="684" height="306.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u4H-60-V5x">
+                        <rect key="frame" x="20" y="11" width="656" height="285"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-oC-zLb">
-                                <rect key="frame" x="0.0" y="0.0" width="306.5" height="306.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-oC-zLb">
+                                <rect key="frame" x="0.0" y="0.0" width="285" height="285"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="8Fv-dR-o7W"/>
                                     <constraint firstAttribute="width" secondItem="fIw-oC-zLb" secondAttribute="height" multiplier="1:1" id="aXH-3h-QF2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE8-0z-YQF">
-                                <rect key="frame" x="306.5" y="0.0" width="377.5" height="306.5"/>
+                                <rect key="frame" x="293" y="0.0" width="363" height="285"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,10 +42,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="u4H-60-V5x" secondAttribute="trailing" id="5hw-Qz-1SH"/>
-                    <constraint firstItem="u4H-60-V5x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fsH-6U-T8q"/>
-                    <constraint firstAttribute="bottom" secondItem="u4H-60-V5x" secondAttribute="bottom" id="yii-pg-4AP"/>
-                    <constraint firstItem="u4H-60-V5x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zpx-Jn-toT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="u4H-60-V5x" secondAttribute="trailing" id="5hw-Qz-1SH"/>
+                    <constraint firstItem="u4H-60-V5x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="fsH-6U-T8q"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="u4H-60-V5x" secondAttribute="bottom" id="yii-pg-4AP"/>
+                    <constraint firstItem="u4H-60-V5x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zpx-Jn-toT"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,10 +54,7 @@
                 <outlet property="customImageView" destination="fIw-oC-zLb" id="XVQ-Ej-9Vn"/>
                 <outlet property="customTextLabel" destination="OE8-0z-YQF" id="33N-5D-o5o"/>
             </connections>
-            <point key="canvasLocation" x="-483" y="-332.5"/>
+            <point key="canvasLocation" x="-574" y="-336"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Placeholder" width="166" height="166"/>
-    </resources>
 </document>

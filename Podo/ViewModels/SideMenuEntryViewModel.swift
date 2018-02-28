@@ -6,7 +6,7 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
  Immutable view-model for SideMenuEntry class
@@ -14,5 +14,13 @@ import Foundation
 struct SideMenuEntryViewModel {
 
     let title: String
-    let type: String
+    let type: SideMenuEntryType
+    let icon: UIImage?
+
+    init?(title: String, type: String, icon: UIImage? = nil) {
+        guard let _type = SideMenuEntryType(rawValue: type) else { return nil }
+        self.type = _type
+        self.title = title
+        self.icon = icon
+    }
 }

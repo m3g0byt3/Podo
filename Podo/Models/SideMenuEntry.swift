@@ -11,18 +11,23 @@ import RealmSwift
 /**
  Represents entry in side menu, stored in bundled Realm database
  */
-@objcMembers final class SideMenuEntry: Object {
+final class SideMenuEntry: Object {
 
     // MARK: - Properties
-    dynamic var title = ""
-    dynamic var type = ""
-    dynamic var identifier = 0
+    @objc dynamic var title = ""
+    @objc dynamic var type = ""
+    @objc dynamic var identifier = 0
+    @objc private dynamic var iconBlob: Data?
+    var icon: UIImage? {
+        return iconBlob.flatMap { UIImage(data: $0) }
+    }
 
     // MARK: - Inits
-    convenience init(title: SideMenuEntryTitle, type: SideMenuEntryType) {
+    convenience init(title: SideMenuEntryTitle, type: SideMenuEntryType, icon: UIImage? = nil) {
         self.init()
         self.title = title.rawValue
         self.type = type.rawValue
+        self.iconBlob = icon.flatMap { UIImagePNGRepresentation($0) }
     }
 
     // MARK: - Public API
