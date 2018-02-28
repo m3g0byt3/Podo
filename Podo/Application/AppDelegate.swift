@@ -11,13 +11,30 @@ import UIKit
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    // MARK: - Properties
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    lazy var window: UIWindow? = {
+        return UIWindow(frame: UIScreen.main.bounds)
+    }()
+
+    private var rootViewController: UIViewController? {
+        return ApplicationAssembler.defaultAssembler.resolver.resolve(MainView.self)
+            .flatMap { $0 as? UIViewController }
+            .map { UINavigationController(rootViewController: $0) }
+    }
+
+    // MARK: - Lifecycle
+
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
         appearanceSetup()
 
         return true
     }
+
+    // MARK: - Private API
 
     private func appearanceSetup() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

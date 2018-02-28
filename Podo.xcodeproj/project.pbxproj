@@ -19,10 +19,21 @@
 		41744BB7202E0F060063FE5E /* SideMenuTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41744BB6202E0F060063FE5E /* SideMenuTableViewProvider.swift */; };
 		41744BBA202E13B10063FE5E /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */; };
 		41744BBB202E13B10063FE5E /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */; };
+		4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9ED204603CE007CF219 /* ServiceAssembly.swift */; };
+		4179E9F420460728007CF219 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F320460728007CF219 /* NetworkService.swift */; };
+		4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F52046074D007CF219 /* DatabaseService.swift */; };
+		4179E9F8204618EC007CF219 /* MainMenuCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F7204618EC007CF219 /* MainMenuCellViewModel.swift */; };
+		4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F920461B3F007CF219 /* MainMenuCellViewModelImpl.swift */; };
+		4179E9FF204620E1007CF219 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9FE204620E1007CF219 /* MainView.swift */; };
+		4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EA0020462256007CF219 /* ViewModelAssembly.swift */; };
+		4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EA022046241E007CF219 /* ViewAssembly.swift */; };
 		4183AA502034A7BE00F39DF0 /* SideMenuEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AA4D2034A7BE00F39DF0 /* SideMenuEntry.swift */; };
 		4183AA512034A7BE00F39DF0 /* SideMenuEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AA4E2034A7BE00F39DF0 /* SideMenuEntryType.swift */; };
 		4183AA522034A7BE00F39DF0 /* SideMenuEntryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AA4F2034A7BE00F39DF0 /* SideMenuEntryTitle.swift */; };
 		4183AA542034A8DE00F39DF0 /* sideMenuEntries.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4183AA532034A8DE00F39DF0 /* sideMenuEntries.realm */; };
+		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
+		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
+		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
 		419BA9C51FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */; };
 		419DC7361FC705CE003A3C45 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7351FC705CE003A3C45 /* Constants.swift */; };
 		419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */; };
@@ -36,7 +47,6 @@
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
 		41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6F1FCDC042007443D7 /* PresentationType.swift */; };
 		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
-		41C9EB471FD407E4000D77DD /* MainMenuTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB461FD407E4000D77DD /* MainMenuTableViewProvider.swift */; };
 		41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */; };
 		41C9EB4F1FD40A0B000D77DD /* CardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */; };
 		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */; };
@@ -91,10 +101,21 @@
 		41744BB6202E0F060063FE5E /* SideMenuTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewProvider.swift; sourceTree = "<group>"; };
 		41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		4179E9ED204603CE007CF219 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		4179E9F320460728007CF219 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4179E9F52046074D007CF219 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		4179E9F7204618EC007CF219 /* MainMenuCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCellViewModel.swift; sourceTree = "<group>"; };
+		4179E9F920461B3F007CF219 /* MainMenuCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCellViewModelImpl.swift; sourceTree = "<group>"; };
+		4179E9FE204620E1007CF219 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4179EA0020462256007CF219 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
+		4179EA022046241E007CF219 /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
 		4183AA4D2034A7BE00F39DF0 /* SideMenuEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuEntry.swift; sourceTree = "<group>"; };
 		4183AA4E2034A7BE00F39DF0 /* SideMenuEntryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuEntryType.swift; sourceTree = "<group>"; };
 		4183AA4F2034A7BE00F39DF0 /* SideMenuEntryTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuEntryTitle.swift; sourceTree = "<group>"; };
 		4183AA532034A8DE00F39DF0 /* sideMenuEntries.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = sideMenuEntries.realm; sourceTree = "<group>"; };
+		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
+		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
 		419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SafeAreaLayoutGuide.swift"; sourceTree = "<group>"; };
 		419DC7351FC705CE003A3C45 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +129,6 @@
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
 		41A9FC6F1FCDC042007443D7 /* PresentationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
 		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
-		41C9EB461FD407E4000D77DD /* MainMenuTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewProvider.swift; sourceTree = "<group>"; };
 		41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsTableViewCell.xib; sourceTree = "<group>"; };
 		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -184,7 +204,9 @@
 		41494AAB1FC6C6570089F088 /* Podo */ = {
 			isa = PBXGroup;
 			children = (
-				41A5E7931FDAC36800A835F5 /* Protocols */,
+				4179E9EF20460407007CF219 /* DI */,
+				41F84A771FC6C6E60056698C /* Application */,
+				41A5E7931FDAC36800A835F5 /* Services */,
 				41C9EB491FD409E3000D77DD /* ViewModels */,
 				41C9EB481FD409DA000D77DD /* Views */,
 				41C9EB451FD407BB000D77DD /* Models */,
@@ -193,7 +215,6 @@
 				41D1F16D1FC785CD00F12C20 /* Transitions */,
 				41F84A791FC6C71B0056698C /* Controllers */,
 				41F84A781FC6C6F20056698C /* Supporting Files */,
-				41F84A771FC6C6E60056698C /* Application */,
 				41F84A761FC6C6DE0056698C /* Assets */,
 				41F84A751FC6C6D50056698C /* Storyboards */,
 			);
@@ -231,11 +252,68 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		41A5E7931FDAC36800A835F5 /* Protocols */ = {
+		4179E9EF20460407007CF219 /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				4179E9F02046041D007CF219 /* Assemblers */,
+				418A840620446CFC00A950AE /* Assemblies */,
 			);
-			path = Protocols;
+			path = DI;
+			sourceTree = "<group>";
+		};
+		4179E9F02046041D007CF219 /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				418A8407204474EE00A950AE /* ApplicationAssembler.swift */,
+			);
+			path = Assemblers;
+			sourceTree = "<group>";
+		};
+		4179E9FB20461FED007CF219 /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				418A84022043254000A950AE /* MainMenuViewModel.swift */,
+				418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */,
+				4179E9F7204618EC007CF219 /* MainMenuCellViewModel.swift */,
+				4179E9F920461B3F007CF219 /* MainMenuCellViewModelImpl.swift */,
+			);
+			path = "Main Flow";
+			sourceTree = "<group>";
+		};
+		4179E9FC20462004007CF219 /* Side Menu Flow */ = {
+			isa = PBXGroup;
+			children = (
+				41F627D520350714001ABFDD /* SideMenuEntryViewModel.swift */,
+			);
+			path = "Side Menu Flow";
+			sourceTree = "<group>";
+		};
+		4179E9FD204620C2007CF219 /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				4179E9FE204620E1007CF219 /* MainView.swift */,
+				413FD5071FC7107500BB16B3 /* MainViewController.swift */,
+			);
+			path = "Main Flow";
+			sourceTree = "<group>";
+		};
+		418A840620446CFC00A950AE /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				4179EA0020462256007CF219 /* ViewModelAssembly.swift */,
+				4179EA022046241E007CF219 /* ViewAssembly.swift */,
+				4179E9ED204603CE007CF219 /* ServiceAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		41A5E7931FDAC36800A835F5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4179E9F320460728007CF219 /* NetworkService.swift */,
+				4179E9F52046074D007CF219 /* DatabaseService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		41C9EB451FD407BB000D77DD /* Models */ = {
@@ -244,7 +322,6 @@
 				4183AA4D2034A7BE00F39DF0 /* SideMenuEntry.swift */,
 				4183AA4F2034A7BE00F39DF0 /* SideMenuEntryTitle.swift */,
 				4183AA4E2034A7BE00F39DF0 /* SideMenuEntryType.swift */,
-				41C9EB461FD407E4000D77DD /* MainMenuTableViewProvider.swift */,
 				41A5E7871FD97B3300A835F5 /* СollectionViewProvider.swift */,
 				41744BB6202E0F060063FE5E /* SideMenuTableViewProvider.swift */,
 			);
@@ -254,6 +331,7 @@
 		41C9EB481FD409DA000D77DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4179E9FD204620C2007CF219 /* Main Flow */,
 				41744BBC202E185E0063FE5E /* Cells */,
 				41C8C2551FD42225007EC44B /* RoundShadowView.swift */,
 				41E4B0C01FE7B32100D39971 /* NavigationBarTitleView.swift */,
@@ -266,7 +344,8 @@
 		41C9EB491FD409E3000D77DD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				41F627D520350714001ABFDD /* SideMenuEntryViewModel.swift */,
+				4179E9FC20462004007CF219 /* Side Menu Flow */,
+				4179E9FB20461FED007CF219 /* Main Flow */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -344,7 +423,6 @@
 		41F84A791FC6C71B0056698C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				413FD5071FC7107500BB16B3 /* MainViewController.swift */,
 				41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */,
 				419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */,
 			);
@@ -575,6 +653,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -582,6 +661,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -742,11 +822,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41C9EB471FD407E4000D77DD /* MainMenuTableViewProvider.swift in Sources */,
 				41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */,
 				415C64C2203C54A000B77589 /* CheckMarkView.swift in Sources */,
+				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
 				41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
+				418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */,
 				41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */,
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
 				41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */,
@@ -759,20 +840,29 @@
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				4183AA522034A7BE00F39DF0 /* SideMenuEntryTitle.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
+				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
 				41E4B0C11FE7B32100D39971 /* NavigationBarTitleView.swift in Sources */,
 				4183AA512034A7BE00F39DF0 /* SideMenuEntryType.swift in Sources */,
 				41F627D620350714001ABFDD /* SideMenuEntryViewModel.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
+				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
+				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
 				41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */,
 				41A5E78B1FD97FC300A835F5 /* CardsCollectionViewCell.swift in Sources */,
+				418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */,
 				41744BB7202E0F060063FE5E /* SideMenuTableViewProvider.swift in Sources */,
 				41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */,
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
+				418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */,
+				4179E9FF204620E1007CF219 /* MainView.swift in Sources */,
 				419DC7361FC705CE003A3C45 /* Constants.swift in Sources */,
+				4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */,
+				4179E9F8204618EC007CF219 /* MainMenuCellViewModel.swift in Sources */,
 				413FD5081FC7107500BB16B3 /* MainViewController.swift in Sources */,
 				4183AA502034A7BE00F39DF0 /* SideMenuEntry.swift in Sources */,
 				41A5E7881FD97B3300A835F5 /* СollectionViewProvider.swift in Sources */,
+				4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
