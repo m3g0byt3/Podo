@@ -10,6 +10,16 @@ import UIKit
 
 enum Constant {
 
+    enum Flows: String {
+        // swiftlint:disable explicit_enum_raw_value
+        case tutorial
+        case contacts
+        case settings
+        case topUp
+        case addNewCard
+        case main
+    }
+
     enum AnimationDuration {
         /// Normal animation duration
         static let normal: TimeInterval = 0.30

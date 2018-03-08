@@ -114,10 +114,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `MetroTrainIcon`.
     static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
+    /// Image `Placeholder`.
+    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "Placeholder")
+    /// Image `QuickActionContacts`.
+    static let quickActionContacts = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionContacts")
+    /// Image `QuickActionSettings`.
+    static let quickActionSettings = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionSettings")
     /// Image `SideMenuIcon`.
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
     /// Image `TransportCardMask`.
@@ -126,6 +132,21 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
     static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.metroTrainIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "QuickActionContacts", bundle: ..., traitCollection: ...)`
+    static func quickActionContacts(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.quickActionContacts, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "QuickActionSettings", bundle: ..., traitCollection: ...)`
+    static func quickActionSettings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.quickActionSettings, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "SideMenuIcon", bundle: ..., traitCollection: ...)`
@@ -185,14 +206,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `MainViewController`.
-    static let mainViewController = _R.storyboard.mainViewController()
+    /// Storyboard `MainMenuViewController`.
+    static let mainMenuViewController = _R.storyboard.mainMenuViewController()
+    /// Storyboard `RootViewController`.
+    static let rootViewController = _R.storyboard.rootViewController()
     
     /// `UIStoryboard(name: "CardsViewController", bundle: ...)`
     static func cardsViewController(_: Void = ()) -> UIKit.UIStoryboard {
@@ -204,9 +227,14 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
-    /// `UIStoryboard(name: "MainViewController", bundle: ...)`
-    static func mainViewController(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.mainViewController)
+    /// `UIStoryboard(name: "MainMenuViewController", bundle: ...)`
+    static func mainMenuViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.mainMenuViewController)
+    }
+    
+    /// `UIStoryboard(name: "RootViewController", bundle: ...)`
+    static func rootViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.rootViewController)
     }
     
     fileprivate init() {}
@@ -238,6 +266,7 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _SideMenuTableViewCell.validate()
       try _CardsCollectionViewCell.validate()
     }
     
@@ -273,7 +302,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _SideMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+    struct _SideMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = SideMenuTableViewCell
       
       let bundle = R.hostingBundle
@@ -284,6 +313,10 @@ struct _R: Rswift.Validatable {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SideMenuTableViewCell
       }
       
+      static func validate() throws {
+        if UIKit.UIImage(named: "Placeholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Placeholder' is used in nib 'SideMenuTableViewCell', but couldn't be loaded.") }
+      }
+      
       fileprivate init() {}
     }
     
@@ -292,7 +325,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try mainViewController.validate()
+      try mainMenuViewController.validate()
     }
     
     struct cardsViewController: Rswift.StoryboardResourceWithInitialControllerType {
@@ -313,15 +346,24 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct mainViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct mainMenuViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = MainMenuViewController
+      
+      let bundle = R.hostingBundle
+      let name = "MainMenuViewController"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'MainMenuViewController', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct rootViewController: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
-      let name = "MainViewController"
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'MainViewController', but couldn't be loaded.") }
-      }
+      let name = "RootViewController"
       
       fileprivate init() {}
     }
