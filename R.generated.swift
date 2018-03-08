@@ -114,14 +114,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
     /// Image `MetroTrainIcon`.
     static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
-    /// Image `Placeholder`.
-    static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "Placeholder")
-    /// Image `QuickActionContacts`.
-    static let quickActionContacts = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionContacts")
     /// Image `QuickActionSettings`.
     static let quickActionSettings = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionSettings")
     /// Image `SideMenuIcon`.
@@ -132,16 +128,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
     static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.metroTrainIcon, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "Placeholder", bundle: ..., traitCollection: ...)`
-    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "QuickActionContacts", bundle: ..., traitCollection: ...)`
-    static func quickActionContacts(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.quickActionContacts, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "QuickActionSettings", bundle: ..., traitCollection: ...)`
@@ -266,7 +252,6 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _SideMenuTableViewCell.validate()
       try _CardsCollectionViewCell.validate()
     }
     
@@ -302,7 +287,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _SideMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+    struct _SideMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = SideMenuTableViewCell
       
       let bundle = R.hostingBundle
@@ -311,10 +296,6 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SideMenuTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SideMenuTableViewCell
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "Placeholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Placeholder' is used in nib 'SideMenuTableViewCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
