@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainMenuView.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 28/02/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MainView {
+protocol MainMenuView: View {
 
     // TODO: Add actual implementation
 }

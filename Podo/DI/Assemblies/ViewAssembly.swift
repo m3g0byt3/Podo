@@ -13,10 +13,9 @@ import UIKit
 final class ViewAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(MainView.self) { resolver in
-            // TODO: - instantiate views in separate factory
-            guard let viewController = MainViewController.storyboardInstance() else {
-                    fatalError("Unable to instantiate MainViewController")
+        container.register(MainMenuView.self) { resolver in
+            guard let viewController = MainMenuViewController.storyboardInstance() else {
+                    fatalError("Unable to instantiate \(MainMenuCoordinator.self)")
             }
             viewController.viewModel = resolver.resolve(MainMenuViewModel.self)
 

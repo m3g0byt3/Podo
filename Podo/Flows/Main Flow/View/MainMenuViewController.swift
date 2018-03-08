@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MainMenuViewController.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 23/11/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-final class MainViewController: UIViewController, MainView {
+final class MainMenuViewController: UIViewController, MainMenuView {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
@@ -93,7 +93,7 @@ final class MainViewController: UIViewController, MainView {
 
 // MARK: - UITableViewDataSource protocol conformance
 
-extension MainViewController: UITableViewDataSource {
+extension MainMenuViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.childViewModelsCount
@@ -106,7 +106,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate protocol conformance
-extension MainViewController: UITableViewDelegate {
+extension MainMenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let transportCardsView = transportCardsView,
