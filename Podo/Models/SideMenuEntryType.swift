@@ -12,7 +12,6 @@ import Foundation
  Type of the action for side menu entry
  */
 enum SideMenuEntryType: String {
-    // swiftlint:disable explicit_enum_raw_value
     case openURL
     case openScreen
     case noAction

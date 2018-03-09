@@ -11,6 +11,7 @@ import UIKit
 final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
 
     // MARK: - Properties
+
     private let presentationType: PresentationType
     private weak var containerView: UIView?
     private var boundaryTransitionPercentage: CGFloat {
@@ -20,12 +21,14 @@ final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransitio
         }
     }
 
-    // MARK: - Inits
+    // MARK: - Initialization
+
     init(for type: PresentationType) {
         self.presentationType = type
     }
 
     // MARK: - Public API
+
     func updateAnimationBasedOn(recognizer: UIPanGestureRecognizer) {
         guard let container = containerView else { return }
 
@@ -49,6 +52,7 @@ final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransitio
     }
 
     // MARK: - UIPercentDrivenInteractiveTransition protocol conformance
+
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         super.startInteractiveTransition(transitionContext)
         containerView = transitionContext.containerView

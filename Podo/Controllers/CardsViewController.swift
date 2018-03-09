@@ -12,11 +12,13 @@ import SnapKit
 final class CardsViewController: UIViewController {
 
     // MARK: - IBOutlets
+
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var collectionViewBottomConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
+
     /// DataSource for collectionView
     private lazy var collectionViewDatasource = СollectionViewProvider()
     /// Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
@@ -28,6 +30,7 @@ final class CardsViewController: UIViewController {
     }
 
     // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -48,6 +51,7 @@ final class CardsViewController: UIViewController {
     }
 
     // MARK: - Private API
+
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)
         collectionView.dataSource = collectionViewDatasource
@@ -64,6 +68,7 @@ final class CardsViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegate protocol conformance
-extension MainViewController: UICollectionViewDelegate {
+
+extension CardsViewController: UICollectionViewDelegate {
     // TODO: Add actual implementation
 }

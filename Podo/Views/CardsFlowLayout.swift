@@ -12,6 +12,7 @@ import UIKit
 final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - Properties
+
     private lazy var setupInitialInsets: Void = { [weak self] in
         self?.collectionView?.contentInset = UIEdgeInsets(top: 0, left: initialInsets, bottom: 0, right: initialInsets)
         }()
@@ -23,6 +24,7 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
     }
 
     // MARK: - Public API
+
     override var itemSize: CGSize {
         get {
             guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }

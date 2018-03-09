@@ -10,7 +10,7 @@ import Foundation
 
 protocol MainMenuViewModel {
 
-    // TODO: - Add protocol inheritance to avoid duplicated code?
+    // TODO: Add protocol inheritance to avoid duplicated code?
 
     var childViewModelsCount: Int { get }
 

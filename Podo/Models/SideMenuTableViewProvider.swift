@@ -15,10 +15,12 @@ import RealmSwift
 final class SideMenuTableViewProvider: NSObject {
 
     // MARK: - Properties
+
     private let entries: Results<SideMenuEntry>
     var entriesCount: Int { return entries.count }
 
-    // MARK: - Inits
+    // MARK: - Initialization
+
     override init() {
         let configuration = Realm.Configuration(fileURL: R.file.sideMenuEntriesRealm(), readOnly: true)
         guard let realm = try? Realm(configuration: configuration) else {
@@ -30,6 +32,7 @@ final class SideMenuTableViewProvider: NSObject {
 }
 
 // MARK: - UITableViewDataSource protocol conformance
+
 extension SideMenuTableViewProvider: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

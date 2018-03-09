@@ -12,7 +12,6 @@ import Foundation
  Title for side menu entry
  */
 enum SideMenuEntryTitle: String {
-    // swiftlint:disable explicit_enum_raw_value
     case main
     case settings
     case contacts

@@ -12,19 +12,22 @@ import SnapKit
 final class MainMenuViewController: UIViewController, MainMenuView {
 
     // MARK: - IBOutlets
+
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
+
     // swiftlint:disable weak_delegate implicitly_unwrapped_optional
     // sideMenuTransitioningDelegate isn't weak because VC doesn't store reference to its transitioningDelegate
     var sideMenuTransitioningDelegate: SideMenuTransitioningDelegate!
-    // TODO: - Custom transitions must be handled by Router!
+    // TODO: Custom transitions must be handled by Router!
     var viewModel: MainMenuViewModel!
     private weak var transportCardsView: UIView?
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
     // swiftlint:enable weak_delegate implicitly_unwrapped_optional
 
     // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -33,14 +36,15 @@ final class MainMenuViewController: UIViewController, MainMenuView {
     }
 
     // MARK: - Control handlers
+
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
-        // TODO: - Must be handled by Coordinator!
+        // TODO: Must be handled by Coordinator!
         sideMenuTransitioningDelegate.interactivePresentation = false
         showSideMenu()
     }
 
     @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
-        // TODO: - Must be handled by Coordinator!
+        // TODO: Must be handled by Coordinator!
         switch sender.state {
         case .began:
             sideMenuTransitioningDelegate.interactivePresentation = true
@@ -51,8 +55,9 @@ final class MainMenuViewController: UIViewController, MainMenuView {
     }
 
     // MARK: - Private API
+
     private func showSideMenu() {
-        // TODO: - Must be handled by Router!
+        // TODO: Must be handled by Router!
         let sideMenuVC = SideMenuViewController.navigationControllerInstance()
         sideMenuVC.modalPresentationStyle = .custom
         sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
@@ -106,6 +111,7 @@ extension MainMenuViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate protocol conformance
+
 extension MainMenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CheckMarkView: UIView {
+final class CheckMarkView: UIView {
 
     // MARK: - Public API
+
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         setup()
@@ -37,6 +38,7 @@ class CheckMarkView: UIView {
     }
 
     // MARK: - Private API
+
     private func setup() {
         backgroundColor = UIColor.clear
     }
