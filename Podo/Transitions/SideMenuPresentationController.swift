@@ -11,6 +11,7 @@ import UIKit
 final class SideMenuPresentationController: UIPresentationController {
 
     // MARK: - Properties
+
     private lazy var dimmingView: UIView? = { this in
         guard let container = self.containerView else { return nil }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureHandler(_:)))
@@ -25,6 +26,7 @@ final class SideMenuPresentationController: UIPresentationController {
     }(UIView())
 
     // MARK: - Control handlers
+
     @objc private func gestureHandler(_ sender: UIGestureRecognizer) {
         let transitionDelegate = presentedViewController.transitioningDelegate as? SideMenuTransitioningDelegate
 
@@ -42,6 +44,7 @@ final class SideMenuPresentationController: UIPresentationController {
     }
 
     // MARK: - Public API
+
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let container = containerView else { return UIScreen.main.bounds }
         return CGRect(x: 0, y: 0, width: container.frame.width * Constant.SideMenu.widthRatio,

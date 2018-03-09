@@ -10,7 +10,8 @@ import UIKit
 
 final class NavigationBarTitleView: UIView {
 
-    // MARK: - Inits
+    // MARK: - Initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -22,6 +23,7 @@ final class NavigationBarTitleView: UIView {
     }
 
     // MARK: - Public API
+
     override func didMoveToSuperview() {
         snp.updateConstraints { make in
             make.center.height.equalToSuperview()
@@ -30,6 +32,7 @@ final class NavigationBarTitleView: UIView {
     }
 
     // MARK: - Private API
+
     private func setup() {
         let imageView = UIImageView(image: R.image.metroTrainIcon())
         addSubview(imageView)

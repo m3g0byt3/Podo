@@ -13,7 +13,7 @@ opt_in_rules:
  - closure_end_indentation
  - contains_over_first_not_nil
  - empty_count
- - explicit_enum_raw_value
+# - explicit_enum_raw_value
  - explicit_init
  - implicitly_unwrapped_optional
  - joined_default_parameter

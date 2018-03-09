@@ -8,22 +8,26 @@
 
 import UIKit
 
+// MARK: - Typealiases
+
+typealias InteractorClosure = (UIPanGestureRecognizer) -> Void
+
 final class SideMenuTransitioningDelegate: NSObject {
 
-    // MARK: - Typealiases
-    typealias InteractorClosure = (UIPanGestureRecognizer) -> Void
-
     // MARK: - Properties
+
     private weak var interactor: SideMenuTransitioningInteractor?
     var interactivePresentation: Bool
     var interactorClosure: InteractorClosure? { return interactor?.updateAnimationBasedOn }
 
-    // MARK: - Inits
+    // MARK: - Initialization
+
     init(interactivePresentation: Bool = true) {
         self.interactivePresentation = interactivePresentation
     }
 
     // MARK: - Private API
+
     private func interactorForPresentationOfType(_ type: PresentationType) -> SideMenuTransitioningInteractor {
         // Create new SideMenuTransitioningInteractor instance of given type
         let presentationInteractor = SideMenuTransitioningInteractor(for: type)
@@ -34,6 +38,7 @@ final class SideMenuTransitioningDelegate: NSObject {
 }
 
 // MARK: - UIViewControllerTransitioningDelegate protocol conformance
+
 extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController,

@@ -11,15 +11,18 @@ import UIKit
 final class SideMenuTransitioningAnimator: NSObject {
 
     // MARK: - Properties
+
     private let presentationType: PresentationType
 
-    // MARK: - Inits
+    // MARK: - Initialization
+
     init(for type: PresentationType) {
         self.presentationType = type
     }
 }
 
 // MARK: - UIViewControllerAnimatedTransitioning protocol conformance
+
 extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {

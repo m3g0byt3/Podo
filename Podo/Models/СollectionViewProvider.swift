@@ -13,6 +13,7 @@ final class СollectionViewProvider: NSObject {
 }
 
 // MARK: - UICollectionViewDataSource protocol conformance
+
 extension СollectionViewProvider: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -11,10 +11,12 @@ import UIKit
 final class SideMenuTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
+
     @IBOutlet private weak var customImageView: UIImageView!
     @IBOutlet private weak var customTextLabel: UILabel!
 
     // MARK: - Properties
+
     var viewModel: SideMenuEntryViewModel? {
         didSet {
             customTextLabel.text = viewModel?.title
@@ -23,12 +25,14 @@ final class SideMenuTableViewCell: UITableViewCell {
     }
 
     // MARK: - Public API
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }
 
     // MARK: - Private API
+
     private func setup() {
         let checkMarkViewFrame = CGRect(x: 0, y: 0, width: 20, height: 20)
 

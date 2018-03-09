@@ -16,7 +16,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var rootViewController: UINavigationController {
-        // swiftlint:disable force_cast
+        // swiftlint:disable:next force_cast
         return window!.rootViewController as! UINavigationController
     }
 

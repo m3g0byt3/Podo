@@ -21,7 +21,6 @@ enum StartOption {
     case addNewCard
 
     private enum ShortcutItemIdentifiers: String {
-        // swiftlint:disable explicit_enum_raw_value
         case addNewCard
         case topUpCard
         case openContacts
@@ -38,7 +37,7 @@ enum StartOption {
 
         switch shortcutIdentifier {
         case .addNewCard: self = .addNewCard
-        // TODO: - Extract card identifier from `userInfo` of `UIApplicationShortcutItem`
+        // TODO: Extract card identifier from `userInfo` of `UIApplicationShortcutItem`
         case .topUpCard: self = .topUp(cardIdentifier: "cardIdentifier")
         case .openContacts: self = .contacts
         case .openSettings: self = .settings

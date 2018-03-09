@@ -12,9 +12,11 @@ import SnapKit
 final class SideMenuViewController: UIViewController {
 
     // MARK: - Properties
+
     private lazy var tableViewDataSource = SideMenuTableViewProvider()
 
     // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMiscellaneousUI()
@@ -22,6 +24,7 @@ final class SideMenuViewController: UIViewController {
     }
 
     // MARK: - Private API
+
     private func setupTableView() {
         let tableView = UITableView()
         // `-1` to hide bottom separator
@@ -48,6 +51,7 @@ final class SideMenuViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate protocol conformance
+
 extension SideMenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

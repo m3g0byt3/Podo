@@ -14,6 +14,7 @@ import RealmSwift
 final class SideMenuEntry: Object {
 
     // MARK: - Properties
+
     @objc dynamic var title = ""
     @objc dynamic var type = ""
     @objc dynamic var identifier = 0
@@ -22,7 +23,8 @@ final class SideMenuEntry: Object {
         return iconBlob.flatMap { UIImage(data: $0) }
     }
 
-    // MARK: - Inits
+    // MARK: - Initialization
+
     convenience init(title: SideMenuEntryTitle, type: SideMenuEntryType, icon: UIImage? = nil) {
         self.init()
         self.title = title.rawValue
@@ -31,6 +33,7 @@ final class SideMenuEntry: Object {
     }
 
     // MARK: - Public API
+
     override static func primaryKey() -> String? {
         return #keyPath(SideMenuEntry.identifier)
     }
