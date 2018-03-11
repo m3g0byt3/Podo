@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol View {
+protocol View: class {
 
     var presentableEntity: UIViewController? { get }
 }

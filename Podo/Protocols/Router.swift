@@ -10,15 +10,17 @@ import Foundation
 
 // MARK: - Typealiases
 
-typealias Completion = (() -> Void)
+typealias Completion = () -> Void
 
-protocol Router {
+protocol Router: class {
 
     // Presentation
+    func setRootView(_ view: View, animated: Bool, fullscreen: Bool)
     func present(_ view: View, animated: Bool, completion: Completion?)
     func push(_ view: View, animated: Bool)
 
     // Dismissal
     func dismiss(animated: Bool, completion: Completion?)
+    func popToRootView(animated: Bool)
     func pop(animated: Bool)
 }

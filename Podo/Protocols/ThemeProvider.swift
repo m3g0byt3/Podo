@@ -17,7 +17,6 @@ protocol ThemeProvider {
     var currentTheme: Theme { get set }
 
     func appearanceSetup()
-
     func changeTheme(_ theme: Theme)
 }
 
