@@ -17,6 +17,10 @@
 		41494AC21FC6C6570089F088 /* PodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AC11FC6C6570089F088 /* PodoTests.swift */; };
 		41494ACD1FC6C6570089F088 /* PodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494ACC1FC6C6570089F088 /* PodoUITests.swift */; };
 		41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */; };
+		415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415372842052FFA900B8C1EB /* TutorialViewController.storyboard */; };
+		4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728A2053001D00B8C1EB /* TutorialViewController.swift */; };
+		4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */; };
+		415372922053168D00B8C1EB /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415372912053168D00B8C1EB /* TutorialView.swift */; };
 		41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */; };
 		41555A682049727C007ADBF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A672049727C007ADBF0 /* Coordinator.swift */; };
 		41555A6A20497625007ADBF0 /* StartOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A6920497625007ADBF0 /* StartOption.swift */; };
@@ -58,6 +62,7 @@
 		41A9FC6C1FCDA16C007443D7 /* UIViewController+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */; };
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
 		41A9FC701FCDC042007443D7 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6F1FCDC042007443D7 /* PresentationType.swift */; };
+		41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */; };
 		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
 		41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */; };
 		41C9EB4F1FD40A0B000D77DD /* CardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */; };
@@ -113,6 +118,10 @@
 		41494ACC1FC6C6570089F088 /* PodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodoUITests.swift; sourceTree = "<group>"; };
 		41494ACE1FC6C6570089F088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41494ADD1FC6C6950089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		415372852052FFA900B8C1EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TutorialViewController.storyboard; sourceTree = "<group>"; };
+		4153728A2053001D00B8C1EB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
+		415372912053168D00B8C1EB /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		41555A672049727C007ADBF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41555A6920497625007ADBF0 /* StartOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOption.swift; sourceTree = "<group>"; };
@@ -154,6 +163,7 @@
 		41A9FC6B1FCDA16C007443D7 /* UIViewController+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UINavigationController.swift"; sourceTree = "<group>"; };
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
 		41A9FC6F1FCDC042007443D7 /* PresentationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
+		41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsTableViewCell.xib; sourceTree = "<group>"; };
@@ -232,8 +242,9 @@
 		41494AAB1FC6C6570089F088 /* Podo */ = {
 			isa = PBXGroup;
 			children = (
+				41BDD4E8205450210045A50A /* Coordinators */,
+				41BDD4E7205450070045A50A /* Protocols */,
 				4179E9EF20460407007CF219 /* DI */,
-				41555A6420497218007ADBF0 /* Base Protocols */,
 				41607EA9204E015A009DCEA2 /* Router */,
 				4160A50F2051766900485C8B /* Themes */,
 				41E18D90204D813300E4C935 /* Flows */,
@@ -271,15 +282,30 @@
 			path = PodoUITests;
 			sourceTree = "<group>";
 		};
-		41555A6420497218007ADBF0 /* Base Protocols */ = {
+		415372872052FFDD00B8C1EB /* Tutorial Flow */ = {
 			isa = PBXGroup;
 			children = (
-				41555A672049727C007ADBF0 /* Coordinator.swift */,
-				4180B4E5204C92810064529A /* Router.swift */,
-				41607EA5204DA913009DCEA2 /* View.swift */,
-				4160A50C205174EA00485C8B /* ThemeProvider.swift */,
+				415372892052FFF800B8C1EB /* Coordinator */,
+				415372882052FFF100B8C1EB /* View */,
 			);
-			path = "Base Protocols";
+			path = "Tutorial Flow";
+			sourceTree = "<group>";
+		};
+		415372882052FFF100B8C1EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				415372912053168D00B8C1EB /* TutorialView.swift */,
+				4153728A2053001D00B8C1EB /* TutorialViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		415372892052FFF800B8C1EB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		41607EA2204DA8E5009DCEA2 /* ViewModel */ = {
@@ -396,6 +422,25 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		41BDD4E7205450070045A50A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				41555A672049727C007ADBF0 /* Coordinator.swift */,
+				4180B4E5204C92810064529A /* Router.swift */,
+				41607EA5204DA913009DCEA2 /* View.swift */,
+				4160A50C205174EA00485C8B /* ThemeProvider.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		41BDD4E8205450210045A50A /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		41C9EB451FD407BB000D77DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +497,7 @@
 		41E18D90204D813300E4C935 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				415372872052FFDD00B8C1EB /* Tutorial Flow */,
 				4179E9FD204620C2007CF219 /* Main Flow */,
 			);
 			path = Flows;
@@ -478,6 +524,7 @@
 				41494AB01FC6C6570089F088 /* MainMenuViewController.storyboard */,
 				41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */,
 				41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */,
+				415372842052FFA900B8C1EB /* TutorialViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -668,6 +715,7 @@
 				4183AA542034A8DE00F39DF0 /* sideMenuEntries.realm in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
+				415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
 				41494AB21FC6C6570089F088 /* MainMenuViewController.storyboard in Resources */,
 				41744BBB202E13B10063FE5E /* SideMenuTableViewCell.xib in Resources */,
@@ -918,6 +966,7 @@
 				41555A682049727C007ADBF0 /* Coordinator.swift in Sources */,
 				4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */,
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
+				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
 				41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
 				418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */,
@@ -927,12 +976,14 @@
 				41F627D820350817001ABFDD /* SideMenuEntry+ViewModel.swift in Sources */,
 				41A9FC6C1FCDA16C007443D7 /* UIViewController+UINavigationController.swift in Sources */,
 				41607EA6204DA913009DCEA2 /* View.swift in Sources */,
+				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */,
 				419BA9C51FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift in Sources */,
 				41744BBA202E13B10063FE5E /* SideMenuTableViewCell.swift in Sources */,
 				412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */,
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				4183AA522034A7BE00F39DF0 /* SideMenuEntryTitle.swift in Sources */,
+				4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */,
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
@@ -955,6 +1006,7 @@
 				41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */,
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
+				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */,
 				4179E9FF204620E1007CF219 /* MainMenuView.swift in Sources */,
 				419DC7361FC705CE003A3C45 /* Constants.swift in Sources */,
@@ -1024,6 +1076,14 @@
 				41494ADD1FC6C6950089F088 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		415372842052FFA900B8C1EB /* TutorialViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				415372852052FFA900B8C1EB /* Base */,
+			);
+			name = TutorialViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */ = {

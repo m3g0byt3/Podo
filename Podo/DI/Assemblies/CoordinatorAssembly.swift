@@ -12,11 +12,14 @@ import Swinject
 final class CoordinatorAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(Coordinator.self) { _, router in
-            return ApplicationCoordinator(with: router)
+        container.register(Coordinator.self) { _, router, assembler in
+            return ApplicationCoordinator(with: router, assembler)
         }
-        container.register(Coordinator.self, flow: Constant.Flows.main) { _ in
-            return MainMenuCoordinator()
+        container.register(Coordinator.self, flow: .main) { _, router, assembler in
+            return MainMenuCoordinator(with: router, assembler)
+        }
+        container.register(Coordinator.self, flow: .tutorial) { _, router, assembler in
+            return TutorialCoordinator(with: router, assembler)
         }
     }
 }

@@ -15,14 +15,20 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var rootViewController: UINavigationController {
+    private var rootViewController: UINavigationController {
         // swiftlint:disable:next force_cast
         return window!.rootViewController as! UINavigationController
     }
 
     private lazy var coordinator: Coordinator? = {
-        return ApplicationAssembler.defaultAssembler.resolver.resolve(Router.self, argument: rootViewController)
-            .flatMap { ApplicationAssembler.defaultAssembler.resolver.resolve(Coordinator.self, argument: $0) }
+        guard let router = ApplicationAssembler
+            .defaultAssembler
+            .resolver
+            .resolve(Router.self, argument: rootViewController) else { return nil }
+        return ApplicationAssembler
+            .defaultAssembler
+            .resolver
+            .resolve(Coordinator.self, arguments: router, ApplicationAssembler.defaultAssembler)
     }()
 
     // MARK: - UIApplicationDelegate protocol conformance

@@ -8,7 +8,18 @@
 
 import Foundation
 
-final class MainMenuCoordinator: Coordinator {
+final class MainMenuCoordinator: AbstractCoordinator {
 
-    func start(with option: StartOption?) {}
+    // MARK: - Private API
+
+    private func startMainFlow() {
+        guard let view = assembler.resolver.resolve(MainMenuView.self) else { return }
+        router.setRootView(view, animated: true, fullscreen: false)
+    }
+
+    // MARK: - Coordinator protocol conformance
+
+    override func start() {
+        startMainFlow()
+    }
 }

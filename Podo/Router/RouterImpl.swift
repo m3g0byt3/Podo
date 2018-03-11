@@ -29,6 +29,12 @@ final class RouterImpl {
 extension RouterImpl: Router {
 
     // Presentation
+    func setRootView(_ view: View, animated: Bool, fullscreen: Bool) {
+        guard let viewController = view.presentableEntity else { return }
+        rootViewController?.isNavigationBarHidden = fullscreen
+        rootViewController?.setViewControllers([viewController], animated: animated)
+    }
+
     func present(_ view: View, animated: Bool = true, completion: Completion? = nil) {
         guard let viewController = view.presentableEntity else { return }
         rootViewController?.present(viewController, animated: animated, completion: completion)
@@ -46,5 +52,9 @@ extension RouterImpl: Router {
 
     func pop(animated: Bool = true) {
         rootViewController?.popViewController(animated: animated)
+    }
+
+    func popToRootView(animated: Bool) {
+        rootViewController?.popToRootViewController(animated: animated)
     }
 }
