@@ -15,9 +15,16 @@ final class ViewAssembly: Assembly {
     func assemble(container: Container) {
         container.register(MainMenuView.self) { resolver in
             guard let viewController = MainMenuViewController.storyboardInstance() else {
-                    fatalError("Unable to instantiate \(MainMenuCoordinator.self)")
+                    fatalError("Unable to instantiate \(MainMenuViewController.self)")
             }
             viewController.viewModel = resolver.resolve(MainMenuViewModel.self)
+
+            return viewController
+        }
+        container.register(TutorialView.self) { _ in
+            guard let viewController = TutorialViewController.storyboardInstance() else {
+                fatalError("Unable to instantiate \(TutorialViewController.self)")
+            }
 
             return viewController
         }
