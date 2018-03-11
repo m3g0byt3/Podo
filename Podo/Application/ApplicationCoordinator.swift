@@ -7,61 +7,53 @@
 //
 
 import Foundation
-import Swinject
 
-final class ApplicationCoordinator {
-
-    // MARK: - Properties
-
-    private let router: Router
-    private let assembler: Assembler
-
-    // MARK: - Initialization
-
-    init(with router: Router, assembler: Assembler = ApplicationAssembler.defaultAssembler) {
-        self.router = router
-        self.assembler = assembler
-    }
+final class ApplicationCoordinator: AbstractCoordinator {
 
     // MARK: - Private API
 
     private func startMainFlow() {
-        let coordinator = assembler.resolver.resolve(Coordinator.self, flow: Constant.Flows.main)
-        let mainMenuView = assembler.resolver.resolve(MainMenuView.self)
-        router.push(mainMenuView!, animated: true)
+        let coordinator = assembler.resolver.resolve(Coordinator.self,
+                                                     flow: .main,
+                                                     arguments: router, assembler)
+        addChild(coordinator)
         coordinator?.start()
     }
 
-    private func startContactsFlow() {
-        fatalError("Not implemented yet!")
+    private func startTutorialFlow() {
+        let coordinator = assembler.resolver.resolve(Coordinator.self,
+                                                     flow: .tutorial,
+                                                     arguments: router, assembler)
+        addChild(coordinator)
+        coordinator?.onFlowFinish = { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+            self?.start()
+        }
+        coordinator?.start()
     }
 
     private func startSettingsFlow() {
-        fatalError("Not implemented yet!")
-    }
-
-    private func startTutorialFlow() {
-        fatalError("Not implemented yet!")
+        fatalError("\(#function) not implemented yet!")
     }
 
     private func startTopUpFlowForCardWith(identifier: String) {
-        fatalError("Not implemented yet!")
+        fatalError("\(#function) not implemented yet!")
     }
 
     private func startAddNewCardFlow() {
-        fatalError("Not implemented yet!")
+        fatalError("\(#function) not implemented yet!")
     }
-}
 
-// MARK: - Coordinator protocol conformance
+    // MARK: - Coordinator protocol conformance
 
-extension ApplicationCoordinator: Coordinator {
+    override func start() {
+        start(with: nil)
+    }
 
-    func start(with option: StartOption?) {
-
+    override func start(with option: StartOption?) {
         switch option {
-        case .some(.contacts): startContactsFlow()
-        case .some(.settings): startSettingsFlow()
+        // FIXME: For test purposes only! `.settings` must call `startSettingsFlow()` func
+        case .some(.settings): startTutorialFlow()
         case .some(.tutorial): startTutorialFlow()
         case .some(.addNewCard): startAddNewCardFlow()
         case .some(.topUp(let cardIdentifier)): startTopUpFlowForCardWith(identifier: cardIdentifier)
