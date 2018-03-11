@@ -12,7 +12,6 @@ enum Constant {
 
     enum Flows: String {
         case tutorial
-        case contacts
         case settings
         case topUp
         case addNewCard

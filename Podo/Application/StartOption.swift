@@ -15,7 +15,6 @@ typealias NotificationUserInfo = [AnyHashable: Any]
 enum StartOption {
 
     case tutorial
-    case contacts
     case settings
     case topUp(cardIdentifier: String)
     case addNewCard
@@ -23,7 +22,6 @@ enum StartOption {
     private enum ShortcutItemIdentifiers: String {
         case addNewCard
         case topUpCard
-        case openContacts
         case openSettings
     }
 
@@ -39,16 +37,15 @@ enum StartOption {
         case .addNewCard: self = .addNewCard
         // TODO: Extract card identifier from `userInfo` of `UIApplicationShortcutItem`
         case .topUpCard: self = .topUp(cardIdentifier: "cardIdentifier")
-        case .openContacts: self = .contacts
         case .openSettings: self = .settings
         }
     }
 
     init?(with notificationUserInfo: NotificationUserInfo) {
-        fatalError("Not implemented yet!")
+        fatalError("\(#function) not implemented yet!")
     }
 
     init?(with userActivity: NSUserActivity) {
-        fatalError("Not implemented yet!")
+        fatalError("\(#function) not implemented yet!")
     }
 }
