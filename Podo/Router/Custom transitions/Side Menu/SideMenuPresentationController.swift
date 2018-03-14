@@ -28,17 +28,17 @@ final class SideMenuPresentationController: UIPresentationController {
     // MARK: - Control handlers
 
     @objc private func gestureHandler(_ sender: UIGestureRecognizer) {
-        let transitionDelegate = presentedViewController.transitioningDelegate as? SideMenuTransitioningDelegate
+        let sideMenuViewController = presentedViewController as? (SideMenuView & InteractiveTransitioningCapable)
 
         switch sender {
         case is UITapGestureRecognizer:
-            transitionDelegate?.interactivePresentation = false
-            presentedViewController.dismiss(animated: true)
+            sideMenuViewController?.isTransitionInteractive = false
+            sideMenuViewController?.onSideMenuClose?()
         case let sender as UIPanGestureRecognizer where sender.state == .began:
-            transitionDelegate?.interactivePresentation = true
-            presentedViewController.dismiss(animated: true)
+            sideMenuViewController?.isTransitionInteractive = true
+            sideMenuViewController?.onSideMenuClose?()
         case let sender as UIPanGestureRecognizer:
-            transitionDelegate?.interactorClosure?(sender)
+            sideMenuViewController?.onInteractiveTransition?(sender)
         default: break
         }
     }

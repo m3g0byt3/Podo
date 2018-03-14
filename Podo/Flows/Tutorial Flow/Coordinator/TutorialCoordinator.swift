@@ -12,7 +12,9 @@ final class TutorialCoordinator: AbstractCoordinator {
 
     // MARK: - Private API
 
-    private func startTutorialFlow() {
+    // MARK: - Internal flows
+
+    private func showTutorial() {
         guard let view = assembler.resolver.resolve(TutorialView.self) else { return }
         view.onNext = { [weak self] in
             self?.onFlowFinish?()
@@ -26,6 +28,6 @@ final class TutorialCoordinator: AbstractCoordinator {
     // MARK: - Coordinator protocol conformance
 
     override func start() {
-        startTutorialFlow()
+        showTutorial()
     }
 }

@@ -8,22 +8,24 @@
 
 import UIKit
 
-// MARK: - Typealiases
-
-typealias InteractorClosure = (UIPanGestureRecognizer) -> Void
-
-final class SideMenuTransitioningDelegate: NSObject {
+final class SideMenuTransitioningDelegateImpl: NSObject, SideMenuTransitioningDelegate {
 
     // MARK: - Properties
 
     private weak var interactor: SideMenuTransitioningInteractor?
-    var interactivePresentation: Bool
-    var interactorClosure: InteractorClosure? { return interactor?.updateAnimationBasedOn }
+
+    var isTransitionInteractive: Bool
 
     // MARK: - Initialization
 
-    init(interactivePresentation: Bool = true) {
-        self.interactivePresentation = interactivePresentation
+    init(interactiveTransition: Bool = true) {
+        self.isTransitionInteractive = interactiveTransition
+    }
+
+    // MARK: - Public API
+
+    func updateTransition(using gestureRecognizer: UIPanGestureRecognizer) {
+        interactor?.updateAnimation(using: gestureRecognizer)
     }
 
     // MARK: - Private API
@@ -39,7 +41,7 @@ final class SideMenuTransitioningDelegate: NSObject {
 
 // MARK: - UIViewControllerTransitioningDelegate protocol conformance
 
-extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
+extension SideMenuTransitioningDelegateImpl: UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
@@ -58,10 +60,10 @@ extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
     }
 
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactivePresentation ? interactorForPresentationOfType(.presentation) : nil
+        return isTransitionInteractive ? interactorForPresentationOfType(.presentation) : nil
     }
 
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactivePresentation ? interactorForPresentationOfType(.dismissal) : nil
+        return isTransitionInteractive ? interactorForPresentationOfType(.dismissal) : nil
     }
 }
