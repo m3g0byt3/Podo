@@ -35,7 +35,7 @@ extension RouterImpl: Router {
         rootViewController?.setViewControllers([viewController], animated: animated)
     }
 
-    func present(_ view: View, animated: Bool = true, completion: Completion? = nil) {
+    func present(_ view: View, animated: Bool = true, completion: Completion?) {
         guard let viewController = view.presentableEntity else { return }
         rootViewController?.present(viewController, animated: animated, completion: completion)
     }
@@ -46,7 +46,7 @@ extension RouterImpl: Router {
     }
 
     // Dismissal
-    func dismiss(animated: Bool = true, completion: Completion? = nil) {
+    func dismiss(animated: Bool = true, completion: Completion?) {
         rootViewController?.dismiss(animated: animated, completion: completion)
     }
 

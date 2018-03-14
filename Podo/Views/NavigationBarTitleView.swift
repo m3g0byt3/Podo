@@ -25,6 +25,7 @@ final class NavigationBarTitleView: UIView {
     // MARK: - Public API
 
     override func didMoveToSuperview() {
+        guard superview != nil else { return }
         snp.updateConstraints { make in
             make.center.height.equalToSuperview()
             make.width.equalTo(snp.height)

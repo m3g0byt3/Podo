@@ -21,6 +21,6 @@ extension MainMenuViewModelImpl: MainMenuViewModel {
 
     func childViewModelForIndexPath(_ indexPath: IndexPath) -> MainMenuCellViewModel {
         // TODO: Add actual implementation
-        fatalError("Not implemented yet!")
+        fatalError("\(#function) not implemented yet!")
     }
 }

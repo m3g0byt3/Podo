@@ -11,19 +11,22 @@ import UIKit
 @available(iOS 9, *)
 public extension UIViewController {
 
+    private static var identifier: String {
+        return "com.m3g0byt3.safeAreaLayoutGuide"
+    }
+
     var safeAreaLayoutGuide: UILayoutGuide {
-        let identifier = "com.m3g0byt3.safeAreaLayoutGuide"
         // Early exit if we're on iOS 11.x
         if #available(iOS 11, *) {
             return view.safeAreaLayoutGuide
         }
         // Early exit if we already have layoutGuide
-        if let layoutGuide = view.layoutGuides.first(where: { $0.identifier == identifier }) {
+        if let layoutGuide = view.layoutGuides.first(where: { $0.identifier == type(of: self).identifier }) {
             return layoutGuide
         }
         // Create new layoutGuide
         let layoutGuide = UILayoutGuide()
-        layoutGuide.identifier = identifier
+        layoutGuide.identifier = type(of: self).identifier
         view.addLayoutGuide(layoutGuide)
         NSLayoutConstraint.activate([layoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                                      layoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor),
