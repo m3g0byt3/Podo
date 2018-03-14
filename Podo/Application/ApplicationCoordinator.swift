@@ -12,6 +12,8 @@ final class ApplicationCoordinator: AbstractCoordinator {
 
     // MARK: - Private API
 
+    // MARK: - External flows
+
     private func startMainFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
                                                      flow: .main,
