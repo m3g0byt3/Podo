@@ -12,8 +12,11 @@ import Swinject
 final class RouterAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(Router.self) { resolver, rootViewController in
-            return RouterImpl(rootViewController, themeProvider: resolver.resolve(ThemeProvider.self))
+        container.register(Router.self) { _, rootViewController, assembler in
+            return RouterImpl(rootViewController, assembler: assembler)
+        }
+        container.register(SideMenuTransitioningDelegate.self) { _ in
+            return SideMenuTransitioningDelegateImpl()
         }
     }
 }

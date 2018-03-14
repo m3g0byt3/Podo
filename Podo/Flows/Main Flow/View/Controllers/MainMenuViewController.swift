@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-final class MainMenuViewController: UIViewController, MainMenuView {
+final class MainMenuViewController: UIViewController, MainMenuView, InteractiveTransitioningCapable {
 
     // MARK: - IBOutlets
 
@@ -33,12 +33,20 @@ final class MainMenuViewController: UIViewController, MainMenuView {
     // MARK: - Control handlers
 
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
+        isTransitionInteractive = false
         onSideMenuSelection?()
     }
 
     @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
         onSideMenuSelection?()
+        isTransitionInteractive = true
+        switch sender.state {
+        case .began: onSideMenuSelection?()
+        default: onInteractiveTransition?(sender)
+        }
     }
+
+    // MARK: - Private API
 
     private func setupCardsViewController() {
         guard let cardsViewController = CardsViewController.storyboardInstance() else { return }
@@ -76,6 +84,11 @@ final class MainMenuViewController: UIViewController, MainMenuView {
     var onSideMenuSelection: Completion?
     var onAddNewCardSelection: Completion?
     var onCardSelection: ((Any) -> Void)?
+
+    // MARK: - InteractiveTransitioningCapable protocol conformance
+
+    var isTransitionInteractive = false
+    var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
 }
 
 // MARK: - UITableViewDataSource protocol conformance

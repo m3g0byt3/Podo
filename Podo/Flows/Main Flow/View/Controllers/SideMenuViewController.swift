@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-final class SideMenuViewController: UIViewController, SideMenuView {
+final class SideMenuViewController: UIViewController, SideMenuView, InteractiveTransitioningCapable {
 
     // MARK: - Properties
 
@@ -65,6 +65,11 @@ final class SideMenuViewController: UIViewController, SideMenuView {
 
     var onSideMenuEntrySelection: ((Any) -> Void)?
     var onSideMenuClose: Completion?
+
+    // MARK: - InteractiveTransitioningCapable protocol conformance
+    
+    var isTransitionInteractive = false
+    var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
 }
 
 // MARK: - UINavigationBarDelegate protocol conformance

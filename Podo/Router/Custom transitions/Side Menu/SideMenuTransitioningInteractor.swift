@@ -29,21 +29,21 @@ final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransitio
 
     // MARK: - Public API
 
-    func updateAnimationBasedOn(recognizer: UIPanGestureRecognizer) {
+    func updateAnimation(using gestureRecognizer: UIPanGestureRecognizer) {
         guard let container = containerView else { return }
 
-        func transitionPercentageFor(_ recognizer: UIPanGestureRecognizer, in view: UIView) -> CGFloat {
-            let translation = recognizer.translation(in: view)
+        func transitionPercentageFor(_ gestureRecognizer: UIPanGestureRecognizer, in view: UIView) -> CGFloat {
+            let translation = gestureRecognizer.translation(in: view)
             return fabs(translation.x / view.frame.width)
         }
 
-        switch recognizer.state {
+        switch gestureRecognizer.state {
         case .began:
-            recognizer.setTranslation(CGPoint.zero, in: container)
+            gestureRecognizer.setTranslation(CGPoint.zero, in: container)
         case .changed:
-            update(transitionPercentageFor(recognizer, in: container))
+            update(transitionPercentageFor(gestureRecognizer, in: container))
         default:
-            if (transitionPercentageFor(recognizer, in: container) > boundaryTransitionPercentage) {
+            if (transitionPercentageFor(gestureRecognizer, in: container) > boundaryTransitionPercentage) {
                 finish()
             } else {
                 cancel()
