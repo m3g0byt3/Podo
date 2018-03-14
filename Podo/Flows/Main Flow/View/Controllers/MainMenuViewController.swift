@@ -16,15 +16,10 @@ final class MainMenuViewController: UIViewController, MainMenuView {
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
-
-    // swiftlint:disable weak_delegate implicitly_unwrapped_optional
-    // sideMenuTransitioningDelegate isn't weak because VC doesn't store reference to its transitioningDelegate
-    var sideMenuTransitioningDelegate: SideMenuTransitioningDelegate!
-    // TODO: Custom transitions must be handled by Router!
+    // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: MainMenuViewModel!
     private weak var transportCardsView: UIView?
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
-    // swiftlint:enable weak_delegate implicitly_unwrapped_optional
 
     // MARK: - Lifecycle
 
@@ -38,30 +33,11 @@ final class MainMenuViewController: UIViewController, MainMenuView {
     // MARK: - Control handlers
 
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
-        // TODO: Must be handled by Coordinator!
-        sideMenuTransitioningDelegate.interactivePresentation = false
-        showSideMenu()
+        onSideMenuSelection?()
     }
 
     @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
-        // TODO: Must be handled by Coordinator!
-        switch sender.state {
-        case .began:
-            sideMenuTransitioningDelegate.interactivePresentation = true
-            showSideMenu()
-        default:
-            sideMenuTransitioningDelegate.interactorClosure?(sender)
-        }
-    }
-
-    // MARK: - Private API
-
-    private func showSideMenu() {
-        // TODO: Must be handled by Router!
-        let sideMenuVC = SideMenuViewController.navigationControllerInstance()
-        sideMenuVC.modalPresentationStyle = .custom
-        sideMenuVC.transitioningDelegate = sideMenuTransitioningDelegate
-        present(sideMenuVC, animated: true)
+        onSideMenuSelection?()
     }
 
     private func setupCardsViewController() {
@@ -94,6 +70,12 @@ final class MainMenuViewController: UIViewController, MainMenuView {
         view.addGestureRecognizer(edgePanGesture)
         navigationItem.titleView = NavigationBarTitleView()
     }
+
+    // MARK: - MainMenuView protocol conformance
+
+    var onSideMenuSelection: Completion?
+    var onAddNewCardSelection: Completion?
+    var onCardSelection: ((Any) -> Void)?
 }
 
 // MARK: - UITableViewDataSource protocol conformance
@@ -114,6 +96,7 @@ extension MainMenuViewController: UITableViewDataSource {
 
 extension MainMenuViewController: UITableViewDelegate {
 
+    // Place `transportCardsView` on the top of `tableView`
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let transportCardsView = transportCardsView,
             let transportCardsViewIndex = tableView.subviews.index(of: transportCardsView) {

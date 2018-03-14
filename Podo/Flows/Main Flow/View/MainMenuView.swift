@@ -10,5 +10,8 @@ import Foundation
 
 protocol MainMenuView: View {
 
-    // TODO: Add actual implementation
+    var onSideMenuSelection: Completion? { get set }
+    var onAddNewCardSelection: Completion? { get set }
+    // TODO: Replace `Any` with actual view-model class
+    var onCardSelection: ((Any) -> Void)? { get set }
 }

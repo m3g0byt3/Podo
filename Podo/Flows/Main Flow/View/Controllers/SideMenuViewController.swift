@@ -9,10 +9,13 @@
 import UIKit
 import SnapKit
 
-final class SideMenuViewController: UIViewController {
+final class SideMenuViewController: UIViewController, SideMenuView {
 
     // MARK: - Properties
 
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    private weak var navigationBar: UINavigationBar!
+    // TODO: Replace with view model
     private lazy var tableViewDataSource = SideMenuTableViewProvider()
 
     // MARK: - Lifecycle
@@ -26,9 +29,9 @@ final class SideMenuViewController: UIViewController {
     // MARK: - Private API
 
     private func setupTableView() {
-        let tableView = UITableView()
         // `-1` to hide bottom separator
         let tableViewHeight = CGFloat(tableViewDataSource.entriesCount) * Constant.SideMenu.rowHeight - 1
+        let tableView = UITableView()
 
         tableView.dataSource = tableViewDataSource
         tableView.delegate = self
@@ -39,18 +42,37 @@ final class SideMenuViewController: UIViewController {
         tableView.register(R.nib.sideMenuTableViewCell)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(navigationBar.snp.bottom)
             make.height.equalTo(tableViewHeight)
         }
     }
 
     private func setupMiscellaneousUI() {
+        let navigationBar = UINavigationBar()
+
+        navigationBar.delegate = self
+        self.navigationBar = navigationBar
+        view.addSubview(navigationBar)
         view.backgroundColor = R.clr.podoColors.green()
-        navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
+        navigationBar.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+        }
+    }
+
     // MARK: - SideMenuView protocol conformance
 
     var onSideMenuEntrySelection: ((Any) -> Void)?
     var onSideMenuClose: Completion?
+}
+
+// MARK: - UINavigationBarDelegate protocol conformance
+
+extension SideMenuViewController: UINavigationBarDelegate {
+
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
 
