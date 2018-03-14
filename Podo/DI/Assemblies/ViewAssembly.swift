@@ -28,5 +28,8 @@ final class ViewAssembly: Assembly {
 
             return viewController
         }
+        container.register(SideMenuView.self) { _ in
+            return SideMenuViewController()
+        }
     }
 }

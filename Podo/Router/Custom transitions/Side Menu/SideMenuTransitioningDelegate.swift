@@ -65,3 +65,4 @@ extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
         return interactivePresentation ? interactorForPresentationOfType(.dismissal) : nil
     }
 }
+

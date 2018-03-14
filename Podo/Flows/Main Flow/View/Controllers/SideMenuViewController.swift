@@ -47,6 +47,10 @@ final class SideMenuViewController: UIViewController {
     private func setupMiscellaneousUI() {
         view.backgroundColor = R.clr.podoColors.green()
         navigationController?.navigationBar.barTintColor = R.clr.podoColors.green()
+    // MARK: - SideMenuView protocol conformance
+
+    var onSideMenuEntrySelection: ((Any) -> Void)?
+    var onSideMenuClose: Completion?
     }
 }
 
@@ -56,5 +60,6 @@ extension SideMenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        onSideMenuEntrySelection?(indexPath)
     }
 }
