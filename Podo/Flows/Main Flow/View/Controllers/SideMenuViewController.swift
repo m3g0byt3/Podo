@@ -67,7 +67,7 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
     var onSideMenuClose: Completion?
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
-    
+
     var isTransitionInteractive = false
     var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
 }

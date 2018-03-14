@@ -58,4 +58,3 @@ final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransitio
         containerView = transitionContext.containerView
     }
 }
-

@@ -26,6 +26,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KY8-1i-XBh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EpP-Yb-8o4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KY8-1i-XBh" secondAttribute="bottom" id="ZQl-BL-I73"/>
@@ -33,20 +34,35 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KY8-1i-XBh" secondAttribute="trailing" id="ih1-jE-d8c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KUC-aC-Dvr" appends="YES" id="geP-zJ-6OA"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="0gL-dt-dND">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="SideMenuIcon" id="wNP-pD-Vby">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="sideMenuButtonHandler:" destination="BYZ-38-t0r" id="m82-t6-heA"/>
                             </connections>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="MWR-FD-awT" customClass="NavigationBarTitleView" customModule="Podo" customModuleProvider="target">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="KY8-1i-XBh" id="Q9p-XL-qOj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="KUC-aC-Dvr">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="edgePanHandler:" destination="BYZ-38-t0r" id="6aC-X3-Jxv"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="231.19999999999999" y="-90.404797601199405"/>
         </scene>

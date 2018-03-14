@@ -16,9 +16,12 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
+
     // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: MainMenuViewModel!
+
     private weak var transportCardsView: UIView?
+
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
 
     // MARK: - Lifecycle
@@ -27,7 +30,6 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         super.viewDidLoad()
         setupTableView()
         setupCardsViewController()
-        setupMiscellaneousUI()
     }
 
     // MARK: - Control handlers
@@ -37,8 +39,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         onSideMenuSelection?()
     }
 
-    @objc private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
-        onSideMenuSelection?()
+     @IBAction private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
         isTransitionInteractive = true
         switch sender.state {
         case .began: onSideMenuSelection?()
@@ -70,13 +71,6 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constant.MainMenu.estimatedRowHeight
-    }
-
-    private func setupMiscellaneousUI() {
-        let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanHandler(_:)))
-        edgePanGesture.edges = .left
-        view.addGestureRecognizer(edgePanGesture)
-        navigationItem.titleView = NavigationBarTitleView()
     }
 
     // MARK: - MainMenuView protocol conformance
