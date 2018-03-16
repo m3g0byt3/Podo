@@ -10,6 +10,14 @@ import UIKit
 
 enum Constant {
 
+    enum Flows: String {
+        case tutorial
+        case settings
+        case topUp
+        case addNewCard
+        case main
+    }
+
     enum AnimationDuration {
         /// Normal animation duration
         static let normal: TimeInterval = 0.30

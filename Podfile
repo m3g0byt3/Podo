@@ -11,6 +11,7 @@ target 'Podo' do
   pod 'SnapKit', '~> 4.0'
   pod 'R.swift', '~> 4.0.0'
   pod 'SwiftLint'
+  pod 'Swinject'
   pod 'RealmSwift'
 
   target 'PodoTests' do

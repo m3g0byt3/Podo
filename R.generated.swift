@@ -114,10 +114,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
     /// Image `MetroTrainIcon`.
     static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
+    /// Image `QuickActionSettings`.
+    static let quickActionSettings = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionSettings")
     /// Image `SideMenuIcon`.
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
     /// Image `TransportCardMask`.
@@ -126,6 +128,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
     static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.metroTrainIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "QuickActionSettings", bundle: ..., traitCollection: ...)`
+    static func quickActionSettings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.quickActionSettings, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "SideMenuIcon", bundle: ..., traitCollection: ...)`
@@ -185,14 +192,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `MainViewController`.
-    static let mainViewController = _R.storyboard.mainViewController()
+    /// Storyboard `MainMenuViewController`.
+    static let mainMenuViewController = _R.storyboard.mainMenuViewController()
+    /// Storyboard `RootViewController`.
+    static let rootViewController = _R.storyboard.rootViewController()
+    /// Storyboard `TutorialViewController`.
+    static let tutorialViewController = _R.storyboard.tutorialViewController()
     
     /// `UIStoryboard(name: "CardsViewController", bundle: ...)`
     static func cardsViewController(_: Void = ()) -> UIKit.UIStoryboard {
@@ -204,9 +215,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
-    /// `UIStoryboard(name: "MainViewController", bundle: ...)`
-    static func mainViewController(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.mainViewController)
+    /// `UIStoryboard(name: "MainMenuViewController", bundle: ...)`
+    static func mainMenuViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.mainMenuViewController)
+    }
+    
+    /// `UIStoryboard(name: "RootViewController", bundle: ...)`
+    static func rootViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.rootViewController)
+    }
+    
+    /// `UIStoryboard(name: "TutorialViewController", bundle: ...)`
+    static func tutorialViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.tutorialViewController)
     }
     
     fileprivate init() {}
@@ -292,7 +313,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try mainViewController.validate()
+      try mainMenuViewController.validate()
     }
     
     struct cardsViewController: Rswift.StoryboardResourceWithInitialControllerType {
@@ -313,15 +334,33 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct mainViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct mainMenuViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = MainMenuViewController
+      
+      let bundle = R.hostingBundle
+      let name = "MainMenuViewController"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'MainMenuViewController', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct rootViewController: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
-      let name = "MainViewController"
+      let name = "RootViewController"
       
-      static func validate() throws {
-        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'MainViewController', but couldn't be loaded.") }
-      }
+      fileprivate init() {}
+    }
+    
+    struct tutorialViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = TutorialViewController
+      
+      let bundle = R.hostingBundle
+      let name = "TutorialViewController"
       
       fileprivate init() {}
     }
