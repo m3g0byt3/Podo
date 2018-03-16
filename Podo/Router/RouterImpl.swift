@@ -13,9 +13,7 @@ final class RouterImpl {
 
     // MARK: - Properties
 
-    // strong reference to avoid immediate deallocation
-    // swiftlint:disable:next weak_delegate
-    private var transitioningDelegate: SideMenuTransitioningDelegate?
+    private var transitioningDelegates = [UIViewController: InteractiveTransitioningDelegate]()
 
     private let themeProvider: ThemeProvider?
 
@@ -30,21 +28,24 @@ final class RouterImpl {
     init(_ rootViewController: UINavigationController, assembler: Assembler) {
         self.rootViewController = rootViewController
         self.assembler = assembler
-        self.transitioningDelegate = assembler.resolver.resolve(SideMenuTransitioningDelegate.self)
         self.themeProvider = assembler.resolver.resolve(ThemeProvider.self)
         self.themeProvider?.appearanceSetup()
     }
 
     // MARK: - Private API
 
-    private func setupInteractiveTransition(for viewController: UIViewController?) {
+    private func setupInteractiveTransition(for viewController: UIViewController) {
         guard let visibleViewController = visibleViewController as? InteractiveTransitioningCapable else { return }
+        let transitioningDelegate = transitioningDelegates[viewController] ??
+            assembler.resolver.resolve(InteractiveTransitioningDelegate.self)
+
+        transitioningDelegates[viewController] = transitioningDelegate
         transitioningDelegate?.isTransitionInteractive = visibleViewController.isTransitionInteractive
-        visibleViewController.onInteractiveTransition = { [weak self] gestureRecognizer in
-            self?.transitioningDelegate?.updateTransition(using: gestureRecognizer)
+        viewController.modalPresentationStyle = .custom
+        viewController.transitioningDelegate = transitioningDelegate?.delegate
+        visibleViewController.onInteractiveTransition = { gestureRecognizer in
+            transitioningDelegate?.updateTransition(using: gestureRecognizer)
         }
-        viewController?.modalPresentationStyle = .custom
-        viewController?.transitioningDelegate = transitioningDelegate?.delegate
     }
 }
 
@@ -61,9 +62,10 @@ extension RouterImpl: Router {
 
     func present(_ view: View, animated: Bool = true, completion: Completion? = nil) {
         guard let viewController = view.presentableEntity else { return }
-        // SideMenu custom presentation
-        if viewController is SideMenuViewController {
-            setupInteractiveTransition(for: viewController)
+        // Custom presentation if needed
+        switch viewController {
+        case let viewController as SideMenuViewController: setupInteractiveTransition(for: viewController)
+        default: break
         }
         rootViewController?.present(viewController, animated: animated, completion: completion)
     }
@@ -75,11 +77,17 @@ extension RouterImpl: Router {
 
     // Dismissal
     func dismiss(animated: Bool = true, completion: Completion? = nil) {
-        // SideMenu custom dismissal
-        if rootViewController?.visibleViewController is SideMenuViewController {
-            setupInteractiveTransition(for: rootViewController?.visibleViewController)
+        let viewController = visibleViewController
+        //  Custom dismissal if needed
+        switch viewController {
+        case let viewController as SideMenuViewController: setupInteractiveTransition(for: viewController)
+        default: break
         }
-        rootViewController?.dismiss(animated: animated, completion: completion)
+        rootViewController?.dismiss(animated: animated) { [weak self] in
+            // Clear strong reference to transitioning delegate after dismissal
+            viewController.flatMap { self?.transitioningDelegates[$0] = nil }
+            completion?()
+        }
     }
 
     func pop(animated: Bool = true) {

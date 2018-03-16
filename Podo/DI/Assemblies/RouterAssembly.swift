@@ -15,8 +15,8 @@ final class RouterAssembly: Assembly {
         container.register(Router.self) { _, rootViewController, assembler in
             return RouterImpl(rootViewController, assembler: assembler)
         }
-        container.register(SideMenuTransitioningDelegate.self) { _ in
-            return SideMenuTransitioningDelegateImpl()
+        container.register(InteractiveTransitioningDelegate.self) { _ in
+            return SideMenuTransitioningDelegate()
         }
     }
 }

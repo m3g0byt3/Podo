@@ -65,11 +65,11 @@
 		41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */; };
 		41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5082055F3FB0045A50A /* SideMenuView.swift */; };
 		41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */; };
-		41BEC2F320597FBE00C656D1 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F220597FBE00C656D1 /* SideMenuTransitioningDelegate.swift */; };
+		41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */; };
 		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
 		41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */; };
 		41C9EB4F1FD40A0B000D77DD /* CardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */; };
-		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegateImpl.swift */; };
+		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */; };
 		41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */; };
 		41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41D1F1731FC78EE800F12C20 /* PodoColors.clr */; };
 		41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1781FC7908E00F12C20 /* R.generated.swift */; };
@@ -168,11 +168,11 @@
 		41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
 		41BDD5082055F3FB0045A50A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningCapable.swift; sourceTree = "<group>"; };
-		41BEC2F220597FBE00C656D1 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
+		41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningDelegate.swift; sourceTree = "<group>"; };
 		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		41C9EB4C1FD40A0B000D77DD /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		41C9EB4D1FD40A0B000D77DD /* CardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsTableViewCell.xib; sourceTree = "<group>"; };
-		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegateImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegateImpl.swift; sourceTree = "<group>"; };
+		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
 		41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningAnimator.swift; sourceTree = "<group>"; };
 		41D1F1731FC78EE800F12C20 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
 		41D1F1781FC7908E00F12C20 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -344,8 +344,8 @@
 		41607EA9204E015A009DCEA2 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				41D1F16D1FC785CD00F12C20 /* Custom transitions */,
 				41607EA7204DD7DB009DCEA2 /* RouterImpl.swift */,
+				41D1F16D1FC785CD00F12C20 /* Custom transitions */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -389,8 +389,7 @@
 		417D0A7A2056EDEE005076F8 /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
-				41BEC2F220597FBE00C656D1 /* SideMenuTransitioningDelegate.swift */,
-				41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegateImpl.swift */,
+				41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */,
 				41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */,
 				41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */,
 				41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */,
@@ -635,6 +634,7 @@
 		41D1F16D1FC785CD00F12C20 /* Custom transitions */ = {
 			isa = PBXGroup;
 			children = (
+				41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */,
 				417D0A782056E7D2005076F8 /* PresentationType.swift */,
 				417D0A7A2056EDEE005076F8 /* Side Menu */,
 			);
@@ -1134,11 +1134,11 @@
 				4183AA512034A7BE00F39DF0 /* SideMenuEntryType.swift in Sources */,
 				41607EA1204DA77E009DCEA2 /* Swinject+Flow.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
-				41BEC2F320597FBE00C656D1 /* SideMenuTransitioningDelegate.swift in Sources */,
+				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
 				41F627D620350714001ABFDD /* SideMenuEntryViewModel.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
-				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegateImpl.swift in Sources */,
+				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
 				41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */,
 				41C9EB4E1FD40A0B000D77DD /* CardsTableViewCell.swift in Sources */,
