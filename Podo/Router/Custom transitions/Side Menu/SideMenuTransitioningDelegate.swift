@@ -13,7 +13,6 @@ final class SideMenuTransitioningDelegate: NSObject, InteractiveTransitioningDel
     // MARK: - Properties
 
     private weak var interactor: SideMenuTransitioningInteractor?
-
     var isTransitionInteractive: Bool
 
     // MARK: - Initialization

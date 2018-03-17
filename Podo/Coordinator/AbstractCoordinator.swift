@@ -42,13 +42,17 @@ class AbstractCoordinator: Coordinator {
 
     // MARK: - Coordinator protocol conformance
 
-    func start() {}
+    func start() {
+        fatalError("Subclasses must override method \(#function)")
+    }
 
-    func start(with: StartOption?) {}
+    func start(with: StartOption?) {
+        fatalError("Subclasses must override method \(#function)")
+    }
 
     // MARK: - De-Initialization
 
     deinit {
-        print("deinit \(self)")
+        print("De-init \(self)")
     }
 }

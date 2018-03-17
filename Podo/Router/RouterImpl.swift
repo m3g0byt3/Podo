@@ -14,13 +14,9 @@ final class RouterImpl {
     // MARK: - Properties
 
     private var transitioningDelegates = [UIViewController: InteractiveTransitioningDelegate]()
-
     private let themeProvider: ThemeProvider?
-
     private let assembler: Assembler
-
     private weak var rootViewController: UINavigationController?
-
     private var visibleViewController: UIViewController? { return rootViewController?.visibleViewController }
 
     // MARK: - Initialization

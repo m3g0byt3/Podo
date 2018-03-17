@@ -25,7 +25,6 @@ final class ViewAssembly: Assembly {
             guard let viewController = TutorialViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(TutorialViewController.self)")
             }
-
             return viewController
         }
         container.register(SideMenuView.self) { _ in
