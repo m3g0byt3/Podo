@@ -21,5 +21,8 @@ final class CoordinatorAssembly: Assembly {
         container.register(Coordinator.self, flow: .tutorial) { _, router, assembler in
             return TutorialCoordinator(with: router, assembler)
         }
+        container.register(Coordinator.self, flow: .settings) { _, router, assembler in
+            return SettingsCoordinator(with: router, assembler)
+        }
     }
 }

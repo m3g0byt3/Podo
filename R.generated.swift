@@ -192,7 +192,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
@@ -202,6 +202,8 @@ struct R: Rswift.Validatable {
     static let mainMenuViewController = _R.storyboard.mainMenuViewController()
     /// Storyboard `RootViewController`.
     static let rootViewController = _R.storyboard.rootViewController()
+    /// Storyboard `SettingsViewController`.
+    static let settingsViewController = _R.storyboard.settingsViewController()
     /// Storyboard `TutorialViewController`.
     static let tutorialViewController = _R.storyboard.tutorialViewController()
     
@@ -223,6 +225,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "RootViewController", bundle: ...)`
     static func rootViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.rootViewController)
+    }
+    
+    /// `UIStoryboard(name: "SettingsViewController", bundle: ...)`
+    static func settingsViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.settingsViewController)
     }
     
     /// `UIStoryboard(name: "TutorialViewController", bundle: ...)`
@@ -352,6 +359,15 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "RootViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct settingsViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = SettingsViewController
+      
+      let bundle = R.hostingBundle
+      let name = "SettingsViewController"
       
       fileprivate init() {}
     }

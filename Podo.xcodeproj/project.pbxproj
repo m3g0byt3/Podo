@@ -66,6 +66,10 @@
 		41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */; };
 		41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */; };
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
+		41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */; };
+		41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */; };
+		41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0BF205ED375006A8768 /* SettingsView.swift */; };
+		41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0C2205ED7DD006A8768 /* SettingsViewController.swift */; };
 		41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */; };
 		41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5042055EBD70045A50A /* MainMenuViewController.swift */; };
 		41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */; };
@@ -177,6 +181,10 @@
 		41A5E79F1FDB3AAF00A835F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CardsViewController.storyboard; sourceTree = "<group>"; };
 		41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardInstance.swift"; sourceTree = "<group>"; };
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
+		41AFD0BB205ECCE3006A8768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsViewController.storyboard; sourceTree = "<group>"; };
+		41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		41AFD0BF205ED375006A8768 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		41AFD0C2205ED7DD006A8768 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		41BDD5042055EBD70045A50A /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
@@ -468,6 +476,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		41AFD0C1205ED7BF006A8768 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41AFD0C2205ED7DD006A8768 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		41BDD4E7205450070045A50A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +583,8 @@
 		41BDD4F72055AD230045A50A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				41AFD0C1205ED7BF006A8768 /* Controllers */,
+				41AFD0BF205ED375006A8768 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -574,6 +592,7 @@
 		41BDD4F82055AD230045A50A /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -731,6 +750,7 @@
 				41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */,
 				41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */,
 				415372842052FFA900B8C1EB /* TutorialViewController.storyboard */,
+				41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -902,6 +922,7 @@
 				41C9EB4F1FD40A0B000D77DD /* MainMenuTableViewCell.xib in Resources */,
 				41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */,
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
+				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
 				4183AA542034A8DE00F39DF0 /* sideMenuEntries.realm in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
@@ -1170,6 +1191,7 @@
 				41F627D820350817001ABFDD /* SideMenuEntry+ViewModel.swift in Sources */,
 				41607EA6204DA913009DCEA2 /* View.swift in Sources */,
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
+				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
 				41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */,
 				4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */,
 				419BA9C51FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift in Sources */,
@@ -1185,6 +1207,8 @@
 				418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */,
 				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
 				41607EA8204DD7DB009DCEA2 /* RouterImpl.swift in Sources */,
+				41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */,
+				41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */,
 				4160A50D205174EA00485C8B /* ThemeProvider.swift in Sources */,
 				4183AA512034A7BE00F39DF0 /* SideMenuEntryType.swift in Sources */,
 				41607EA1204DA77E009DCEA2 /* Swinject+Flow.swift in Sources */,
@@ -1292,6 +1316,14 @@
 				41A5E79F1FDB3AAF00A835F5 /* Base */,
 			);
 			name = CardsViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41AFD0BB205ECCE3006A8768 /* Base */,
+			);
+			name = SettingsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
