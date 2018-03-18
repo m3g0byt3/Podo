@@ -17,10 +17,9 @@ final class SideMenuTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
-    var viewModel: SideMenuEntryViewModel? {
+    var viewModel: SideMenuCellViewModel? {
         didSet {
-            customTextLabel.text = viewModel?.title
-            customImageView.image = viewModel?.icon
+            // TODO: Add actual implementation
         }
     }
 

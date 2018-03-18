@@ -19,7 +19,6 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     private var initialInsets: CGFloat {
         guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
-
         return (collectionView.bounds.width - itemSize.width) / 2
     }
 

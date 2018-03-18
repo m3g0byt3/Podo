@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SideMenuView: View {
-    // TODO: Replace `Any` with actual view-model class
-    var onSideMenuEntrySelection: ((Any) -> Void)? { get set }
+
+    var onSideMenuEntrySelection: ((SideMenuCellViewModel) -> Void)? { get set }
     var onSideMenuClose: Completion? { get set }
 }

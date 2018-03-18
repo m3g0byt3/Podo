@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class MainMenuCellViewModelImpl: MainMenuCellViewModel {
+struct MainMenuCellViewModelImpl: MainMenuCellViewModel {
 
     // TODO: Add actual implementation
 }

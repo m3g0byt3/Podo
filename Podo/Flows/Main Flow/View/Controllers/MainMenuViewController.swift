@@ -18,10 +18,8 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: MainMenuViewModel!
-
+    var viewModel: AnyViewModel<MainMenuCellViewModel>!
     private weak var transportCardsView: UIView?
-
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
 
     // MARK: - Lifecycle
@@ -39,7 +37,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         onSideMenuSelection?()
     }
 
-     @IBAction private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
+    @IBAction private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
         isTransitionInteractive = true
         switch sender.state {
         case .began: onSideMenuSelection?()
@@ -50,13 +48,21 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
     // MARK: - Private API
 
     private func setupCardsViewController() {
-        guard let cardsViewController = CardsViewController.storyboardInstance() else { return }
+        // FIXME: use injected assembler instead `defaultAssembler`
+        guard let childView = ApplicationAssembler.defaultAssembler.resolver.resolve(MainMenuChildView.self),
+            let childViewController = childView.presentableEntity else {
+                return
+        }
+        // Forward callbacks to childView
+        childView.onCardSelection = onCardSelection
+        childView.onAddNewCardSelection = onAddNewCardSelection
+
         // UIKit calls .willMove implicitly before .addChildViewController
-        addChildViewController(cardsViewController)
-        tableView.addSubview(cardsViewController.view)
-        cardsViewController.didMove(toParentViewController: self)
-        transportCardsView = cardsViewController.view
-        cardsViewController.view.snp.makeConstraints { make in
+        addChildViewController(childViewController)
+        tableView.addSubview(childViewController.view)
+        childViewController.didMove(toParentViewController: self)
+        transportCardsView = childViewController.view
+        childViewController.view.snp.makeConstraints { make in
             make.centerX.width.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(tableView.snp.top)
@@ -66,7 +72,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
     }
 
     private func setupTableView() {
-        tableView.register(R.nib.cardsTableViewCell)
+        tableView.register(R.nib.mainMenuTableViewCell)
         tableView.dataSource = self
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -77,7 +83,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
 
     var onSideMenuSelection: Completion?
     var onAddNewCardSelection: Completion?
-    var onCardSelection: ((Any) -> Void)?
+    var onCardSelection: ((CardsCellViewModel) -> Void)?
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
 
@@ -90,12 +96,15 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
 extension MainMenuViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.childViewModelsCount
+        return viewModel.numberOfChildViewModels(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Add actual implementation with cell viewModel assignation
-        return tableView.dequeueReusableCell(withIdentifier: R.nib.cardsTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.mainMenuTableViewCell.identifier, for: indexPath)
+        if let cell = cell as? MainMenuTableViewCell {
+            cell.viewModel = viewModel.childViewModel(for: indexPath)
+        }
+        return cell
     }
 }
 
