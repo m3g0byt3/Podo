@@ -17,8 +17,19 @@ final class ViewAssembly: Assembly {
             guard let viewController = MainMenuViewController.storyboardInstance() else {
                     fatalError("Unable to instantiate \(MainMenuViewController.self)")
             }
-            viewController.viewModel = resolver.resolve(MainMenuViewModel.self)
-
+            viewController.viewModel = resolver.resolve(AnyViewModel<MainMenuCellViewModel>.self)
+            return viewController
+        }
+        container.register(MainMenuChildView.self) { resolver in
+            guard let viewController = CardsViewController.storyboardInstance() else {
+                fatalError("Unable to instantiate \(CardsViewController.self)")
+            }
+            viewController.viewModel = resolver.resolve(AnyViewModel<CardsCellViewModel>.self)
+            return viewController
+        }
+        container.register(SideMenuView.self) { resolver in
+            let viewController = SideMenuViewController()
+            viewController.viewModel = resolver.resolve(AnyViewModel<SideMenuCellViewModel>.self)
             return viewController
         }
         container.register(TutorialView.self) { _ in
@@ -26,9 +37,6 @@ final class ViewAssembly: Assembly {
                 fatalError("Unable to instantiate \(TutorialViewController.self)")
             }
             return viewController
-        }
-        container.register(SideMenuView.self) { _ in
-            return SideMenuViewController()
         }
     }
 }

@@ -152,8 +152,8 @@ struct R: Rswift.Validatable {
   struct nib {
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
-    /// Nib `CardsTableViewCell`.
-    static let cardsTableViewCell = _R.nib._CardsTableViewCell()
+    /// Nib `MainMenuTableViewCell`.
+    static let mainMenuTableViewCell = _R.nib._MainMenuTableViewCell()
     /// Nib `SideMenuTableViewCell`.
     static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
     
@@ -162,9 +162,9 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.cardsCollectionViewCell)
     }
     
-    /// `UINib(name: "CardsTableViewCell", in: bundle)`
-    static func cardsTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.cardsTableViewCell)
+    /// `UINib(name: "MainMenuTableViewCell", in: bundle)`
+    static func mainMenuTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.mainMenuTableViewCell)
     }
     
     /// `UINib(name: "SideMenuTableViewCell", in: bundle)`
@@ -179,8 +179,8 @@ struct R: Rswift.Validatable {
   struct reuseIdentifier {
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
-    /// Reuse identifier `CardsTableViewCell`.
-    static let cardsTableViewCell: Rswift.ReuseIdentifier<CardsTableViewCell> = Rswift.ReuseIdentifier(identifier: "CardsTableViewCell")
+    /// Reuse identifier `MainMenuTableViewCell`.
+    static let mainMenuTableViewCell: Rswift.ReuseIdentifier<MainMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "MainMenuTableViewCell")
     /// Reuse identifier `SideMenuTableViewCell`.
     static let sideMenuTableViewCell: Rswift.ReuseIdentifier<SideMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "SideMenuTableViewCell")
     
@@ -280,15 +280,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _CardsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = CardsTableViewCell
+    struct _MainMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MainMenuTableViewCell
       
       let bundle = R.hostingBundle
-      let identifier = "CardsTableViewCell"
-      let name = "CardsTableViewCell"
+      let identifier = "MainMenuTableViewCell"
+      let name = "MainMenuTableViewCell"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> CardsTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CardsTableViewCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MainMenuTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MainMenuTableViewCell
       }
       
       fileprivate init() {}

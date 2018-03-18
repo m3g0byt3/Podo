@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-final class CardsViewController: UIViewController {
+final class CardsViewController: UIViewController, MainMenuChildView {
 
     // MARK: - IBOutlets
 
@@ -19,8 +19,8 @@ final class CardsViewController: UIViewController {
 
     // MARK: - Properties
 
-    /// DataSource for collectionView
-    private lazy var collectionViewDatasource = СollectionViewProvider()
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    var viewModel: AnyViewModel<CardsCellViewModel>!
     /// Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
     private var viewInitialSize: CGSize?
     /// Returns ratio between initial and current height of this VC's view
@@ -28,6 +28,7 @@ final class CardsViewController: UIViewController {
         guard let viewInitialSize = viewInitialSize else { return nil }
         return view.bounds.height / viewInitialSize.height
     }
+//    private weak var parentViewController: MainMenuView?
 
     // MARK: - Lifecycle
 
@@ -54,7 +55,6 @@ final class CardsViewController: UIViewController {
 
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)
-        collectionView.dataSource = collectionViewDatasource
         // Apply offset to bottom-to-superview IB constrait
         collectionViewBottomConstraint.constant = Constant.MainMenu.collectionViewBottomOffset
     }
@@ -65,10 +65,41 @@ final class CardsViewController: UIViewController {
         // ..Then add fixed height constrait - to avoid wrong collectionView initial centering
         collectionView.snp.makeConstraints { $0.height.equalTo(view.bounds.height) }
     }
+
+    // MARK: - MainMenuChildView protocol conformance
+
+    var onAddNewCardSelection: Completion?
+    var onCardSelection: ((CardsCellViewModel) -> Void)?
+}
+
+// MARK: - UICollectionViewDataSource protocol conformance
+
+extension CardsViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // TODO: return +1, because there should be an `add new card` cell
+        return viewModel.numberOfChildViewModels(in: section)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.cardsCollectionViewCell.identifier, for: indexPath)
+        if let cell = cell as? CardsCollectionViewCell {
+            cell.viewModel = viewModel.childViewModel(for: indexPath)
+        }
+        return cell
+    }
 }
 
 // MARK: - UICollectionViewDelegate protocol conformance
 
 extension CardsViewController: UICollectionViewDelegate {
-    // TODO: Add actual implementation
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if let childViewModel = viewModel.childViewModel(for: indexPath) {
+            onCardSelection?(childViewModel)
+        } else {
+            onAddNewCardSelection?()
+        }
+    }
 }

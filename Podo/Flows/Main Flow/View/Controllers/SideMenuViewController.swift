@@ -15,8 +15,8 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
 
     // swiftlint:disable:next implicitly_unwrapped_optional
     private weak var navigationBar: UINavigationBar!
-    // TODO: Replace with view model
-    private lazy var tableViewDataSource = SideMenuTableViewProvider()
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    var viewModel: AnyViewModel<SideMenuCellViewModel>!
 
     // MARK: - Lifecycle
 
@@ -29,11 +29,12 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
     // MARK: - Private API
 
     private func setupTableView() {
-        // `-1` to hide bottom separator
-        let tableViewHeight = CGFloat(tableViewDataSource.entriesCount) * Constant.SideMenu.rowHeight - 1
+        let rowCount = viewModel.numberOfChildViewModels(in: 0)
+        // `-1` for hidden bottom separator
+        let tableViewHeight = CGFloat(rowCount) * Constant.SideMenu.rowHeight - 1
         let tableView = UITableView()
 
-        tableView.dataSource = tableViewDataSource
+        tableView.dataSource = self
         tableView.delegate = self
         tableView.isScrollEnabled = false
         tableView.separatorStyle = .singleLine
@@ -63,7 +64,7 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
 
     // MARK: - SideMenuView protocol conformance
 
-    var onSideMenuEntrySelection: ((Any) -> Void)?
+    var onSideMenuEntrySelection: ((SideMenuCellViewModel) -> Void)?
     var onSideMenuClose: Completion?
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
@@ -81,12 +82,29 @@ extension SideMenuViewController: UINavigationBarDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource protocol conformance
+
+extension SideMenuViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfChildViewModels(in: section)
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.sideMenuTableViewCell.identifier, for: indexPath)
+        if let cell = cell as? SideMenuTableViewCell {
+            cell.viewModel = viewModel.childViewModel(for: indexPath)
+        }
+        return cell
+    }
+}
+
 // MARK: - UITableViewDelegate protocol conformance
 
 extension SideMenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        onSideMenuEntrySelection?(indexPath)
+        viewModel.childViewModel(for: indexPath).flatMap { onSideMenuEntrySelection?($0) }
     }
 }

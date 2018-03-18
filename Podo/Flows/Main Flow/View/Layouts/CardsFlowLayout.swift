@@ -16,7 +16,7 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
     private lazy var setupInitialInsets: Void = { [weak self] in
         self?.collectionView?.contentInset = UIEdgeInsets(top: 0, left: initialInsets, bottom: 0, right: initialInsets)
         }()
-    
+
     private var initialInsets: CGFloat {
         guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
         return (collectionView.bounds.width - itemSize.width) / 2
