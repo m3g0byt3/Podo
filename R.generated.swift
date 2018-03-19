@@ -155,14 +155,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
+    /// Nib `AddNewCardCollectionViewCell`.
+    static let addNewCardCollectionViewCell = _R.nib._AddNewCardCollectionViewCell()
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `MainMenuTableViewCell`.
     static let mainMenuTableViewCell = _R.nib._MainMenuTableViewCell()
     /// Nib `SideMenuTableViewCell`.
     static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
+    
+    /// `UINib(name: "AddNewCardCollectionViewCell", in: bundle)`
+    static func addNewCardCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addNewCardCollectionViewCell)
+    }
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
     static func cardsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -182,8 +189,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AddNewCardCollectionViewCell`.
+    static let addNewCardCollectionViewCell: Rswift.ReuseIdentifier<AddNewCardCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "AddNewCardCollectionViewCell")
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
     /// Reuse identifier `MainMenuTableViewCell`.
@@ -274,6 +283,25 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _CardsCollectionViewCell.validate()
+      try _AddNewCardCollectionViewCell.validate()
+    }
+    
+    struct _AddNewCardCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = AddNewCardCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "AddNewCardCollectionViewCell"
+      let name = "AddNewCardCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AddNewCardCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddNewCardCollectionViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "AddNewCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'AddNewCardIcon' is used in nib 'AddNewCardCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct _CardsCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
