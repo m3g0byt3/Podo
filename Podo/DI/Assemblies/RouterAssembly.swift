@@ -12,8 +12,8 @@ import Swinject
 final class RouterAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(Router.self) { _, rootViewController, assembler in
-            return RouterImpl(rootViewController, assembler: assembler)
+        container.register(Router.self) { _, rootViewController in
+            return RouterImpl(rootViewController, assembler: ApplicationAssembler.defaultAssembler)
         }
         container.register(InteractiveTransitioningDelegate.self) { _ in
             return SideMenuTransitioningDelegate()

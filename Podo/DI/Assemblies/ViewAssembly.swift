@@ -18,6 +18,7 @@ final class ViewAssembly: Assembly {
                     fatalError("Unable to instantiate \(MainMenuViewController.self)")
             }
             viewController.viewModel = resolver.resolve(AnyViewModel<MainMenuCellViewModel>.self)
+            viewController.assembler = ApplicationAssembler.defaultAssembler
             return viewController
         }
         container.register(MainMenuChildView.self) { resolver in

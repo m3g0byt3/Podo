@@ -52,7 +52,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
     private func startSettingsFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
                                                      flow: .settings,
-                                                     arguments: router, assembler)
+                                                     argument: router)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)

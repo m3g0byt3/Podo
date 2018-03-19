@@ -23,11 +23,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let router = ApplicationAssembler
             .defaultAssembler
             .resolver
-            .resolve(Router.self, arguments: rootViewController, ApplicationAssembler.defaultAssembler) else { return nil }
+            .resolve(Router.self, argument: rootViewController) else { return nil }
         return ApplicationAssembler
             .defaultAssembler
             .resolver
-            .resolve(Coordinator.self, arguments: router, ApplicationAssembler.defaultAssembler)
+            .resolve(Coordinator.self, argument: router)
     }()
 
     // MARK: - UIApplicationDelegate protocol conformance

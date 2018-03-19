@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Swinject
 
 final class MainMenuViewController: UIViewController, MainMenuView, InteractiveTransitioningCapable {
 
@@ -19,6 +20,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
 
     // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: AnyViewModel<MainMenuCellViewModel>!
+    var assembler: Assembler?
     private weak var transportCardsView: UIView?
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }
 
@@ -48,12 +50,11 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
     // MARK: - Private API
 
     private func setupCardsViewController() {
-        // FIXME: use injected assembler instead `defaultAssembler`
-        guard let childView = ApplicationAssembler.defaultAssembler.resolver.resolve(MainMenuChildView.self),
+        guard let childView = assembler?.resolver.resolve(MainMenuChildView.self),
             let childViewController = childView.presentableEntity else {
                 return
         }
-        // Forward callbacks to childView
+        // Forward callbacks to the childView
         childView.onCardSelection = onCardSelection
         childView.onAddNewCardSelection = onAddNewCardSelection
 
