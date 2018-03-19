@@ -20,7 +20,7 @@ class AbstractCoordinator: Coordinator {
 
     // MARK: - Initialization
 
-    init(with router: Router, _ assembler: Assembler) {
+    init(router: Router, assembler: Assembler) {
         // Avoid initialization of abstract class
         guard type(of: self) != AbstractCoordinator.self else {
             fatalError("Create a subclass instance of abstract class \(AbstractCoordinator.self).")
@@ -46,13 +46,7 @@ class AbstractCoordinator: Coordinator {
         fatalError("Subclasses must override method \(#function)")
     }
 
-    func start(with: StartOption?) {
+    func start(with option: StartOption?) {
         fatalError("Subclasses must override method \(#function)")
-    }
-
-    // MARK: - De-Initialization
-
-    deinit {
-        print("De-init \(self)")
     }
 }

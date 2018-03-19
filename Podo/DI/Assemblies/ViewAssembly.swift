@@ -38,7 +38,7 @@ final class ViewAssembly: Assembly {
             }
             return viewController
         }
-        container.register(SettingsView.self) { resolver in
+        container.register(SettingsView.self) { _ in
             guard let viewController = SettingsViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(SettingsViewController.self)")
             }

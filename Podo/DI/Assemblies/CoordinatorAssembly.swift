@@ -13,16 +13,16 @@ final class CoordinatorAssembly: Assembly {
 
     func assemble(container: Container) {
         container.register(Coordinator.self) { _, router, assembler in
-            return ApplicationCoordinator(with: router, assembler)
+            return ApplicationCoordinator(router: router, assembler: assembler)
         }
         container.register(Coordinator.self, flow: .main) { _, router, assembler in
-            return MainMenuCoordinator(with: router, assembler)
+            return MainMenuCoordinator(router: router, assembler: assembler)
         }
         container.register(Coordinator.self, flow: .tutorial) { _, router, assembler in
-            return TutorialCoordinator(with: router, assembler)
+            return TutorialCoordinator(router: router, assembler: assembler)
         }
         container.register(Coordinator.self, flow: .settings) { _, router, assembler in
-            return SettingsCoordinator(with: router, assembler)
+            return SettingsCoordinator(router: router, assembler: assembler)
         }
     }
 }

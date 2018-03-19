@@ -21,14 +21,29 @@ final class CardsViewController: UIViewController, MainMenuChildView {
 
     // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: AnyViewModel<CardsCellViewModel>!
-    /// Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
+    /**
+     Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
+     */
     private var viewInitialSize: CGSize?
-    /// Returns ratio between initial and current height of this VC's view
+    /**
+     Returns ratio between initial and current height of this VC's view
+     */
     private var parentViewHeightRatio: CGFloat? {
         guard let viewInitialSize = viewInitialSize else { return nil }
         return view.bounds.height / viewInitialSize.height
     }
-//    private weak var parentViewController: MainMenuView?
+    /**
+     Setup constraints for the collection view.
+     - warning: Dispatched once.
+     */
+    private lazy var setupCollectionViewTopConstraint: () -> Void = {
+        // First deactivate top-to-superview IB constrait..
+        NSLayoutConstraint.deactivate([collectionViewTopConstraint])
+        // ..Then add fixed height constrait - to avoid wrong collectionView initial centering
+        collectionView.snp.makeConstraints { $0.height.equalTo(view.bounds.height) }
+        // Return dummy closure
+        return {}
+    }()
 
     // MARK: - Lifecycle
 
@@ -57,13 +72,6 @@ final class CardsViewController: UIViewController, MainMenuChildView {
         collectionView.register(R.nib.cardsCollectionViewCell)
         // Apply offset to bottom-to-superview IB constrait
         collectionViewBottomConstraint.constant = Constant.MainMenu.collectionViewBottomOffset
-    }
-
-    private func setupCollectionViewTopConstraint() {
-        // First deactivate top-to-superview IB constrait..
-        NSLayoutConstraint.deactivate([collectionViewTopConstraint])
-        // ..Then add fixed height constrait - to avoid wrong collectionView initial centering
-        collectionView.snp.makeConstraints { $0.height.equalTo(view.bounds.height) }
     }
 
     // MARK: - MainMenuChildView protocol conformance
