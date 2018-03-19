@@ -11,6 +11,7 @@ import Foundation
 struct SideMenuViewModelImpl: SideMenuViewModel {
 
     func numberOfChildViewModels(in section: Int) -> Int {
+        // TODO: Add actual implementation
         return 3
     }
 

@@ -91,10 +91,8 @@ extension SideMenuViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.sideMenuTableViewCell.identifier, for: indexPath)
-        if let cell = cell as? SideMenuTableViewCell {
-            cell.viewModel = viewModel.childViewModel(for: indexPath)
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sideMenuTableViewCell, for: indexPath)!
+        cell.viewModel = viewModel.childViewModel(for: indexPath)
         return cell
     }
 }

@@ -13,11 +13,13 @@ struct CardsViewModelImpl: CardsViewModel {
     // MARK: - CardsViewModel protocol conformance
 
     func numberOfChildViewModels(in section: Int) -> Int {
-        return 5
+        // TODO: Add actual implementation
+        return 2
     }
 
     func childViewModel(for indexPath: IndexPath) -> CardsCellViewModel? {
         // TODO: Add actual implementation
-        return CardsCellViewModelImpl()
+        let isChildViewModelAvailable = indexPath.row < numberOfChildViewModels(in: indexPath.section)
+        return isChildViewModelAvailable ? CardsCellViewModelImpl() : nil
     }
 }

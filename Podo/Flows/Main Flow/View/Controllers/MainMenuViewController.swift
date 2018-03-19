@@ -101,10 +101,8 @@ extension MainMenuViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.mainMenuTableViewCell.identifier, for: indexPath)
-        if let cell = cell as? MainMenuTableViewCell {
-            cell.viewModel = viewModel.childViewModel(for: indexPath)
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.mainMenuTableViewCell, for: indexPath)!
+        cell.viewModel = viewModel.childViewModel(for: indexPath)
         return cell
     }
 }
