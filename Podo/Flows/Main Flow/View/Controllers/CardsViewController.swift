@@ -70,6 +70,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
 
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)
+        collectionView.register(R.nib.addNewCardCollectionViewCell)
         // Apply offset to bottom-to-superview IB constrait
         collectionViewBottomConstraint.constant = Constant.MainMenu.collectionViewBottomOffset
     }
@@ -85,12 +86,14 @@ final class CardsViewController: UIViewController, MainMenuChildView {
 extension CardsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: return +1, because there should be an `add new card` cell
-        return viewModel.numberOfChildViewModels(in: section)
+        // numberOfChildViewModels + 1 (for `add new card` cell)
+        return viewModel.numberOfChildViewModels(in: section) + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.cardsCollectionViewCell.identifier, for: indexPath)
+        let isLastCell = indexPath.row == viewModel.numberOfChildViewModels(in: indexPath.section)
+        let identifier = isLastCell ? R.nib.addNewCardCollectionViewCell.identifier : R.nib.cardsCollectionViewCell.identifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         if let cell = cell as? CardsCollectionViewCell {
             cell.viewModel = viewModel.childViewModel(for: indexPath)
         }

@@ -13,6 +13,7 @@ struct MainMenuViewModelImpl: MainMenuViewModel {
     // MARK: - MainMenuViewModel protocol conformance
 
     func numberOfChildViewModels(in section: Int) -> Int {
+        // TODO: Add actual implementation
         return 10
     }
 

@@ -114,16 +114,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
+    /// Image `AddNewCardIcon`.
+    static let addNewCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "AddNewCardIcon")
     /// Image `MetroTrainIcon`.
     static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
     /// Image `QuickActionSettings`.
     static let quickActionSettings = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionSettings")
     /// Image `SideMenuIcon`.
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
-    /// Image `TransportCardMask`.
-    static let transportCardMask = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardMask")
+    /// Image `TransportCardIcon`.
+    static let transportCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardIcon")
+    
+    /// `UIImage(named: "AddNewCardIcon", bundle: ..., traitCollection: ...)`
+    static func addNewCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addNewCardIcon, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
     static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -140,22 +147,29 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.sideMenuIcon, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "TransportCardMask", bundle: ..., traitCollection: ...)`
-    static func transportCardMask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.transportCardMask, compatibleWith: traitCollection)
+    /// `UIImage(named: "TransportCardIcon", bundle: ..., traitCollection: ...)`
+    static func transportCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transportCardIcon, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
+    /// Nib `AddNewCardCollectionViewCell`.
+    static let addNewCardCollectionViewCell = _R.nib._AddNewCardCollectionViewCell()
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `MainMenuTableViewCell`.
     static let mainMenuTableViewCell = _R.nib._MainMenuTableViewCell()
     /// Nib `SideMenuTableViewCell`.
     static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
+    
+    /// `UINib(name: "AddNewCardCollectionViewCell", in: bundle)`
+    static func addNewCardCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addNewCardCollectionViewCell)
+    }
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
     static func cardsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
@@ -175,8 +189,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AddNewCardCollectionViewCell`.
+    static let addNewCardCollectionViewCell: Rswift.ReuseIdentifier<AddNewCardCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "AddNewCardCollectionViewCell")
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
     /// Reuse identifier `MainMenuTableViewCell`.
@@ -267,6 +283,25 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _CardsCollectionViewCell.validate()
+      try _AddNewCardCollectionViewCell.validate()
+    }
+    
+    struct _AddNewCardCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = AddNewCardCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "AddNewCardCollectionViewCell"
+      let name = "AddNewCardCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AddNewCardCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddNewCardCollectionViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "AddNewCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'AddNewCardIcon' is used in nib 'AddNewCardCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct _CardsCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -281,7 +316,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "TransportCardMask", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransportCardMask' is used in nib 'CardsCollectionViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TransportCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransportCardIcon' is used in nib 'CardsCollectionViewCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
