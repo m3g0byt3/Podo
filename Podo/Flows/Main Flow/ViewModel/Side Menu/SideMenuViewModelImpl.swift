@@ -8,15 +8,34 @@
 
 import Foundation
 
-struct SideMenuViewModelImpl: SideMenuViewModel {
+final class SideMenuViewModelImpl {
+
+    // MARK: - Properties
+
+    private let model: AnyDatabaseService<SideMenuItem>
+    private var items = [SideMenuItem]()
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<SideMenuItem>) {
+        self.model = model
+        let sortKeyPath = #keyPath(SideMenuItem.identifier)
+        let sortOption = SortOption.ascending(keyPath: sortKeyPath)
+        try? model.fetch(predicate: nil, sorted: sortOption) { [weak self] items in
+            self?.items = items
+        }
+    }
+}
+
+// MARK: - SideMenuViewModel protocol conformance
+
+extension SideMenuViewModelImpl: SideMenuViewModel {
 
     func numberOfChildViewModels(in section: Int) -> Int {
-        // TODO: Add actual implementation
-        return 3
+        return items.count
     }
 
     func childViewModel(for indexPath: IndexPath) -> SideMenuCellViewModel? {
-        // TODO: Add actual implementation
-        return SideMenuCellViewModelImpl()
+        return SideMenuCellViewModelImpl(items[indexPath.row])
     }
 }
