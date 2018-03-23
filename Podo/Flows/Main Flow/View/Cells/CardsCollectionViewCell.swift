@@ -10,5 +10,11 @@ import UIKit
 
 final class CardsCollectionViewCell: UICollectionViewCell {
 
-    // TODO: Add actual implementation
+    // MARK: - Properties
+
+    var viewModel: CardsCellViewModel? {
+        didSet {
+            // TODO: Add actual implementation
+        }
+    }
 }

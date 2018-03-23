@@ -17,7 +17,7 @@ final class ApplicationCoordinator: AbstractCoordinator {
     private func startMainFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
                                                      flow: .main,
-                                                     arguments: router, assembler)
+                                                     argument: router)
         addChild(coordinator)
         coordinator?.start()
     }
@@ -25,25 +25,13 @@ final class ApplicationCoordinator: AbstractCoordinator {
     private func startTutorialFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
                                                      flow: .tutorial,
-                                                     arguments: router, assembler)
+                                                     argument: router)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
             self?.start()
         }
         coordinator?.start()
-    }
-
-    private func startSettingsFlow() {
-        fatalError("\(#function) not implemented yet!")
-    }
-
-    private func startTopUpFlowForCardWith(identifier: String) {
-        fatalError("\(#function) not implemented yet!")
-    }
-
-    private func startAddNewCardFlow() {
-        fatalError("\(#function) not implemented yet!")
     }
 
     // MARK: - Coordinator protocol conformance
@@ -54,12 +42,16 @@ final class ApplicationCoordinator: AbstractCoordinator {
 
     override func start(with option: StartOption?) {
         switch option {
-        // FIXME: For test purposes only! `.settings` must call `startSettingsFlow()` func
-        case .some(.settings): startTutorialFlow()
+        // Handle tutorial start option by itself
         case .some(.tutorial): startTutorialFlow()
-        case .some(.addNewCard): startAddNewCardFlow()
-        case .some(.topUp(let cardIdentifier)): startTopUpFlowForCardWith(identifier: cardIdentifier)
-        case .none: startMainFlow()
+        // Handle all other start options by the child coordinators
+        default:
+            // If no flows are started yet (i.e. after cold launch
+            // from the 3Dtouch/push/handoff) - start main flow explicitly
+            if coordinators.isEmpty {
+                startMainFlow()
+            }
+            coordinators.forEach { $0.start(with: option) }
         }
     }
 }

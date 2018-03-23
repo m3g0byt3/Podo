@@ -30,4 +30,9 @@ final class TutorialCoordinator: AbstractCoordinator {
     override func start() {
         showTutorial()
     }
+
+    override func start(with option: StartOption?) {
+        guard case .some(.tutorial) = option else { return }
+        showTutorial()
+    }
 }

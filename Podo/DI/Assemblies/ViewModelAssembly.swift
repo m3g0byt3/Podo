@@ -12,11 +12,14 @@ import Swinject
 final class ViewModelAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(MainMenuViewModel.self) { _ in
-            MainMenuViewModelImpl()
+        container.register(AnyViewModel<MainMenuCellViewModel>.self) { _ in
+            AnyViewModel(MainMenuViewModelImpl())
         }
-        container.register(MainMenuCellViewModel.self) { _ in
-            MainMenuCellViewModelImpl()
+        container.register(AnyViewModel<CardsCellViewModel>.self) { _ in
+            AnyViewModel(CardsViewModelImpl())
+        }
+        container.register(AnyViewModel<SideMenuCellViewModel>.self) { _ in
+            AnyViewModel(SideMenuViewModelImpl())
         }
     }
 }

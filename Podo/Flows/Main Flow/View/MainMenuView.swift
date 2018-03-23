@@ -8,10 +8,15 @@
 
 import Foundation
 
-protocol MainMenuView: View {
+typealias MainMenuView = MainMenuParentView & MainMenuChildView
+
+protocol MainMenuParentView: View {
 
     var onSideMenuSelection: Completion? { get set }
+}
+
+protocol MainMenuChildView: View {
+
     var onAddNewCardSelection: Completion? { get set }
-    // TODO: Replace `Any` with actual view-model class
-    var onCardSelection: ((Any) -> Void)? { get set }
+    var onCardSelection: ((CardsCellViewModel) -> Void)? { get set }
 }

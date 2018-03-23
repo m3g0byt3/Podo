@@ -49,6 +49,17 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     // MARK: - External flows
 
+    private func startSettingsFlow() {
+        let coordinator = assembler.resolver.resolve(Coordinator.self,
+                                                     flow: .settings,
+                                                     argument: router)
+        addChild(coordinator)
+        coordinator?.onFlowFinish = { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+        }
+        coordinator?.start()
+    }
+
     private func startAddNewCardFlow() {
         fatalError("\(#function) not implemented yet!")
     }
@@ -61,5 +72,15 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     override func start() {
         showMainMenu()
+    }
+
+    override func start(with option: StartOption?) {
+        switch option {
+        // TODO: Find transport card by `cardIdentifier` and pass it to the `startTopUpFlowForCard` func
+        case .some(.topUp(let cardIdentifier)): startTopUpFlowForCard(cardIdentifier)
+        case .some(.addNewCard): startAddNewCardFlow()
+        case .some(.settings): startSettingsFlow()
+        default: break
+        }
     }
 }

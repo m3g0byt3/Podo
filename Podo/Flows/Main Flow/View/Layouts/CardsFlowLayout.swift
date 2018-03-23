@@ -13,13 +13,18 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - Properties
 
-    private lazy var setupInitialInsets: Void = { [weak self] in
+    /**
+     Setup initial insets for the collection view.
+     - warning: Dispatched once.
+     */
+    private lazy var setupInitialInsets: () -> Void = { [weak self] in
         self?.collectionView?.contentInset = UIEdgeInsets(top: 0, left: initialInsets, bottom: 0, right: initialInsets)
-        }()
+        return {}
+    }()
 
     private var initialInsets: CGFloat {
         guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
-
+        // Return dummy closure
         return (collectionView.bounds.width - itemSize.width) / 2
     }
 
@@ -48,8 +53,7 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     override func prepare() {
         super.prepare()
-        // Dispatched once
-        _ = setupInitialInsets
+        setupInitialInsets()
     }
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {

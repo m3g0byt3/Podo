@@ -14,7 +14,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
 
     var window: UIWindow?
-
     private var rootViewController: UINavigationController {
         // swiftlint:disable:next force_cast
         return window!.rootViewController as! UINavigationController
@@ -24,11 +23,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let router = ApplicationAssembler
             .defaultAssembler
             .resolver
-            .resolve(Router.self, arguments: rootViewController, ApplicationAssembler.defaultAssembler) else { return nil }
+            .resolve(Router.self, argument: rootViewController) else { return nil }
         return ApplicationAssembler
             .defaultAssembler
             .resolver
-            .resolve(Coordinator.self, arguments: router, ApplicationAssembler.defaultAssembler)
+            .resolve(Coordinator.self, argument: router)
     }()
 
     // MARK: - UIApplicationDelegate protocol conformance

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TutorialViewController: UIViewController, TutorialView {
+final class TutorialViewController: UIViewController, TutorialView {
 
-    // MARK: - Properties
+    // MARK: - TutorialView protocol conformance
 
     var onNext: Completion?
     var onSkip: Completion?

@@ -114,16 +114,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
+    /// Image `AddNewCardIcon`.
+    static let addNewCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "AddNewCardIcon")
     /// Image `MetroTrainIcon`.
     static let metroTrainIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "MetroTrainIcon")
     /// Image `QuickActionSettings`.
     static let quickActionSettings = Rswift.ImageResource(bundle: R.hostingBundle, name: "QuickActionSettings")
     /// Image `SideMenuIcon`.
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
-    /// Image `TransportCardMask`.
-    static let transportCardMask = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardMask")
+    /// Image `TransportCardIcon`.
+    static let transportCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardIcon")
+    
+    /// `UIImage(named: "AddNewCardIcon", bundle: ..., traitCollection: ...)`
+    static func addNewCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addNewCardIcon, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "MetroTrainIcon", bundle: ..., traitCollection: ...)`
     static func metroTrainIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -140,31 +147,38 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.sideMenuIcon, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "TransportCardMask", bundle: ..., traitCollection: ...)`
-    static func transportCardMask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.transportCardMask, compatibleWith: traitCollection)
+    /// `UIImage(named: "TransportCardIcon", bundle: ..., traitCollection: ...)`
+    static func transportCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transportCardIcon, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
+    /// Nib `AddNewCardCollectionViewCell`.
+    static let addNewCardCollectionViewCell = _R.nib._AddNewCardCollectionViewCell()
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
-    /// Nib `CardsTableViewCell`.
-    static let cardsTableViewCell = _R.nib._CardsTableViewCell()
+    /// Nib `MainMenuTableViewCell`.
+    static let mainMenuTableViewCell = _R.nib._MainMenuTableViewCell()
     /// Nib `SideMenuTableViewCell`.
     static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
+    
+    /// `UINib(name: "AddNewCardCollectionViewCell", in: bundle)`
+    static func addNewCardCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addNewCardCollectionViewCell)
+    }
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
     static func cardsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.cardsCollectionViewCell)
     }
     
-    /// `UINib(name: "CardsTableViewCell", in: bundle)`
-    static func cardsTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.cardsTableViewCell)
+    /// `UINib(name: "MainMenuTableViewCell", in: bundle)`
+    static func mainMenuTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.mainMenuTableViewCell)
     }
     
     /// `UINib(name: "SideMenuTableViewCell", in: bundle)`
@@ -175,12 +189,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AddNewCardCollectionViewCell`.
+    static let addNewCardCollectionViewCell: Rswift.ReuseIdentifier<AddNewCardCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "AddNewCardCollectionViewCell")
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
-    /// Reuse identifier `CardsTableViewCell`.
-    static let cardsTableViewCell: Rswift.ReuseIdentifier<CardsTableViewCell> = Rswift.ReuseIdentifier(identifier: "CardsTableViewCell")
+    /// Reuse identifier `MainMenuTableViewCell`.
+    static let mainMenuTableViewCell: Rswift.ReuseIdentifier<MainMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "MainMenuTableViewCell")
     /// Reuse identifier `SideMenuTableViewCell`.
     static let sideMenuTableViewCell: Rswift.ReuseIdentifier<SideMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "SideMenuTableViewCell")
     
@@ -192,7 +208,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
@@ -202,6 +218,8 @@ struct R: Rswift.Validatable {
     static let mainMenuViewController = _R.storyboard.mainMenuViewController()
     /// Storyboard `RootViewController`.
     static let rootViewController = _R.storyboard.rootViewController()
+    /// Storyboard `SettingsViewController`.
+    static let settingsViewController = _R.storyboard.settingsViewController()
     /// Storyboard `TutorialViewController`.
     static let tutorialViewController = _R.storyboard.tutorialViewController()
     
@@ -225,6 +243,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.rootViewController)
     }
     
+    /// `UIStoryboard(name: "SettingsViewController", bundle: ...)`
+    static func settingsViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.settingsViewController)
+    }
+    
     /// `UIStoryboard(name: "TutorialViewController", bundle: ...)`
     static func tutorialViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.tutorialViewController)
@@ -233,8 +256,185 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 8 localization tables.
   struct string {
+    /// This `R.string.cardsViewController` struct is generated, and contains static references to 0 localization keys.
+    struct cardsViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 2 localization keys.
+    struct infoPlist {
+      /// Base translation: Copyright © 2018 Andrey Fedorov. All rights reserved.
+      /// 
+      /// Locales: ru, Base
+      static let nsHumanReadableCopyright = Rswift.StringResource(key: "NSHumanReadableCopyright", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
+      /// Base translation: Podorozhnik
+      /// 
+      /// Locales: ru, Base
+      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
+      
+      /// Base translation: Copyright © 2018 Andrey Fedorov. All rights reserved.
+      /// 
+      /// Locales: ru, Base
+      static func nsHumanReadableCopyright(_: Void = ()) -> String {
+        return NSLocalizedString("NSHumanReadableCopyright", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Copyright © 2018 Andrey Fedorov. All rights reserved.", comment: "")
+      }
+      
+      /// Base translation: Podorozhnik
+      /// 
+      /// Locales: ru, Base
+      static func cfBundleDisplayName(_: Void = ()) -> String {
+        return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Podorozhnik", comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 2 localization keys.
+    struct launchScreen {
+      /// ru translation: Copyright © 2018 Андрей Федоров. Все права защищены.
+      /// 
+      /// Locales: ru
+      static let obGY5KRdText = Rswift.StringResource(key: "obG-Y5-kRd.text", tableName: "LaunchScreen", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Podo
+      /// 
+      /// Locales: ru
+      static let gJdYhRWbText = Rswift.StringResource(key: "GJd-Yh-RWb.text", tableName: "LaunchScreen", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Copyright © 2018 Андрей Федоров. Все права защищены.
+      /// 
+      /// Locales: ru
+      static func obGY5KRdText(_: Void = ()) -> String {
+        return NSLocalizedString("obG-Y5-kRd.text", tableName: "LaunchScreen", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Podo
+      /// 
+      /// Locales: ru
+      static func gJdYhRWbText(_: Void = ()) -> String {
+        return NSLocalizedString("GJd-Yh-RWb.text", tableName: "LaunchScreen", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    struct localizable {
+      /// Base translation: Contacts
+      /// 
+      /// Locales: Base, ru
+      static let contacts = Rswift.StringResource(key: "contacts", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Help
+      /// 
+      /// Locales: Base, ru
+      static let help = Rswift.StringResource(key: "help", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Main screen
+      /// 
+      /// Locales: Base, ru
+      static let main = Rswift.StringResource(key: "main", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Settings
+      /// 
+      /// Locales: Base, ru
+      static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      
+      /// Base translation: Contacts
+      /// 
+      /// Locales: Base, ru
+      static func contacts(_: Void = ()) -> String {
+        return NSLocalizedString("contacts", bundle: R.hostingBundle, value: "Contacts", comment: "")
+      }
+      
+      /// Base translation: Help
+      /// 
+      /// Locales: Base, ru
+      static func help(_: Void = ()) -> String {
+        return NSLocalizedString("help", bundle: R.hostingBundle, value: "Help", comment: "")
+      }
+      
+      /// Base translation: Main screen
+      /// 
+      /// Locales: Base, ru
+      static func main(_: Void = ()) -> String {
+        return NSLocalizedString("main", bundle: R.hostingBundle, value: "Main screen", comment: "")
+      }
+      
+      /// Base translation: Settings
+      /// 
+      /// Locales: Base, ru
+      static func settings(_: Void = ()) -> String {
+        return NSLocalizedString("settings", bundle: R.hostingBundle, value: "Settings", comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.mainMenuViewController` struct is generated, and contains static references to 0 localization keys.
+    struct mainMenuViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.rootViewController` struct is generated, and contains static references to 0 localization keys.
+    struct rootViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.settingsViewController` struct is generated, and contains static references to 1 localization keys.
+    struct settingsViewController {
+      /// ru translation: SettingsViewController
+      /// 
+      /// Locales: ru
+      static let fxad11NVText = Rswift.StringResource(key: "FXA-d1-1NV.text", tableName: "SettingsViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: SettingsViewController
+      /// 
+      /// Locales: ru
+      static func fxad11NVText(_: Void = ()) -> String {
+        return NSLocalizedString("FXA-d1-1NV.text", tableName: "SettingsViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.tutorialViewController` struct is generated, and contains static references to 3 localization keys.
+    struct tutorialViewController {
+      /// ru translation: Next
+      /// 
+      /// Locales: ru
+      static let u0HjXWjNormalTitle = Rswift.StringResource(key: "0U0-hj-xWj.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Skip
+      /// 
+      /// Locales: ru
+      static let ej50XCyoNormalTitle = Rswift.StringResource(key: "Ej5-0X-Cyo.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: TutorialViewController
+      /// 
+      /// Locales: ru
+      static let iEnFaQtUText = Rswift.StringResource(key: "IEn-fa-qtU.text", tableName: "TutorialViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Next
+      /// 
+      /// Locales: ru
+      static func u0HjXWjNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("0U0-hj-xWj.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Skip
+      /// 
+      /// Locales: ru
+      static func ej50XCyoNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("Ej5-0X-Cyo.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: TutorialViewController
+      /// 
+      /// Locales: ru
+      static func iEnFaQtUText(_: Void = ()) -> String {
+        return NSLocalizedString("IEn-fa-qtU.text", tableName: "TutorialViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -260,6 +460,25 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _CardsCollectionViewCell.validate()
+      try _AddNewCardCollectionViewCell.validate()
+    }
+    
+    struct _AddNewCardCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = AddNewCardCollectionViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "AddNewCardCollectionViewCell"
+      let name = "AddNewCardCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AddNewCardCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AddNewCardCollectionViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "AddNewCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'AddNewCardIcon' is used in nib 'AddNewCardCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct _CardsCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -274,21 +493,21 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "TransportCardMask", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransportCardMask' is used in nib 'CardsCollectionViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "TransportCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TransportCardIcon' is used in nib 'CardsCollectionViewCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
     }
     
-    struct _CardsTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = CardsTableViewCell
+    struct _MainMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = MainMenuTableViewCell
       
       let bundle = R.hostingBundle
-      let identifier = "CardsTableViewCell"
-      let name = "CardsTableViewCell"
+      let identifier = "MainMenuTableViewCell"
+      let name = "MainMenuTableViewCell"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> CardsTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CardsTableViewCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MainMenuTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MainMenuTableViewCell
       }
       
       fileprivate init() {}
@@ -352,6 +571,15 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "RootViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct settingsViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = SettingsViewController
+      
+      let bundle = R.hostingBundle
+      let name = "SettingsViewController"
       
       fileprivate init() {}
     }

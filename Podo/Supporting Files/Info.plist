@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>&quot;2018 Andrey Fedorov. All rights reserved.&quot;;</string>
+	<key>CFBundleDisplayName</key>
+	<string>Podorozhnik</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -59,8 +63,8 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-    <key>UIMainStoryboardFile</key>
-    <string>RootViewController</string>
+	<key>UIMainStoryboardFile</key>
+	<string>RootViewController</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
