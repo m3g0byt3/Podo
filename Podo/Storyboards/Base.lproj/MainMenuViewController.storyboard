@@ -29,7 +29,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KY8-1i-XBh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EpP-Yb-8o4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KY8-1i-XBh" secondAttribute="bottom" id="ZQl-BL-I73"/>
+                            <constraint firstAttribute="bottom" secondItem="KY8-1i-XBh" secondAttribute="bottom" id="ZQl-BL-I73"/>
                             <constraint firstItem="KY8-1i-XBh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gK3-Zn-nJW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KY8-1i-XBh" secondAttribute="trailing" id="ih1-jE-d8c"/>
                         </constraints>
