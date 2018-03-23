@@ -10,6 +10,8 @@
 		411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F3E43204E1123002D466E /* RouterAssembly.swift */; };
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
+		41273CE3206573670006A16B /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41273CE2206573670006A16B /* SideMenuItem.swift */; };
+		41273CE7206573CB0006A16B /* SideMenuItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41273CE6206573CB0006A16B /* SideMenuItemType.swift */; };
 		4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130F2A8205C855B00DDFAD8 /* ViewModel.swift */; };
 		41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AAC1FC6C6570089F088 /* AppDelegate.swift */; };
 		41494AB21FC6C6570089F088 /* MainMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494AB01FC6C6570089F088 /* MainMenuViewController.storyboard */; };
@@ -17,6 +19,7 @@
 		41494AC21FC6C6570089F088 /* PodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AC11FC6C6570089F088 /* PodoTests.swift */; };
 		41494ACD1FC6C6570089F088 /* PodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494ACC1FC6C6570089F088 /* PodoUITests.swift */; };
 		41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */; };
+		414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB4A720630683006A5C74 /* AnyDatabaseService.swift */; };
 		415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415372842052FFA900B8C1EB /* TutorialViewController.storyboard */; };
 		4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728A2053001D00B8C1EB /* TutorialViewController.swift */; };
 		4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */; };
@@ -43,13 +46,10 @@
 		4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EA022046241E007CF219 /* ViewAssembly.swift */; };
 		417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417D0A782056E7D2005076F8 /* PresentationType.swift */; };
 		4180B4E6204C92810064529A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180B4E5204C92810064529A /* Router.swift */; };
-		4183AA502034A7BE00F39DF0 /* SideMenuEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AA4D2034A7BE00F39DF0 /* SideMenuEntry.swift */; };
-		4183AA512034A7BE00F39DF0 /* SideMenuEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AA4E2034A7BE00F39DF0 /* SideMenuEntryType.swift */; };
-		4183AA522034A7BE00F39DF0 /* SideMenuEntryTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4183AA4F2034A7BE00F39DF0 /* SideMenuEntryTitle.swift */; };
-		4183AA542034A8DE00F39DF0 /* sideMenuEntries.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4183AA532034A8DE00F39DF0 /* sideMenuEntries.realm */; };
 		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
 		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
+		418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */; };
 		418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D1205C8F8600397B48 /* AnyViewModel.swift */; };
 		418F79D8205D141200397B48 /* SideMenuCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D7205D141200397B48 /* SideMenuCellViewModel.swift */; };
 		418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D9205D145500397B48 /* SideMenuCellViewModelImpl.swift */; };
@@ -95,8 +95,7 @@
 		41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */; };
 		41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */; };
 		41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */; };
-		41F627D620350714001ABFDD /* SideMenuEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F627D520350714001ABFDD /* SideMenuEntryViewModel.swift */; };
-		41F627D820350817001ABFDD /* SideMenuEntry+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F627D720350817001ABFDD /* SideMenuEntry+ViewModel.swift */; };
+		41EDA99920645FAF0054D456 /* sideMenuItems.realm in Resources */ = {isa = PBXBuildFile; fileRef = 41EDA99820645FAF0054D456 /* sideMenuItems.realm */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
 		B59440046E43C73F9F737D42 /* Pods_PodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */; };
 		CD80C1C7512D6728FC11D3DC /* Pods_PodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE37FEA68995A95EE9E55FBC /* Pods_PodoUITests.framework */; };
@@ -124,6 +123,8 @@
 		411F3E43204E1123002D466E /* RouterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAssembly.swift; sourceTree = "<group>"; };
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
+		41273CE2206573670006A16B /* SideMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
+		41273CE6206573CB0006A16B /* SideMenuItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemType.swift; sourceTree = "<group>"; };
 		4130F2A8205C855B00DDFAD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		41494AA91FC6C6570089F088 /* Podo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41494AAC1FC6C6570089F088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		41494ACC1FC6C6570089F088 /* PodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodoUITests.swift; sourceTree = "<group>"; };
 		41494ACE1FC6C6570089F088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41494ADD1FC6C6950089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		414BB4A720630683006A5C74 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
 		415372852052FFA900B8C1EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TutorialViewController.storyboard; sourceTree = "<group>"; };
 		4153728A2053001D00B8C1EB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
@@ -163,13 +165,10 @@
 		4179EA022046241E007CF219 /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
 		417D0A782056E7D2005076F8 /* PresentationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
 		4180B4E5204C92810064529A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		4183AA4D2034A7BE00F39DF0 /* SideMenuEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuEntry.swift; sourceTree = "<group>"; };
-		4183AA4E2034A7BE00F39DF0 /* SideMenuEntryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuEntryType.swift; sourceTree = "<group>"; };
-		4183AA4F2034A7BE00F39DF0 /* SideMenuEntryTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuEntryTitle.swift; sourceTree = "<group>"; };
-		4183AA532034A8DE00F39DF0 /* sideMenuEntries.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = sideMenuEntries.realm; sourceTree = "<group>"; };
 		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
 		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
+		418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		418F79D1205C8F8600397B48 /* AnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyViewModel.swift; sourceTree = "<group>"; };
 		418F79D7205D141200397B48 /* SideMenuCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellViewModel.swift; sourceTree = "<group>"; };
 		418F79D9205D145500397B48 /* SideMenuCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellViewModelImpl.swift; sourceTree = "<group>"; };
@@ -223,8 +222,7 @@
 		41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
 		41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HorizontalContentLayoutOffset.swift"; sourceTree = "<group>"; };
 		41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContentViewController.swift"; sourceTree = "<group>"; };
-		41F627D520350714001ABFDD /* SideMenuEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuEntryViewModel.swift; sourceTree = "<group>"; };
-		41F627D720350817001ABFDD /* SideMenuEntry+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideMenuEntry+ViewModel.swift"; sourceTree = "<group>"; };
+		41EDA99820645FAF0054D456 /* sideMenuItems.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = sideMenuItems.realm; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B615A5FF118833E14B0AC2E /* Pods-Podo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.debug.xcconfig"; sourceTree = "<group>"; };
 		A3171AEBAEF479E5D8132E90 /* Pods-Podo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.release.xcconfig"; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 			children = (
 				418F79DB205D146C00397B48 /* Main Menu */,
 				418F79DC205D147600397B48 /* Side Menu */,
-				41F627D520350714001ABFDD /* SideMenuEntryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -455,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				418F79D1205C8F8600397B48 /* AnyViewModel.swift */,
+				414BB4A720630683006A5C74 /* AnyDatabaseService.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -490,6 +488,7 @@
 			children = (
 				4179E9F320460728007CF219 /* NetworkService.swift */,
 				4179E9F52046074D007CF219 /* DatabaseService.swift */,
+				418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -701,9 +700,8 @@
 		41C9EB451FD407BB000D77DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4183AA4D2034A7BE00F39DF0 /* SideMenuEntry.swift */,
-				4183AA4F2034A7BE00F39DF0 /* SideMenuEntryTitle.swift */,
-				4183AA4E2034A7BE00F39DF0 /* SideMenuEntryType.swift */,
+				41273CE6206573CB0006A16B /* SideMenuItemType.swift */,
+				41273CE2206573670006A16B /* SideMenuItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -756,7 +754,6 @@
 				41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */,
 				419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */,
 				41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */,
-				41F627D720350817001ABFDD /* SideMenuEntry+ViewModel.swift */,
 				41607EA0204DA77E009DCEA2 /* Swinject+Flow.swift */,
 				41968CC020652AAE00501112 /* String+Localized.swift */,
 			);
@@ -789,9 +786,9 @@
 		41F84A781FC6C6F20056698C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41EDA99820645FAF0054D456 /* sideMenuItems.realm */,
 				41494AB81FC6C6570089F088 /* Info.plist */,
 				41D1F1731FC78EE800F12C20 /* PodoColors.clr */,
-				4183AA532034A8DE00F39DF0 /* sideMenuEntries.realm */,
 				41494AB31FC6C6570089F088 /* Assets.xcassets */,
 				41968CDD20652DEE00501112 /* Localizable.strings */,
 				41968CF12065347800501112 /* InfoPlist.strings */,
@@ -950,9 +947,9 @@
 				41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */,
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
 				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
-				4183AA542034A8DE00F39DF0 /* sideMenuEntries.realm in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
+				41EDA99920645FAF0054D456 /* sideMenuItems.realm in Resources */,
 				415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
 				41494AB21FC6C6570089F088 /* MainMenuViewController.storyboard in Resources */,
@@ -1204,30 +1201,32 @@
 				415C64C2203C54A000B77589 /* CheckMarkView.swift in Sources */,
 				41D60A9E205DBB13004C5802 /* SideMenuViewModelImpl.swift in Sources */,
 				418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */,
+				41273CE3206573670006A16B /* SideMenuItem.swift in Sources */,
 				41555A682049727C007ADBF0 /* Coordinator.swift in Sources */,
 				4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */,
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
 				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
 				41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */,
+				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
+				418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */,
 				418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */,
 				417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */,
 				41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */,
 				418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */,
 				418F79D8205D141200397B48 /* SideMenuCellViewModel.swift in Sources */,
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
-				41F627D820350817001ABFDD /* SideMenuEntry+ViewModel.swift in Sources */,
 				41607EA6204DA913009DCEA2 /* View.swift in Sources */,
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
 				41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */,
+				41273CE7206573CB0006A16B /* SideMenuItemType.swift in Sources */,
 				4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */,
 				419BA9C51FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift in Sources */,
 				41744BBA202E13B10063FE5E /* SideMenuTableViewCell.swift in Sources */,
 				412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */,
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				41D60A9C205DBAF1004C5802 /* SideMenuViewModel.swift in Sources */,
-				4183AA522034A7BE00F39DF0 /* SideMenuEntryTitle.swift in Sources */,
 				4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */,
 				41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */,
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
@@ -1238,11 +1237,9 @@
 				41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */,
 				41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */,
 				4160A50D205174EA00485C8B /* ThemeProvider.swift in Sources */,
-				4183AA512034A7BE00F39DF0 /* SideMenuEntryType.swift in Sources */,
 				41607EA1204DA77E009DCEA2 /* Swinject+Flow.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
-				41F627D620350714001ABFDD /* SideMenuEntryViewModel.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModel.swift in Sources */,
@@ -1266,7 +1263,6 @@
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModel.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
-				4183AA502034A7BE00F39DF0 /* SideMenuEntry.swift in Sources */,
 				418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */,
 				41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */,
 				4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */,

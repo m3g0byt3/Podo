@@ -91,8 +91,8 @@ struct R: Rswift.Validatable {
   struct file {
     /// Resource file `PodoColors.clr`.
     static let podoColorsClr = Rswift.FileResource(bundle: R.hostingBundle, name: "PodoColors", pathExtension: "clr")
-    /// Resource file `sideMenuEntries.realm`.
-    static let sideMenuEntriesRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuEntries", pathExtension: "realm")
+    /// Resource file `sideMenuItems.realm`.
+    static let sideMenuItemsRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuItems", pathExtension: "realm")
     
     /// `bundle.url(forResource: "PodoColors", withExtension: "clr")`
     static func podoColorsClr(_: Void = ()) -> Foundation.URL? {
@@ -100,9 +100,9 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
-    /// `bundle.url(forResource: "sideMenuEntries", withExtension: "realm")`
-    static func sideMenuEntriesRealm(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.sideMenuEntriesRealm
+    /// `bundle.url(forResource: "sideMenuItems", withExtension: "realm")`
+    static func sideMenuItemsRealm(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sideMenuItemsRealm
       return fileResource.bundle.url(forResource: fileResource)
     }
     
