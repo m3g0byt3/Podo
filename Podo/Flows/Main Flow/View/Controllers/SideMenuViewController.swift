@@ -18,6 +18,8 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
     // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: AnyViewModel<SideMenuCellViewModel>!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
