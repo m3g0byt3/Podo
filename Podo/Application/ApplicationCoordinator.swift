@@ -41,17 +41,15 @@ final class ApplicationCoordinator: AbstractCoordinator {
     }
 
     override func start(with option: StartOption?) {
-        switch option {
-        // Handle tutorial start option by itself
-        case .some(.tutorial): startTutorialFlow()
+        switch (option, coordinators.isEmpty) {
+        // Always handle tutorial start option by self
+        case (.some(.tutorial), _): startTutorialFlow()
+        // If no flows are started yet (i.e. after cold launch from the 3Dtouch/push/handoff)
+        // - start main flow explicitly, then fallthrough to the default case
+        case (_, true): startMainFlow(); fallthrough
+        // swiftlint:disable:previous fallthrough
         // Handle all other start options by the child coordinators
-        default:
-            // If no flows are started yet (i.e. after cold launch
-            // from the 3Dtouch/push/handoff) - start main flow explicitly
-            if coordinators.isEmpty {
-                startMainFlow()
-            }
-            coordinators.forEach { $0.start(with: option) }
+        default: coordinators.forEach { $0.start(with: option) }
         }
     }
 }
