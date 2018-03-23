@@ -256,8 +256,185 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 8 localization tables.
   struct string {
+    /// This `R.string.cardsViewController` struct is generated, and contains static references to 0 localization keys.
+    struct cardsViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 2 localization keys.
+    struct infoPlist {
+      /// Base translation: Copyright © 2018 Andrey Fedorov. All rights reserved.
+      /// 
+      /// Locales: ru, Base
+      static let nsHumanReadableCopyright = Rswift.StringResource(key: "NSHumanReadableCopyright", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
+      /// Base translation: Podorozhnik
+      /// 
+      /// Locales: ru, Base
+      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
+      
+      /// Base translation: Copyright © 2018 Andrey Fedorov. All rights reserved.
+      /// 
+      /// Locales: ru, Base
+      static func nsHumanReadableCopyright(_: Void = ()) -> String {
+        return NSLocalizedString("NSHumanReadableCopyright", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Copyright © 2018 Andrey Fedorov. All rights reserved.", comment: "")
+      }
+      
+      /// Base translation: Podorozhnik
+      /// 
+      /// Locales: ru, Base
+      static func cfBundleDisplayName(_: Void = ()) -> String {
+        return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Podorozhnik", comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 2 localization keys.
+    struct launchScreen {
+      /// ru translation: Copyright © 2018 Андрей Федоров. Все права защищены.
+      /// 
+      /// Locales: ru
+      static let obGY5KRdText = Rswift.StringResource(key: "obG-Y5-kRd.text", tableName: "LaunchScreen", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Podo
+      /// 
+      /// Locales: ru
+      static let gJdYhRWbText = Rswift.StringResource(key: "GJd-Yh-RWb.text", tableName: "LaunchScreen", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Copyright © 2018 Андрей Федоров. Все права защищены.
+      /// 
+      /// Locales: ru
+      static func obGY5KRdText(_: Void = ()) -> String {
+        return NSLocalizedString("obG-Y5-kRd.text", tableName: "LaunchScreen", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Podo
+      /// 
+      /// Locales: ru
+      static func gJdYhRWbText(_: Void = ()) -> String {
+        return NSLocalizedString("GJd-Yh-RWb.text", tableName: "LaunchScreen", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    struct localizable {
+      /// Base translation: Contacts
+      /// 
+      /// Locales: Base, ru
+      static let contacts = Rswift.StringResource(key: "contacts", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Help
+      /// 
+      /// Locales: Base, ru
+      static let help = Rswift.StringResource(key: "help", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Main screen
+      /// 
+      /// Locales: Base, ru
+      static let main = Rswift.StringResource(key: "main", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Settings
+      /// 
+      /// Locales: Base, ru
+      static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      
+      /// Base translation: Contacts
+      /// 
+      /// Locales: Base, ru
+      static func contacts(_: Void = ()) -> String {
+        return NSLocalizedString("contacts", bundle: R.hostingBundle, value: "Contacts", comment: "")
+      }
+      
+      /// Base translation: Help
+      /// 
+      /// Locales: Base, ru
+      static func help(_: Void = ()) -> String {
+        return NSLocalizedString("help", bundle: R.hostingBundle, value: "Help", comment: "")
+      }
+      
+      /// Base translation: Main screen
+      /// 
+      /// Locales: Base, ru
+      static func main(_: Void = ()) -> String {
+        return NSLocalizedString("main", bundle: R.hostingBundle, value: "Main screen", comment: "")
+      }
+      
+      /// Base translation: Settings
+      /// 
+      /// Locales: Base, ru
+      static func settings(_: Void = ()) -> String {
+        return NSLocalizedString("settings", bundle: R.hostingBundle, value: "Settings", comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.mainMenuViewController` struct is generated, and contains static references to 0 localization keys.
+    struct mainMenuViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.rootViewController` struct is generated, and contains static references to 0 localization keys.
+    struct rootViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.settingsViewController` struct is generated, and contains static references to 1 localization keys.
+    struct settingsViewController {
+      /// ru translation: SettingsViewController
+      /// 
+      /// Locales: ru
+      static let fxad11NVText = Rswift.StringResource(key: "FXA-d1-1NV.text", tableName: "SettingsViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: SettingsViewController
+      /// 
+      /// Locales: ru
+      static func fxad11NVText(_: Void = ()) -> String {
+        return NSLocalizedString("FXA-d1-1NV.text", tableName: "SettingsViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.tutorialViewController` struct is generated, and contains static references to 3 localization keys.
+    struct tutorialViewController {
+      /// ru translation: Next
+      /// 
+      /// Locales: ru
+      static let u0HjXWjNormalTitle = Rswift.StringResource(key: "0U0-hj-xWj.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: Skip
+      /// 
+      /// Locales: ru
+      static let ej50XCyoNormalTitle = Rswift.StringResource(key: "Ej5-0X-Cyo.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// ru translation: TutorialViewController
+      /// 
+      /// Locales: ru
+      static let iEnFaQtUText = Rswift.StringResource(key: "IEn-fa-qtU.text", tableName: "TutorialViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Next
+      /// 
+      /// Locales: ru
+      static func u0HjXWjNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("0U0-hj-xWj.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Skip
+      /// 
+      /// Locales: ru
+      static func ej50XCyoNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("Ej5-0X-Cyo.normalTitle", tableName: "TutorialViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: TutorialViewController
+      /// 
+      /// Locales: ru
+      static func iEnFaQtUText(_: Void = ()) -> String {
+        return NSLocalizedString("IEn-fa-qtU.text", tableName: "TutorialViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
