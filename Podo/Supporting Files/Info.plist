@@ -32,7 +32,7 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeAdd</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Add new transport card</string>
+			<string>ADD_TRANSPORT_CARD_SHORTCUT_TITLE</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).addNewCard</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
@@ -45,7 +45,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>QuickActionSettings</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Settings</string>
+			<string>SETTINGS_SHORTCUT_TITLE</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).openSettings</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
