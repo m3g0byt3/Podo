@@ -20,7 +20,7 @@ class AbstractCoordinator: Coordinator {
 
     // MARK: - Initialization
 
-    init(router: Router, assembler: Assembler) {
+    required init(router: Router, assembler: Assembler) {
         // Avoid initialization of abstract class
         guard type(of: self) != AbstractCoordinator.self else {
             fatalError("Create a subclass instance of abstract class \(AbstractCoordinator.self).")

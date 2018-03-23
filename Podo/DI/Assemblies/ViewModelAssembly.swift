@@ -18,8 +18,11 @@ final class ViewModelAssembly: Assembly {
         container.register(AnyViewModel<CardsCellViewModel>.self) { _ in
             AnyViewModel(CardsViewModelImpl())
         }
-        container.register(AnyViewModel<SideMenuCellViewModel>.self) { _ in
-            AnyViewModel(SideMenuViewModelImpl())
+        container.register(AnyViewModel<SideMenuCellViewModel>.self) { resolver in
+            guard let model = resolver.resolve(AnyDatabaseService<SideMenuItem>.self) else {
+                fatalError("Unable to instantiate model of type \(AnyDatabaseService<SideMenuItem>.self)")
+            }
+            return AnyViewModel(SideMenuViewModelImpl(model))
         }
     }
 }

@@ -6,9 +6,11 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SideMenuCellViewModel {
 
-    // TODO: Add actual implementation
+    var title: String { get }
+    var type: SideMenuItemType { get }
+    var image: UIImage? { get }
 }

@@ -91,8 +91,8 @@ struct R: Rswift.Validatable {
   struct file {
     /// Resource file `PodoColors.clr`.
     static let podoColorsClr = Rswift.FileResource(bundle: R.hostingBundle, name: "PodoColors", pathExtension: "clr")
-    /// Resource file `sideMenuEntries.realm`.
-    static let sideMenuEntriesRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuEntries", pathExtension: "realm")
+    /// Resource file `sideMenuItems.realm`.
+    static let sideMenuItemsRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuItems", pathExtension: "realm")
     
     /// `bundle.url(forResource: "PodoColors", withExtension: "clr")`
     static func podoColorsClr(_: Void = ()) -> Foundation.URL? {
@@ -100,9 +100,9 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
-    /// `bundle.url(forResource: "sideMenuEntries", withExtension: "realm")`
-    static func sideMenuEntriesRealm(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.sideMenuEntriesRealm
+    /// `bundle.url(forResource: "sideMenuItems", withExtension: "realm")`
+    static func sideMenuItemsRealm(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sideMenuItemsRealm
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -263,8 +263,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.infoPlist` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 4 localization keys.
     struct infoPlist {
+      /// Base translation: Add new transport card
+      /// 
+      /// Locales: ru, Base
+      static let add_TRANSPORT_CARD_SHORTCUT_TITLE = Rswift.StringResource(key: "ADD_TRANSPORT_CARD_SHORTCUT_TITLE", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
       /// Base translation: Copyright © 2018 Andrey Fedorov. All rights reserved.
       /// 
       /// Locales: ru, Base
@@ -273,6 +277,17 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru, Base
       static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
+      /// Base translation: Settings
+      /// 
+      /// Locales: ru, Base
+      static let settings_SHORTCUT_TITLE = Rswift.StringResource(key: "SETTINGS_SHORTCUT_TITLE", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["ru", "Base"], comment: nil)
+      
+      /// Base translation: Add new transport card
+      /// 
+      /// Locales: ru, Base
+      static func add_TRANSPORT_CARD_SHORTCUT_TITLE(_: Void = ()) -> String {
+        return NSLocalizedString("ADD_TRANSPORT_CARD_SHORTCUT_TITLE", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Add new transport card", comment: "")
+      }
       
       /// Base translation: Copyright © 2018 Andrey Fedorov. All rights reserved.
       /// 
@@ -286,6 +301,13 @@ struct R: Rswift.Validatable {
       /// Locales: ru, Base
       static func cfBundleDisplayName(_: Void = ()) -> String {
         return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Podorozhnik", comment: "")
+      }
+      
+      /// Base translation: Settings
+      /// 
+      /// Locales: ru, Base
+      static func settings_SHORTCUT_TITLE(_: Void = ()) -> String {
+        return NSLocalizedString("SETTINGS_SHORTCUT_TITLE", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Settings", comment: "")
       }
       
       fileprivate init() {}

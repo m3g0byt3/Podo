@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddNewCardCollectionViewCell: UICollectionViewCell {
+final class AddNewCardCollectionViewCell: UICollectionViewCell {
 
     // TODO: Add actual implementation
 }
