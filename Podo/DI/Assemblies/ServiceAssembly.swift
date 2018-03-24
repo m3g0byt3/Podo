@@ -13,10 +13,12 @@ import RealmSwift
 final class ServiceAssembly: Assembly {
 
     func assemble(container: Container) {
+
         container.register(NetworkService.self) { _ in
             // TODO: Add actual implementation
             fatalError("Not implemented yet!")
         }
+
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
             // Create custom configuration for bundled `sideMenuItemsRealm` database file
             let configuration = Realm.Configuration(fileURL: R.file.sideMenuItemsRealm(),

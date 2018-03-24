@@ -28,5 +28,6 @@ extension ThemeProvider {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = R.clr.podoColors.green()
+        UIBarButtonItem.appearance().tintColor = R.clr.podoColors.white()
     }
 }

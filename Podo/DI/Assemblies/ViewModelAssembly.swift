@@ -12,12 +12,15 @@ import Swinject
 final class ViewModelAssembly: Assembly {
 
     func assemble(container: Container) {
+
         container.register(AnyViewModel<MainMenuCellViewModel>.self) { _ in
             AnyViewModel(MainMenuViewModelImpl())
         }
+
         container.register(AnyViewModel<CardsCellViewModel>.self) { _ in
             AnyViewModel(CardsViewModelImpl())
         }
+
         container.register(AnyViewModel<SideMenuCellViewModel>.self) { resolver in
             guard let model = resolver.resolve(AnyDatabaseService<SideMenuItem>.self) else {
                 fatalError("Unable to instantiate model of type \(AnyDatabaseService<SideMenuItem>.self)")

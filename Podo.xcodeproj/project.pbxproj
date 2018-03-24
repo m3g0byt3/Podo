@@ -13,6 +13,12 @@
 		41273CE3206573670006A16B /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41273CE2206573670006A16B /* SideMenuItem.swift */; };
 		41273CE7206573CB0006A16B /* SideMenuItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41273CE6206573CB0006A16B /* SideMenuItemType.swift */; };
 		4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130F2A8205C855B00DDFAD8 /* ViewModel.swift */; };
+		414896342066988200C3C000 /* HelpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414896322066988200C3C000 /* HelpViewController.storyboard */; };
+		41489636206698D200C3C000 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41489635206698D200C3C000 /* HelpViewController.swift */; };
+		41489638206698DF00C3C000 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41489637206698DF00C3C000 /* ContactsViewController.swift */; };
+		4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4148963920669A8E00C3C000 /* ContactsViewController.storyboard */; };
+		4148964120669BF800C3C000 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148964020669BF800C3C000 /* ContactsView.swift */; };
+		4148964320669C3C00C3C000 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4148964220669C3C00C3C000 /* HelpView.swift */; };
 		41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AAC1FC6C6570089F088 /* AppDelegate.swift */; };
 		41494AB21FC6C6570089F088 /* MainMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494AB01FC6C6570089F088 /* MainMenuViewController.storyboard */; };
 		41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41494AB31FC6C6570089F088 /* Assets.xcassets */; };
@@ -126,6 +132,14 @@
 		41273CE2206573670006A16B /* SideMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
 		41273CE6206573CB0006A16B /* SideMenuItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemType.swift; sourceTree = "<group>"; };
 		4130F2A8205C855B00DDFAD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		414896332066988200C3C000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HelpViewController.storyboard; sourceTree = "<group>"; };
+		41489635206698D200C3C000 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		41489637206698DF00C3C000 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		4148963A20669A8E00C3C000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ContactsViewController.storyboard; sourceTree = "<group>"; };
+		4148963D20669B8A00C3C000 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ContactsViewController.strings; sourceTree = "<group>"; };
+		4148963F20669B8D00C3C000 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HelpViewController.strings; sourceTree = "<group>"; };
+		4148964020669BF800C3C000 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		4148964220669C3C00C3C000 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		41494AA91FC6C6570089F088 /* Podo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41494AAC1FC6C6570089F088 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41494AB11FC6C6570089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainMenuViewController.storyboard; sourceTree = "<group>"; };
@@ -367,6 +381,8 @@
 				41BDD4FC2055E7170045A50A /* Cells */,
 				4179E9FE204620E1007CF219 /* MainMenuView.swift */,
 				41BDD5082055F3FB0045A50A /* SideMenuView.swift */,
+				4148964020669BF800C3C000 /* ContactsView.swift */,
+				4148964220669C3C00C3C000 /* HelpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -634,6 +650,8 @@
 				41BDD5042055EBD70045A50A /* MainMenuViewController.swift */,
 				41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */,
 				419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */,
+				41489637206698DF00C3C000 /* ContactsViewController.swift */,
+				41489635206698D200C3C000 /* HelpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -769,6 +787,8 @@
 				41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */,
 				415372842052FFA900B8C1EB /* TutorialViewController.storyboard */,
 				41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */,
+				4148963920669A8E00C3C000 /* ContactsViewController.storyboard */,
+				414896322066988200C3C000 /* HelpViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -948,9 +968,11 @@
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
 				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
+				4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */,
 				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
 				41EDA99920645FAF0054D456 /* sideMenuItems.realm in Resources */,
 				415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */,
+				414896342066988200C3C000 /* HelpViewController.storyboard in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
 				41494AB21FC6C6570089F088 /* MainMenuViewController.storyboard in Resources */,
 				41744BBB202E13B10063FE5E /* SideMenuTableViewCell.xib in Resources */,
@@ -1212,6 +1234,7 @@
 				418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */,
 				418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */,
 				417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */,
+				41489636206698D200C3C000 /* HelpViewController.swift in Sources */,
 				41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */,
 				418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */,
 				418F79D8205D141200397B48 /* SideMenuCellViewModel.swift in Sources */,
@@ -1228,6 +1251,7 @@
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				41D60A9C205DBAF1004C5802 /* SideMenuViewModel.swift in Sources */,
 				4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */,
+				4148964120669BF800C3C000 /* ContactsView.swift in Sources */,
 				41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */,
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
@@ -1243,6 +1267,7 @@
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModel.swift in Sources */,
+				4148964320669C3C00C3C000 /* HelpView.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */,
 				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
@@ -1252,6 +1277,7 @@
 				41A5E78B1FD97FC300A835F5 /* CardsCollectionViewCell.swift in Sources */,
 				418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */,
 				41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */,
+				41489638206698DF00C3C000 /* ContactsViewController.swift in Sources */,
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
@@ -1310,6 +1336,24 @@
 				41968CE6206532EF00501112 /* ru */,
 			);
 			name = RootViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		414896322066988200C3C000 /* HelpViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				414896332066988200C3C000 /* Base */,
+				4148963F20669B8D00C3C000 /* ru */,
+			);
+			name = HelpViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		4148963920669A8E00C3C000 /* ContactsViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4148963A20669A8E00C3C000 /* Base */,
+				4148963D20669B8A00C3C000 /* ru */,
+			);
+			name = ContactsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		41494AB01FC6C6570089F088 /* MainMenuViewController.storyboard */ = {

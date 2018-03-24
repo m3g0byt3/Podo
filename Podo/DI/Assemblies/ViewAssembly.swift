@@ -13,6 +13,7 @@ import UIKit
 final class ViewAssembly: Assembly {
 
     func assemble(container: Container) {
+
         container.register(MainMenuView.self) { resolver in
             guard let viewController = MainMenuViewController.storyboardInstance() else {
                     fatalError("Unable to instantiate \(MainMenuViewController.self)")
@@ -21,6 +22,7 @@ final class ViewAssembly: Assembly {
             viewController.assembler = ApplicationAssembler.defaultAssembler
             return viewController
         }
+
         container.register(MainMenuChildView.self) { resolver in
             guard let viewController = CardsViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(CardsViewController.self)")
@@ -28,20 +30,37 @@ final class ViewAssembly: Assembly {
             viewController.viewModel = resolver.resolve(AnyViewModel<CardsCellViewModel>.self)
             return viewController
         }
+
         container.register(SideMenuView.self) { resolver in
             let viewController = SideMenuViewController()
             viewController.viewModel = resolver.resolve(AnyViewModel<SideMenuCellViewModel>.self)
             return viewController
         }
+
         container.register(TutorialView.self) { _ in
             guard let viewController = TutorialViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(TutorialViewController.self)")
             }
             return viewController
         }
+
         container.register(SettingsView.self) { _ in
             guard let viewController = SettingsViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(SettingsViewController.self)")
+            }
+            return viewController
+        }
+
+        container.register(ContactsView.self) { _ in
+            guard let viewController = ContactsViewController.storyboardInstance() else {
+                fatalError("Unable to instantiate \(ContactsViewController.self)")
+            }
+            return viewController
+        }
+
+        container.register(HelpView.self) { _ in
+            guard let viewController = HelpViewController.storyboardInstance() else {
+                fatalError("Unable to instantiate \(HelpViewController.self)")
             }
             return viewController
         }

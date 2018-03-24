@@ -208,10 +208,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
+    /// Storyboard `ContactsViewController`.
+    static let contactsViewController = _R.storyboard.contactsViewController()
+    /// Storyboard `HelpViewController`.
+    static let helpViewController = _R.storyboard.helpViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `MainMenuViewController`.
@@ -226,6 +230,16 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "CardsViewController", bundle: ...)`
     static func cardsViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.cardsViewController)
+    }
+    
+    /// `UIStoryboard(name: "ContactsViewController", bundle: ...)`
+    static func contactsViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.contactsViewController)
+    }
+    
+    /// `UIStoryboard(name: "HelpViewController", bundle: ...)`
+    static func helpViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.helpViewController)
     }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -256,10 +270,44 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 8 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 10 localization tables.
   struct string {
     /// This `R.string.cardsViewController` struct is generated, and contains static references to 0 localization keys.
     struct cardsViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.contactsViewController` struct is generated, and contains static references to 1 localization keys.
+    struct contactsViewController {
+      /// ru translation: ContactsViewController
+      /// 
+      /// Locales: ru
+      static let f2Xg0abText = Rswift.StringResource(key: "0F2-xg-0ab.text", tableName: "ContactsViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: ContactsViewController
+      /// 
+      /// Locales: ru
+      static func f2Xg0abText(_: Void = ()) -> String {
+        return NSLocalizedString("0F2-xg-0ab.text", tableName: "ContactsViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.helpViewController` struct is generated, and contains static references to 1 localization keys.
+    struct helpViewController {
+      /// ru translation: HelpViewController
+      /// 
+      /// Locales: ru
+      static let y4LD9RnRText = Rswift.StringResource(key: "y4L-d9-rnR.text", tableName: "HelpViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: HelpViewController
+      /// 
+      /// Locales: ru
+      static func y4LD9RnRText(_: Void = ()) -> String {
+        return NSLocalizedString("y4L-d9-rnR.text", tableName: "HelpViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
       fileprivate init() {}
     }
     
@@ -562,6 +610,24 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "CardsViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct contactsViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = ContactsViewController
+      
+      let bundle = R.hostingBundle
+      let name = "ContactsViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct helpViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = HelpViewController
+      
+      let bundle = R.hostingBundle
+      let name = "HelpViewController"
       
       fileprivate init() {}
     }
