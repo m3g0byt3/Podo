@@ -5,6 +5,7 @@
 //  Created by m3g0byt3 on 23/11/2017.
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
+// swiftlint:disable force_try force_cast
 
 import UIKit
 
@@ -14,26 +15,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
 
     var window: UIWindow?
-    private var rootViewController: UINavigationController {
-        // swiftlint:disable:next force_cast
+    var coordinator: Coordinator?
+    var rootViewController: UINavigationController {
         return window!.rootViewController as! UINavigationController
     }
-
-    private lazy var coordinator: Coordinator? = {
-        guard let router = ApplicationAssembler
-            .defaultAssembler
-            .resolver
-            .resolve(Router.self, argument: rootViewController) else { return nil }
-        return ApplicationAssembler
-            .defaultAssembler
-            .resolver
-            .resolve(Coordinator.self, argument: router)
-    }()
 
     // MARK: - UIApplicationDelegate protocol conformance
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Perform initial DI
+        try! AppDelegateAssembler().assemble(appDelegate: self)
+        // Handle cold start from 3Dtouch shortcuts
         var startOption: StartOption?
 
         if let shortcutItem = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {
