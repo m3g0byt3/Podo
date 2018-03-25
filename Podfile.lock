@@ -4,14 +4,14 @@ PODS:
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
-  - Realm (3.1.1):
-    - Realm/Headers (= 3.1.1)
-  - Realm/Headers (3.1.1)
-  - RealmSwift (3.1.1):
-    - Realm (= 3.1.1)
+  - Realm (3.3.0):
+    - Realm/Headers (= 3.3.0)
+  - Realm/Headers (3.3.0)
+  - RealmSwift (3.3.0):
+    - Realm (= 3.3.0)
   - SnapKit (4.0.0)
-  - SwiftLint (0.24.2)
-  - Swinject (2.1.1)
+  - SwiftLint (0.25.0)
+  - Swinject (2.2.0)
 
 DEPENDENCIES:
   - Nimble (~> 7.0.0)
@@ -27,11 +27,11 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
-  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
+  Realm: 7d74ad6c5020432f58fe5e1df90bb6d97b2c7fef
+  RealmSwift: b2fa31a09c22e246026766557405505eeaad2b01
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwiftLint: 2aa21b96c8d13396a051bc1cb659d2ce1e0075b0
-  Swinject: afea49fd95f392b41171669f165842879c48fad6
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  Swinject: 4ca48bca7de5f398229a26abe1ac902b9f3ee541
 
 PODFILE CHECKSUM: 6032fbf91ecb227474b1475b22d212b12a488245
 

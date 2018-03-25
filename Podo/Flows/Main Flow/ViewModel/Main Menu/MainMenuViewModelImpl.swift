@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MainMenuViewModelImpl: MainMenuViewModel {
+final class MainMenuViewModelImpl: MainMenuViewModel {
 
     // MARK: - MainMenuViewModel protocol conformance
 

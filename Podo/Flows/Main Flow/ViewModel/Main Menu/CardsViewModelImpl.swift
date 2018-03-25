@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardsViewModelImpl: CardsViewModel {
+final class CardsViewModelImpl: CardsViewModel {
 
     // MARK: - CardsViewModel protocol conformance
 
