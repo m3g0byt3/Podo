@@ -102,6 +102,7 @@
 		41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */; };
 		41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */; };
 		41EDA99920645FAF0054D456 /* sideMenuItems.realm in Resources */ = {isa = PBXBuildFile; fileRef = 41EDA99820645FAF0054D456 /* sideMenuItems.realm */; };
+		41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
 		B59440046E43C73F9F737D42 /* Pods_PodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */; };
 		CD80C1C7512D6728FC11D3DC /* Pods_PodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE37FEA68995A95EE9E55FBC /* Pods_PodoUITests.framework */; };
@@ -237,6 +238,7 @@
 		41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HorizontalContentLayoutOffset.swift"; sourceTree = "<group>"; };
 		41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContentViewController.swift"; sourceTree = "<group>"; };
 		41EDA99820645FAF0054D456 /* sideMenuItems.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = sideMenuItems.realm; sourceTree = "<group>"; };
+		41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateAssembler.swift; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B615A5FF118833E14B0AC2E /* Pods-Podo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.debug.xcconfig"; sourceTree = "<group>"; };
 		A3171AEBAEF479E5D8132E90 /* Pods-Podo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.release.xcconfig"; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 		4179E9F02046041D007CF219 /* Assemblers */ = {
 			isa = PBXGroup;
 			children = (
+				41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */,
 				418A8407204474EE00A950AE /* ApplicationAssembler.swift */,
 			);
 			path = Assemblers;
@@ -1262,6 +1265,7 @@
 				41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */,
 				4160A50D205174EA00485C8B /* ThemeProvider.swift in Sources */,
 				41607EA1204DA77E009DCEA2 /* Swinject+Flow.swift in Sources */,
+				41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
