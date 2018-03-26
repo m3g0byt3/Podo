@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 final class NavigationBarTitleView: UIView {
 
     // MARK: - Initialization
