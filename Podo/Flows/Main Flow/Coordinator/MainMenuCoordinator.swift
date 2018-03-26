@@ -69,7 +69,14 @@ final class MainMenuCoordinator: AbstractCoordinator {
     }
 
     private func startAddNewCardFlow() {
-        fatalError("\(#function) not implemented yet!")
+        let coordinator = assembler.resolver.resolve(Coordinator.self,
+                                                     flow: .addNewCard,
+                                                     argument: router)
+        addChild(coordinator)
+        coordinator?.onFlowFinish = { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+        }
+        coordinator?.start()
     }
 
     private func startTopUpFlowForCard(_ card: Any) {

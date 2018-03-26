@@ -64,5 +64,12 @@ final class ViewAssembly: Assembly {
             }
             return viewController
         }
+
+        container.register(AddNewCardView.self) { _ in
+            guard let viewController = AddNewCardViewController.storyboardInstance() else {
+                fatalError("Unable to instantiate \(AddNewCardViewController.self)")
+            }
+            return viewController
+        }
     }
 }

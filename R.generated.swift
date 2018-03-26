@@ -208,8 +208,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
   struct storyboard {
+    /// Storyboard `AddNewCardViewController`.
+    static let addNewCardViewController = _R.storyboard.addNewCardViewController()
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
     /// Storyboard `ContactsViewController`.
@@ -226,6 +228,11 @@ struct R: Rswift.Validatable {
     static let settingsViewController = _R.storyboard.settingsViewController()
     /// Storyboard `TutorialViewController`.
     static let tutorialViewController = _R.storyboard.tutorialViewController()
+    
+    /// `UIStoryboard(name: "AddNewCardViewController", bundle: ...)`
+    static func addNewCardViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addNewCardViewController)
+    }
     
     /// `UIStoryboard(name: "CardsViewController", bundle: ...)`
     static func cardsViewController(_: Void = ()) -> UIKit.UIStoryboard {
@@ -270,8 +277,25 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 10 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 11 localization tables.
   struct string {
+    /// This `R.string.addNewCardViewController` struct is generated, and contains static references to 1 localization keys.
+    struct addNewCardViewController {
+      /// ru translation: Введите номер карты
+      /// 
+      /// Locales: ru
+      static let xMwMhFZGPlaceholder = Rswift.StringResource(key: "XMw-mh-FZG.placeholder", tableName: "AddNewCardViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Введите номер карты
+      /// 
+      /// Locales: ru
+      static func xMwMhFZGPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("XMw-mh-FZG.placeholder", tableName: "AddNewCardViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.string.cardsViewController` struct is generated, and contains static references to 0 localization keys.
     struct cardsViewController {
       fileprivate init() {}
@@ -603,6 +627,15 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try mainMenuViewController.validate()
+    }
+    
+    struct addNewCardViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = AddNewCardViewController
+      
+      let bundle = R.hostingBundle
+      let name = "AddNewCardViewController"
+      
+      fileprivate init() {}
     }
     
     struct cardsViewController: Rswift.StoryboardResourceWithInitialControllerType {
