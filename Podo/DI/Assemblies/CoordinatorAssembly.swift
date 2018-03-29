@@ -28,5 +28,9 @@ final class CoordinatorAssembly: Assembly {
         container.register(Coordinator.self, flow: .settings) { _, router in
             return SettingsCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
         }
+
+        container.register(Coordinator.self, flow: .addNewCard) { _, router in
+            return AddNewCardCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
+        }
     }
 }

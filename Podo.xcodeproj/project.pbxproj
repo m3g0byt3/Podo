@@ -42,6 +42,10 @@
 		4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5122051770E00485C8B /* ThemeAssembly.swift */; };
 		41744BBA202E13B10063FE5E /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */; };
 		41744BBB202E13B10063FE5E /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */; };
+		41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41787B3A206879D900693FA1 /* AddNewCardView.swift */; };
+		41787B3D20687DC000693FA1 /* AddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41787B3C20687DC000693FA1 /* AddNewCardViewController.swift */; };
+		41787B4120687E0300693FA1 /* AddNewCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41787B3F20687E0300693FA1 /* AddNewCardViewController.storyboard */; };
+		41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41787B42206894C900693FA1 /* AddNewCardCoordinator.swift */; };
 		4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9ED204603CE007CF219 /* ServiceAssembly.swift */; };
 		4179E9F420460728007CF219 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F320460728007CF219 /* NetworkService.swift */; };
 		4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F52046074D007CF219 /* DatabaseService.swift */; };
@@ -170,6 +174,11 @@
 		4160A5122051770E00485C8B /* ThemeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAssembly.swift; sourceTree = "<group>"; };
 		41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		41787B3A206879D900693FA1 /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
+		41787B3C20687DC000693FA1 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
+		41787B4020687E0300693FA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddNewCardViewController.storyboard; sourceTree = "<group>"; };
+		41787B42206894C900693FA1 /* AddNewCardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardCoordinator.swift; sourceTree = "<group>"; };
+		41787B452068982800693FA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddNewCardViewController.strings; sourceTree = "<group>"; };
 		4179E9ED204603CE007CF219 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		4179E9F320460728007CF219 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4179E9F52046074D007CF219 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -414,6 +423,14 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		41787B3E20687DCD00693FA1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41787B3C20687DC000693FA1 /* AddNewCardViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		4179E9EF20460407007CF219 /* DI */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +615,7 @@
 		41BDD4F42055AD0B0045A50A /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				41787B42206894C900693FA1 /* AddNewCardCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -605,6 +623,8 @@
 		41BDD4F52055AD0B0045A50A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				41787B3E20687DCD00693FA1 /* Controllers */,
+				41787B3A206879D900693FA1 /* AddNewCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -664,10 +684,10 @@
 			children = (
 				41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */,
 				41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */,
-				41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */,
-				41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */,
 				41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */,
 				41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */,
+				41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */,
+				41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */,
 				41918F132060416B00C592F7 /* AddNewCardCollectionViewCell.swift */,
 				41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */,
 			);
@@ -792,6 +812,7 @@
 				41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */,
 				4148963920669A8E00C3C000 /* ContactsViewController.storyboard */,
 				414896322066988200C3C000 /* HelpViewController.storyboard */,
+				41787B3F20687E0300693FA1 /* AddNewCardViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -970,6 +991,7 @@
 				41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */,
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
 				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
+				41787B4120687E0300693FA1 /* AddNewCardViewController.storyboard in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */,
 				41D1F1741FC78EE800F12C20 /* PodoColors.clr in Resources */,
@@ -1244,6 +1266,8 @@
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
 				41607EA6204DA913009DCEA2 /* View.swift in Sources */,
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
+				41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */,
+				41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */,
 				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
 				41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */,
 				41273CE7206573CB0006A16B /* SideMenuItemType.swift in Sources */,
@@ -1292,6 +1316,7 @@
 				4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */,
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModel.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
+				41787B3D20687DC000693FA1 /* AddNewCardViewController.swift in Sources */,
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
 				418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */,
 				41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */,
@@ -1385,6 +1410,15 @@
 				41968CEA206532F000501112 /* ru */,
 			);
 			name = TutorialViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		41787B3F20687E0300693FA1 /* AddNewCardViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41787B4020687E0300693FA1 /* Base */,
+				41787B452068982800693FA1 /* ru */,
+			);
+			name = AddNewCardViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		41968CDD20652DEE00501112 /* Localizable.strings */ = {
