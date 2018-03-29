@@ -10,6 +10,8 @@ target 'Podo' do
   # Pods for main target
   pod 'SnapKit', '~> 4.0'
   pod 'R.swift', '~> 4.0.0'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
   pod 'SwiftLint'
   pod 'Swinject'
   pod 'RealmSwift'
@@ -20,7 +22,8 @@ target 'Podo' do
     # Pods for testing
     pod 'Quick', '~> 1.2.0'
     pod 'Nimble', '~> 7.0.0'
-    pod 'RealmSwift'
+    pod 'RxBlocking', '~> 4.0'
+    pod 'RxTest',     '~> 4.0'
 
   end
 
@@ -30,7 +33,8 @@ target 'Podo' do
     # Pods for testing
     pod 'Quick', '~> 1.2.0'
     pod 'Nimble', '~> 7.0.0'
-    pod 'RealmSwift'
+    pod 'RxBlocking', '~> 4.0'
+    pod 'RxTest',     '~> 4.0'
 
   end
 
