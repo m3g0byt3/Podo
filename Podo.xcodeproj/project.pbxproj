@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
 		411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F3E43204E1123002D466E /* RouterAssembly.swift */; };
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
@@ -34,7 +35,7 @@
 		41555A682049727C007ADBF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A672049727C007ADBF0 /* Coordinator.swift */; };
 		41555A6A20497625007ADBF0 /* StartOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A6920497625007ADBF0 /* StartOption.swift */; };
 		415C64C2203C54A000B77589 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415C64C1203C54A000B77589 /* CheckMarkView.swift */; };
-		41607EA1204DA77E009DCEA2 /* Swinject+Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA0204DA77E009DCEA2 /* Swinject+Flow.swift */; };
+		41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */; };
 		41607EA6204DA913009DCEA2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA5204DA913009DCEA2 /* View.swift */; };
 		41607EA8204DD7DB009DCEA2 /* RouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA7204DD7DB009DCEA2 /* RouterImpl.swift */; };
 		4160A50D205174EA00485C8B /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A50C205174EA00485C8B /* ThemeProvider.swift */; };
@@ -69,17 +70,15 @@
 		418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */; };
 		41918F152060416B00C592F7 /* AddNewCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41918F132060416B00C592F7 /* AddNewCardCollectionViewCell.swift */; };
 		41918F162060416B00C592F7 /* AddNewCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */; };
-		41968CC120652AAE00501112 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41968CC020652AAE00501112 /* String+Localized.swift */; };
 		41968CDB20652DEE00501112 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CDD20652DEE00501112 /* Localizable.strings */; };
 		41968CEF2065347800501112 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CF12065347800501112 /* InfoPlist.strings */; };
-		419BA9C51FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */; };
+		419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CFEAA206BBD9F004F4897 /* String+Extensions.swift */; };
 		419DC7361FC705CE003A3C45 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7351FC705CE003A3C45 /* Constants.swift */; };
 		419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */; };
 		41A5E78B1FD97FC300A835F5 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */; };
 		41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */; };
 		41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */; };
 		41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */; };
-		41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */; };
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
 		41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */; };
 		41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */; };
@@ -103,8 +102,6 @@
 		41D60A9E205DBB13004C5802 /* SideMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D60A9D205DBB13004C5802 /* SideMenuViewModelImpl.swift */; };
 		41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */; };
 		41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */; };
-		41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */; };
-		41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */; };
 		41EDA99920645FAF0054D456 /* sideMenuItems.realm in Resources */ = {isa = PBXBuildFile; fileRef = 41EDA99820645FAF0054D456 /* sideMenuItems.realm */; };
 		41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
@@ -131,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		411F3E43204E1123002D466E /* RouterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAssembly.swift; sourceTree = "<group>"; };
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
@@ -166,7 +164,7 @@
 		41555A672049727C007ADBF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41555A6920497625007ADBF0 /* StartOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOption.swift; sourceTree = "<group>"; };
 		415C64C1203C54A000B77589 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
-		41607EA0204DA77E009DCEA2 /* Swinject+Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Flow.swift"; sourceTree = "<group>"; };
+		41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extensions.swift"; sourceTree = "<group>"; };
 		41607EA5204DA913009DCEA2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		41607EA7204DD7DB009DCEA2 /* RouterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImpl.swift; sourceTree = "<group>"; };
 		4160A50C205174EA00485C8B /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 		418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModelImpl.swift; sourceTree = "<group>"; };
 		41918F132060416B00C592F7 /* AddNewCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardCollectionViewCell.xib; sourceTree = "<group>"; };
-		41968CC020652AAE00501112 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CE6206532EF00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RootViewController.strings; sourceTree = "<group>"; };
 		41968CE7206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenuViewController.strings; sourceTree = "<group>"; };
@@ -213,14 +210,13 @@
 		41968CEC206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CF22065347A00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41968CF32065347D00501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SafeAreaLayoutGuide.swift"; sourceTree = "<group>"; };
+		419CFEAA206BBD9F004F4897 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		419DC7351FC705CE003A3C45 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsCollectionViewCell.xib; sourceTree = "<group>"; };
 		41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		41A5E79F1FDB3AAF00A835F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CardsViewController.storyboard; sourceTree = "<group>"; };
-		41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardInstance.swift"; sourceTree = "<group>"; };
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
 		41AFD0BB205ECCE3006A8768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsViewController.storyboard; sourceTree = "<group>"; };
 		41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -244,8 +240,6 @@
 		41D60A9D205DBB13004C5802 /* SideMenuViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModelImpl.swift; sourceTree = "<group>"; };
 		41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
 		41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
-		41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HorizontalContentLayoutOffset.swift"; sourceTree = "<group>"; };
-		41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ContentViewController.swift"; sourceTree = "<group>"; };
 		41EDA99820645FAF0054D456 /* sideMenuItems.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = sideMenuItems.realm; sourceTree = "<group>"; };
 		41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateAssembler.swift; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -791,12 +785,9 @@
 		41E8FA031FCB33A100AB453D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				41E8FA041FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift */,
-				41E8FA061FCB383900AB453D /* UIViewController+ContentViewController.swift */,
-				419BA9C41FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift */,
-				41A5E7A11FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift */,
-				41607EA0204DA77E009DCEA2 /* Swinject+Flow.swift */,
-				41968CC020652AAE00501112 /* String+Localized.swift */,
+				410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */,
+				41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */,
+				419CFEAA206BBD9F004F4897 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1251,7 +1242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41968CC120652AAE00501112 /* String+Localized.swift in Sources */,
 				41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */,
 				415C64C2203C54A000B77589 /* CheckMarkView.swift in Sources */,
 				41D60A9E205DBB13004C5802 /* SideMenuViewModelImpl.swift in Sources */,
@@ -1261,7 +1251,7 @@
 				4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */,
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
 				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
-				41A5E7A21FDB3CB100A835F5 /* UIViewController+StoryboardInstance.swift in Sources */,
+				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
 				418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */,
@@ -1273,14 +1263,13 @@
 				418F79D8205D141200397B48 /* SideMenuCellViewModel.swift in Sources */,
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
 				41607EA6204DA913009DCEA2 /* View.swift in Sources */,
+				410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */,
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */,
 				41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */,
 				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
-				41E8FA051FCB33C800AB453D /* UIViewController+HorizontalContentLayoutOffset.swift in Sources */,
 				41273CE7206573CB0006A16B /* SideMenuItemType.swift in Sources */,
 				4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */,
-				419BA9C51FD6E2AE003268F7 /* UIViewController+SafeAreaLayoutGuide.swift in Sources */,
 				41744BBA202E13B10063FE5E /* SideMenuTableViewCell.swift in Sources */,
 				412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */,
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
@@ -1296,7 +1285,7 @@
 				41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */,
 				41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */,
 				4160A50D205174EA00485C8B /* ThemeProvider.swift in Sources */,
-				41607EA1204DA77E009DCEA2 /* Swinject+Flow.swift in Sources */,
+				41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */,
 				41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
@@ -1312,7 +1301,6 @@
 				41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */,
 				41A5E78B1FD97FC300A835F5 /* CardsCollectionViewCell.swift in Sources */,
 				418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */,
-				41E8FA071FCB383900AB453D /* UIViewController+ContentViewController.swift in Sources */,
 				41489638206698DF00C3C000 /* ContactsViewController.swift in Sources */,
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
