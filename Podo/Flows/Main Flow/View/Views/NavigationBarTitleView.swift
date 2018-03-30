@@ -26,11 +26,9 @@ final class NavigationBarTitleView: UIView {
     // MARK: - Public API
 
     override func didMoveToSuperview() {
-        guard superview != nil else { return }
-        snp.updateConstraints { make in
-            make.center.height.equalToSuperview()
-            make.width.equalTo(snp.height)
-        }
+        guard let superview = superview else { return }
+        let superviewHeight = superview.frame.height
+        frame.size = CGSize(width: superviewHeight, height: superviewHeight)
     }
 
     // MARK: - Private API
@@ -38,6 +36,8 @@ final class NavigationBarTitleView: UIView {
     private func setup() {
         let imageView = UIImageView(image: R.image.metroTrainIcon())
         addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = R.clr.podoColors.white()
         imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(Constant.MainMenu.imageInset) }
     }
 }
