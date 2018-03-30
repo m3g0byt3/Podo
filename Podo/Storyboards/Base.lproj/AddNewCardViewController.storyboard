@@ -18,14 +18,14 @@
             <objects>
                 <viewController id="26I-fw-nSe" customClass="AddNewCardViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQw-3e-Onh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmv-6a-fgN" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="40" width="300" height="188.5"/>
+                                <rect key="frame" x="37.5" y="20" width="300" height="188.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter card number" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG">
-                                        <rect key="frame" x="8" y="157" width="284" height="24"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="Enter card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
+                                        <rect key="frame" x="13" y="157" width="274" height="24"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -35,8 +35,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kmv-6a-fgN" secondAttribute="height" multiplier="1:0.628" id="O1l-qP-s4t" userLabel="Credit Card Aspect Ratio"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="XMw-mh-FZG" secondAttribute="bottom" id="R4h-ne-CPG"/>
-                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leading" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" id="plt-Zc-JNM"/>
-                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="trailing" secondItem="Kmv-6a-fgN" secondAttribute="trailingMargin" id="w6F-nE-Ava"/>
+                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leading" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" constant="5" id="plt-Zc-JNM"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="XMw-mh-FZG" secondAttribute="trailing" constant="5" id="w6F-nE-Ava"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
@@ -45,7 +45,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-Kq-w2a">
-                                <rect key="frame" x="16" y="248.5" width="343" height="36"/>
+                                <rect key="frame" x="16" y="228.5" width="343" height="36"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-8x-WfX" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>

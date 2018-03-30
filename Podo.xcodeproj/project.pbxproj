@@ -56,6 +56,7 @@
 		4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EA0020462256007CF219 /* ViewModelAssembly.swift */; };
 		4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EA022046241E007CF219 /* ViewAssembly.swift */; };
 		417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417D0A782056E7D2005076F8 /* PresentationType.swift */; };
+		417DBE12206B9E2100993C9B /* ScanCardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417DBE11206B9E2100993C9B /* ScanCardTextField.swift */; };
 		4180B4E6204C92810064529A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180B4E5204C92810064529A /* Router.swift */; };
 		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
@@ -186,6 +187,7 @@
 		4179EA0020462256007CF219 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		4179EA022046241E007CF219 /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
 		417D0A782056E7D2005076F8 /* PresentationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
+		417DBE11206B9E2100993C9B /* ScanCardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardTextField.swift; sourceTree = "<group>"; };
 		4180B4E5204C92810064529A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
@@ -465,6 +467,14 @@
 			path = "Side Menu";
 			sourceTree = "<group>";
 		};
+		417DBE0E206B9BAA00993C9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				417DBE11206B9E2100993C9B /* ScanCardTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		418A840620446CFC00A950AE /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +627,7 @@
 		41BDD4F52055AD0B0045A50A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				417DBE0E206B9BAA00993C9B /* Views */,
 				41787B3E20687DCD00693FA1 /* Controllers */,
 				41787B3A206879D900693FA1 /* AddNewCardView.swift */,
 			);
@@ -1277,6 +1288,7 @@
 				4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */,
 				4148964120669BF800C3C000 /* ContactsView.swift in Sources */,
 				41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */,
+				417DBE12206B9E2100993C9B /* ScanCardTextField.swift in Sources */,
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */,
