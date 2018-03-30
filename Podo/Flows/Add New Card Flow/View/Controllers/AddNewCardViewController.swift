@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class AddNewCardViewController: UIViewController, AddNewCardView {
+
+    // MARK: - Properties
+
+    private let disposeBag = DisposeBag()
 
     // MARK: - IBOutlets
 
@@ -19,6 +25,7 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupBindings()
         cardNumberTextField.becomeFirstResponder()
     }
 
@@ -26,4 +33,17 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
     var onSaveButtonTap: Completion?
     var onScanButtonTap: Completion?
+
+    // MARK: - Private API
+
+    private func setupBindings() {
+
+        cardNumberTextField.rx.rightOverlayButtonTap?
+            .subscribe { [weak self] _ in self?.onScanButtonTap?() }
+            .disposed(by: disposeBag)
+
+        saveButton.rx.tap
+            .subscribe { [weak self] _ in self?.onSaveButtonTap?() }
+            .disposed(by: disposeBag)
+    }
 }
