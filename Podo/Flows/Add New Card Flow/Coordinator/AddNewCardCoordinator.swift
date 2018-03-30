@@ -16,7 +16,19 @@ final class AddNewCardCoordinator: AbstractCoordinator {
 
     private func showAddNewCard() {
         guard let view = assembler.resolver.resolve(AddNewCardView.self) else { return }
+        view.onSaveButtonTap = { [weak self] in
+            self?.router.popToRootView(animated: true)
+            self?.onFlowFinish?()
+        }
+        view.onScanButtonTap = { [weak self] in
+            self?.showCardScanner()
+        }
         router.push(view, animated: true)
+    }
+
+    private func showCardScanner() {
+        // TODO: Add actual implementation
+        fatalError("\(#function) not implemented yet!")
     }
 
     // MARK: - Coordinator protocol conformance

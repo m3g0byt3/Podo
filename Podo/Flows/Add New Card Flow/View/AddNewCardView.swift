@@ -8,4 +8,8 @@
 
 import Foundation
 
-protocol AddNewCardView: View {}
+protocol AddNewCardView: View {
+
+    var onSaveButtonTap: Completion? { get set }
+    var onScanButtonTap: Completion? { get set }
+}

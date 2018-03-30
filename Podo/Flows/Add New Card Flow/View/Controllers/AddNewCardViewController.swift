@@ -21,4 +21,9 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
         super.viewDidAppear(animated)
         cardNumberTextField.becomeFirstResponder()
     }
+
+    // MARK: - AddNewCardView protocol conformance
+
+    var onSaveButtonTap: Completion?
+    var onScanButtonTap: Completion?
 }
