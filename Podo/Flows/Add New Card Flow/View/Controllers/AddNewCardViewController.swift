@@ -12,6 +12,7 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
     // MARK: - IBOutlets
 
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private weak var cardNumberTextField: UITextField!
 
     // MARK: - Lifecycle

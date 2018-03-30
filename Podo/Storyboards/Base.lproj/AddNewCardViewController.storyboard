@@ -157,13 +157,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Ic-dW-tRJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="57X-vf-j8F">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Fwe-79-lKU"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="cardNumberTextField" destination="XMw-mh-FZG" id="PBX-Cp-bEt"/>
+                        <outlet property="saveButton" destination="Fwe-79-lKU" id="Lgg-W8-Fzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scx-9i-C7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.20000000000005" y="13.043478260869566"/>
+            <point key="canvasLocation" x="-1393" y="-81"/>
         </scene>
     </scenes>
 </document>
