@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Strongly-typed representation of model type
+ */
 enum SideMenuItemType: String {
 
     case main

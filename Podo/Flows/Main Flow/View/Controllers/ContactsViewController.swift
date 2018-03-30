@@ -8,4 +8,4 @@
 
 import UIKit
 
-class ContactsViewController: UIViewController, ContactsView {}
+final class ContactsViewController: UIViewController, ContactsView {}

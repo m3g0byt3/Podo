@@ -14,7 +14,7 @@ final class CardsViewModelImpl: CardsViewModel {
 
     func numberOfChildViewModels(in section: Int) -> Int {
         // TODO: Add actual implementation
-        return 2
+        return 0
     }
 
     func childViewModel(for indexPath: IndexPath) -> CardsCellViewModel? {

@@ -23,7 +23,9 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
     }()
 
     private var initialInsets: CGFloat {
-        guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
+        guard let collectionView = collectionView else {
+            fatalError("No collectionView passed to \(#function)")
+        }
         // Return dummy closure
         return (collectionView.bounds.width - itemSize.width) / 2
     }
@@ -32,7 +34,9 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     override var itemSize: CGSize {
         get {
-            guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
+            guard let collectionView = collectionView else {
+                fatalError("No collectionView passed to \(#function)")
+            }
             let height = collectionView.frame.height * Constant.MainMenu.cellHeightToSuperViewHeightRatio
             let width = height / Constant.MainMenu.cardViewHeightWidthRatio + Constant.MainMenu.cellLeftRightMargins
 
@@ -57,8 +61,9 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
     }
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = collectionView else { fatalError("No collectionView passed to \(#function)") }
-
+        guard let collectionView = collectionView else {
+            fatalError("No collectionView passed to \(#function)")
+        }
         let offsetStep = collectionView.contentSize.width / CGFloat(collectionView.numberOfItems(inSection: 0))
         let offsetMultiplier = round((proposedContentOffset.x + initialInsets) / offsetStep)
         let offset = offsetStep * offsetMultiplier - initialInsets + Constant.MainMenu.collectionViewBottomOffset / 2

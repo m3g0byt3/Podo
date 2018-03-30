@@ -12,6 +12,8 @@ final class AddNewCardCoordinator: AbstractCoordinator {
 
     // MARK: - Private API
 
+    // MARK: - Internal flows
+
     private func showAddNewCard() {
         guard let view = assembler.resolver.resolve(AddNewCardView.self) else { return }
         router.push(view, animated: true)

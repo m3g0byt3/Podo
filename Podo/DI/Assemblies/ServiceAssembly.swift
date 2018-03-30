@@ -16,7 +16,7 @@ final class ServiceAssembly: Assembly {
 
         container.register(NetworkService.self) { _ in
             // TODO: Add actual implementation
-            fatalError("Not implemented yet!")
+            fatalError("\(#function) not implemented yet!")
         }
 
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in

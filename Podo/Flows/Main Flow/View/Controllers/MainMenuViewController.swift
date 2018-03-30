@@ -32,7 +32,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         setupCardsViewController()
     }
 
-    // MARK: - Control handlers
+    // MARK: - IBActions
 
     @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
         isTransitionInteractive = false
