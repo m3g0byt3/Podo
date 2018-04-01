@@ -31,6 +31,7 @@
 		4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728A2053001D00B8C1EB /* TutorialViewController.swift */; };
 		4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */; };
 		415372922053168D00B8C1EB /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415372912053168D00B8C1EB /* TutorialView.swift */; };
+		41541247206D701B0032B33C /* TransportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41541246206D701B0032B33C /* TransportCard.swift */; };
 		41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */; };
 		41555A682049727C007ADBF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A672049727C007ADBF0 /* Coordinator.swift */; };
 		41555A6A20497625007ADBF0 /* StartOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A6920497625007ADBF0 /* StartOption.swift */; };
@@ -58,6 +59,9 @@
 		417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417D0A782056E7D2005076F8 /* PresentationType.swift */; };
 		417DBE12206B9E2100993C9B /* ScanCardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417DBE11206B9E2100993C9B /* ScanCardTextField.swift */; };
 		4180B4E6204C92810064529A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180B4E5204C92810064529A /* Router.swift */; };
+		41816E1E206A312D00A0FFCC /* AddNewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816E1D206A312D00A0FFCC /* AddNewCardViewModel.swift */; };
+		41816E20206A315E00A0FFCC /* AddNewCardViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816E1F206A315E00A0FFCC /* AddNewCardViewModelImpl.swift */; };
+		4188E970206FBB5C0097D3DF /* TransportCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188E96F206FBB5C0097D3DF /* TransportCardType.swift */; };
 		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
 		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
@@ -162,6 +166,7 @@
 		4153728A2053001D00B8C1EB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
 		415372912053168D00B8C1EB /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		41541246206D701B0032B33C /* TransportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCard.swift; sourceTree = "<group>"; };
 		41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		41555A672049727C007ADBF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41555A6920497625007ADBF0 /* StartOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOption.swift; sourceTree = "<group>"; };
@@ -190,6 +195,9 @@
 		417D0A782056E7D2005076F8 /* PresentationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
 		417DBE11206B9E2100993C9B /* ScanCardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardTextField.swift; sourceTree = "<group>"; };
 		4180B4E5204C92810064529A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		41816E1D206A312D00A0FFCC /* AddNewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModel.swift; sourceTree = "<group>"; };
+		41816E1F206A315E00A0FFCC /* AddNewCardViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModelImpl.swift; sourceTree = "<group>"; };
+		4188E96F206FBB5C0097D3DF /* TransportCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardType.swift; sourceTree = "<group>"; };
 		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
 		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
@@ -639,6 +647,8 @@
 		41BDD4F62055AD0B0045A50A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				41816E1D206A312D00A0FFCC /* AddNewCardViewModel.swift */,
+				41816E1F206A315E00A0FFCC /* AddNewCardViewModelImpl.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -726,6 +736,8 @@
 		41BDD5012055E85F0045A50A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4188E96F206FBB5C0097D3DF /* TransportCardType.swift */,
+				41541246206D701B0032B33C /* TransportCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1259,6 +1271,7 @@
 				41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */,
 				415C64C2203C54A000B77589 /* CheckMarkView.swift in Sources */,
 				41D60A9E205DBB13004C5802 /* SideMenuViewModelImpl.swift in Sources */,
+				4188E970206FBB5C0097D3DF /* TransportCardType.swift in Sources */,
 				418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */,
 				41273CE3206573670006A16B /* SideMenuItem.swift in Sources */,
 				41555A682049727C007ADBF0 /* Coordinator.swift in Sources */,
@@ -1266,6 +1279,7 @@
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
 				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
 				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
+				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
 				418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */,
@@ -1278,6 +1292,7 @@
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
 				41607EA6204DA913009DCEA2 /* View.swift in Sources */,
 				410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */,
+				41816E1E206A312D00A0FFCC /* AddNewCardViewModel.swift in Sources */,
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */,
 				41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */,
@@ -1306,6 +1321,7 @@
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
+				41816E20206A315E00A0FFCC /* AddNewCardViewModelImpl.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModel.swift in Sources */,
 				4148964320669C3C00C3C000 /* HelpView.swift in Sources */,

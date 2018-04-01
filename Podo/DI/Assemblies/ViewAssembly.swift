@@ -65,10 +65,11 @@ final class ViewAssembly: Assembly {
             return viewController
         }
 
-        container.register(AddNewCardView.self) { _ in
+        container.register(AddNewCardView.self) { resolver in
             guard let viewController = AddNewCardViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(AddNewCardViewController.self)")
             }
+            viewController.viewModel = resolver.resolve(AddNewCardViewModel.self)
             return viewController
         }
     }

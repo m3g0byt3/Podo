@@ -29,5 +29,12 @@ final class ServiceAssembly: Assembly {
             }
             return AnyDatabaseService<SideMenuItem>(service)
         }
+
+        container.register(AnyDatabaseService<TransportCard>.self) { _ in
+            guard let service = try? DatabaseServiceImpl<TransportCard>() else {
+                fatalError("Unable to instantiate service of type \(DatabaseServiceImpl<TransportCard>.self)")
+            }
+            return AnyDatabaseService<TransportCard>(service)
+        }
     }
 }

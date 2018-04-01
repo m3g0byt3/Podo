@@ -14,6 +14,8 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
     // MARK: - Properties
 
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    var viewModel: AddNewCardViewModel!
     private let disposeBag = DisposeBag()
 
     // MARK: - IBOutlets
@@ -37,13 +39,28 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
     // MARK: - Private API
 
     private func setupBindings() {
+        cardNumberTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .throttle(Constant.AnimationDuration.normal, scheduler: MainScheduler.instance)
+            .bind(to: viewModel.cardNumberInput)
+            .disposed(by: disposeBag)
 
         cardNumberTextField.rx.rightOverlayButtonTap?
-            .subscribe { [weak self] _ in self?.onScanButtonTap?() }
+            .subscribe { [unowned self] _ in self.onScanButtonTap?() }
             .disposed(by: disposeBag)
 
         saveButton.rx.tap
-            .subscribe { [weak self] _ in self?.onSaveButtonTap?() }
+            .do(onNext: { [unowned self] _ in self.onSaveButtonTap?() })
+            .bind(to: viewModel.saveState)
+            .disposed(by: disposeBag)
+
+        viewModel.cardNumberOutput
+            .drive(cardNumberTextField.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.isCardValid
+            .drive(saveButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }
