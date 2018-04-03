@@ -30,6 +30,8 @@ final class TransportCard: Object {
     @objc dynamic var cardNumber = ""
     /// Private variable used to store `cardType` in Realm database
     @objc dynamic private var _cardType = 0
+    /// Visual theme identifier for a card
+    @objc dynamic var themeIdentifier = 0
 
     // MARK: - Initialization
 

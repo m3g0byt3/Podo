@@ -21,9 +21,14 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
 
     // MARK: - AddNewCardViewModel protocol conformance
 
-    let cardNumberInput: PublishSubject<String>
-    let saveState: PublishSubject<Void>
+    // Inputs
+    let cardNumberInput = PublishSubject<String>()
+    let themeChanged = PublishSubject<Int>()
+    let saveState = PublishSubject<Void>()
+
+    // Outputs
     let cardNumberOutput: Driver<String>
+    let cardTheme: Driver<TransportCardTheme>
     let isCardValid: Driver<Bool>
 
     // MARK: - Initialization
@@ -31,32 +36,38 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
     init(_ database: AnyDatabaseService<TransportCard>) {
         self.database = database
 
-        cardNumberInput = PublishSubject()
-
-        saveState = PublishSubject()
-
         cardNumberOutput = cardNumberInput
+            .map { $0.replacingOccurrences(of: AddNewCardViewModelImpl.notNumericSet, with: "") }
             .asDriver(onErrorJustReturn: "")
-            .map { return $0.replacingOccurrences(of: AddNewCardViewModelImpl.notNumericSet, with: "") }
 
-        model = cardNumberOutput
-            .asObservable()
+        model = Observable
+            .combineLatest(cardNumberOutput.asObservable(), themeChanged.startWith(0)) { (number, identifier) in
+                let card = TransportCard(cardNumber: number)
+                card?.themeIdentifier = identifier
+                return card
+            }
             .distinctUntilChanged()
-            .map { TransportCard(cardNumber: $0) }
+            .share()
 
         isCardValid = model
-            .asDriver(onErrorJustReturn: nil)
+            .asObservable()
             .map { $0 != nil }
+            .asDriver(onErrorJustReturn: false)
+            .distinctUntilChanged()
+
+        cardTheme = themeChanged
+            .asObservable()
+            .map { TransportCardTheme(rawValue: $0) ?? .white }
+            .asDriver(onErrorJustReturn: .white)
             .distinctUntilChanged()
 
         _ = saveState
             .asObservable()
             .withLatestFrom(model)
             .filter { $0 != nil }
-            .do(onNext: { [weak self] card in
+            .subscribe(onNext: { [weak self] card in
                 try? self?.database.save(item: card!)
             })
-            .subscribe()
             .disposed(by: disposeBag)
     }
 }

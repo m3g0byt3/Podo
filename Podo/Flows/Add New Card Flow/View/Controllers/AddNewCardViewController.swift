@@ -20,8 +20,10 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
     // MARK: - IBOutlets
 
+    @IBOutlet private weak var cardView: UIView!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private weak var cardNumberTextField: UITextField!
+    @IBOutlet private var colorButtons: [UIButton]!
 
     // MARK: - Lifecycle
 
@@ -46,6 +48,14 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
             .bind(to: viewModel.cardNumberInput)
             .disposed(by: disposeBag)
 
+        colorButtons.enumerated().forEach { index, button in
+            button.rx.tap
+                .subscribe(onNext: { [unowned self] in
+                    self.viewModel.themeChanged.onNext(index)
+                })
+                .disposed(by: disposeBag)
+        }
+
         cardNumberTextField.rx.rightOverlayButtonTap?
             .subscribe { [unowned self] _ in self.onScanButtonTap?() }
             .disposed(by: disposeBag)
@@ -61,6 +71,12 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
         viewModel.isCardValid
             .drive(saveButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
+        viewModel.cardTheme
+            .drive(onNext: { [unowned self] theme in
+                self.cardView.backgroundColor = theme.firstGradientColor
+            })
             .disposed(by: disposeBag)
     }
 }
