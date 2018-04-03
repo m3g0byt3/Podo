@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="26I-fw-nSe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="26I-fw-nSe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -18,14 +18,14 @@
             <objects>
                 <viewController id="26I-fw-nSe" customClass="AddNewCardViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQw-3e-Onh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmv-6a-fgN" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="40" width="300" height="188.5"/>
+                                <rect key="frame" x="37.5" y="20" width="300" height="188.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter card number" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG">
-                                        <rect key="frame" x="8" y="157" width="284" height="24"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="Enter card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
+                                        <rect key="frame" x="13" y="157" width="274" height="24"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -35,8 +35,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kmv-6a-fgN" secondAttribute="height" multiplier="1:0.628" id="O1l-qP-s4t" userLabel="Credit Card Aspect Ratio"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="XMw-mh-FZG" secondAttribute="bottom" id="R4h-ne-CPG"/>
-                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leading" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" id="plt-Zc-JNM"/>
-                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="trailing" secondItem="Kmv-6a-fgN" secondAttribute="trailingMargin" id="w6F-nE-Ava"/>
+                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leading" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" constant="5" id="plt-Zc-JNM"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="XMw-mh-FZG" secondAttribute="trailing" constant="5" id="w6F-nE-Ava"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
@@ -45,10 +45,22 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-Kq-w2a">
-                                <rect key="frame" x="16" y="248.5" width="343" height="36"/>
+                                <rect key="frame" x="16" y="228.5" width="343" height="36"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-8x-WfX" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-Ul-4Gt" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="i8d-Ul-4Gt" secondAttribute="height" multiplier="1:1" id="PMU-oP-NBA"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-8x-WfX" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
+                                        <rect key="frame" x="44" y="0.0" width="36" height="36"/>
                                         <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Kke-8x-WfX" secondAttribute="height" multiplier="1:1" id="1Kg-Zd-RMZ"/>
@@ -59,8 +71,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-56-ZzX" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="44" y="0.0" width="36" height="36"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-56-ZzX" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
+                                        <rect key="frame" x="88" y="0.0" width="35.5" height="36"/>
                                         <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SU7-56-ZzX" secondAttribute="height" multiplier="1:1" id="Uqh-JA-gyK"/>
@@ -71,8 +83,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zE-l6-UKz" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="88" y="0.0" width="35.5" height="36"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zE-l6-UKz" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
+                                        <rect key="frame" x="131.5" y="0.0" width="36" height="36"/>
                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5zE-l6-UKz" secondAttribute="height" multiplier="1:1" id="Kzp-E3-2xQ"/>
@@ -83,19 +95,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-Ul-4Gt" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="131.5" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="i8d-Ul-4Gt" secondAttribute="height" multiplier="1:1" id="PMU-oP-NBA"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5r5-k8-so5" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5r5-k8-so5" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="175.5" y="0.0" width="36" height="36"/>
                                         <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -107,7 +107,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-N1-kKj" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-N1-kKj" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="219.5" y="0.0" width="36" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -119,7 +119,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Db-rM3" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Db-rM3" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="263.5" y="0.0" width="35.5" height="36"/>
                                         <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -131,7 +131,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ed-w6-fPR" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ed-w6-fPR" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="307" y="0.0" width="36" height="36"/>
                                         <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -157,13 +157,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Ic-dW-tRJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="57X-vf-j8F">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Fwe-79-lKU"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="cardNumberTextField" destination="XMw-mh-FZG" id="PBX-Cp-bEt"/>
+                        <outlet property="cardView" destination="Kmv-6a-fgN" id="BHy-g7-d7l"/>
+                        <outlet property="saveButton" destination="Fwe-79-lKU" id="Lgg-W8-Fzf"/>
+                        <outletCollection property="colorButtons" destination="i8d-Ul-4Gt" collectionClass="NSMutableArray" id="SNF-Rc-1Nj"/>
+                        <outletCollection property="colorButtons" destination="Kke-8x-WfX" collectionClass="NSMutableArray" id="fHq-So-BJt"/>
+                        <outletCollection property="colorButtons" destination="SU7-56-ZzX" collectionClass="NSMutableArray" id="CcE-t2-6r8"/>
+                        <outletCollection property="colorButtons" destination="5zE-l6-UKz" collectionClass="NSMutableArray" id="FVB-lX-z10"/>
+                        <outletCollection property="colorButtons" destination="5r5-k8-so5" collectionClass="NSMutableArray" id="d8O-nv-qOz"/>
+                        <outletCollection property="colorButtons" destination="9Jw-N1-kKj" collectionClass="NSMutableArray" id="UVk-nY-EXC"/>
+                        <outletCollection property="colorButtons" destination="9Fe-Db-rM3" collectionClass="NSMutableArray" id="AdU-3n-L8v"/>
+                        <outletCollection property="colorButtons" destination="8Ed-w6-fPR" collectionClass="NSMutableArray" id="vkh-iM-io4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scx-9i-C7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.20000000000005" y="13.043478260869566"/>
+            <point key="canvasLocation" x="-1958" y="-104"/>
         </scene>
     </scenes>
 </document>

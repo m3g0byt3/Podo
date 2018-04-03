@@ -27,5 +27,12 @@ final class ViewModelAssembly: Assembly {
             }
             return AnyViewModel(SideMenuViewModelImpl(model))
         }
+
+        container.register(AddNewCardViewModel.self) { resolver in
+            guard let model = resolver.resolve(AnyDatabaseService<TransportCard>.self) else {
+                fatalError("Unable to instantiate model of type \(AnyDatabaseService<TransportCard>.self)")
+            }
+            return AddNewCardViewModelImpl(model)
+        }
     }
 }
