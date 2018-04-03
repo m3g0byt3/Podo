@@ -53,7 +53,7 @@ enum Constant {
         /// Ratio between UICollectionViewCell height and height of UICollectionView
         static let cellHeightToSuperViewHeightRatio: CGFloat = 0.60
         /// Left and right margins in UICollectionViewCell (as set in the IB)
-        static let cellLeftRightMargins: CGFloat = 8 * 2
+        static let cellEdgesOffset: CGFloat = 8 * 2
         /// Ratio between width and height of standard sized credit cards
         static let cardViewHeightWidthRatio: CGFloat = 0.628
         /// Ratio between height of tableView and offset for bottom of CardsViewController's view

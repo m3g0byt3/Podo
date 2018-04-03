@@ -15,7 +15,7 @@ final class RoundShadowView: UIView {
 
     private static let heightToCornerRadiusRatio: CGFloat = 0.15
     private static let shadowOffset = CGSize(width: 0, height: 1.5)
-    private static let shadowOpacity: Float = 0.20
+    private static let shadowOpacity: Float = 0.33
 
     // MARK: - Properties
 

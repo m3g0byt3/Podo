@@ -37,8 +37,12 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
             guard let collectionView = collectionView else {
                 fatalError("No collectionView passed to \(#function)")
             }
-            let height = collectionView.frame.height * Constant.MainMenu.cellHeightToSuperViewHeightRatio
-            let width = height / Constant.MainMenu.cardViewHeightWidthRatio + Constant.MainMenu.cellLeftRightMargins
+            let edgesOffset = Constant.MainMenu.cellEdgesOffset
+            let heightToSuperView = Constant.MainMenu.cellHeightToSuperViewHeightRatio
+            let heightToWidth = Constant.MainMenu.cardViewHeightWidthRatio
+
+            let height = collectionView.frame.height * heightToSuperView + edgesOffset
+            let width = height / heightToWidth - edgesOffset
 
             return CGSize(width: width, height: height)
         }

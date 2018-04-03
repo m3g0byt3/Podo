@@ -21,11 +21,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="505" height="280"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCR-71-336">
-                        <rect key="frame" x="20" y="0.0" width="465" height="280"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCR-71-336" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
+                        <rect key="frame" x="20" y="8" width="465" height="264"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TransportCardIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vbg-km-4nc">
-                                <rect key="frame" x="132.5" y="35" width="200" height="210"/>
+                                <rect key="frame" x="132.5" y="33" width="200" height="198"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
@@ -35,14 +35,25 @@
                             <constraint firstItem="Vbg-km-4nc" firstAttribute="centerX" secondItem="bCR-71-336" secondAttribute="centerX" id="eOj-5c-8XJ"/>
                             <constraint firstItem="Vbg-km-4nc" firstAttribute="height" secondItem="bCR-71-336" secondAttribute="height" multiplier="0.75" id="y6M-Ob-GbJ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
+                                <real key="value" value="0.14999999999999999"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="bCR-71-336" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Aii-Y4-cI2"/>
+                <constraint firstItem="bCR-71-336" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Aii-Y4-cI2"/>
                 <constraint firstItem="bCR-71-336" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="OuU-Z7-cct"/>
-                <constraint firstAttribute="bottom" secondItem="bCR-71-336" secondAttribute="bottom" id="QWb-o9-RlK"/>
+                <constraint firstAttribute="bottom" secondItem="bCR-71-336" secondAttribute="bottom" constant="8" id="QWb-o9-RlK"/>
                 <constraint firstAttribute="trailingMargin" secondItem="bCR-71-336" secondAttribute="trailing" id="odc-eb-sSJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
