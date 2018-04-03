@@ -64,6 +64,8 @@ iOSInjectionProject/
 
 .DS_Store
 
+xcshareddata/
+
 # Realm aux files
 **/*.mx
 **/*.lock
