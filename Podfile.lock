@@ -21,17 +21,17 @@ PODS:
   - Swinject (2.2.0)
 
 DEPENDENCIES:
-  - Nimble (~> 7.0.0)
-  - Quick (~> 1.2.0)
-  - R.swift (~> 4.0.0)
-  - RealmSwift
+  - Nimble (~> 7.0)
+  - Quick (~> 1.2)
+  - R.swift (~> 4.0)
+  - RealmSwift (~> 3.2)
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - RxTest (~> 4.0)
   - SnapKit (~> 4.0)
-  - SwiftLint
-  - Swinject
+  - SwiftLint (~> 0.1)
+  - Swinject (~> 2.0)
 
 SPEC CHECKSUMS:
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac

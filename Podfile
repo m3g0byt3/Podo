@@ -8,22 +8,22 @@ target 'Podo' do
   use_frameworks!
 
   # Pods for main target
-  pod 'SnapKit', '~> 4.0'
-  pod 'R.swift', '~> 4.0.0'
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0'
-  pod 'SwiftLint'
-  pod 'Swinject'
-  pod 'RealmSwift'
+  pod 'SnapKit', 	'~> 4.0'
+  pod 'R.swift', 	'~> 4.0'
+  pod 'RxSwift', 	'~> 4.0'
+  pod 'RxCocoa', 	'~> 4.0'
+  pod 'SwiftLint', 	'~> 0.1'
+  pod 'Swinject', 	'~> 2.0'
+  pod 'RealmSwift', 	'~> 3.2'
 
   target 'PodoTests' do
     inherit! :search_paths
 
     # Pods for testing
-    pod 'Quick', '~> 1.2.0'
-    pod 'Nimble', '~> 7.0.0'
-    pod 'RxBlocking', '~> 4.0'
-    pod 'RxTest',     '~> 4.0'
+    pod 'Quick', 	'~> 1.2'
+    pod 'Nimble', 	'~> 7.0'
+    pod 'RxBlocking', 	'~> 4.0'
+    pod 'RxTest',     	'~> 4.0'
 
   end
 
@@ -31,10 +31,10 @@ target 'Podo' do
     inherit! :search_paths
 
     # Pods for testing
-    pod 'Quick', '~> 1.2.0'
-    pod 'Nimble', '~> 7.0.0'
-    pod 'RxBlocking', '~> 4.0'
-    pod 'RxTest',     '~> 4.0'
+    pod 'Quick', 	'~> 1.2'
+    pod 'Nimble', 	'~> 7.0'
+    pod 'RxBlocking', 	'~> 4.0'
+    pod 'RxTest',     	'~> 4.0'
 
   end
 
