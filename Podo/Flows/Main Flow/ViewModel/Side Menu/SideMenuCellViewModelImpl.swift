@@ -6,7 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import UIKit.UIImage
 
 struct SideMenuCellViewModelImpl: SideMenuCellViewModel {
 
