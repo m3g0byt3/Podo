@@ -24,6 +24,7 @@ extension String {
      */
     @available(swift 4)
     var nsRange: NSRange? {
+        // swiftlint:disable:next identifier_name
         guard let _range = self.range(of: self) else { return nil }
         return NSRange(_range, in: self)
     }

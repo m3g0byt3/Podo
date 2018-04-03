@@ -14,7 +14,7 @@ import RealmSwift
  */
 @objcMembers final class SideMenuItem: Object {
 
-    // MARK: - SideMenuItem protocol conformance
+    // MARK: - Properties
 
     dynamic var identifier = 0
     dynamic var title = ""

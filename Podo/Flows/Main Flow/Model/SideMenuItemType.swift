@@ -10,6 +10,7 @@ import Foundation
 
 /**
  Strongly-typed representation of model type
+ - Remark: Raw value is `String` - for serialization/deserialization
  */
 enum SideMenuItemType: String {
 
