@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Swinject
+import EmptyDataSet_Swift
 
 final class MainMenuViewController: UIViewController, MainMenuView, InteractiveTransitioningCapable {
 
@@ -78,6 +79,19 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         tableView.contentInset = UIEdgeInsets(top: tableViewVerticalInset, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constant.MainMenu.estimatedRowHeight
+        // Setup EmptyDataSet_Swift
+        tableView.emptyDataSetView { view in
+            let title = NSAttributedString(string: R.string.localizable.noTransaction())
+            let detailTitle = NSAttributedString(string: R.string.localizable.addCard())
+            let imageWidth = view.frame.width * Constant.MainMenu.emptyImageWidthRatio
+            let verticalOffset = view.frame.height * Constant.MainMenu.emptyVerticalOffsetRatio
+            let image = #imageLiteral(resourceName: "crying-card").scaledImage(width: imageWidth)
+            view.titleLabelString(title)
+                .detailLabelString(detailTitle)
+                .verticalOffset(verticalOffset)
+                .imageTintColor(R.clr.podoColors.empty())
+                .image(image)
+        }
     }
 
     // MARK: - MainMenuView protocol conformance

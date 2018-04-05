@@ -1,4 +1,5 @@
 PODS:
+  - EmptyDataSet-Swift (4.0.4)
   - Nimble (7.0.3)
   - Quick (1.2.0)
   - R.swift (4.0.0):
@@ -21,6 +22,7 @@ PODS:
   - Swinject (2.3.0)
 
 DEPENDENCIES:
+  - EmptyDataSet-Swift (~> 4.0.4)
   - Nimble (~> 7.0)
   - Quick (~> 1.2)
   - R.swift (~> 4.0)
@@ -34,6 +36,7 @@ DEPENDENCIES:
   - Swinject (~> 2.0)
 
 SPEC CHECKSUMS:
+  EmptyDataSet-Swift: 935ce169c6d4abe371bbc5dd92bcf9ee4dddb1bd
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
@@ -48,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   Swinject: 6e29897396bab81fe4aa40c5ca92ba996136334b
 
-PODFILE CHECKSUM: 01478ceb0cce7cd7775418428e91fe068d860135
+PODFILE CHECKSUM: 2b971032e3ba34bbbdfcfcc1f7443d9982058c4a
 
 COCOAPODS: 1.3.1

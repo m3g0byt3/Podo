@@ -19,14 +19,16 @@ struct R: Rswift.Validatable {
   /// This `R.clr` struct is generated, and contains static references to 1 color palettes.
   /// NOTE: R.clr is deprecated and will be removed in a future R.swift version.
   struct clr {
-    /// This `R.clr.podoColors` struct is generated, and contains static references to 6 colors.
+    /// This `R.clr.podoColors` struct is generated, and contains static references to 7 colors.
     struct podoColors {
       /// <span style='background-color: #33CCFF; color: #CC3300; padding: 1px 3px;'>#33CCFF</span> blue
       static let blue = Rswift.ColorPaletteItemResource(name: "blue", red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
-      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> green-IB
-      static let greenIB = Rswift.ColorPaletteItemResource(name: "green-IB", red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      /// <span style='background-color: #42D551; color: #BD2AAE; padding: 1px 3px;'>#42D551</span> IB-green
+      static let ibGreen = Rswift.ColorPaletteItemResource(name: "IB-green", red: 0.2588235294, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
       static let green = Rswift.ColorPaletteItemResource(name: "green", red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      /// <span style='background-color: #919191; color: #6E6E6E; padding: 1px 3px;'>#919191</span> empty
+      static let empty = Rswift.ColorPaletteItemResource(name: "empty", red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1.0)
       /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
       static let background = Rswift.ColorPaletteItemResource(name: "background", red: 0.9450980392, green: 0.9490196078, blue: 0.9294117647, alpha: 1.0)
       /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> orange
@@ -41,11 +43,11 @@ struct R: Rswift.Validatable {
         return UIKit.UIColor(red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
       }
       
-      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> green-IB
+      /// <span style='background-color: #42D551; color: #BD2AAE; padding: 1px 3px;'>#42D551</span> IB-green
       /// 
-      /// UIColor(red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
-      static func greenIB(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      /// UIColor(red: 0.2588235294, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      static func ibGreen(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.2588235294, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
       }
       
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
@@ -53,6 +55,13 @@ struct R: Rswift.Validatable {
       /// UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       static func green(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #919191; color: #6E6E6E; padding: 1px 3px;'>#919191</span> empty
+      /// 
+      /// UIColor(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1.0)
+      static func empty(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1.0)
       }
       
       /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
@@ -114,7 +123,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `AddNewCardIcon`.
     static let addNewCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "AddNewCardIcon")
@@ -126,6 +135,8 @@ struct R: Rswift.Validatable {
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
     /// Image `TransportCardIcon`.
     static let transportCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardIcon")
+    /// Image `crying-card`.
+    static let cryingCard = Rswift.ImageResource(bundle: R.hostingBundle, name: "crying-card")
     /// Image `scan-card`.
     static let scanCard = Rswift.ImageResource(bundle: R.hostingBundle, name: "scan-card")
     
@@ -152,6 +163,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "TransportCardIcon", bundle: ..., traitCollection: ...)`
     static func transportCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.transportCardIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "crying-card", bundle: ..., traitCollection: ...)`
+    static func cryingCard(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cryingCard, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "scan-card", bundle: ..., traitCollection: ...)`
@@ -420,8 +436,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
     struct localizable {
+      /// Base translation: Add your first transport card and start using the app
+      /// 
+      /// Locales: Base, ru
+      static let addCard = Rswift.StringResource(key: "add card", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Contacts
       /// 
       /// Locales: Base, ru
@@ -434,10 +454,21 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: Base, ru
       static let main = Rswift.StringResource(key: "main", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: No recent transaction
+      /// 
+      /// Locales: Base, ru
+      static let noTransaction = Rswift.StringResource(key: "no transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Settings
       /// 
       /// Locales: Base, ru
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      
+      /// Base translation: Add your first transport card and start using the app
+      /// 
+      /// Locales: Base, ru
+      static func addCard(_: Void = ()) -> String {
+        return NSLocalizedString("add card", bundle: R.hostingBundle, value: "Add your first transport card and start using the app", comment: "")
+      }
       
       /// Base translation: Contacts
       /// 
@@ -458,6 +489,13 @@ struct R: Rswift.Validatable {
       /// Locales: Base, ru
       static func main(_: Void = ()) -> String {
         return NSLocalizedString("main", bundle: R.hostingBundle, value: "Main screen", comment: "")
+      }
+      
+      /// Base translation: No recent transaction
+      /// 
+      /// Locales: Base, ru
+      static func noTransaction(_: Void = ()) -> String {
+        return NSLocalizedString("no transaction", bundle: R.hostingBundle, value: "No recent transaction", comment: "")
       }
       
       /// Base translation: Settings
