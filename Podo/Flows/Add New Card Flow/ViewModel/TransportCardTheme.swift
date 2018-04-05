@@ -30,14 +30,14 @@ extension TransportCardTheme {
     var firstGradientColor: UIColor {
         // TODO: Add actual implementation
         switch self {
-        case .white: return .white
-        case .red: return .red
-        case .orange: return .orange
-        case .yellow: return .yellow
-        case .cyan: return .cyan
-        case .blue: return .blue
-        case .purple: return .purple
-        case .pink: return .magenta
+        case .white: return R.clr.podoColors.white()
+        case .red: return R.clr.appleHIG.red()
+        case .orange: return R.clr.appleHIG.orange()
+        case .yellow: return R.clr.appleHIG.yellow()
+        case .cyan: return R.clr.appleHIG.teal()
+        case .blue: return R.clr.appleHIG.blue()
+        case .purple: return R.clr.appleHIG.purple()
+        case .pink: return R.clr.appleHIG.pink()
         }
     }
 
@@ -45,14 +45,14 @@ extension TransportCardTheme {
     var secondGradientColor: UIColor {
         // TODO: Add actual implementation
         switch self {
-        case .white: return .white
-        case .red: return .red
-        case .orange: return .orange
-        case .yellow: return .yellow
-        case .cyan: return .cyan
-        case .blue: return .blue
-        case .purple: return .purple
-        case .pink: return .magenta
+        case .white: return R.clr.podoColors.white()
+        case .red: return R.clr.appleHIG.red()
+        case .orange: return R.clr.appleHIG.orange()
+        case .yellow: return R.clr.appleHIG.yellow()
+        case .cyan: return R.clr.appleHIG.teal()
+        case .blue: return R.clr.appleHIG.blue()
+        case .purple: return R.clr.appleHIG.purple()
+        case .pink: return R.clr.appleHIG.pink()
         }
     }
 }

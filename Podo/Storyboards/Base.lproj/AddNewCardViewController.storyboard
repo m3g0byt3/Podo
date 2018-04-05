@@ -49,7 +49,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-Ul-4Gt" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="i8d-Ul-4Gt" secondAttribute="height" multiplier="1:1" id="PMU-oP-NBA"/>
                                         </constraints>
@@ -61,7 +61,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-8x-WfX" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="44" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.98658347130000001" green="0.12904104590000001" blue="0.1457204074" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Kke-8x-WfX" secondAttribute="height" multiplier="1:1" id="1Kg-Zd-RMZ"/>
                                         </constraints>
@@ -73,7 +73,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-56-ZzX" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="88" y="0.0" width="35.5" height="36"/>
-                                        <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.99055147170000002" green="0.50925779339999999" blue="0.032983742650000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SU7-56-ZzX" secondAttribute="height" multiplier="1:1" id="Uqh-JA-gyK"/>
                                         </constraints>
@@ -85,7 +85,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zE-l6-UKz" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="131.5" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.99517929549999995" green="0.76438117029999997" blue="0.0368270427" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5zE-l6-UKz" secondAttribute="height" multiplier="1:1" id="Kzp-E3-2xQ"/>
                                         </constraints>
@@ -97,7 +97,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5r5-k8-so5" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="175.5" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.2983720601" green="0.73470252749999998" blue="0.97413814070000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5r5-k8-so5" secondAttribute="height" multiplier="1:1" id="LyQ-Md-px0"/>
                                         </constraints>
@@ -109,7 +109,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-N1-kKj" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="219.5" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.04085352272" green="0.37480330470000001" blue="0.99835759400000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Jw-N1-kKj" secondAttribute="height" multiplier="1:1" id="YuW-Za-3ak"/>
                                         </constraints>
@@ -121,7 +121,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Db-rM3" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="263.5" y="0.0" width="35.5" height="36"/>
-                                        <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.27237486840000003" green="0.23386213180000001" blue="0.80089795590000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Fe-Db-rM3" secondAttribute="height" multiplier="1:1" id="aPN-VT-w0a"/>
                                         </constraints>
@@ -133,7 +133,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ed-w6-fPR" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="307" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.98624116179999999" green="0.049929037689999997" blue="0.2660948038" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Ed-w6-fPR" secondAttribute="height" multiplier="1:1" id="dfb-JQ-biV"/>
                                         </constraints>
