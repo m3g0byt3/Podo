@@ -12,6 +12,7 @@ import Swinject
 final class ThemeAssembly: Assembly {
 
     func assemble(container: Container) {
+
         container.register(ThemeProvider.self) { _ in
             ThemeProviderImpl()
         }

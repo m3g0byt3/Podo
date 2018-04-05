@@ -59,7 +59,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     }
 
     override func viewWillLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        super.viewWillLayoutSubviews()
         if let ratio = parentViewHeightRatio {
             collectionView.alpha = min(1, ratio)
             collectionView.transform = CGAffineTransform(scaleX: max(1, ratio), y: max(1, ratio))

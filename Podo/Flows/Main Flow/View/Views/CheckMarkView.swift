@@ -8,14 +8,10 @@
 
 import UIKit
 
+@IBDesignable
 final class CheckMarkView: UIView {
 
     // MARK: - Public API
-
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        setup()
-    }
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -35,6 +31,16 @@ final class CheckMarkView: UIView {
         context?.addLine(to: CGPoint(x: xCoord - checkMarkRadius, y: yCoord + checkMarkRadius))
         context?.setStrokeColor(R.clr.podoColors.white().cgColor)
         context?.strokePath()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
     }
 
     // MARK: - Private API

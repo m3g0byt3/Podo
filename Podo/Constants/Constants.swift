@@ -46,19 +46,23 @@ enum Constant {
     enum MainMenu {
         /// Insets between titleView icon and its container
         static let imageInset: CGFloat = 5
-        /// tableView's estimatedHeightForRowAt
+        /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 75
         /// Ratio between screen height and height of CardsViewController
         static let verticalInsetRatio: CGFloat = 0.25
         /// Ratio between UICollectionViewCell height and height of UICollectionView
         static let cellHeightToSuperViewHeightRatio: CGFloat = 0.60
         /// Left and right margins in UICollectionViewCell (as set in the IB)
-        static let cellLeftRightMargins: CGFloat = 8 * 2
+        static let cellEdgesOffset: CGFloat = 8 * 2
         /// Ratio between width and height of standard sized credit cards
         static let cardViewHeightWidthRatio: CGFloat = 0.628
         /// Ratio between height of tableView and offset for bottom of CardsViewController's view
         static let tableViewToCardViewOffsetRatio: CGFloat = 0.05
         /// Offset for constraint between bottom of CardsViewController's view and bottom of UICollectionView
         static let collectionViewBottomOffset: CGFloat = -16
+        /// Ratio between width of image from `EmptyDataSet` and view's width
+        static let emptyImageWidthRatio: CGFloat = 1 / 3
+        /// Ratio between verticalOffset for `EmptyDataSet` and view's height
+        static let emptyVerticalOffsetRatio: CGFloat = -0.15
     }
 }

@@ -13,10 +13,12 @@ import RealmSwift
 final class ServiceAssembly: Assembly {
 
     func assemble(container: Container) {
+
         container.register(NetworkService.self) { _ in
             // TODO: Add actual implementation
-            fatalError("Not implemented yet!")
+            fatalError("\(#function) not implemented yet!")
         }
+
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
             // Create custom configuration for bundled `sideMenuItemsRealm` database file
             let configuration = Realm.Configuration(fileURL: R.file.sideMenuItemsRealm(),
@@ -26,6 +28,13 @@ final class ServiceAssembly: Assembly {
                 fatalError("Unable to load configuration database from the application bundle.")
             }
             return AnyDatabaseService<SideMenuItem>(service)
+        }
+
+        container.register(AnyDatabaseService<TransportCard>.self) { _ in
+            guard let service = try? DatabaseServiceImpl<TransportCard>() else {
+                fatalError("Unable to instantiate service of type \(DatabaseServiceImpl<TransportCard>.self)")
+            }
+            return AnyDatabaseService<TransportCard>(service)
         }
     }
 }

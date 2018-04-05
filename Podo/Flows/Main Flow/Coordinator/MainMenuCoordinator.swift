@@ -30,8 +30,14 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func showSideMenu() {
         guard let view = assembler.resolver.resolve(SideMenuView.self) else { return }
-        view.onSideMenuEntrySelection = { _ in
-            fatalError("\(#function) not implemented yet!")
+        view.onSideMenuEntrySelection = { [weak self] sideMenuItem in
+            self?.router.dismiss(animated: true, completion: nil)
+            switch sideMenuItem.type {
+            case .main: break
+            case .settings: self?.startSettingsFlow()
+            case .contacts: self?.showContacts()
+            case .help: self?.showAbout()
+            }
         }
         view.onSideMenuClose = { [weak self] in
             self?.router.dismiss(animated: true, completion: nil)
@@ -40,11 +46,13 @@ final class MainMenuCoordinator: AbstractCoordinator {
     }
 
     private func showContacts() {
-        fatalError("\(#function) not implemented yet!")
+        guard let view = assembler.resolver.resolve(ContactsView.self) else { return }
+        router.push(view, animated: true)
     }
 
     private func showAbout() {
-        fatalError("\(#function) not implemented yet!")
+        guard let view = assembler.resolver.resolve(HelpView.self) else { return }
+        router.push(view, animated: true)
     }
 
     // MARK: - External flows
@@ -61,10 +69,18 @@ final class MainMenuCoordinator: AbstractCoordinator {
     }
 
     private func startAddNewCardFlow() {
-        fatalError("\(#function) not implemented yet!")
+        let coordinator = assembler.resolver.resolve(Coordinator.self,
+                                                     flow: .addNewCard,
+                                                     argument: router)
+        addChild(coordinator)
+        coordinator?.onFlowFinish = { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+        }
+        coordinator?.start()
     }
 
     private func startTopUpFlowForCard(_ card: Any) {
+        // TODO: Add actual implementation
         fatalError("\(#function) not implemented yet!")
     }
 

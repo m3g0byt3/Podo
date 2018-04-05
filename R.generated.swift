@@ -16,17 +16,97 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.clr` struct is generated, and contains static references to 1 color palettes.
+  /// This `R.clr` struct is generated, and contains static references to 2 color palettes.
   /// NOTE: R.clr is deprecated and will be removed in a future R.swift version.
   struct clr {
-    /// This `R.clr.podoColors` struct is generated, and contains static references to 6 colors.
+    /// This `R.clr.appleHIG` struct is generated, and contains static references to 8 colors.
+    struct appleHIG {
+      /// <span style='background-color: #0A60FF; color: #F59F00; padding: 1px 3px;'>#0A60FF</span> Blue
+      static let blue = Rswift.ColorPaletteItemResource(name: "Blue", red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> Green
+      static let green = Rswift.ColorPaletteItemResource(name: "Green", red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      /// <span style='background-color: #453CCC; color: #BAC333; padding: 1px 3px;'>#453CCC</span> Purple
+      static let purple = Rswift.ColorPaletteItemResource(name: "Purple", red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      /// <span style='background-color: #4CBBF8; color: #B34407; padding: 1px 3px;'>#4CBBF8</span> Teal
+      static let teal = Rswift.ColorPaletteItemResource(name: "Teal", red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      /// <span style='background-color: #FB0D44; color: #04F2BB; padding: 1px 3px;'>#FB0D44</span> Pink
+      static let pink = Rswift.ColorPaletteItemResource(name: "Pink", red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      /// <span style='background-color: #FC2125; color: #03DEDA; padding: 1px 3px;'>#FC2125</span> Red
+      static let red = Rswift.ColorPaletteItemResource(name: "Red", red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      /// <span style='background-color: #FD8208; color: #027DF7; padding: 1px 3px;'>#FD8208</span> Orange
+      static let orange = Rswift.ColorPaletteItemResource(name: "Orange", red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      /// <span style='background-color: #FEC309; color: #013CF6; padding: 1px 3px;'>#FEC309</span> Yellow
+      static let yellow = Rswift.ColorPaletteItemResource(name: "Yellow", red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      
+      /// <span style='background-color: #0A60FF; color: #F59F00; padding: 1px 3px;'>#0A60FF</span> Blue
+      /// 
+      /// UIColor(red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      static func blue(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> Green
+      /// 
+      /// UIColor(red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      static func green(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #453CCC; color: #BAC333; padding: 1px 3px;'>#453CCC</span> Purple
+      /// 
+      /// UIColor(red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      static func purple(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #4CBBF8; color: #B34407; padding: 1px 3px;'>#4CBBF8</span> Teal
+      /// 
+      /// UIColor(red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      static func teal(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FB0D44; color: #04F2BB; padding: 1px 3px;'>#FB0D44</span> Pink
+      /// 
+      /// UIColor(red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      static func pink(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FC2125; color: #03DEDA; padding: 1px 3px;'>#FC2125</span> Red
+      /// 
+      /// UIColor(red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      static func red(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FD8208; color: #027DF7; padding: 1px 3px;'>#FD8208</span> Orange
+      /// 
+      /// UIColor(red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      static func orange(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FEC309; color: #013CF6; padding: 1px 3px;'>#FEC309</span> Yellow
+      /// 
+      /// UIColor(red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      static func yellow(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.clr.podoColors` struct is generated, and contains static references to 7 colors.
     struct podoColors {
       /// <span style='background-color: #33CCFF; color: #CC3300; padding: 1px 3px;'>#33CCFF</span> blue
       static let blue = Rswift.ColorPaletteItemResource(name: "blue", red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
-      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> green-IB
-      static let greenIB = Rswift.ColorPaletteItemResource(name: "green-IB", red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      /// <span style='background-color: #42D551; color: #BD2AAE; padding: 1px 3px;'>#42D551</span> IB-green
+      static let ibGreen = Rswift.ColorPaletteItemResource(name: "IB-green", red: 0.2588235294, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
       static let green = Rswift.ColorPaletteItemResource(name: "green", red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      /// <span style='background-color: #919191; color: #6E6E6E; padding: 1px 3px;'>#919191</span> empty
+      static let empty = Rswift.ColorPaletteItemResource(name: "empty", red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1.0)
       /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
       static let background = Rswift.ColorPaletteItemResource(name: "background", red: 0.9450980392, green: 0.9490196078, blue: 0.9294117647, alpha: 1.0)
       /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> orange
@@ -41,11 +121,11 @@ struct R: Rswift.Validatable {
         return UIKit.UIColor(red: 0.2, green: 0.8, blue: 1.0, alpha: 1.0)
       }
       
-      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> green-IB
+      /// <span style='background-color: #42D551; color: #BD2AAE; padding: 1px 3px;'>#42D551</span> IB-green
       /// 
-      /// UIColor(red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
-      static func greenIB(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.262745098, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      /// UIColor(red: 0.2588235294, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
+      static func ibGreen(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.2588235294, green: 0.8352941176, blue: 0.3176470588, alpha: 1.0)
       }
       
       /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> green
@@ -53,6 +133,13 @@ struct R: Rswift.Validatable {
       /// UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       static func green(_: Void = ()) -> UIKit.UIColor {
         return UIKit.UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #919191; color: #6E6E6E; padding: 1px 3px;'>#919191</span> empty
+      /// 
+      /// UIColor(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1.0)
+      static func empty(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.568627451, green: 0.568627451, blue: 0.568627451, alpha: 1.0)
       }
       
       /// <span style='background-color: #F1F2ED; color: #0E0D12; padding: 1px 3px;'>#F1F2ED</span> background
@@ -87,12 +174,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 2 files.
+  /// This `R.file` struct is generated, and contains static references to 3 files.
   struct file {
+    /// Resource file `Apple HIG.clr`.
+    static let appleHIGClr = Rswift.FileResource(bundle: R.hostingBundle, name: "Apple HIG", pathExtension: "clr")
     /// Resource file `PodoColors.clr`.
     static let podoColorsClr = Rswift.FileResource(bundle: R.hostingBundle, name: "PodoColors", pathExtension: "clr")
     /// Resource file `sideMenuItems.realm`.
     static let sideMenuItemsRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuItems", pathExtension: "realm")
+    
+    /// `bundle.url(forResource: "Apple HIG", withExtension: "clr")`
+    static func appleHIGClr(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.appleHIGClr
+      return fileResource.bundle.url(forResource: fileResource)
+    }
     
     /// `bundle.url(forResource: "PodoColors", withExtension: "clr")`
     static func podoColorsClr(_: Void = ()) -> Foundation.URL? {
@@ -114,7 +209,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `AddNewCardIcon`.
     static let addNewCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "AddNewCardIcon")
@@ -126,6 +221,10 @@ struct R: Rswift.Validatable {
     static let sideMenuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "SideMenuIcon")
     /// Image `TransportCardIcon`.
     static let transportCardIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "TransportCardIcon")
+    /// Image `crying-card`.
+    static let cryingCard = Rswift.ImageResource(bundle: R.hostingBundle, name: "crying-card")
+    /// Image `scan-card`.
+    static let scanCard = Rswift.ImageResource(bundle: R.hostingBundle, name: "scan-card")
     
     /// `UIImage(named: "AddNewCardIcon", bundle: ..., traitCollection: ...)`
     static func addNewCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -150,6 +249,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "TransportCardIcon", bundle: ..., traitCollection: ...)`
     static func transportCardIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.transportCardIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "crying-card", bundle: ..., traitCollection: ...)`
+    static func cryingCard(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cryingCard, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "scan-card", bundle: ..., traitCollection: ...)`
+    static func scanCard(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.scanCard, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -208,10 +317,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
   struct storyboard {
+    /// Storyboard `AddNewCardViewController`.
+    static let addNewCardViewController = _R.storyboard.addNewCardViewController()
     /// Storyboard `CardsViewController`.
     static let cardsViewController = _R.storyboard.cardsViewController()
+    /// Storyboard `ContactsViewController`.
+    static let contactsViewController = _R.storyboard.contactsViewController()
+    /// Storyboard `HelpViewController`.
+    static let helpViewController = _R.storyboard.helpViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `MainMenuViewController`.
@@ -223,9 +338,24 @@ struct R: Rswift.Validatable {
     /// Storyboard `TutorialViewController`.
     static let tutorialViewController = _R.storyboard.tutorialViewController()
     
+    /// `UIStoryboard(name: "AddNewCardViewController", bundle: ...)`
+    static func addNewCardViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addNewCardViewController)
+    }
+    
     /// `UIStoryboard(name: "CardsViewController", bundle: ...)`
     static func cardsViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.cardsViewController)
+    }
+    
+    /// `UIStoryboard(name: "ContactsViewController", bundle: ...)`
+    static func contactsViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.contactsViewController)
+    }
+    
+    /// `UIStoryboard(name: "HelpViewController", bundle: ...)`
+    static func helpViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.helpViewController)
     }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -256,10 +386,61 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 8 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 11 localization tables.
   struct string {
+    /// This `R.string.addNewCardViewController` struct is generated, and contains static references to 1 localization keys.
+    struct addNewCardViewController {
+      /// ru translation: Введите номер карты
+      /// 
+      /// Locales: ru
+      static let xMwMhFZGPlaceholder = Rswift.StringResource(key: "XMw-mh-FZG.placeholder", tableName: "AddNewCardViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: Введите номер карты
+      /// 
+      /// Locales: ru
+      static func xMwMhFZGPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("XMw-mh-FZG.placeholder", tableName: "AddNewCardViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.string.cardsViewController` struct is generated, and contains static references to 0 localization keys.
     struct cardsViewController {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.contactsViewController` struct is generated, and contains static references to 1 localization keys.
+    struct contactsViewController {
+      /// ru translation: ContactsViewController
+      /// 
+      /// Locales: ru
+      static let f2Xg0abText = Rswift.StringResource(key: "0F2-xg-0ab.text", tableName: "ContactsViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: ContactsViewController
+      /// 
+      /// Locales: ru
+      static func f2Xg0abText(_: Void = ()) -> String {
+        return NSLocalizedString("0F2-xg-0ab.text", tableName: "ContactsViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.helpViewController` struct is generated, and contains static references to 1 localization keys.
+    struct helpViewController {
+      /// ru translation: HelpViewController
+      /// 
+      /// Locales: ru
+      static let y4LD9RnRText = Rswift.StringResource(key: "y4L-d9-rnR.text", tableName: "HelpViewController", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      
+      /// ru translation: HelpViewController
+      /// 
+      /// Locales: ru
+      static func y4LD9RnRText(_: Void = ()) -> String {
+        return NSLocalizedString("y4L-d9-rnR.text", tableName: "HelpViewController", bundle: R.hostingBundle, comment: "")
+      }
+      
       fileprivate init() {}
     }
     
@@ -341,8 +522,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
     struct localizable {
+      /// Base translation: Add your first transport card and start using the app
+      /// 
+      /// Locales: Base, ru
+      static let addCard = Rswift.StringResource(key: "add card", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Contacts
       /// 
       /// Locales: Base, ru
@@ -355,10 +540,21 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: Base, ru
       static let main = Rswift.StringResource(key: "main", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: No recent transaction
+      /// 
+      /// Locales: Base, ru
+      static let noTransaction = Rswift.StringResource(key: "no transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Settings
       /// 
       /// Locales: Base, ru
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      
+      /// Base translation: Add your first transport card and start using the app
+      /// 
+      /// Locales: Base, ru
+      static func addCard(_: Void = ()) -> String {
+        return NSLocalizedString("add card", bundle: R.hostingBundle, value: "Add your first transport card and start using the app", comment: "")
+      }
       
       /// Base translation: Contacts
       /// 
@@ -379,6 +575,13 @@ struct R: Rswift.Validatable {
       /// Locales: Base, ru
       static func main(_: Void = ()) -> String {
         return NSLocalizedString("main", bundle: R.hostingBundle, value: "Main screen", comment: "")
+      }
+      
+      /// Base translation: No recent transaction
+      /// 
+      /// Locales: Base, ru
+      static func noTransaction(_: Void = ()) -> String {
+        return NSLocalizedString("no transaction", bundle: R.hostingBundle, value: "No recent transaction", comment: "")
       }
       
       /// Base translation: Settings
@@ -557,11 +760,38 @@ struct _R: Rswift.Validatable {
       try mainMenuViewController.validate()
     }
     
+    struct addNewCardViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = AddNewCardViewController
+      
+      let bundle = R.hostingBundle
+      let name = "AddNewCardViewController"
+      
+      fileprivate init() {}
+    }
+    
     struct cardsViewController: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = CardsViewController
       
       let bundle = R.hostingBundle
       let name = "CardsViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct contactsViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = ContactsViewController
+      
+      let bundle = R.hostingBundle
+      let name = "ContactsViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct helpViewController: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = HelpViewController
+      
+      let bundle = R.hostingBundle
+      let name = "HelpViewController"
       
       fileprivate init() {}
     }

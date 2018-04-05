@@ -8,13 +8,13 @@
 
 import UIKit
 
-struct MainMenuViewModelImpl: MainMenuViewModel {
+final class MainMenuViewModelImpl: MainMenuViewModel {
 
     // MARK: - MainMenuViewModel protocol conformance
 
     func numberOfChildViewModels(in section: Int) -> Int {
         // TODO: Add actual implementation
-        return 10
+        return 0
     }
 
     func childViewModel(for indexPath: IndexPath) -> MainMenuCellViewModel? {
