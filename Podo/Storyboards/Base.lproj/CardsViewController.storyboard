@@ -14,7 +14,7 @@
         <scene sceneID="bHX-tO-zDd">
             <objects>
                 <viewController id="iKk-oP-fFi" customClass="CardsViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="61Q-Iz-yXF">
+                    <view key="view" contentMode="scaleToFill" id="61Q-Iz-yXF" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -42,6 +42,17 @@
                             <constraint firstItem="Ikm-v2-32J" firstAttribute="trailing" secondItem="61Q-Iz-yXF" secondAttribute="trailing" id="qq3-cN-omN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sfb-Cd-FLl"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <size key="freeformSize" width="375" height="375"/>
                     <connections>
