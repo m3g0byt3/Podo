@@ -1,7 +1,9 @@
 Podo
 =======
 
-Non-official iOS application for top-up russian contactless metropolitan multi-tickets "Podorozhnik" and "Sputnik", written in Swift. MVVM-C architecture inspired by [ApplicationCoordinator example](https://github.com/AndreyPanov/ApplicationCoordinator).
+Non-official iOS application for top-up russian contactless metropolitan multi-tickets "Podorozhnik" and "Sputnik", written in Swift. MVVM-C architecture inspired by [ApplicationCoordinator example](https://github.com/AndreyPanov/ApplicationCoordinator) from [Andrey Panov](https://medium.com/@panovdev). 
+
+Using [Moya](https://github.com/Moya/Moya) for the network abstraction, [RealmSwift](https://github.com/realm/realm-cocoa) for persistence layer and [RxSwift & RxCocoa](https://github.com/ReactiveX/RxSwift) for MVVM bindings.
 
 ![](Screenshots/iPhone1.png)
 
@@ -36,12 +38,12 @@ Requirements
 Used 3rd party libraries and frameworks
 ----------------
 * [Moya](https://github.com/Moya/Moya)
-* [R.swift](https://github.com/mac-cain13/R.swift)
 * [RealmSwift](https://github.com/realm/realm-cocoa)
+* [RxSwift & RxCocoa](https://github.com/ReactiveX/RxSwift)
 * [Swinject](https://github.com/Swinject/Swinject)
 * [SnapKit](https://github.com/SnapKit/SnapKit)
-* [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
-* [Timepiece](https://github.com/naoty/Timepiece)
+* [EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift)
+* [R.swift](https://github.com/mac-cain13/R.swift)
 * [SwiftLint](https://github.com/realm/SwiftLint)
 * [Quick](https://github.com/Quick/Quick)
 * [Nimble](https://github.com/Quick/Nimble)
