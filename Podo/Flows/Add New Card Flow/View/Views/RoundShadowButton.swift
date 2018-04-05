@@ -16,6 +16,7 @@ final class RoundShadowButton: UIButton {
     private static let heightToCornerRadiusRatio: CGFloat = 0.15
     private static let shadowOffset = CGSize(width: 0, height: 1.5)
     private static let shadowOpacity: Float = 0.5
+    private static let shadowRadius: CGFloat = 3.0
 
     // MARK: - Properties
 
@@ -37,6 +38,13 @@ final class RoundShadowButton: UIButton {
     var shadowOpacity: Float = RoundShadowButton.shadowOpacity {
         didSet {
             layer.shadowOpacity = shadowOpacity
+        }
+    }
+
+    @IBInspectable
+    var shadowRadius: CGFloat = RoundShadowButton.shadowRadius {
+        didSet {
+            layer.shadowRadius = shadowRadius
         }
     }
 
@@ -65,5 +73,6 @@ final class RoundShadowButton: UIButton {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = shadowOffset
         layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
     }
 }
