@@ -7,7 +7,9 @@
 //
 
 import UIKit
+
 extension UIViewController {
+
     /**
      Private func used by `storyboardInstance()` public wrapper.
      */

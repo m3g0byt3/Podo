@@ -14,7 +14,7 @@ final class MainMenuViewModelImpl: MainMenuViewModel {
 
     func numberOfChildViewModels(in section: Int) -> Int {
         // TODO: Add actual implementation
-        return 10
+        return 0
     }
 
     func childViewModel(for indexPath: IndexPath) -> MainMenuCellViewModel? {

@@ -19,7 +19,7 @@ protocol AddNewCardViewModel {
     var themeChanged: PublishSubject<Int> { get }
 
     // MARK: - Outputs
-    
+
     var cardNumberOutput: Driver<String> { get }
     var isCardValid: Driver<Bool> { get }
     var cardTheme: Driver<TransportCardTheme> { get }
