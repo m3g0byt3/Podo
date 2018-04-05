@@ -16,9 +16,87 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.clr` struct is generated, and contains static references to 1 color palettes.
+  /// This `R.clr` struct is generated, and contains static references to 2 color palettes.
   /// NOTE: R.clr is deprecated and will be removed in a future R.swift version.
   struct clr {
+    /// This `R.clr.appleHIG` struct is generated, and contains static references to 8 colors.
+    struct appleHIG {
+      /// <span style='background-color: #0A60FF; color: #F59F00; padding: 1px 3px;'>#0A60FF</span> Blue
+      static let blue = Rswift.ColorPaletteItemResource(name: "Blue", red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> Green
+      static let green = Rswift.ColorPaletteItemResource(name: "Green", red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      /// <span style='background-color: #453CCC; color: #BAC333; padding: 1px 3px;'>#453CCC</span> Purple
+      static let purple = Rswift.ColorPaletteItemResource(name: "Purple", red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      /// <span style='background-color: #4CBBF8; color: #B34407; padding: 1px 3px;'>#4CBBF8</span> Teal
+      static let teal = Rswift.ColorPaletteItemResource(name: "Teal", red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      /// <span style='background-color: #FB0D44; color: #04F2BB; padding: 1px 3px;'>#FB0D44</span> Pink
+      static let pink = Rswift.ColorPaletteItemResource(name: "Pink", red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      /// <span style='background-color: #FC2125; color: #03DEDA; padding: 1px 3px;'>#FC2125</span> Red
+      static let red = Rswift.ColorPaletteItemResource(name: "Red", red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      /// <span style='background-color: #FD8208; color: #027DF7; padding: 1px 3px;'>#FD8208</span> Orange
+      static let orange = Rswift.ColorPaletteItemResource(name: "Orange", red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      /// <span style='background-color: #FEC309; color: #013CF6; padding: 1px 3px;'>#FEC309</span> Yellow
+      static let yellow = Rswift.ColorPaletteItemResource(name: "Yellow", red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      
+      /// <span style='background-color: #0A60FF; color: #F59F00; padding: 1px 3px;'>#0A60FF</span> Blue
+      /// 
+      /// UIColor(red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      static func blue(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> Green
+      /// 
+      /// UIColor(red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      static func green(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #453CCC; color: #BAC333; padding: 1px 3px;'>#453CCC</span> Purple
+      /// 
+      /// UIColor(red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      static func purple(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #4CBBF8; color: #B34407; padding: 1px 3px;'>#4CBBF8</span> Teal
+      /// 
+      /// UIColor(red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      static func teal(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FB0D44; color: #04F2BB; padding: 1px 3px;'>#FB0D44</span> Pink
+      /// 
+      /// UIColor(red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      static func pink(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FC2125; color: #03DEDA; padding: 1px 3px;'>#FC2125</span> Red
+      /// 
+      /// UIColor(red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      static func red(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FD8208; color: #027DF7; padding: 1px 3px;'>#FD8208</span> Orange
+      /// 
+      /// UIColor(red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      static func orange(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      }
+      
+      /// <span style='background-color: #FEC309; color: #013CF6; padding: 1px 3px;'>#FEC309</span> Yellow
+      /// 
+      /// UIColor(red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      static func yellow(_: Void = ()) -> UIKit.UIColor {
+        return UIKit.UIColor(red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.clr.podoColors` struct is generated, and contains static references to 7 colors.
     struct podoColors {
       /// <span style='background-color: #33CCFF; color: #CC3300; padding: 1px 3px;'>#33CCFF</span> blue
@@ -96,12 +174,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 2 files.
+  /// This `R.file` struct is generated, and contains static references to 3 files.
   struct file {
+    /// Resource file `Apple HIG.clr`.
+    static let appleHIGClr = Rswift.FileResource(bundle: R.hostingBundle, name: "Apple HIG", pathExtension: "clr")
     /// Resource file `PodoColors.clr`.
     static let podoColorsClr = Rswift.FileResource(bundle: R.hostingBundle, name: "PodoColors", pathExtension: "clr")
     /// Resource file `sideMenuItems.realm`.
     static let sideMenuItemsRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuItems", pathExtension: "realm")
+    
+    /// `bundle.url(forResource: "Apple HIG", withExtension: "clr")`
+    static func appleHIGClr(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.appleHIGClr
+      return fileResource.bundle.url(forResource: fileResource)
+    }
     
     /// `bundle.url(forResource: "PodoColors", withExtension: "clr")`
     static func podoColorsClr(_: Void = ()) -> Foundation.URL? {

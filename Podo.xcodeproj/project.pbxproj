@@ -94,6 +94,7 @@
 		41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0C2205ED7DD006A8768 /* SettingsViewController.swift */; };
 		41BA5502207598EF00264837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA5501207598EF00264837 /* UIImage+Extensions.swift */; };
 		41BA550A2075B62C00264837 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA55092075B62B00264837 /* PodoColors.clr */; };
+		41BA550C2075BA6300264837 /* Apple HIG.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA550B2075BA6300264837 /* Apple HIG.clr */; };
 		41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */; };
 		41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5042055EBD70045A50A /* MainMenuViewController.swift */; };
 		41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */; };
@@ -241,6 +242,7 @@
 		41AFD0C2205ED7DD006A8768 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		41BA5501207598EF00264837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		41BA55092075B62B00264837 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
+		41BA550B2075BA6300264837 /* Apple HIG.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Apple HIG.clr"; sourceTree = "<group>"; };
 		41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		41BDD5042055EBD70045A50A /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 			children = (
 				41EDA99820645FAF0054D456 /* sideMenuItems.realm */,
 				41BA55092075B62B00264837 /* PodoColors.clr */,
+				41BA550B2075BA6300264837 /* Apple HIG.clr */,
 				41494AB81FC6C6570089F088 /* Info.plist */,
 				41494AB31FC6C6570089F088 /* Assets.xcassets */,
 				41968CDD20652DEE00501112 /* Localizable.strings */,
@@ -1022,6 +1025,7 @@
 				4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */,
 				41BA550A2075B62C00264837 /* PodoColors.clr in Resources */,
 				41EDA99920645FAF0054D456 /* sideMenuItems.realm in Resources */,
+				41BA550C2075BA6300264837 /* Apple HIG.clr in Resources */,
 				415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */,
 				414896342066988200C3C000 /* HelpViewController.storyboard in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
