@@ -6,6 +6,11 @@
   Copyright © 2018 m3g0byt3. All rights reserved.
 */
 
+// MARK: - Main Menu Localization
+
+"no transaction" = "No recent transaction";
+"add card" = "Add your first transport card and start using the app";
+
 // MARK: - Side Menu Localization
 
 "main" = "Main screen";

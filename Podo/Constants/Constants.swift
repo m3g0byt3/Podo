@@ -60,5 +60,9 @@ enum Constant {
         static let tableViewToCardViewOffsetRatio: CGFloat = 0.05
         /// Offset for constraint between bottom of CardsViewController's view and bottom of UICollectionView
         static let collectionViewBottomOffset: CGFloat = -16
+        /// Ratio between width of image from `EmptyDataSet` and view's width
+        static let emptyImageWidthRatio: CGFloat = 1 / 3
+        /// Ratio between verticalOffset for `EmptyDataSet` and view's height
+        static let emptyVerticalOffsetRatio: CGFloat = -0.15
     }
 }

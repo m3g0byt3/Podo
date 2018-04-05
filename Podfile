@@ -15,6 +15,7 @@ target 'Podo' do
   pod 'SwiftLint', 	'~> 0.1'
   pod 'Swinject', 	'~> 2.0'
   pod 'RealmSwift', 	'~> 3.2'
+  pod 'EmptyDataSet-Swift', '~> 4.0.4'
 
   target 'PodoTests' do
     inherit! :search_paths
