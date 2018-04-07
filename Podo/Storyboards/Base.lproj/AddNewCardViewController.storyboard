@@ -39,8 +39,8 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="XMw-mh-FZG" secondAttribute="trailing" constant="5" id="w6F-nE-Ava"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="heightToCornerRadiusRatio">
-                                        <real key="value" value="0.10000000000000001"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientDirection">
+                                        <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
