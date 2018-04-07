@@ -9,14 +9,15 @@
 import UIKit
 
 @IBDesignable
-final class RoundShadowView: UIView {
+final class RoundShadowView: GradientView {
 
     // MARK: - Constants
 
-    private static let heightToCornerRadiusRatio: CGFloat = 0.15
+    private static let heightToCornerRadiusRatio: CGFloat = 0.1
     private static let shadowOffset = CGSize(width: 0, height: 1.5)
-    private static let shadowOpacity: Float = 0.33
+    private static let shadowOpacity: Float = 1 / 3
     private static let shadowRadius: CGFloat = 3.0
+    private static let shadowColor: UIColor = .black
 
     // MARK: - Properties
 
@@ -48,6 +49,13 @@ final class RoundShadowView: UIView {
         }
     }
 
+    @IBInspectable
+    var shadowColor: UIColor = RoundShadowView.shadowColor {
+        didSet {
+            layer.shadowColor = shadowColor.cgColor
+        }
+    }
+
     // MARK: - Public API
 
     override var bounds: CGRect {
@@ -55,6 +63,13 @@ final class RoundShadowView: UIView {
             layer.cornerRadius = bounds.height * heightToCornerRadiusRatio
         }
     }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setup()
+    }
+
+    // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,7 +85,8 @@ final class RoundShadowView: UIView {
 
     private func setup() {
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.cornerRadius = frame.height * heightToCornerRadiusRatio
+        layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = shadowOffset
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius

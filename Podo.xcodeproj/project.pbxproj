@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410176F92078047A00785469 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410176F82078047A00785469 /* GradientView.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
 		411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F3E43204E1123002D466E /* RouterAssembly.swift */; };
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
@@ -138,6 +139,7 @@
 
 /* Begin PBXFileReference section */
 		15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		410176F82078047A00785469 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		411F3E43204E1123002D466E /* RouterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAssembly.swift; sourceTree = "<group>"; };
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 		41C9EB481FD409DA000D77DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				410176F82078047A00785469 /* GradientView.swift */,
 				41C8C2551FD42225007EC44B /* RoundShadowView.swift */,
 				415C64C1203C54A000B77589 /* CheckMarkView.swift */,
 				41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */,
@@ -1328,6 +1331,7 @@
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */,
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,
+				410176F92078047A00785469 /* GradientView.swift in Sources */,
 				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
 				41607EA8204DD7DB009DCEA2 /* RouterImpl.swift in Sources */,
 				41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */,
