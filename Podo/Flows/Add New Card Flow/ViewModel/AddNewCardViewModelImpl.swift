@@ -40,10 +40,17 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
             .map { $0.replacingOccurrences(of: AddNewCardViewModelImpl.notNumericSet, with: "") }
             .asDriver(onErrorJustReturn: "")
 
+        cardTheme = themeChanged
+            .asObservable()
+            .startWith(0)
+            .map { TransportCardTheme(rawValue: $0) ?? .white }
+            .asDriver(onErrorJustReturn: .white)
+            .distinctUntilChanged()
+
         model = Observable
-            .combineLatest(cardNumberOutput.asObservable(), themeChanged.startWith(0)) { (number, identifier) in
+            .combineLatest(cardNumberOutput.asObservable(), cardTheme.asObservable()) { (number, theme) in
                 let card = TransportCard(cardNumber: number)
-                card?.themeIdentifier = identifier
+                card?.themeIdentifier = theme.rawValue
                 return card
             }
             .distinctUntilChanged()
@@ -53,12 +60,6 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
             .asObservable()
             .map { $0 != nil }
             .asDriver(onErrorJustReturn: false)
-            .distinctUntilChanged()
-
-        cardTheme = themeChanged
-            .asObservable()
-            .map { TransportCardTheme(rawValue: $0) ?? .white }
-            .asDriver(onErrorJustReturn: .white)
             .distinctUntilChanged()
 
         _ = saveState

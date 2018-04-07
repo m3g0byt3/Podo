@@ -20,16 +20,20 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var cardView: UIView!
+    @IBOutlet private weak var cardView: GradientView!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private weak var cardNumberTextField: UITextField!
     @IBOutlet private var colorButtons: [UIButton]!
 
     // MARK: - Lifecycle
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupBindings()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupBindings()
         cardNumberTextField.becomeFirstResponder()
     }
 
@@ -75,7 +79,7 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
 
         viewModel.cardTheme
             .drive(onNext: { [unowned self] theme in
-                self.cardView.backgroundColor = theme.firstGradientColor
+                self.cardView.colors = [theme.firstGradientColor, theme.secondGradientColor]
             })
             .disposed(by: disposeBag)
     }
