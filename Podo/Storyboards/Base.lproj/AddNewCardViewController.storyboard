@@ -25,8 +25,9 @@
                                 <rect key="frame" x="37.5" y="20" width="300" height="188.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="Enter card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="157" width="274" height="24"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="8" y="157" width="284" height="24"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
@@ -35,8 +36,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kmv-6a-fgN" secondAttribute="height" multiplier="1:0.628" id="O1l-qP-s4t" userLabel="Credit Card Aspect Ratio"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="XMw-mh-FZG" secondAttribute="bottom" id="R4h-ne-CPG"/>
-                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leading" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" constant="5" id="plt-Zc-JNM"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="XMw-mh-FZG" secondAttribute="trailing" constant="5" id="w6F-nE-Ava"/>
+                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leadingMargin" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" constant="8" id="plt-Zc-JNM"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="XMw-mh-FZG" secondAttribute="trailingMargin" constant="8" id="w6F-nE-Ava"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="gradientDirection">
@@ -49,7 +50,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-Ul-4Gt" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="i8d-Ul-4Gt" secondAttribute="height" multiplier="1:1" id="PMU-oP-NBA"/>
                                         </constraints>
