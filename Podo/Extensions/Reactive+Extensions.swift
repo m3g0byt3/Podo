@@ -26,3 +26,13 @@ extension Reactive where Base: UITextField {
         return base.rightView.flatMap { $0 as? UIButton }?.rx.tap
     }
 }
+
+extension Reactive where Base: GradientView {
+
+    /// Bindable sink for `gradientColors` property.
+    var gradientColors: Binder<[UIColor]> {
+        return Binder(self.base) { view, gradientColors in
+            view.gradientColors = gradientColors
+        }
+    }
+}

@@ -48,12 +48,13 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
         cardNumberTextField.rx.text
             .orEmpty
             .distinctUntilChanged()
-            .throttle(Constant.AnimationDuration.normal, scheduler: MainScheduler.instance)
+            .throttle(Constant.ThrottleDuration.textField, scheduler: MainScheduler.instance)
             .bind(to: viewModel.cardNumberInput)
             .disposed(by: disposeBag)
 
         colorButtons.enumerated().forEach { index, button in
             button.rx.tap
+                .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
                 .subscribe(onNext: { [unowned self] in
                     self.viewModel.themeChanged.onNext(index)
                 })
@@ -61,10 +62,12 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
         }
 
         cardNumberTextField.rx.rightOverlayButtonTap?
+            .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
             .subscribe { [unowned self] _ in self.onScanButtonTap?() }
             .disposed(by: disposeBag)
 
         saveButton.rx.tap
+            .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
             .do(onNext: { [unowned self] _ in self.onSaveButtonTap?() })
             .bind(to: viewModel.saveState)
             .disposed(by: disposeBag)
@@ -78,9 +81,8 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
             .disposed(by: disposeBag)
 
         viewModel.cardTheme
-            .drive(onNext: { [unowned self] theme in
-                self.cardView.colors = [theme.firstGradientColor, theme.secondGradientColor]
-            })
+            .map { [$0.firstGradientColor, $0.secondGradientColor] }
+            .drive(cardView.rx.gradientColors)
             .disposed(by: disposeBag)
     }
 }

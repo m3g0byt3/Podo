@@ -15,8 +15,8 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
     // MARK: - Properties
 
     static private let notNumericSet = CharacterSet.decimalDigits.inverted
-    private let database: AnyDatabaseService<TransportCard>
-    private let model: Observable<TransportCard?>
+    private let model: AnyDatabaseService<TransportCard>
+    private let card: Observable<TransportCard?>
     private let disposeBag = DisposeBag()
 
     // MARK: - AddNewCardViewModel protocol conformance
@@ -33,8 +33,8 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
 
     // MARK: - Initialization
 
-    init(_ database: AnyDatabaseService<TransportCard>) {
-        self.database = database
+    init(_ model: AnyDatabaseService<TransportCard>) {
+        self.model = model
 
         cardNumberOutput = cardNumberInput
             .map { $0.replacingOccurrences(of: AddNewCardViewModelImpl.notNumericSet, with: "") }
@@ -43,11 +43,11 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
         cardTheme = themeChanged
             .asObservable()
             .startWith(0)
-            .map { TransportCardTheme(rawValue: $0) ?? .white }
-            .asDriver(onErrorJustReturn: .white)
+            .map { TransportCardTheme(rawValue: $0) ?? .green }
+            .asDriver(onErrorJustReturn: .green)
             .distinctUntilChanged()
 
-        model = Observable
+        card = Observable
             .combineLatest(cardNumberOutput.asObservable(), cardTheme.asObservable()) { (number, theme) in
                 let card = TransportCard(cardNumber: number)
                 card?.themeIdentifier = theme.rawValue
@@ -56,7 +56,7 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
             .distinctUntilChanged()
             .share()
 
-        isCardValid = model
+        isCardValid = card
             .asObservable()
             .map { $0 != nil }
             .asDriver(onErrorJustReturn: false)
@@ -64,10 +64,10 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
 
         _ = saveState
             .asObservable()
-            .withLatestFrom(model)
+            .withLatestFrom(card)
             .filter { $0 != nil }
             .subscribe(onNext: { [weak self] card in
-                try? self?.database.save(item: card!)
+                try? self?.model.save(item: card!)
             })
             .disposed(by: disposeBag)
     }

@@ -55,25 +55,25 @@ class GradientView: UIView {
 
     @IBInspectable private var firstColor: UIColor? {
         didSet {
-            firstColor.map { colors.append($0) }
+            firstColor.map { gradientColors.append($0) }
         }
     }
 
     @IBInspectable private var secondColor: UIColor? {
         didSet {
-            secondColor.map { colors.append($0) }
+            secondColor.map { gradientColors.append($0) }
         }
     }
 
     @IBInspectable private var thirdColor: UIColor? {
         didSet {
-            thirdColor.map { colors.append($0) }
+            thirdColor.map { gradientColors.append($0) }
         }
     }
 
     @IBInspectable private var fourthColor: UIColor? {
         didSet {
-            fourthColor.map { colors.append($0) }
+            fourthColor.map { gradientColors.append($0) }
         }
     }
 
@@ -93,7 +93,7 @@ class GradientView: UIView {
     }
 
     /// Gradient colors
-    var colors = [UIColor]() {
+    var gradientColors = [UIColor]() {
         didSet {
             updateGradient()
         }
@@ -115,7 +115,7 @@ class GradientView: UIView {
     convenience init(frame: CGRect, colors: [UIColor], direction: Direction) {
         self.init(frame: frame)
         self.direction = direction
-        self.colors = colors
+        self.gradientColors = colors
         updateGradient()
     }
 
@@ -124,6 +124,6 @@ class GradientView: UIView {
     private func updateGradient() {
         gradientLayer.startPoint = direction.points.startPoint
         gradientLayer.endPoint = direction.points.endPoint
-        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.colors = gradientColors.map { $0.cgColor }
     }
 }
