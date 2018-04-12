@@ -11,6 +11,10 @@ import UIKit
 @IBDesignable
 final class NavigationBarTitleView: UIView {
 
+    // MARK: - Constants
+
+    private static let imageInset: CGFloat = 5
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -38,6 +42,6 @@ final class NavigationBarTitleView: UIView {
         addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = R.clr.podoColors.white()
-        imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(Constant.MainMenu.imageInset) }
+        imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(NavigationBarTitleView.imageInset) }
     }
 }

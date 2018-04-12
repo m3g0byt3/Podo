@@ -51,8 +51,6 @@ enum Constant {
     }
 
     enum MainMenu {
-        /// Insets between titleView icon and its container
-        static let imageInset: CGFloat = 5
         /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 75
         /// Ratio between screen height and height of CardsViewController
