@@ -43,8 +43,8 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
         cardTheme = themeChanged
             .asObservable()
             .startWith(0)
-            .map { TransportCardTheme(rawValue: $0) ?? .white }
-            .asDriver(onErrorJustReturn: .white)
+            .map { TransportCardTheme(rawValue: $0) ?? .green }
+            .asDriver(onErrorJustReturn: .green)
             .distinctUntilChanged()
 
         model = Observable
