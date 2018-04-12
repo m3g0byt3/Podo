@@ -18,6 +18,7 @@ final class DatabaseServiceImpl<T> where T: Object {
     // MARK: - Properties
 
     private let realm: Realm
+    private var tokens = [NotificationToken]()
 
     // MARK: - Initialization
 
@@ -33,6 +34,12 @@ final class DatabaseServiceImpl<T> where T: Object {
      */
     convenience init() throws {
         try self.init(configuration: Realm.Configuration())
+    }
+
+    // MARK: - De-Initialization
+
+    deinit {
+        tokens.forEach { $0.invalidate() }
     }
 }
 
@@ -72,7 +79,19 @@ extension DatabaseServiceImpl: DatabaseService {
         results = predicate.map { results.filter($0) } ?? results
         // Sorting
         results = sorted.map { results.sorted(byKeyPath: $0.keyPath, ascending: $0.ascending) } ?? results
-        // Create an array
-        completion(results.map { $0 })
+        // Start observing objects changes (only if our realm is RW) and return array with objects in block
+        if realm.configuration.readOnly {
+            completion(results.map { $0 })
+        } else {
+            let token = results.observe { changes in
+                switch changes {
+                case .initial(let collection), .update(let collection, _, _, _):
+                    completion(collection.map { $0 })
+                case .error(let error):
+                    assertionFailure("Realm database error: \(error)")
+                }
+            }
+            tokens.append(token)
+        }
     }
 }

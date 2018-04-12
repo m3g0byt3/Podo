@@ -14,7 +14,7 @@ import UIKit.UIColor
  */
 enum TransportCardTheme: Int {
 
-    case white
+    case green
     case red
     case orange
     case yellow
@@ -26,11 +26,12 @@ enum TransportCardTheme: Int {
 
 extension TransportCardTheme {
 
+    private static var alphaComponent: CGFloat = 0.5
+
     /// First gradient color
     var firstGradientColor: UIColor {
-        // TODO: Add actual implementation
         switch self {
-        case .white: return R.clr.podoColors.white()
+        case .green: return R.clr.podoColors.green()
         case .red: return R.clr.appleHIG.red()
         case .orange: return R.clr.appleHIG.orange()
         case .yellow: return R.clr.appleHIG.yellow()
@@ -43,16 +44,6 @@ extension TransportCardTheme {
 
     /// Second gradient color
     var secondGradientColor: UIColor {
-        // TODO: Add actual implementation
-        switch self {
-        case .white: return R.clr.podoColors.white()
-        case .red: return R.clr.appleHIG.red()
-        case .orange: return R.clr.appleHIG.orange()
-        case .yellow: return R.clr.appleHIG.yellow()
-        case .cyan: return R.clr.appleHIG.teal()
-        case .blue: return R.clr.appleHIG.blue()
-        case .purple: return R.clr.appleHIG.purple()
-        case .pink: return R.clr.appleHIG.pink()
-        }
+        return firstGradientColor.withAlphaComponent(TransportCardTheme.alphaComponent)
     }
 }

@@ -7,5 +7,10 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-protocol CardsViewModel: ViewModel {}
+protocol CardsViewModel {
+
+    var childViewModels: Driver<[CardsCellViewModel]> { get }
+}

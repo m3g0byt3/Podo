@@ -6,9 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import Foundation
-import Swinject
 import UIKit
+import Swinject
 
 final class ViewAssembly: Assembly {
 
@@ -27,7 +26,7 @@ final class ViewAssembly: Assembly {
             guard let viewController = CardsViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(CardsViewController.self)")
             }
-            viewController.viewModel = resolver.resolve(AnyViewModel<CardsCellViewModel>.self)
+            viewController.viewModel = resolver.resolve(CardsViewModel.self)
             return viewController
         }
 

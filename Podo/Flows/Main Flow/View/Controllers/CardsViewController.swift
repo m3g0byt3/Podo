@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class CardsViewController: UIViewController, MainMenuChildView {
 
@@ -20,7 +22,8 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: AnyViewModel<CardsCellViewModel>!
+    var viewModel: CardsViewModel!
+    private let disposeBag = DisposeBag()
     /**
      Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
      */
@@ -34,7 +37,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     }
     /**
      Setup constraints for the collection view.
-     - warning: Dispatched once.
+     - warning: ⚠️ Dispatched once. ⚠️
      */
     private lazy var setupCollectionViewTopConstraint: () -> Void = {
         // First deactivate top-to-superview IB constrait..
@@ -50,6 +53,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupBindings()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -66,51 +70,65 @@ final class CardsViewController: UIViewController, MainMenuChildView {
         }
     }
 
+    // MARK: - MainMenuChildView protocol conformance
+
+    var onAddNewCardSelection: Completion?
+    var onCardSelection: ((CardsCellViewModel) -> Void)?
+
+    // MARK: - Types
+
+    private enum ViewModelWrapper {
+        case data(CardsCellViewModel)
+        case empty
+    }
+
     // MARK: - Private API
+
+    private func setupBindings() {
+        // Cell factory
+        viewModel.childViewModels
+            .flatMap(wrapViewModels)
+            .drive(collectionView.rx.items) { (collectionView, index, wrappedViewModel) in
+                let indexPath = IndexPath(item: index, section: 0)
+                switch wrappedViewModel {
+                case .data(let viewModel):
+                    return collectionView
+                        .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.cardsCollectionViewCell, for: indexPath)!
+                        .configure(with: viewModel)
+                case .empty:
+                    return collectionView
+                        .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.addNewCardCollectionViewCell, for: indexPath)!
+                }
+            }
+            .disposed(by: disposeBag)
+
+        // Cell selection
+        collectionView.rx.modelSelected(ViewModelWrapper.self)
+            .subscribe(onNext: { [weak self] wrappedViewModel in
+                switch wrappedViewModel {
+                case .data(let viewModel): self?.onCardSelection?(viewModel)
+                case .empty: self?.onAddNewCardSelection?()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
+    /**
+     Wraps view models inside simple wrapper enum `ViewModelWrapper` and appends `ViewModelWrapper.empty`
+     at the end of the resulting sequence to show additional `add new card` cell.
+     - parameter viewModels: Array of view models.
+     - returns: Driver trait: `Driver<[ViewModelWrapper]`
+     */
+    private func wrapViewModels(_ viewModels: [CardsCellViewModel]) -> Driver<[ViewModelWrapper]> {
+        let wrappedViewModels = viewModels.map(ViewModelWrapper.data)
+        let empty = [ViewModelWrapper.empty]
+        return Driver.of(Array([wrappedViewModels, empty].joined()))
+    }
 
     private func setupCollectionView() {
         collectionView.register(R.nib.cardsCollectionViewCell)
         collectionView.register(R.nib.addNewCardCollectionViewCell)
         // Apply offset to bottom-to-superview IB constrait
         collectionViewBottomConstraint.constant = Constant.MainMenu.collectionViewBottomOffset
-    }
-
-    // MARK: - MainMenuChildView protocol conformance
-
-    var onAddNewCardSelection: Completion?
-    var onCardSelection: ((CardsCellViewModel) -> Void)?
-}
-
-// MARK: - UICollectionViewDataSource protocol conformance
-
-extension CardsViewController: UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // numberOfChildViewModels + 1 (for `add new card` cell)
-        return viewModel.numberOfChildViewModels(in: section) + 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let isLastCell = indexPath.row == viewModel.numberOfChildViewModels(in: indexPath.section)
-        let identifier = isLastCell ? R.nib.addNewCardCollectionViewCell.identifier : R.nib.cardsCollectionViewCell.identifier
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        if let cell = cell as? CardsCollectionViewCell {
-            cell.viewModel = viewModel.childViewModel(for: indexPath)
-        }
-        return cell
-    }
-}
-
-// MARK: - UICollectionViewDelegate protocol conformance
-
-extension CardsViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        if let childViewModel = viewModel.childViewModel(for: indexPath) {
-            onCardSelection?(childViewModel)
-        } else {
-            onAddNewCardSelection?()
-        }
     }
 }

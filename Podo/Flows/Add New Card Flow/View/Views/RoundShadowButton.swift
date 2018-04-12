@@ -17,6 +17,7 @@ final class RoundShadowButton: UIButton {
     private static let shadowOffset = CGSize(width: 0, height: 1.5)
     private static let shadowOpacity: Float = 0.5
     private static let shadowRadius: CGFloat = 3.0
+    private static let shadowColor: UIColor = .black
 
     // MARK: - Properties
 
@@ -48,6 +49,13 @@ final class RoundShadowButton: UIButton {
         }
     }
 
+    @IBInspectable
+    var shadowColor: UIColor = RoundShadowButton.shadowColor {
+        didSet {
+            layer.shadowColor = shadowColor.cgColor
+        }
+    }
+
     // MARK: - Public API
 
     override var bounds: CGRect {
@@ -55,6 +63,13 @@ final class RoundShadowButton: UIButton {
             layer.cornerRadius = bounds.height * heightToCornerRadiusRatio
         }
     }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setup()
+    }
+
+    // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,7 +85,8 @@ final class RoundShadowButton: UIButton {
 
     private func setup() {
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.cornerRadius = frame.height * heightToCornerRadiusRatio
+        layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = shadowOffset
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius

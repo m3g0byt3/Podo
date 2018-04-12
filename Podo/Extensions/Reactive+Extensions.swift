@@ -6,7 +6,7 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -24,5 +24,15 @@ extension Reactive where Base: UITextField {
      */
     var rightOverlayButtonTap: ControlEvent<Void>? {
         return base.rightView.flatMap { $0 as? UIButton }?.rx.tap
+    }
+}
+
+extension Reactive where Base: GradientView {
+
+    /// Bindable sink for `gradientColors` property.
+    var gradientColors: Binder<[UIColor]> {
+        return Binder(self.base) { view, gradientColors in
+            view.gradientColors = gradientColors
+        }
     }
 }

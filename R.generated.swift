@@ -21,77 +21,77 @@ struct R: Rswift.Validatable {
   struct clr {
     /// This `R.clr.appleHIG` struct is generated, and contains static references to 8 colors.
     struct appleHIG {
-      /// <span style='background-color: #0A60FF; color: #F59F00; padding: 1px 3px;'>#0A60FF</span> Blue
-      static let blue = Rswift.ColorPaletteItemResource(name: "Blue", red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
-      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> Green
-      static let green = Rswift.ColorPaletteItemResource(name: "Green", red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
-      /// <span style='background-color: #453CCC; color: #BAC333; padding: 1px 3px;'>#453CCC</span> Purple
-      static let purple = Rswift.ColorPaletteItemResource(name: "Purple", red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
-      /// <span style='background-color: #4CBBF8; color: #B34407; padding: 1px 3px;'>#4CBBF8</span> Teal
-      static let teal = Rswift.ColorPaletteItemResource(name: "Teal", red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
-      /// <span style='background-color: #FB0D44; color: #04F2BB; padding: 1px 3px;'>#FB0D44</span> Pink
-      static let pink = Rswift.ColorPaletteItemResource(name: "Pink", red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
-      /// <span style='background-color: #FC2125; color: #03DEDA; padding: 1px 3px;'>#FC2125</span> Red
-      static let red = Rswift.ColorPaletteItemResource(name: "Red", red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
-      /// <span style='background-color: #FD8208; color: #027DF7; padding: 1px 3px;'>#FD8208</span> Orange
-      static let orange = Rswift.ColorPaletteItemResource(name: "Orange", red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
-      /// <span style='background-color: #FEC309; color: #013CF6; padding: 1px 3px;'>#FEC309</span> Yellow
-      static let yellow = Rswift.ColorPaletteItemResource(name: "Yellow", red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      /// <span style='background-color: #007AFF; color: #FF8500; padding: 1px 3px;'>#007AFF</span> Blue
+      static let blue = Rswift.ColorPaletteItemResource(name: "Blue", red: 0.0, green: 0.4784313725, blue: 1.0, alpha: 1.0)
+      /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> Green
+      static let green = Rswift.ColorPaletteItemResource(name: "Green", red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
+      /// <span style='background-color: #5856D6; color: #A7A929; padding: 1px 3px;'>#5856D6</span> Purple
+      static let purple = Rswift.ColorPaletteItemResource(name: "Purple", red: 0.3450980392, green: 0.337254902, blue: 0.8392156863, alpha: 1.0)
+      /// <span style='background-color: #5AC8FA; color: #A53705; padding: 1px 3px;'>#5AC8FA</span> Teal
+      static let teal = Rswift.ColorPaletteItemResource(name: "Teal", red: 0.3529411765, green: 0.7843137255, blue: 0.9803921569, alpha: 1.0)
+      /// <span style='background-color: #FF2D55; color: #00D2AA; padding: 1px 3px;'>#FF2D55</span> Pink
+      static let pink = Rswift.ColorPaletteItemResource(name: "Pink", red: 1.0, green: 0.1764705882, blue: 0.3333333333, alpha: 1.0)
+      /// <span style='background-color: #FF3B30; color: #00C4CF; padding: 1px 3px;'>#FF3B30</span> Red
+      static let red = Rswift.ColorPaletteItemResource(name: "Red", red: 1.0, green: 0.231372549, blue: 0.1882352941, alpha: 1.0)
+      /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> Orange
+      static let orange = Rswift.ColorPaletteItemResource(name: "Orange", red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
+      /// <span style='background-color: #FFCC00; color: #0033FF; padding: 1px 3px;'>#FFCC00</span> Yellow
+      static let yellow = Rswift.ColorPaletteItemResource(name: "Yellow", red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
       
-      /// <span style='background-color: #0A60FF; color: #F59F00; padding: 1px 3px;'>#0A60FF</span> Blue
+      /// <span style='background-color: #007AFF; color: #FF8500; padding: 1px 3px;'>#007AFF</span> Blue
       /// 
-      /// UIColor(red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+      /// UIColor(red: 0.0, green: 0.4784313725, blue: 1.0, alpha: 1.0)
       static func blue(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.04085352272, green: 0.3748033047, blue: 0.998357594, alpha: 1.0)
+        return UIKit.UIColor(red: 0.0, green: 0.4784313725, blue: 1.0, alpha: 1.0)
       }
       
-      /// <span style='background-color: #43D551; color: #BC2AAE; padding: 1px 3px;'>#43D551</span> Green
+      /// <span style='background-color: #4CD964; color: #B3269B; padding: 1px 3px;'>#4CD964</span> Green
       /// 
-      /// UIColor(red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+      /// UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       static func green(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.261022687, green: 0.8368191719, blue: 0.3194693327, alpha: 1.0)
+        return UIKit.UIColor(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1.0)
       }
       
-      /// <span style='background-color: #453CCC; color: #BAC333; padding: 1px 3px;'>#453CCC</span> Purple
+      /// <span style='background-color: #5856D6; color: #A7A929; padding: 1px 3px;'>#5856D6</span> Purple
       /// 
-      /// UIColor(red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+      /// UIColor(red: 0.3450980392, green: 0.337254902, blue: 0.8392156863, alpha: 1.0)
       static func purple(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.2723748684, green: 0.2338621318, blue: 0.8008979559, alpha: 1.0)
+        return UIKit.UIColor(red: 0.3450980392, green: 0.337254902, blue: 0.8392156863, alpha: 1.0)
       }
       
-      /// <span style='background-color: #4CBBF8; color: #B34407; padding: 1px 3px;'>#4CBBF8</span> Teal
+      /// <span style='background-color: #5AC8FA; color: #A53705; padding: 1px 3px;'>#5AC8FA</span> Teal
       /// 
-      /// UIColor(red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+      /// UIColor(red: 0.3529411765, green: 0.7843137255, blue: 0.9803921569, alpha: 1.0)
       static func teal(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.2983720601, green: 0.7347025275, blue: 0.9741381407, alpha: 1.0)
+        return UIKit.UIColor(red: 0.3529411765, green: 0.7843137255, blue: 0.9803921569, alpha: 1.0)
       }
       
-      /// <span style='background-color: #FB0D44; color: #04F2BB; padding: 1px 3px;'>#FB0D44</span> Pink
+      /// <span style='background-color: #FF2D55; color: #00D2AA; padding: 1px 3px;'>#FF2D55</span> Pink
       /// 
-      /// UIColor(red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+      /// UIColor(red: 1.0, green: 0.1764705882, blue: 0.3333333333, alpha: 1.0)
       static func pink(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.9862411618, green: 0.04992903769, blue: 0.2660948038, alpha: 1.0)
+        return UIKit.UIColor(red: 1.0, green: 0.1764705882, blue: 0.3333333333, alpha: 1.0)
       }
       
-      /// <span style='background-color: #FC2125; color: #03DEDA; padding: 1px 3px;'>#FC2125</span> Red
+      /// <span style='background-color: #FF3B30; color: #00C4CF; padding: 1px 3px;'>#FF3B30</span> Red
       /// 
-      /// UIColor(red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+      /// UIColor(red: 1.0, green: 0.231372549, blue: 0.1882352941, alpha: 1.0)
       static func red(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.9865834713, green: 0.1290410459, blue: 0.1457204074, alpha: 1.0)
+        return UIKit.UIColor(red: 1.0, green: 0.231372549, blue: 0.1882352941, alpha: 1.0)
       }
       
-      /// <span style='background-color: #FD8208; color: #027DF7; padding: 1px 3px;'>#FD8208</span> Orange
+      /// <span style='background-color: #FF9500; color: #006AFF; padding: 1px 3px;'>#FF9500</span> Orange
       /// 
-      /// UIColor(red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+      /// UIColor(red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
       static func orange(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.9905514717, green: 0.5092577934, blue: 0.03298374265, alpha: 1.0)
+        return UIKit.UIColor(red: 1.0, green: 0.5843137255, blue: 0.0, alpha: 1.0)
       }
       
-      /// <span style='background-color: #FEC309; color: #013CF6; padding: 1px 3px;'>#FEC309</span> Yellow
+      /// <span style='background-color: #FFCC00; color: #0033FF; padding: 1px 3px;'>#FFCC00</span> Yellow
       /// 
-      /// UIColor(red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+      /// UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
       static func yellow(_: Void = ()) -> UIKit.UIColor {
-        return UIKit.UIColor(red: 0.9951792955, green: 0.7643811703, blue: 0.0368270427, alpha: 1.0)
+        return UIKit.UIColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0)
       }
       
       fileprivate init() {}
