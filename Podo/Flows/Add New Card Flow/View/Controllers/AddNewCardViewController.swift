@@ -78,9 +78,8 @@ final class AddNewCardViewController: UIViewController, AddNewCardView {
             .disposed(by: disposeBag)
 
         viewModel.cardTheme
-            .drive(onNext: { [unowned self] theme in
-                self.cardView.colors = [theme.firstGradientColor, theme.secondGradientColor]
-            })
+            .map { [$0.firstGradientColor, $0.secondGradientColor] }
+            .drive(cardView.rx.gradientColors)
             .disposed(by: disposeBag)
     }
 }
