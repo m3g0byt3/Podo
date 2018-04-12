@@ -28,10 +28,6 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="iKk-oP-fFi" id="UM0-u9-P1W"/>
-                                    <outlet property="delegate" destination="iKk-oP-fFi" id="3BO-Jf-IJ4"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.83529411760000005" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>

@@ -7,8 +7,26 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct CardsCellViewModelImpl: CardsCellViewModel {
 
-    // TODO: Add actual implementation
+    // MARK: - CardsCellViewModel protocol conformance
+
+    let cardTheme: Driver<TransportCardTheme>
+    let cardTitle: Driver<String>
+
+    // MARK: - Initialization
+
+    init(_ model: TransportCard) {
+
+        cardTheme = Observable.just(model.themeIdentifier)
+            .map { TransportCardTheme(rawValue: $0)! }
+            .asDriver(onErrorJustReturn: .green)
+
+        cardTitle = Observable.just(model.cardNumber)
+            .map { "●●●●" + $0.suffix(4) }
+            .asDriver(onErrorJustReturn: "")
+    }
 }

@@ -17,6 +17,7 @@
 		41273CE3206573670006A16B /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41273CE2206573670006A16B /* SideMenuItem.swift */; };
 		41273CE7206573CB0006A16B /* SideMenuItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41273CE6206573CB0006A16B /* SideMenuItemType.swift */; };
 		4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130F2A8205C855B00DDFAD8 /* ViewModel.swift */; };
+		4146D5ED207EE99400FCABA4 /* AddNewCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4146D5EC207EE99400FCABA4 /* AddNewCardCollectionViewCell.swift */; };
 		414896342066988200C3C000 /* HelpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414896322066988200C3C000 /* HelpViewController.storyboard */; };
 		41489636206698D200C3C000 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41489635206698D200C3C000 /* HelpViewController.swift */; };
 		41489638206698DF00C3C000 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41489637206698DF00C3C000 /* ContactsViewController.swift */; };
@@ -78,7 +79,6 @@
 		418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */; };
 		418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */; };
 		418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */; };
-		41918F152060416B00C592F7 /* AddNewCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41918F132060416B00C592F7 /* AddNewCardCollectionViewCell.swift */; };
 		41918F162060416B00C592F7 /* AddNewCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */; };
 		41968CDB20652DEE00501112 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CDD20652DEE00501112 /* Localizable.strings */; };
 		41968CEF2065347800501112 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CF12065347800501112 /* InfoPlist.strings */; };
@@ -151,6 +151,7 @@
 		41273CE2206573670006A16B /* SideMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
 		41273CE6206573CB0006A16B /* SideMenuItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemType.swift; sourceTree = "<group>"; };
 		4130F2A8205C855B00DDFAD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4146D5EC207EE99400FCABA4 /* AddNewCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		414896332066988200C3C000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HelpViewController.storyboard; sourceTree = "<group>"; };
 		41489635206698D200C3C000 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		41489637206698DF00C3C000 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -221,7 +222,6 @@
 		418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModelImpl.swift; sourceTree = "<group>"; };
 		418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModel.swift; sourceTree = "<group>"; };
 		418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModelImpl.swift; sourceTree = "<group>"; };
-		41918F132060416B00C592F7 /* AddNewCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CE6206532EF00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RootViewController.strings; sourceTree = "<group>"; };
@@ -722,7 +722,7 @@
 				41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */,
 				41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */,
 				41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */,
-				41918F132060416B00C592F7 /* AddNewCardCollectionViewCell.swift */,
+				4146D5EC207EE99400FCABA4 /* AddNewCardCollectionViewCell.swift */,
 				41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */,
 			);
 			path = Cells;
@@ -1308,6 +1308,7 @@
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
+				4146D5ED207EE99400FCABA4 /* AddNewCardCollectionViewCell.swift in Sources */,
 				418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */,
 				418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */,
 				417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */,
@@ -1369,7 +1370,6 @@
 				418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */,
 				4179E9FF204620E1007CF219 /* MainMenuView.swift in Sources */,
 				419DC7361FC705CE003A3C45 /* Constants.swift in Sources */,
-				41918F152060416B00C592F7 /* AddNewCardCollectionViewCell.swift in Sources */,
 				4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */,
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModel.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
