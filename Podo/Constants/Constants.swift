@@ -55,12 +55,12 @@ enum Constant {
         static let estimatedRowHeight: CGFloat = 75
         /// Ratio between screen height and height of CardsViewController
         static let verticalInsetRatio: CGFloat = 0.25
-        /// Ratio between UICollectionViewCell height and height of UICollectionView
-        static let cellHeightToSuperViewHeightRatio: CGFloat = 0.60
-        /// Left and right margins in UICollectionViewCell (as set in the IB)
-        static let cellEdgesOffset: CGFloat = 8 * 2
-        /// Ratio between width and height of standard sized credit cards
-        static let cardViewHeightWidthRatio: CGFloat = 0.628
+        /// Ratio between UICollectionViewCell width and width of UICollectionView
+        static let cellWidthToCollectionViewWidthRatio: CGFloat = 0.65
+        /// Top, bottom, leading, trailing constant for UICollectionViewCell's view constraints to the superview (set in the IB)
+        static let cellEdgesOffset: CGFloat = 8
+        /// Aspect ratio for standard sized credit cards
+        static let creditCardAspectRatio: CGFloat = 0.628
         /// Ratio between height of tableView and offset for bottom of CardsViewController's view
         static let tableViewToCardViewOffsetRatio: CGFloat = 0.05
         /// Offset for constraint between bottom of CardsViewController's view and bottom of UICollectionView
