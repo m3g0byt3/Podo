@@ -335,8 +335,8 @@
 				41607EA9204E015A009DCEA2 /* Router */,
 				4160A50F2051766900485C8B /* Themes */,
 				41A5E7931FDAC36800A835F5 /* Services */,
-				418F79D0205C8D5900397B48 /* Wrappers */,
 				41BDD4E7205450070045A50A /* Protocols */,
+				418F79D0205C8D5900397B48 /* Wrappers */,
 				41E18D90204D813300E4C935 /* Flows */,
 				41E8FA031FCB33A100AB453D /* Extensions */,
 				41D1F1771FC7907D00F12C20 /* Constants */,
@@ -703,9 +703,9 @@
 			children = (
 				41BDD5042055EBD70045A50A /* MainMenuViewController.swift */,
 				41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */,
+				41489635206698D200C3C000 /* HelpViewController.swift */,
 				419DC7371FC70FBA003A3C45 /* SideMenuViewController.swift */,
 				41489637206698DF00C3C000 /* ContactsViewController.swift */,
-				41489635206698D200C3C000 /* HelpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
