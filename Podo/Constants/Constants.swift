@@ -25,6 +25,13 @@ enum Constant {
         static let short: TimeInterval = 0.15
     }
 
+    enum ThrottleDuration {
+        /// Throttle duration for UIButton
+        static let button: TimeInterval = 1.0
+        /// Throttle duration for UITextField
+        static let textField: TimeInterval = 0.3
+    }
+
     enum DimmingViewAlpha {
         /// Alpha level at the beginning of presentation
         static let initial: CGFloat = 0.0
