@@ -6,9 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import Foundation
-import Swinject
 import UIKit
+import Swinject
 
 final class ViewAssembly: Assembly {
 
