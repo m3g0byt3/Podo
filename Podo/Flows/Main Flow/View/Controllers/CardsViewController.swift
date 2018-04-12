@@ -34,7 +34,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     }
     /**
      Setup constraints for the collection view.
-     - warning: Dispatched once.
+     - warning: ⚠️ Dispatched once. ⚠️
      */
     private lazy var setupCollectionViewTopConstraint: () -> Void = {
         // First deactivate top-to-superview IB constrait..
