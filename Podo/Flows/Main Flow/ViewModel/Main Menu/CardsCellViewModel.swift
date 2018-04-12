@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol CardsCellViewModel {
 
-    // TODO: Add actual implementation
+    var cardTheme: Driver<TransportCardTheme> { get }
+    var cardTitle: Driver<String> { get }
 }

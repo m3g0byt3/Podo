@@ -26,7 +26,7 @@ final class ViewAssembly: Assembly {
             guard let viewController = CardsViewController.storyboardInstance() else {
                 fatalError("Unable to instantiate \(CardsViewController.self)")
             }
-            viewController.viewModel = resolver.resolve(AnyViewModel<CardsCellViewModel>.self)
+            viewController.viewModel = resolver.resolve(CardsViewModel.self)
             return viewController
         }
 

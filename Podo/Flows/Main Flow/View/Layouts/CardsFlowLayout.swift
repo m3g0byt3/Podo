@@ -38,11 +38,10 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
                 fatalError("No collectionView passed to \(#function)")
             }
             let edgesOffset = Constant.MainMenu.cellEdgesOffset
-            let heightToSuperView = Constant.MainMenu.cellHeightToSuperViewHeightRatio
-            let heightToWidth = Constant.MainMenu.cardViewHeightWidthRatio
-
-            let height = collectionView.frame.height * heightToSuperView + edgesOffset
-            let width = height / heightToWidth - edgesOffset
+            let widthRatio = Constant.MainMenu.cellWidthToCollectionViewWidthRatio
+            let aspectRatio = Constant.MainMenu.creditCardAspectRatio
+            let width = collectionView.frame.width * widthRatio - edgesOffset
+            let height = width * aspectRatio + edgesOffset
 
             return CGSize(width: width, height: height)
         }
@@ -70,7 +69,7 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
         }
         let offsetStep = collectionView.contentSize.width / CGFloat(collectionView.numberOfItems(inSection: 0))
         let offsetMultiplier = round((proposedContentOffset.x + initialInsets) / offsetStep)
-        let offset = offsetStep * offsetMultiplier - initialInsets + Constant.MainMenu.collectionViewBottomOffset / 2
+        let offset = offsetStep * offsetMultiplier - initialInsets
 
         return CGPoint(x: offset, y: 0)
     }

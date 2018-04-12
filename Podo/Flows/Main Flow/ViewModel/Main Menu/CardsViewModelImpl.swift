@@ -7,19 +7,30 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class CardsViewModelImpl: CardsViewModel {
 
+    // MARK: - Properties
+
+    private let model: AnyDatabaseService<TransportCard>
+    private let viewModels: BehaviorRelay<[CardsCellViewModel]>
+
     // MARK: - CardsViewModel protocol conformance
 
-    func numberOfChildViewModels(in section: Int) -> Int {
-        // TODO: Add actual implementation
-        return 0
+    var childViewModels: Driver<[CardsCellViewModel]> {
+        return viewModels.asDriver()
     }
 
-    func childViewModel(for indexPath: IndexPath) -> CardsCellViewModel? {
-        // TODO: Add actual implementation
-        let isChildViewModelAvailable = indexPath.row < numberOfChildViewModels(in: indexPath.section)
-        return isChildViewModelAvailable ? CardsCellViewModelImpl() : nil
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<TransportCard>) {
+        self.viewModels = BehaviorRelay(value: [CardsCellViewModel]())
+        self.model = model
+        try? model.fetch(predicate: nil, sorted: nil) { [weak self] result in
+            let viewModels = result.map(CardsCellViewModelImpl.init)
+            self?.viewModels.accept(viewModels)
+        }
     }
 }
