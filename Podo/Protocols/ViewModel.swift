@@ -30,5 +30,5 @@ protocol ViewModel {
      * - parameter indexPath: IndexPath for child view model
      * - returns: Child view model
      */
-    func childViewModel(for indexPath: IndexPath) -> ChildViewModel?
+    func childViewModel(for indexPath: IndexPath) -> ChildViewModel
 }

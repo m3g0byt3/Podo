@@ -17,7 +17,7 @@ final class AnyViewModel<C>: ViewModel {
     // MARK: - Properties
 
     private let _numberOfChildViewModelsIn: (_ section: Int) -> Int
-    private let _childViewModelFor: (_ indexPath: IndexPath) -> C?
+    private let _childViewModelFor: (_ indexPath: IndexPath) -> C
 
     // MARK: - Initialization
 
@@ -32,7 +32,7 @@ final class AnyViewModel<C>: ViewModel {
         return _numberOfChildViewModelsIn(section)
     }
 
-    func childViewModel(for indexPath: IndexPath) -> C? {
+    func childViewModel(for indexPath: IndexPath) -> C {
         return _childViewModelFor(indexPath)
     }
 }

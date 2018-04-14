@@ -116,7 +116,7 @@ extension MainMenuViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.mainMenuTableViewCell, for: indexPath)!
-        cell.viewModel = viewModel.childViewModel(for: indexPath)
+            .configure(with: viewModel.childViewModel(for: indexPath))
         return cell
     }
 }

@@ -35,7 +35,7 @@ extension SideMenuViewModelImpl: SideMenuViewModel {
         return items.count
     }
 
-    func childViewModel(for indexPath: IndexPath) -> SideMenuCellViewModel? {
+    func childViewModel(for indexPath: IndexPath) -> SideMenuCellViewModel {
         return SideMenuCellViewModelImpl(items[indexPath.row])
     }
 }
