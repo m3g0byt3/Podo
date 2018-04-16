@@ -8,4 +8,14 @@
 
 import UIKit
 
-final class ContactsViewController: UIViewController, ContactsView {}
+final class ContactsViewController: UIViewController, ContactsView {
+
+    // MARK: - InteractiveTransitioningCapable protocol conformance
+
+    var isTransitionInteractive = false
+    var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
+
+    // MARK: - SideMenuPresenting protocol conformance
+
+    var onSideMenuSelection: Completion?
+}

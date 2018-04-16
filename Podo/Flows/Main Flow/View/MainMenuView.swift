@@ -10,10 +10,7 @@ import Foundation
 
 typealias MainMenuView = MainMenuParentView & MainMenuChildView
 
-protocol MainMenuParentView: View {
-
-    var onSideMenuSelection: Completion? { get set }
-}
+protocol MainMenuParentView: View, InteractiveTransitioningCapable, SideMenuPresenting {}
 
 protocol MainMenuChildView: View {
 

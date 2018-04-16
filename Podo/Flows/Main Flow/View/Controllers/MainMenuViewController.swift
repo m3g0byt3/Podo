@@ -11,7 +11,7 @@ import SnapKit
 import Swinject
 import EmptyDataSet_Swift
 
-final class MainMenuViewController: UIViewController, MainMenuView, InteractiveTransitioningCapable {
+final class MainMenuViewController: UIViewController, MainMenuView {
 
     // MARK: - IBOutlets
 
@@ -31,21 +31,6 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
         super.viewDidLoad()
         setupTableView()
         setupCardsViewController()
-    }
-
-    // MARK: - IBActions
-
-    @IBAction private func sideMenuButtonHandler(_ sender: UIBarButtonItem) {
-        isTransitionInteractive = false
-        onSideMenuSelection?()
-    }
-
-    @IBAction private func edgePanHandler(_ sender: UIScreenEdgePanGestureRecognizer) {
-        isTransitionInteractive = true
-        switch sender.state {
-        case .began: onSideMenuSelection?()
-        default: onInteractiveTransition?(sender)
-        }
     }
 
     // MARK: - Private API
@@ -96,7 +81,6 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
 
     // MARK: - MainMenuView protocol conformance
 
-    var onSideMenuSelection: Completion?
     var onAddNewCardSelection: Completion?
     var onCardSelection: ((CardsCellViewModel) -> Void)?
 
@@ -104,6 +88,10 @@ final class MainMenuViewController: UIViewController, MainMenuView, InteractiveT
 
     var isTransitionInteractive = false
     var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
+
+    // MARK: - SideMenuPresenting protocol conformance
+
+    var onSideMenuSelection: Completion?
 }
 
 // MARK: - UITableViewDataSource protocol conformance

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class SettingsCoordinator: AbstractCoordinator {
+final class SettingsCoordinator: AbstractCoordinator, SideMenuCoordinator {
 
     // MARK: - Private API
 
@@ -19,10 +19,15 @@ final class SettingsCoordinator: AbstractCoordinator {
         view.onClose = { [weak self] in
             self?.onFlowFinish?()
         }
-        router.push(view, animated: true)
+        view.onSideMenuSelection = { [weak self] in
+            self?.onSideMenuFlowStart?()
+        }
+        router.push(view, animated: false)
     }
 
-    // MARK: - Coordinator protocol conformance
+    // MARK: - SideMenuCoordinator protocol conformance
+
+    var onSideMenuFlowStart: Completion?
 
     override func start() {
         showSettings()

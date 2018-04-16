@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol HelpView: View {}
+protocol HelpView: View, SideMenuPresenting, InteractiveTransitioningCapable {}

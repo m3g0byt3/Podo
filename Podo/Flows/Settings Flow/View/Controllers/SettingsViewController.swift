@@ -14,6 +14,15 @@ final class SettingsViewController: UIViewController, SettingsView {
 
     var onClose: Completion?
 
+    // MARK: - InteractiveTransitioningCapable protocol conformance
+
+    var isTransitionInteractive = false
+    var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
+
+    // MARK: - SideMenuPresenting protocol conformance
+
+    var onSideMenuSelection: Completion?
+
     // MARK: - Lifecycle
 
     override func viewDidDisappear(_ animated: Bool) {
