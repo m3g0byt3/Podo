@@ -46,7 +46,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-Kq-w2a">
-                                <rect key="frame" x="16" y="228.5" width="343" height="36"/>
+                                <rect key="frame" x="16" y="228.5" width="343" height="36.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-Ul-4Gt" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -73,7 +73,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-56-ZzX" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="88" y="0.0" width="35.5" height="36"/>
+                                        <rect key="frame" x="88" y="0.0" width="35.5" height="36.5"/>
                                         <color key="backgroundColor" red="0.99055147170000002" green="0.50925779339999999" blue="0.032983742650000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SU7-56-ZzX" secondAttribute="height" multiplier="1:1" id="Uqh-JA-gyK"/>
@@ -121,7 +121,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Db-rM3" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="263.5" y="0.0" width="35.5" height="36"/>
+                                        <rect key="frame" x="263.5" y="0.0" width="35.5" height="36.5"/>
                                         <color key="backgroundColor" red="0.27237486840000003" green="0.23386213180000001" blue="0.80089795590000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Fe-Db-rM3" secondAttribute="height" multiplier="1:1" id="aPN-VT-w0a"/>

@@ -11,7 +11,7 @@ import SnapKit
 import Swinject
 import EmptyDataSet_Swift
 
-final class MainMenuViewController: UIViewController, MainMenuView {
+final class MainMenuViewController: UIViewController, MainMenuView, TrainIconTitleView {
 
     // MARK: - IBOutlets
 

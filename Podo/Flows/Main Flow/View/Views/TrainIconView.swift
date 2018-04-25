@@ -1,5 +1,5 @@
 //
-//  NavigationBarTitleView.swift
+//  TrainIconView.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 18/12/2017.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-final class NavigationBarTitleView: UIView {
+final class TrainIconView: UIView {
 
     // MARK: - Constants
 
@@ -42,6 +42,6 @@ final class NavigationBarTitleView: UIView {
         addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = R.clr.podoColors.white()
-        imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(NavigationBarTitleView.imageInset) }
+        imageView.snp.makeConstraints { $0.edges.equalToSuperview().inset(TrainIconView.imageInset) }
     }
 }

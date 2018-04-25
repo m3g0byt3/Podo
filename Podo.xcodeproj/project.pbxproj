@@ -32,6 +32,8 @@
 		41494ACD1FC6C6570089F088 /* PodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494ACC1FC6C6570089F088 /* PodoUITests.swift */; };
 		41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */; };
 		414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB4A720630683006A5C74 /* AnyDatabaseService.swift */; };
+		4151684520911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151684420911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift */; };
+		415168472091201300AEB905 /* TrainIconTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415168462091201300AEB905 /* TrainIconTitleView.swift */; };
 		415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415372842052FFA900B8C1EB /* TutorialViewController.storyboard */; };
 		4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728A2053001D00B8C1EB /* TutorialViewController.swift */; };
 		4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */; };
@@ -102,7 +104,7 @@
 		41BA550C2075BA6300264837 /* Apple HIG.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA550B2075BA6300264837 /* Apple HIG.clr */; };
 		41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */; };
 		41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5042055EBD70045A50A /* MainMenuViewController.swift */; };
-		41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */; };
+		41BDD5072055EBFC0045A50A /* TrainIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* TrainIconView.swift */; };
 		41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5082055F3FB0045A50A /* SideMenuView.swift */; };
 		41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */; };
 		41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */; };
@@ -178,6 +180,8 @@
 		41494ACE1FC6C6570089F088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41494ADD1FC6C6950089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		414BB4A720630683006A5C74 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
+		4151684420911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleViewCustomizable.swift; sourceTree = "<group>"; };
+		415168462091201300AEB905 /* TrainIconTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainIconTitleView.swift; sourceTree = "<group>"; };
 		415372852052FFA900B8C1EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TutorialViewController.storyboard; sourceTree = "<group>"; };
 		4153728A2053001D00B8C1EB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		4153728C2053036C00B8C1EB /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
@@ -257,7 +261,7 @@
 		41BA550B2075BA6300264837 /* Apple HIG.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Apple HIG.clr"; sourceTree = "<group>"; };
 		41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		41BDD5042055EBD70045A50A /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleView.swift; sourceTree = "<group>"; };
+		41BDD5062055EBFC0045A50A /* TrainIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainIconView.swift; sourceTree = "<group>"; };
 		41BDD5082055F3FB0045A50A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningCapable.swift; sourceTree = "<group>"; };
 		41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -799,7 +803,7 @@
 				410176F82078047A00785469 /* GradientView.swift */,
 				41C8C2551FD42225007EC44B /* RoundShadowView.swift */,
 				415C64C1203C54A000B77589 /* CheckMarkView.swift */,
-				41BDD5062055EBFC0045A50A /* NavigationBarTitleView.swift */,
+				41BDD5062055EBFC0045A50A /* TrainIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -810,6 +814,8 @@
 				41CDEAB320828C6C008D30D5 /* Customizable.swift */,
 				41CDEAB620828DB1008D30D5 /* SideMenuPresenting.swift */,
 				41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */,
+				4151684420911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift */,
+				415168462091201300AEB905 /* TrainIconTitleView.swift */,
 			);
 			path = POP;
 			sourceTree = "<group>";
@@ -1354,7 +1360,7 @@
 				41D60A9C205DBAF1004C5802 /* SideMenuViewModel.swift in Sources */,
 				4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */,
 				4148964120669BF800C3C000 /* ContactsView.swift in Sources */,
-				41BDD5072055EBFC0045A50A /* NavigationBarTitleView.swift in Sources */,
+				41BDD5072055EBFC0045A50A /* TrainIconView.swift in Sources */,
 				417DBE12206B9E2100993C9B /* ScanCardTextField.swift in Sources */,
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
@@ -1363,9 +1369,11 @@
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,
 				410176F92078047A00785469 /* GradientView.swift in Sources */,
 				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
+				415168472091201300AEB905 /* TrainIconTitleView.swift in Sources */,
 				41607EA8204DD7DB009DCEA2 /* RouterImpl.swift in Sources */,
 				41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */,
 				41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */,
+				4151684520911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift in Sources */,
 				4160A50D205174EA00485C8B /* ThemeProvider.swift in Sources */,
 				41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */,
 				41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */,

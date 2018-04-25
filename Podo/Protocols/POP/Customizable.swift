@@ -70,6 +70,11 @@ extension UIViewController: Customizable {
                 self?.view.addGestureRecognizer(recognizer)
             }
         }
+
+        if let custom = self as? NavigationBarTitleViewCustomizable {
+            // Setup `titleView` in `navigationItem`
+            self.navigationItem.titleView = custom.titleView
+        }
     }
 
     override open func awakeFromNib() {
