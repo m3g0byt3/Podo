@@ -30,39 +30,36 @@ protocol SideMenuPresenting: class, Customizable {
 
 extension SideMenuPresenting where Self: InteractiveTransitioningCapable {
 
-    var sideMenuButtonHandler: AnyMethodWrapper<UIBarButtonItem> {
+    private typealias WrapperClosure = (Any?) -> Void
 
-        func createWrapper() -> AnyMethodWrapper<UIBarButtonItem> {
-            let wrapper = AnyMethodWrapper<UIBarButtonItem> { [weak self] _ in
-                self?.isTransitionInteractive = false
-                self?.onSideMenuSelection?()
-            }
-            objc_setAssociatedObject(self, &AssociatedKeys.buttonHandler, wrapper, .OBJC_ASSOCIATION_RETAIN)
-
+    private func wrapper<T>(for closure: @escaping @autoclosure () -> WrapperClosure, key: inout Void?) -> AnyMethodWrapper<T> {
+        func createWrapper() -> AnyMethodWrapper<T> {
+            let wrapper = AnyMethodWrapper<T>(closure())
+            objc_setAssociatedObject(self, &key, wrapper, .OBJC_ASSOCIATION_RETAIN)
             return wrapper
         }
+        return objc_getAssociatedObject(self, &key) as? AnyMethodWrapper<T> ?? createWrapper()
+    }
 
-        return objc_getAssociatedObject(self, &AssociatedKeys.buttonHandler) as? AnyMethodWrapper<UIBarButtonItem> ?? createWrapper()
+    var sideMenuButtonHandler: AnyMethodWrapper<UIBarButtonItem> {
+        let closure: WrapperClosure = { [weak self] _ in
+            self?.isTransitionInteractive = false
+            self?.onSideMenuSelection?()
+        }
+        return wrapper(for: closure, key: &AssociatedKeys.buttonHandler)
     }
 
     var panGestureRecognizerHandler: AnyMethodWrapper<UIPanGestureRecognizer> {
-
-        func createWrapper() -> AnyMethodWrapper<UIPanGestureRecognizer> {
-            let wrapper = AnyMethodWrapper<UIPanGestureRecognizer> { [weak self] sender in
-                guard let sender = sender else { return }
-                switch sender.state {
-                case .began:
-                    self?.isTransitionInteractive = true
-                    self?.onSideMenuSelection?()
-                default:
-                    self?.onInteractiveTransition?(sender)
-                }
+        let closure: WrapperClosure = { [weak self] sender in
+            guard let sender = sender as? UIPanGestureRecognizer else { return }
+            switch sender.state {
+            case .began:
+                self?.isTransitionInteractive = true
+                self?.onSideMenuSelection?()
+            default:
+                self?.onInteractiveTransition?(sender)
             }
-            objc_setAssociatedObject(self, &AssociatedKeys.recognizerHandler, wrapper, .OBJC_ASSOCIATION_RETAIN)
-
-            return wrapper
         }
-
-        return objc_getAssociatedObject(self, &AssociatedKeys.recognizerHandler) as? AnyMethodWrapper<UIPanGestureRecognizer> ?? createWrapper()
+        return wrapper(for: closure, key: &AssociatedKeys.recognizerHandler)
     }
 }
