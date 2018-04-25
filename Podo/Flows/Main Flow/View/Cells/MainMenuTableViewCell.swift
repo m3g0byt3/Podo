@@ -13,12 +13,17 @@ final class MainMenuTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
 
     @IBOutlet private weak var cardView: UIView!
+}
 
-    // MARK: - Properties
+// MARK: - Configurable protocol conformance
 
-    var viewModel: MainMenuCellViewModel? {
-        didSet {
-            // TODO: Add actual implementation
-        }
+extension MainMenuTableViewCell: Configurable {
+
+    typealias ViewModel = MainMenuCellViewModel
+
+    @discardableResult
+    func configure(with viewModel: MainMenuCellViewModel) -> Self {
+        // TODO: Add actual implementation
+        return self
     }
 }

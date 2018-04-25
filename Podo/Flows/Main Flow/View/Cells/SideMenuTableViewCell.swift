@@ -15,15 +15,6 @@ final class SideMenuTableViewCell: UITableViewCell {
     @IBOutlet private weak var customImageView: UIImageView!
     @IBOutlet private weak var customTextLabel: UILabel!
 
-    // MARK: - Properties
-
-    var viewModel: SideMenuCellViewModel? {
-        didSet {
-            customTextLabel.text = viewModel?.title
-            customImageView.image = viewModel?.image
-        }
-    }
-
     // MARK: - Public API
 
     override func awakeFromNib() {
@@ -39,5 +30,19 @@ final class SideMenuTableViewCell: UITableViewCell {
         customTextLabel.textColor = R.clr.podoColors.white()
         backgroundColor = R.clr.podoColors.green()
         accessoryView = CheckMarkView(frame: checkMarkViewFrame)
+    }
+}
+
+// MARK: - Configurable protocol conformance
+
+extension SideMenuTableViewCell: Configurable {
+
+    typealias ViewModel = SideMenuCellViewModel
+
+    @discardableResult
+    func configure(with viewModel: SideMenuCellViewModel) -> Self {
+        customTextLabel.text = viewModel.title
+        customImageView.image = viewModel.image
+        return self
     }
 }

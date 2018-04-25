@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SettingsView: View {
+protocol SettingsView: View, SideMenuPresenting, InteractiveTransitioningCapable {
 
     var onClose: Completion? { get set }
 }

@@ -35,7 +35,7 @@ final class CardsCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: - ConfigurableCell protocol conformance
+// MARK: - Configurable protocol conformance
 
 extension CardsCollectionViewCell: Configurable {
 

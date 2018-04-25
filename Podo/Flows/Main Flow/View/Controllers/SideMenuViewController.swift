@@ -94,7 +94,7 @@ extension SideMenuViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sideMenuTableViewCell, for: indexPath)!
-        cell.viewModel = viewModel.childViewModel(for: indexPath)
+            .configure(with: viewModel.childViewModel(for: indexPath))
         return cell
     }
 }
@@ -105,6 +105,6 @@ extension SideMenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.childViewModel(for: indexPath).flatMap { onSideMenuEntrySelection?($0) }
+        onSideMenuEntrySelection?(viewModel.childViewModel(for: indexPath))
     }
 }

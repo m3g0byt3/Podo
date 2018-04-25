@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol ContactsView: View {}
+protocol ContactsView: View, SideMenuPresenting, InteractiveTransitioningCapable {}
