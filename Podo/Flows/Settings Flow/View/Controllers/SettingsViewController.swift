@@ -8,11 +8,20 @@
 
 import UIKit
 
-final class SettingsViewController: UIViewController, SettingsView {
+final class SettingsViewController: UIViewController, SettingsView, TrainIconTitleView {
 
     // MARK: - SettingsView protocol conformance
 
     var onClose: Completion?
+
+    // MARK: - InteractiveTransitioningCapable protocol conformance
+
+    var isTransitionInteractive = false
+    var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
+
+    // MARK: - SideMenuPresenting protocol conformance
+
+    var onSideMenuSelection: Completion?
 
     // MARK: - Lifecycle
 

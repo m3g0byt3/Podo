@@ -1,5 +1,5 @@
 //
-//  SideMenuTransitioningDelegate.swift
+//  InteractiveTransitioningDelegate.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 14/03/2018.

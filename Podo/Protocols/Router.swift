@@ -8,10 +8,6 @@
 
 import Foundation
 
-// MARK: - Typealiases
-
-typealias Completion = () -> Void
-
 protocol Router: class {
 
     // Presentation

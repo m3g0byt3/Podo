@@ -17,7 +17,7 @@ final class MainMenuViewModelImpl: MainMenuViewModel {
         return 0
     }
 
-    func childViewModel(for indexPath: IndexPath) -> MainMenuCellViewModel? {
+    func childViewModel(for indexPath: IndexPath) -> MainMenuCellViewModel {
         // TODO: Add actual implementation
         return MainMenuCellViewModelImpl()
     }

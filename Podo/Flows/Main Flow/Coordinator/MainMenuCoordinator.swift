@@ -33,7 +33,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
         view.onSideMenuEntrySelection = { [weak self] sideMenuItem in
             self?.router.dismiss(animated: true, completion: nil)
             switch sideMenuItem.type {
-            case .main: break
+            case .main: self?.router.popToRootView(animated: false)
             case .settings: self?.startSettingsFlow()
             case .contacts: self?.showContacts()
             case .help: self?.showAbout()
@@ -47,23 +47,32 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func showContacts() {
         guard let view = assembler.resolver.resolve(ContactsView.self) else { return }
-        router.push(view, animated: true)
+        view.onSideMenuSelection = { [weak self] in
+            self?.showSideMenu()
+        }
+        router.push(view, animated: false)
     }
 
     private func showAbout() {
         guard let view = assembler.resolver.resolve(HelpView.self) else { return }
-        router.push(view, animated: true)
+        view.onSideMenuSelection = { [weak self] in
+            self?.showSideMenu()
+        }
+        router.push(view, animated: false)
     }
 
     // MARK: - External flows
 
     private func startSettingsFlow() {
-        let coordinator = assembler.resolver.resolve(Coordinator.self,
+        let coordinator = assembler.resolver.resolve(SideMenuCoordinator.self,
                                                      flow: .settings,
                                                      argument: router)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
+        }
+        coordinator?.onSideMenuFlowStart = { [weak self] in
+            self?.showSideMenu()
         }
         coordinator?.start()
     }

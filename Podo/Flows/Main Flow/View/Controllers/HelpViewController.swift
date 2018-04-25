@@ -8,4 +8,14 @@
 
 import UIKit
 
-final class HelpViewController: UIViewController, HelpView {}
+final class HelpViewController: UIViewController, HelpView, TrainIconTitleView {
+
+    // MARK: - InteractiveTransitioningCapable protocol conformance
+
+    var isTransitionInteractive = false
+    var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
+
+    // MARK: - SideMenuPresenting protocol conformance
+
+    var onSideMenuSelection: Completion?
+}

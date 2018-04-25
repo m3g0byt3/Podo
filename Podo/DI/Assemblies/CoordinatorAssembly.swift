@@ -25,7 +25,7 @@ final class CoordinatorAssembly: Assembly {
             return TutorialCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
         }
 
-        container.register(Coordinator.self, flow: .settings) { _, router in
+        container.register(SideMenuCoordinator.self, flow: .settings) { _, router in
             return SettingsCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
         }
 
