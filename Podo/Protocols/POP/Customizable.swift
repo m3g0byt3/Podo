@@ -47,6 +47,10 @@ protocol Customizable {
 
 extension UIViewController: Customizable {
 
+    // MARK: - Constants
+
+    private static let delay: TimeInterval = 0.3
+
     func customize() {
         if let custom = self as? SideMenuPresenting & InteractiveTransitioningCapable {
             // Setup UIBarButtonItem
@@ -62,7 +66,7 @@ extension UIViewController: Customizable {
             // ¯\_(ツ)_/¯
             // Yeah, ugly async hack, but this prevents various race conditions
             // when we're accessing `self.view` property too early.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + type(of: self).delay) { [weak self] in
                 self?.view.addGestureRecognizer(recognizer)
             }
         }
