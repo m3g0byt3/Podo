@@ -10,11 +10,11 @@ import Foundation
 
 // MARK: - Typealiases
 
-typealias FlowFinishCallback = () -> Void
+public typealias Completion = () -> Void
 
 protocol Coordinator: class {
 
-    var onFlowFinish: FlowFinishCallback? { get set }
+    var onFlowFinish: Completion? { get set }
 
     func start()
     func start(with option: StartOption?)

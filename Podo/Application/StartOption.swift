@@ -8,10 +8,6 @@
 
 import UIKit
 
-// MARK: - Typealiases
-
-typealias NotificationUserInfo = [AnyHashable: Any]
-
 enum StartOption {
 
     case tutorial
@@ -19,11 +15,17 @@ enum StartOption {
     case topUp(cardIdentifier: String)
     case addNewCard
 
+    // MARK: - Constants
+
     private enum ShortcutItemIdentifiers: String {
         case addNewCard
         case topUpCard
         case openSettings
     }
+
+    // MARK: - Typealiases
+
+    typealias NotificationUserInfo = [AnyHashable: Any]
 
     // MARK: - Initialization
 

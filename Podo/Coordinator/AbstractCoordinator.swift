@@ -16,7 +16,7 @@ class AbstractCoordinator: Coordinator {
     let router: Router
     let assembler: Assembler
     var coordinators = [Coordinator]()
-    var onFlowFinish: FlowFinishCallback?
+    var onFlowFinish: Completion?
 
     // MARK: - Initialization
 
@@ -29,12 +29,12 @@ class AbstractCoordinator: Coordinator {
         self.assembler = assembler
     }
 
-    func addChild(_ coordinator: Coordinator?) {
+    final func addChild(_ coordinator: Coordinator?) {
         guard let coordinator = coordinator else { return }
         coordinators.append(coordinator)
     }
 
-    func removeChild(_ coordinator: Coordinator?) {
+    final func removeChild(_ coordinator: Coordinator?) {
         guard let coordinator = coordinator,
             let index = coordinators.index(where: { $0 === coordinator }) else { return }
         coordinators.remove(at: index)

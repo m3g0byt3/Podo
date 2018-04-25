@@ -1,5 +1,5 @@
 //
-//  TransportCardImpl.swift
+//  TransportCard.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 29/03/2018.
