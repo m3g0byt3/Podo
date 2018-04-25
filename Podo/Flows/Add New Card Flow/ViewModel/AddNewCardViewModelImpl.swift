@@ -65,9 +65,9 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
         _ = saveState
             .asObservable()
             .withLatestFrom(card)
-            .filter { $0 != nil }
+            .filterNil()
             .subscribe(onNext: { [weak self] card in
-                try? self?.model.save(item: card!)
+                try? self?.model.save(item: card)
             })
             .disposed(by: disposeBag)
     }

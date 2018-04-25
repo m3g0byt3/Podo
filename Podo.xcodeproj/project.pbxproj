@@ -43,6 +43,9 @@
 		415B8A53208D0BCD00BEAB93 /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A52208D0BCC00BEAB93 /* SideMenuItem.swift */; };
 		415B8A55208D0BD300BEAB93 /* SideMenuItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A54208D0BD200BEAB93 /* SideMenuItemType.swift */; };
 		415B8A5D208D0DC500BEAB93 /* sideMenuItems.realm in Resources */ = {isa = PBXBuildFile; fileRef = 415B8A5C208D0DC500BEAB93 /* sideMenuItems.realm */; };
+		415B8A61208D160700BEAB93 /* Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A60208D160700BEAB93 /* Observable+Extensions.swift */; };
+		415B8A63208D163800BEAB93 /* Driver+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A62208D163800BEAB93 /* Driver+Extensions.swift */; };
+		415B8A65208D16A900BEAB93 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A64208D16A900BEAB93 /* OptionalType.swift */; };
 		415C64C2203C54A000B77589 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415C64C1203C54A000B77589 /* CheckMarkView.swift */; };
 		41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */; };
 		41607EA6204DA913009DCEA2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA5204DA913009DCEA2 /* View.swift */; };
@@ -191,6 +194,9 @@
 		415B8A52208D0BCC00BEAB93 /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
 		415B8A54208D0BD200BEAB93 /* SideMenuItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemType.swift; sourceTree = "<group>"; };
 		415B8A5C208D0DC500BEAB93 /* sideMenuItems.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = sideMenuItems.realm; sourceTree = "<group>"; };
+		415B8A60208D160700BEAB93 /* Observable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extensions.swift"; sourceTree = "<group>"; };
+		415B8A62208D163800BEAB93 /* Driver+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Extensions.swift"; sourceTree = "<group>"; };
+		415B8A64208D16A900BEAB93 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		415C64C1203C54A000B77589 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extensions.swift"; sourceTree = "<group>"; };
 		41607EA5204DA913009DCEA2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -857,9 +863,12 @@
 				410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */,
 				41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */,
 				419CFEAA206BBD9F004F4897 /* String+Extensions.swift */,
-				419CFEA8206BBD44004F4897 /* Reactive+Extensions.swift */,
 				41BA5501207598EF00264837 /* UIImage+Extensions.swift */,
 				410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */,
+				419CFEA8206BBD44004F4897 /* Reactive+Extensions.swift */,
+				415B8A64208D16A900BEAB93 /* OptionalType.swift */,
+				415B8A60208D160700BEAB93 /* Observable+Extensions.swift */,
+				415B8A62208D163800BEAB93 /* Driver+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1364,6 +1373,7 @@
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				41CDEAB420828C6C008D30D5 /* Customizable.swift in Sources */,
+				415B8A63208D163800BEAB93 /* Driver+Extensions.swift in Sources */,
 				418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */,
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,
 				410176F92078047A00785469 /* GradientView.swift in Sources */,
@@ -1377,6 +1387,7 @@
 				41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */,
 				41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
+				415B8A65208D16A900BEAB93 /* OptionalType.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				41816E20206A315E00A0FFCC /* AddNewCardViewModelImpl.swift in Sources */,
@@ -1388,6 +1399,7 @@
 				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
 				41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */,
 				41C9EB4E1FD40A0B000D77DD /* MainMenuTableViewCell.swift in Sources */,
+				415B8A61208D160700BEAB93 /* Observable+Extensions.swift in Sources */,
 				41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */,
 				41BA5502207598EF00264837 /* UIImage+Extensions.swift in Sources */,
 				41A5E78B1FD97FC300A835F5 /* CardsCollectionViewCell.swift in Sources */,
