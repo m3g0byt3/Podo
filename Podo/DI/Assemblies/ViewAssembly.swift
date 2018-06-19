@@ -16,7 +16,7 @@ final class ViewAssembly: Assembly {
 
         container.register(MainMenuView.self) { resolver in
             guard let viewController = MainMenuViewController.storyboardInstance() else {
-                    fatalError("Unable to instantiate \(MainMenuViewController.self)")
+                unableToResolve(MainMenuViewController.self)
             }
             viewController.viewModel = resolver.resolve(AnyViewModel<MainMenuCellViewModel>.self)
             viewController.assembler = ApplicationAssembler.defaultAssembler
@@ -25,7 +25,7 @@ final class ViewAssembly: Assembly {
 
         container.register(MainMenuChildView.self) { resolver in
             guard let viewController = CardsViewController.storyboardInstance() else {
-                fatalError("Unable to instantiate \(CardsViewController.self)")
+                unableToResolve(CardsViewController.self)
             }
             viewController.viewModel = resolver.resolve(CardsViewModel.self)
             return viewController
@@ -39,35 +39,35 @@ final class ViewAssembly: Assembly {
 
         container.register(TutorialView.self) { _ in
             guard let viewController = TutorialViewController.storyboardInstance() else {
-                fatalError("Unable to instantiate \(TutorialViewController.self)")
+                unableToResolve(TutorialViewController.self)
             }
             return viewController
         }
 
         container.register(SettingsView.self) { _ in
             guard let viewController = SettingsViewController.storyboardInstance() else {
-                fatalError("Unable to instantiate \(SettingsViewController.self)")
+                unableToResolve(SettingsViewController.self)
             }
             return viewController
         }
 
         container.register(ContactsView.self) { _ in
             guard let viewController = ContactsViewController.storyboardInstance() else {
-                fatalError("Unable to instantiate \(ContactsViewController.self)")
+                unableToResolve(ContactsViewController.self)
             }
             return viewController
         }
 
         container.register(HelpView.self) { _ in
             guard let viewController = HelpViewController.storyboardInstance() else {
-                fatalError("Unable to instantiate \(HelpViewController.self)")
+                unableToResolve(HelpViewController.self)
             }
             return viewController
         }
 
         container.register(AddNewCardView.self) { resolver in
             guard let viewController = AddNewCardViewController.storyboardInstance() else {
-                fatalError("Unable to instantiate \(AddNewCardViewController.self)")
+                unableToResolve(AddNewCardViewController.self)
             }
             viewController.viewModel = resolver.resolve(AddNewCardViewModel.self)
             return viewController

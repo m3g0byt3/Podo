@@ -16,7 +16,7 @@ final class ServiceAssembly: Assembly {
 
         container.register(NetworkService.self) { _ in
             // TODO: Add actual implementation
-            fatalError("\(#function) not implemented yet!")
+            unableToResolve(NetworkService.self)
         }
 
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
@@ -25,14 +25,14 @@ final class ServiceAssembly: Assembly {
                                                     readOnly: true,
                                                     objectTypes: [SideMenuItem.self])
             guard let service = try? DatabaseServiceImpl<SideMenuItem>(configuration: configuration) else {
-                fatalError("Unable to load configuration database from the application bundle.")
+                unableToResolve(DatabaseServiceImpl<SideMenuItem>.self)
             }
             return AnyDatabaseService<SideMenuItem>(service)
         }
 
         container.register(AnyDatabaseService<TransportCard>.self) { _ in
             guard let service = try? DatabaseServiceImpl<TransportCard>() else {
-                fatalError("Unable to instantiate service of type \(DatabaseServiceImpl<TransportCard>.self)")
+                unableToResolve(DatabaseServiceImpl<TransportCard>.self)
             }
             return AnyDatabaseService<TransportCard>(service)
         }
