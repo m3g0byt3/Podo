@@ -78,6 +78,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     // MARK: - Types
 
     private enum ViewModelWrapper {
+        // swiftlint:disable:next identifier_name
         case data(CardsCellViewModel)
         case empty
     }

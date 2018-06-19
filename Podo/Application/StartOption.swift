@@ -12,6 +12,7 @@ enum StartOption {
 
     case tutorial
     case settings
+    // swiftlint:disable:next identifier_name
     case topUp(cardIdentifier: String)
     case addNewCard
 
