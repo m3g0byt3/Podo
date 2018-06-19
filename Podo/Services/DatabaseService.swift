@@ -13,7 +13,9 @@ import Foundation
  */
 enum SortOption {
 
+    // swiftlint:disable:next identifier_name
     case ascending(keyPath: String)
+    // swiftlint:disable:next identifier_name
     case descending(keyPath: String)
 
     // MARK: - Properties
