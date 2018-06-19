@@ -99,6 +99,7 @@
 		41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */; };
 		41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */; };
 		41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */; };
+		41AA3C7E20D94B6900A3D298 /* Global+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA3C7D20D94B6900A3D298 /* Global+Extensions.swift */; };
 		41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */; };
 		41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */; };
 		41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AFD0BF205ED375006A8768 /* SettingsView.swift */; };
@@ -259,6 +260,7 @@
 		41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		41A5E79F1FDB3AAF00A835F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CardsViewController.storyboard; sourceTree = "<group>"; };
 		41A9FC6D1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningInteractor.swift; sourceTree = "<group>"; };
+		41AA3C7D20D94B6900A3D298 /* Global+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global+Extensions.swift"; sourceTree = "<group>"; };
 		41AFD0BB205ECCE3006A8768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsViewController.storyboard; sourceTree = "<group>"; };
 		41AFD0BD205ED027006A8768 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		41AFD0BF205ED375006A8768 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 				415B8A64208D16A900BEAB93 /* OptionalType.swift */,
 				415B8A60208D160700BEAB93 /* Observable+Extensions.swift */,
 				415B8A62208D163800BEAB93 /* Driver+Extensions.swift */,
+				41AA3C7D20D94B6900A3D298 /* Global+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1337,6 +1340,7 @@
 				4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */,
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
 				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
+				41AA3C7E20D94B6900A3D298 /* Global+Extensions.swift in Sources */,
 				410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */,
 				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,

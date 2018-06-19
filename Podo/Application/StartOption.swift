@@ -44,10 +44,10 @@ enum StartOption {
     }
 
     init?(with notificationUserInfo: NotificationUserInfo) {
-        fatalError("\(#function) not implemented yet!")
+        notImplemented()
     }
 
     init?(with userActivity: NSUserActivity) {
-        fatalError("\(#function) not implemented yet!")
+        notImplemented()
     }
 }
