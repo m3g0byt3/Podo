@@ -11,3 +11,7 @@ import Foundation
 public func unableToResolve(_ dependency: @autoclosure () -> Any, file: StaticString = #file, line: UInt = #line) -> Never {
     fatalError("Unable to resolve dependency of type \(dependency())\n in file \(file) at line \(line)")
 }
+
+public func notImplemented(_ function: StaticString = #function) -> Never {
+    fatalError("\(function) not implemented yet!")
+}
