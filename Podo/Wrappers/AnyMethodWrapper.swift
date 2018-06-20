@@ -10,6 +10,8 @@ import Foundation
 
 /**
  Wraps closure passed at initialization in Selector, available for the Objective-C runtime.
+ Workaround due to [SR-3349](https://bugs.swift.org/browse/SR-3349).
+ - Note: See also [this SO thread](https://stackoverflow.com/questions/36629301/calling-selector-from-protocol-extension).
  */
 final class AnyMethodWrapper<T> {
 
