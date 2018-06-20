@@ -18,22 +18,25 @@ final class ViewModelAssembly: Assembly {
         }
 
         container.register(CardsViewModel.self) { resolver in
-            guard let model = resolver.resolve(AnyDatabaseService<TransportCard>.self) else {
-                fatalError("Unable to instantiate model of type \(AnyDatabaseService<TransportCard>.self)")
+            let dependencyType = AnyDatabaseService<TransportCard>.self
+            guard let model = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
             }
             return CardsViewModelImpl(model)
         }
 
         container.register(AnyViewModel<SideMenuCellViewModel>.self) { resolver in
-            guard let model = resolver.resolve(AnyDatabaseService<SideMenuItem>.self) else {
-                fatalError("Unable to instantiate model of type \(AnyDatabaseService<SideMenuItem>.self)")
+            let dependencyType = AnyDatabaseService<SideMenuItem>.self
+            guard let model = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
             }
             return AnyViewModel(SideMenuViewModelImpl(model))
         }
 
         container.register(AddNewCardViewModel.self) { resolver in
-            guard let model = resolver.resolve(AnyDatabaseService<TransportCard>.self) else {
-                fatalError("Unable to instantiate model of type \(AnyDatabaseService<TransportCard>.self)")
+            let dependencyType = AnyDatabaseService<TransportCard>.self
+            guard let model = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
             }
             return AddNewCardViewModelImpl(model)
         }

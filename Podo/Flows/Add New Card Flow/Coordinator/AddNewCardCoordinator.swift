@@ -28,7 +28,7 @@ final class AddNewCardCoordinator: AbstractCoordinator {
 
     private func showCardScanner() {
         // TODO: Add actual implementation
-        fatalError("\(#function) not implemented yet!")
+        notImplemented()
     }
 
     // MARK: - Coordinator protocol conformance

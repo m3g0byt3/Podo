@@ -78,6 +78,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     // MARK: - Types
 
     private enum ViewModelWrapper {
+        // swiftlint:disable:next identifier_name
         case data(CardsCellViewModel)
         case empty
     }
@@ -87,7 +88,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     private func setupBindings() {
         // Cell factory
         viewModel.childViewModels
-            .flatMap(wrapViewModels)
+            .flatMap(CardsViewController.wrapViewModels)
             .drive(collectionView.rx.items) { (collectionView, index, wrappedViewModel) in
                 let indexPath = IndexPath(item: index, section: 0)
                 switch wrappedViewModel {
@@ -119,7 +120,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
      - parameter viewModels: Array of view models.
      - returns: Driver trait: `Driver<[ViewModelWrapper]`
      */
-    private func wrapViewModels(_ viewModels: [CardsCellViewModel]) -> Driver<[ViewModelWrapper]> {
+    private static func wrapViewModels(_ viewModels: [CardsCellViewModel]) -> Driver<[ViewModelWrapper]> {
         let wrappedViewModels = viewModels.map(ViewModelWrapper.data)
         let empty = [ViewModelWrapper.empty]
         return Driver.of(Array([wrappedViewModels, empty].joined()))

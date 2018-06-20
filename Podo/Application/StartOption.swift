@@ -12,6 +12,7 @@ enum StartOption {
 
     case tutorial
     case settings
+    // swiftlint:disable:next identifier_name
     case topUp(cardIdentifier: String)
     case addNewCard
 
@@ -44,10 +45,10 @@ enum StartOption {
     }
 
     init?(with notificationUserInfo: NotificationUserInfo) {
-        fatalError("\(#function) not implemented yet!")
+        notImplemented()
     }
 
     init?(with userActivity: NSUserActivity) {
-        fatalError("\(#function) not implemented yet!")
+        notImplemented()
     }
 }
