@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bci-fQ-CMU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Top Up View Controller-->
+        <scene sceneID="BeQ-PW-S0F">
+            <objects>
+                <viewController id="bci-fQ-CMU" customClass="TopUpViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HnB-hr-9IF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AJR-9c-7fQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AJR-9c-7fQ" firstAttribute="top" secondItem="7cG-ec-jyJ" secondAttribute="top" id="BWk-X3-NaY"/>
+                            <constraint firstItem="7cG-ec-jyJ" firstAttribute="trailing" secondItem="AJR-9c-7fQ" secondAttribute="trailing" id="HC5-lp-JOp"/>
+                            <constraint firstItem="AJR-9c-7fQ" firstAttribute="leading" secondItem="7cG-ec-jyJ" secondAttribute="leading" id="cF5-t4-aEO"/>
+                            <constraint firstItem="7cG-ec-jyJ" firstAttribute="bottom" secondItem="AJR-9c-7fQ" secondAttribute="bottom" id="nZV-fp-hQY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7cG-ec-jyJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="AJR-9c-7fQ" id="Tue-gi-qHq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJE-vc-9Qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-737" y="41"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="P8G-sn-QsI">
+            <objects>
+                <viewController storyboardIdentifier="PaymentViewController" id="rh6-hH-JEI" customClass="PaymentViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Al7-LE-cu2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ctl-9G-x8e"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U1x-YX-mf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="41"/>
+        </scene>
+    </scenes>
+</document>

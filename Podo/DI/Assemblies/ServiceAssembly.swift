@@ -36,5 +36,16 @@ final class ServiceAssembly: Assembly {
             }
             return AnyDatabaseService<TransportCard>(service)
         }
+
+        container.register(AnyDatabaseService<PaymentMethod>.self) { _ in
+            // Create custom configuration for bundled `paymentMethodsRealm` database file
+            let configuration = Realm.Configuration(fileURL: R.file.paymentMethodsRealm(),
+                                                    readOnly: true,
+                                                    objectTypes: [PaymentMethod.self])
+            guard let service = try? DatabaseServiceImpl<PaymentMethod>(configuration: configuration) else {
+                unableToResolve(DatabaseServiceImpl<PaymentMethod>.self)
+            }
+            return AnyDatabaseService<PaymentMethod>(service)
+        }
     }
 }

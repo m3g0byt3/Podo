@@ -17,3 +17,12 @@
 "settings" = "Settings";
 "contacts" = "Contacts";
 "help" = "Help";
+
+// MARK: - Payment Methods Localization
+
+"payment-selection-title" = "Select payment method:";
+"applePay" = "Apple Pay";
+"bankCard" = "Credit/Debit Card";
+"yandexMoney" = "Yandex.Money";
+"qiwiWallet" = "QIWI Wallet";
+"cellphoneBalance" = "Cellphone balance";

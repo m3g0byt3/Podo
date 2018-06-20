@@ -70,4 +70,9 @@ enum Constant {
         /// Ratio between verticalOffset for `EmptyDataSet` and view's height
         static let emptyVerticalOffsetRatio: CGFloat = -0.15
     }
+
+    enum TopUpMenu {
+        /// TableView's estimatedHeightForRowAt
+        static let estimatedRowHeight: CGFloat = 50
+    }
 }
