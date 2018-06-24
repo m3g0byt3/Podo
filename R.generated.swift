@@ -272,22 +272,33 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
     /// Nib `AddNewCardCollectionViewCell`.
     static let addNewCardCollectionViewCell = _R.nib._AddNewCardCollectionViewCell()
+    /// Nib `AmountFieldCell`.
+    static let amountFieldCell = _R.nib._AmountFieldCell()
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `MainMenuTableViewCell`.
     static let mainMenuTableViewCell = _R.nib._MainMenuTableViewCell()
+    /// Nib `PaymentCardCell`.
+    static let paymentCardCell = _R.nib._PaymentCardCell()
     /// Nib `PaymentMethodCell`.
     static let paymentMethodCell = _R.nib._PaymentMethodCell()
     /// Nib `SideMenuTableViewCell`.
     static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
+    /// Nib `TransportCardCell`.
+    static let transportCardCell = _R.nib._TransportCardCell()
     
     /// `UINib(name: "AddNewCardCollectionViewCell", in: bundle)`
     static func addNewCardCollectionViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.addNewCardCollectionViewCell)
+    }
+    
+    /// `UINib(name: "AmountFieldCell", in: bundle)`
+    static func amountFieldCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.amountFieldCell)
     }
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
@@ -300,6 +311,11 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.mainMenuTableViewCell)
     }
     
+    /// `UINib(name: "PaymentCardCell", in: bundle)`
+    static func paymentCardCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paymentCardCell)
+    }
+    
     /// `UINib(name: "PaymentMethodCell", in: bundle)`
     static func paymentMethodCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.paymentMethodCell)
@@ -310,21 +326,32 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.sideMenuTableViewCell)
     }
     
+    /// `UINib(name: "TransportCardCell", in: bundle)`
+    static func transportCardCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.transportCardCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AddNewCardCollectionViewCell`.
     static let addNewCardCollectionViewCell: Rswift.ReuseIdentifier<AddNewCardCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "AddNewCardCollectionViewCell")
+    /// Reuse identifier `AmountFieldCell`.
+    static let amountFieldCell: Rswift.ReuseIdentifier<AmountFieldCell> = Rswift.ReuseIdentifier(identifier: "AmountFieldCell")
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
     /// Reuse identifier `MainMenuTableViewCell`.
     static let mainMenuTableViewCell: Rswift.ReuseIdentifier<MainMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "MainMenuTableViewCell")
+    /// Reuse identifier `PaymentCardCell`.
+    static let paymentCardCell: Rswift.ReuseIdentifier<PaymentCardCell> = Rswift.ReuseIdentifier(identifier: "PaymentCardCell")
     /// Reuse identifier `PaymentMethodCell`.
     static let paymentMethodCell: Rswift.ReuseIdentifier<PaymentMethodCell> = Rswift.ReuseIdentifier(identifier: "PaymentMethodCell")
     /// Reuse identifier `SideMenuTableViewCell`.
     static let sideMenuTableViewCell: Rswift.ReuseIdentifier<SideMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "SideMenuTableViewCell")
+    /// Reuse identifier `TransportCardCell`.
+    static let transportCardCell: Rswift.ReuseIdentifier<TransportCardCell> = Rswift.ReuseIdentifier(identifier: "TransportCardCell")
     
     fileprivate init() {}
   }
@@ -779,8 +806,8 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _CardsCollectionViewCell.validate()
       try _AddNewCardCollectionViewCell.validate()
+      try _CardsCollectionViewCell.validate()
     }
     
     struct _AddNewCardCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -796,6 +823,20 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "AddNewCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'AddNewCardIcon' is used in nib 'AddNewCardCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _AmountFieldCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = AmountFieldCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "AmountFieldCell"
+      let name = "AmountFieldCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AmountFieldCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AmountFieldCell
       }
       
       fileprivate init() {}
@@ -833,6 +874,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _PaymentCardCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PaymentCardCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "PaymentCardCell"
+      let name = "PaymentCardCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> PaymentCardCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PaymentCardCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _PaymentMethodCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = PaymentMethodCell
       
@@ -856,6 +911,20 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SideMenuTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SideMenuTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _TransportCardCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = TransportCardCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "TransportCardCell"
+      let name = "TransportCardCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TransportCardCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TransportCardCell
       }
       
       fileprivate init() {}

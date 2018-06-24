@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="bci-fQ-CMU" customClass="TopUpViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HnB-hr-9IF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AJR-9c-7fQ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AJR-9c-7fQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <sections/>
                             </tableView>
@@ -33,6 +33,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7cG-ec-jyJ"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="AJR-9c-7fQ" id="Tue-gi-qHq"/>
                     </connections>
@@ -46,11 +47,27 @@
             <objects>
                 <viewController storyboardIdentifier="PaymentViewController" id="rh6-hH-JEI" customClass="PaymentViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Al7-LE-cu2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="zzh-tQ-e6l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zzh-tQ-e6l" firstAttribute="top" secondItem="Ctl-9G-x8e" secondAttribute="top" id="U6f-W7-Aa4"/>
+                            <constraint firstItem="Ctl-9G-x8e" firstAttribute="bottom" secondItem="zzh-tQ-e6l" secondAttribute="bottom" id="Zmp-Cp-oXF"/>
+                            <constraint firstItem="zzh-tQ-e6l" firstAttribute="leading" secondItem="Ctl-9G-x8e" secondAttribute="leading" id="cwU-R0-heB"/>
+                            <constraint firstItem="Ctl-9G-x8e" firstAttribute="trailing" secondItem="zzh-tQ-e6l" secondAttribute="trailing" id="gtg-eh-bIe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ctl-9G-x8e"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="zzh-tQ-e6l" id="2Wq-46-emP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U1x-YX-mf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

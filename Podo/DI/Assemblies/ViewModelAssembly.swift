@@ -48,5 +48,9 @@ final class ViewModelAssembly: Assembly {
             }
             return PaymentMethodViewModelImpl(model)
         }
+
+        container.register(PaymentConfirmationViewModel.self) { _ in
+            return PaymentConfirmationViewModelImpl()
+        }
     }
 }
