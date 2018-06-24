@@ -11,6 +11,7 @@
 		410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A51207D1A57003DD5C0 /* Configurable.swift */; };
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
+		411C322520E00AA5008964AD /* PaymentCardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C322420E00AA5008964AD /* PaymentCardBackgroundView.swift */; };
 		411C322720E00B60008964AD /* CustomMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C322620E00B60008964AD /* CustomMargin.swift */; };
 		411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F3E43204E1123002D466E /* RouterAssembly.swift */; };
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
@@ -181,6 +182,7 @@
 		410F0A51207D1A57003DD5C0 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		411C322420E00AA5008964AD /* PaymentCardBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCardBackgroundView.swift; sourceTree = "<group>"; };
 		411C322620E00B60008964AD /* CustomMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMargin.swift; sourceTree = "<group>"; };
 		411F3E43204E1123002D466E /* RouterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAssembly.swift; sourceTree = "<group>"; };
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
@@ -540,6 +542,14 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		416FD02220DFE0E100558BCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				411C322420E00AA5008964AD /* PaymentCardBackgroundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		41787B3E20687DCD00693FA1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,6 +708,7 @@
 		41BDD4EF2055AAAC0045A50A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				416FD02220DFE0E100558BCB /* Views */,
 				41382ED020863D68001FA556 /* Cells */,
 				415523952085003D00EEADD8 /* Controllers */,
 				415523932084FFCB00EEADD8 /* TopUpView.swift */,
@@ -1452,6 +1463,7 @@
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,
 				410176F92078047A00785469 /* GradientView.swift in Sources */,
 				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
+				411C322520E00AA5008964AD /* PaymentCardBackgroundView.swift in Sources */,
 				416F529D20853EAC00C519A6 /* PaymentMethodCellViewModelImpl.swift in Sources */,
 				415168472091201300AEB905 /* TrainIconTitleView.swift in Sources */,
 				41382ED320863D94001FA556 /* PaymentMethodCell.swift in Sources */,
