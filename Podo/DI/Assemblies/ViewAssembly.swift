@@ -72,5 +72,21 @@ final class ViewAssembly: Assembly {
             viewController.viewModel = resolver.resolve(AddNewCardViewModel.self)
             return viewController
         }
+
+        container.register(TopUpView.self) { resolver in
+            guard let viewController = TopUpViewController.storyboardInstance() else {
+                unableToResolve(TopUpViewController.self)
+            }
+            viewController.viewModel = resolver.resolve(PaymentMethodViewModel.self)
+            return viewController
+        }
+
+        container.register(PaymentView.self) { resolver in
+            guard let viewController = R.storyboard.topUpViewController.paymentViewController() else {
+                unableToResolve(PaymentViewController.self)
+            }
+            viewController.viewModel = resolver.resolve(PaymentConfirmationViewModel.self)
+            return viewController
+        }
     }
 }

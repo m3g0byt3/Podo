@@ -40,5 +40,17 @@ final class ViewModelAssembly: Assembly {
             }
             return AddNewCardViewModelImpl(model)
         }
+
+        container.register(PaymentMethodViewModel.self) { resolver in
+            let dependencyType = AnyDatabaseService<PaymentMethod>.self
+            guard let model = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
+            }
+            return PaymentMethodViewModelImpl(model)
+        }
+
+        container.register(PaymentConfirmationViewModel.self) { _ in
+            return PaymentConfirmationViewModelImpl()
+        }
     }
 }

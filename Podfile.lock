@@ -1,4 +1,5 @@
 PODS:
+  - Differentiator (3.0.2)
   - EmptyDataSet-Swift (4.0.5)
   - Nimble (7.1.2)
   - Quick (1.3.0)
@@ -13,6 +14,10 @@ PODS:
   - RxBlocking (4.2.0):
     - RxSwift (~> 4.0)
   - RxCocoa (4.2.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.2):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
   - RxTest (4.2.0):
@@ -29,6 +34,7 @@ DEPENDENCIES:
   - RealmSwift (~> 3.2)
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
+  - RxDataSources (~> 3.0)
   - RxSwift (~> 4.0)
   - RxTest (~> 4.0)
   - SnapKit (~> 4.0)
@@ -37,6 +43,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Differentiator
     - EmptyDataSet-Swift
     - Nimble
     - Quick
@@ -46,6 +53,7 @@ SPEC REPOS:
     - RealmSwift
     - RxBlocking
     - RxCocoa
+    - RxDataSources
     - RxSwift
     - RxTest
     - SnapKit
@@ -53,6 +61,7 @@ SPEC REPOS:
     - Swinject
 
 SPEC CHECKSUMS:
+  Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   EmptyDataSet-Swift: a25810f50c3adfaa3840aa33ae8b5ba12ac29279
   Nimble: 3835ba9f459daa6b347f8a8e110aaae8ca1920a8
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
@@ -62,12 +71,13 @@ SPEC CHECKSUMS:
   RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
   RxBlocking: e339d8a6e752e25ade95ff858466c55436668f59
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
+  RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
   RxTest: 8da864c0ee47534f586ff18fb0c7e5b2f1fe5023
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   Swinject: f7f15a9672e99328c1f07f277091087917215700
 
-PODFILE CHECKSUM: 2b971032e3ba34bbbdfcfcc1f7443d9982058c4a
+PODFILE CHECKSUM: a43a366fc8988d0d724c8c75cbf59fcdf8612649
 
 COCOAPODS: 1.5.3
