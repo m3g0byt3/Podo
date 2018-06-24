@@ -11,6 +11,7 @@
 		410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A51207D1A57003DD5C0 /* Configurable.swift */; };
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
+		411C322720E00B60008964AD /* CustomMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C322620E00B60008964AD /* CustomMargin.swift */; };
 		411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F3E43204E1123002D466E /* RouterAssembly.swift */; };
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
@@ -180,6 +181,7 @@
 		410F0A51207D1A57003DD5C0 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		411C322620E00B60008964AD /* CustomMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMargin.swift; sourceTree = "<group>"; };
 		411F3E43204E1123002D466E /* RouterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAssembly.swift; sourceTree = "<group>"; };
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
@@ -914,6 +916,7 @@
 				41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */,
 				4151684420911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift */,
 				415168462091201300AEB905 /* TrainIconTitleView.swift */,
+				411C322620E00B60008964AD /* CustomMargin.swift */,
 			);
 			path = POP;
 			sourceTree = "<group>";
@@ -1444,6 +1447,7 @@
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				41CDEAB420828C6C008D30D5 /* Customizable.swift in Sources */,
 				415B8A63208D163800BEAB93 /* Driver+Extensions.swift in Sources */,
+				411C322720E00B60008964AD /* CustomMargin.swift in Sources */,
 				418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */,
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,
 				410176F92078047A00785469 /* GradientView.swift in Sources */,

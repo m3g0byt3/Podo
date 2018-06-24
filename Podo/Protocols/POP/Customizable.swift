@@ -51,6 +51,8 @@ extension UIViewController: Customizable {
 
     private static let delay: TimeInterval = 0.3
 
+    // MARK: - Customizable protocol conformance
+
     func customize() {
         if let custom = self as? SideMenuPresenting & InteractiveTransitioningCapable {
             // Setup UIBarButtonItem
@@ -76,6 +78,35 @@ extension UIViewController: Customizable {
             self.navigationItem.titleView = custom.titleView
         }
     }
+
+    // MARK: - Necessary Overriding
+
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        customize()
+    }
+}
+
+extension UIView: Customizable {
+
+    // MARK: - Customizable protocol conformance
+
+    func customize() {
+        if let custom = self as? CustomMargin {
+            let defaultMargin = max(layoutMargins.left,
+                                    layoutMargins.right,
+                                    layoutMargins.top,
+                                    layoutMargins.bottom)
+            let customMargin = defaultMargin * custom.marginMultiplier
+
+            layoutMargins = UIEdgeInsets(top: customMargin,
+                                         left: customMargin,
+                                         bottom: customMargin,
+                                         right: customMargin)
+        }
+    }
+
+    // MARK: - Necessary Overriding
 
     override open func awakeFromNib() {
         super.awakeFromNib()
