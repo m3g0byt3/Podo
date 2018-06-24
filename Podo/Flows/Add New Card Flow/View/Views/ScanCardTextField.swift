@@ -11,9 +11,17 @@ import UIKit
 @IBDesignable
 final class ScanCardTextField: UITextField {
 
-    // MARK: - Properties
 
     private static let overlayViewOffset: CGFloat = 4
+
+    // MARK: - Properties
+
+    @IBInspectable
+    var isScanButtonHidden: Bool = false {
+        didSet {
+            rightViewMode = isScanButtonHidden ? .never : .always
+        }
+    }
 
     // MARK: - Initialization
 
