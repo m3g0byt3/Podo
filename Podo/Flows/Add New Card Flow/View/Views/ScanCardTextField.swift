@@ -11,10 +11,17 @@ import UIKit
 @IBDesignable
 final class ScanCardTextField: UITextField {
 
+    // MARK: - Typealiases
+
+    typealias ButtonHandler = (UITextField) -> Void
+
+    // MARK: - Constants
 
     private static let overlayViewOffset: CGFloat = 4
 
     // MARK: - Properties
+
+    var buttonHandler: ButtonHandler?
 
     @IBInspectable
     var isScanButtonHidden: Bool = false {
@@ -49,7 +56,12 @@ final class ScanCardTextField: UITextField {
     private func setup() {
         let button = UIButton(type: .custom)
         button.setImage(R.image.scanCard(), for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         rightView = button
         rightViewMode = .always
+    }
+
+    @objc private func buttonAction() {
+        buttonHandler?(self)
     }
 }
