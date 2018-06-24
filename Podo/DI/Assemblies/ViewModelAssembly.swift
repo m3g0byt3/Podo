@@ -14,7 +14,7 @@ final class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
 
         container.register(AnyViewModel<MainMenuCellViewModel>.self) { _ in
-            AnyViewModel(MainMenuViewModelImpl())
+            return AnyViewModel(MainMenuViewModelImpl())
         }
 
         container.register(CardsViewModel.self) { resolver in

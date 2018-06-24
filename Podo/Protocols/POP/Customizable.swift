@@ -75,7 +75,7 @@ extension UIViewController: Customizable {
 
         if let custom = self as? NavigationBarTitleViewCustomizable {
             // Setup `titleView` in `navigationItem`
-            self.navigationItem.titleView = custom.titleView
+            navigationItem.titleView = custom.titleView
         }
     }
 
