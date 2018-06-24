@@ -174,12 +174,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 4 files.
   struct file {
     /// Resource file `Apple HIG.clr`.
     static let appleHIGClr = Rswift.FileResource(bundle: R.hostingBundle, name: "Apple HIG", pathExtension: "clr")
     /// Resource file `PodoColors.clr`.
     static let podoColorsClr = Rswift.FileResource(bundle: R.hostingBundle, name: "PodoColors", pathExtension: "clr")
+    /// Resource file `paymentMethods.realm`.
+    static let paymentMethodsRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "paymentMethods", pathExtension: "realm")
     /// Resource file `sideMenuItems.realm`.
     static let sideMenuItemsRealm = Rswift.FileResource(bundle: R.hostingBundle, name: "sideMenuItems", pathExtension: "realm")
     
@@ -192,6 +194,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "PodoColors", withExtension: "clr")`
     static func podoColorsClr(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.podoColorsClr
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "paymentMethods", withExtension: "realm")`
+    static func paymentMethodsRealm(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.paymentMethodsRealm
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -264,20 +272,33 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
     /// Nib `AddNewCardCollectionViewCell`.
     static let addNewCardCollectionViewCell = _R.nib._AddNewCardCollectionViewCell()
+    /// Nib `AmountFieldCell`.
+    static let amountFieldCell = _R.nib._AmountFieldCell()
     /// Nib `CardsCollectionViewCell`.
     static let cardsCollectionViewCell = _R.nib._CardsCollectionViewCell()
     /// Nib `MainMenuTableViewCell`.
     static let mainMenuTableViewCell = _R.nib._MainMenuTableViewCell()
+    /// Nib `PaymentCardCell`.
+    static let paymentCardCell = _R.nib._PaymentCardCell()
+    /// Nib `PaymentMethodCell`.
+    static let paymentMethodCell = _R.nib._PaymentMethodCell()
     /// Nib `SideMenuTableViewCell`.
     static let sideMenuTableViewCell = _R.nib._SideMenuTableViewCell()
+    /// Nib `TransportCardCell`.
+    static let transportCardCell = _R.nib._TransportCardCell()
     
     /// `UINib(name: "AddNewCardCollectionViewCell", in: bundle)`
     static func addNewCardCollectionViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.addNewCardCollectionViewCell)
+    }
+    
+    /// `UINib(name: "AmountFieldCell", in: bundle)`
+    static func amountFieldCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.amountFieldCell)
     }
     
     /// `UINib(name: "CardsCollectionViewCell", in: bundle)`
@@ -290,24 +311,47 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.mainMenuTableViewCell)
     }
     
+    /// `UINib(name: "PaymentCardCell", in: bundle)`
+    static func paymentCardCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paymentCardCell)
+    }
+    
+    /// `UINib(name: "PaymentMethodCell", in: bundle)`
+    static func paymentMethodCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.paymentMethodCell)
+    }
+    
     /// `UINib(name: "SideMenuTableViewCell", in: bundle)`
     static func sideMenuTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.sideMenuTableViewCell)
     }
     
+    /// `UINib(name: "TransportCardCell", in: bundle)`
+    static func transportCardCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.transportCardCell)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AddNewCardCollectionViewCell`.
     static let addNewCardCollectionViewCell: Rswift.ReuseIdentifier<AddNewCardCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "AddNewCardCollectionViewCell")
+    /// Reuse identifier `AmountFieldCell`.
+    static let amountFieldCell: Rswift.ReuseIdentifier<AmountFieldCell> = Rswift.ReuseIdentifier(identifier: "AmountFieldCell")
     /// Reuse identifier `CardsCollectionViewCell`.
     static let cardsCollectionViewCell: Rswift.ReuseIdentifier<CardsCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "CardsCollectionViewCell")
     /// Reuse identifier `MainMenuTableViewCell`.
     static let mainMenuTableViewCell: Rswift.ReuseIdentifier<MainMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "MainMenuTableViewCell")
+    /// Reuse identifier `PaymentCardCell`.
+    static let paymentCardCell: Rswift.ReuseIdentifier<PaymentCardCell> = Rswift.ReuseIdentifier(identifier: "PaymentCardCell")
+    /// Reuse identifier `PaymentMethodCell`.
+    static let paymentMethodCell: Rswift.ReuseIdentifier<PaymentMethodCell> = Rswift.ReuseIdentifier(identifier: "PaymentMethodCell")
     /// Reuse identifier `SideMenuTableViewCell`.
     static let sideMenuTableViewCell: Rswift.ReuseIdentifier<SideMenuTableViewCell> = Rswift.ReuseIdentifier(identifier: "SideMenuTableViewCell")
+    /// Reuse identifier `TransportCardCell`.
+    static let transportCardCell: Rswift.ReuseIdentifier<TransportCardCell> = Rswift.ReuseIdentifier(identifier: "TransportCardCell")
     
     fileprivate init() {}
   }
@@ -317,7 +361,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 10 storyboards.
   struct storyboard {
     /// Storyboard `AddNewCardViewController`.
     static let addNewCardViewController = _R.storyboard.addNewCardViewController()
@@ -335,6 +379,8 @@ struct R: Rswift.Validatable {
     static let rootViewController = _R.storyboard.rootViewController()
     /// Storyboard `SettingsViewController`.
     static let settingsViewController = _R.storyboard.settingsViewController()
+    /// Storyboard `TopUpViewController`.
+    static let topUpViewController = _R.storyboard.topUpViewController()
     /// Storyboard `TutorialViewController`.
     static let tutorialViewController = _R.storyboard.tutorialViewController()
     
@@ -378,6 +424,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.settingsViewController)
     }
     
+    /// `UIStoryboard(name: "TopUpViewController", bundle: ...)`
+    static func topUpViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.topUpViewController)
+    }
+    
     /// `UIStoryboard(name: "TutorialViewController", bundle: ...)`
     static func tutorialViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.tutorialViewController)
@@ -386,7 +437,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 11 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 12 localization tables.
   struct string {
     /// This `R.string.addNewCardViewController` struct is generated, and contains static references to 1 localization keys.
     struct addNewCardViewController {
@@ -522,16 +573,28 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       /// Base translation: Add your first transport card and start using the app
       /// 
       /// Locales: Base, ru
       static let addCard = Rswift.StringResource(key: "add card", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Apple Pay
+      /// 
+      /// Locales: Base, ru
+      static let applePay = Rswift.StringResource(key: "applePay", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Cellphone balance
+      /// 
+      /// Locales: Base, ru
+      static let cellphoneBalance = Rswift.StringResource(key: "cellphoneBalance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Contacts
       /// 
       /// Locales: Base, ru
       static let contacts = Rswift.StringResource(key: "contacts", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Credit/Debit Card
+      /// 
+      /// Locales: Base, ru
+      static let bankCard = Rswift.StringResource(key: "bankCard", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Help
       /// 
       /// Locales: Base, ru
@@ -544,10 +607,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: Base, ru
       static let noTransaction = Rswift.StringResource(key: "no transaction", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: QIWI Wallet
+      /// 
+      /// Locales: Base, ru
+      static let qiwiWallet = Rswift.StringResource(key: "qiwiWallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Select payment method:
+      /// 
+      /// Locales: Base, ru
+      static let paymentSelectionTitle = Rswift.StringResource(key: "payment-selection-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       /// Base translation: Settings
       /// 
       /// Locales: Base, ru
       static let settings = Rswift.StringResource(key: "settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
+      /// Base translation: Yandex.Money
+      /// 
+      /// Locales: Base, ru
+      static let yandexMoney = Rswift.StringResource(key: "yandexMoney", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ru"], comment: nil)
       
       /// Base translation: Add your first transport card and start using the app
       /// 
@@ -556,11 +631,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("add card", bundle: R.hostingBundle, value: "Add your first transport card and start using the app", comment: "")
       }
       
+      /// Base translation: Apple Pay
+      /// 
+      /// Locales: Base, ru
+      static func applePay(_: Void = ()) -> String {
+        return NSLocalizedString("applePay", bundle: R.hostingBundle, value: "Apple Pay", comment: "")
+      }
+      
+      /// Base translation: Cellphone balance
+      /// 
+      /// Locales: Base, ru
+      static func cellphoneBalance(_: Void = ()) -> String {
+        return NSLocalizedString("cellphoneBalance", bundle: R.hostingBundle, value: "Cellphone balance", comment: "")
+      }
+      
       /// Base translation: Contacts
       /// 
       /// Locales: Base, ru
       static func contacts(_: Void = ()) -> String {
         return NSLocalizedString("contacts", bundle: R.hostingBundle, value: "Contacts", comment: "")
+      }
+      
+      /// Base translation: Credit/Debit Card
+      /// 
+      /// Locales: Base, ru
+      static func bankCard(_: Void = ()) -> String {
+        return NSLocalizedString("bankCard", bundle: R.hostingBundle, value: "Credit/Debit Card", comment: "")
       }
       
       /// Base translation: Help
@@ -584,11 +680,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("no transaction", bundle: R.hostingBundle, value: "No recent transaction", comment: "")
       }
       
+      /// Base translation: QIWI Wallet
+      /// 
+      /// Locales: Base, ru
+      static func qiwiWallet(_: Void = ()) -> String {
+        return NSLocalizedString("qiwiWallet", bundle: R.hostingBundle, value: "QIWI Wallet", comment: "")
+      }
+      
+      /// Base translation: Select payment method:
+      /// 
+      /// Locales: Base, ru
+      static func paymentSelectionTitle(_: Void = ()) -> String {
+        return NSLocalizedString("payment-selection-title", bundle: R.hostingBundle, value: "Select payment method:", comment: "")
+      }
+      
       /// Base translation: Settings
       /// 
       /// Locales: Base, ru
       static func settings(_: Void = ()) -> String {
         return NSLocalizedString("settings", bundle: R.hostingBundle, value: "Settings", comment: "")
+      }
+      
+      /// Base translation: Yandex.Money
+      /// 
+      /// Locales: Base, ru
+      static func yandexMoney(_: Void = ()) -> String {
+        return NSLocalizedString("yandexMoney", bundle: R.hostingBundle, value: "Yandex.Money", comment: "")
       }
       
       fileprivate init() {}
@@ -618,6 +735,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("FXA-d1-1NV.text", tableName: "SettingsViewController", bundle: R.hostingBundle, comment: "")
       }
       
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.topUpViewController` struct is generated, and contains static references to 0 localization keys.
+    struct topUpViewController {
       fileprivate init() {}
     }
     
@@ -684,8 +806,8 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _CardsCollectionViewCell.validate()
       try _AddNewCardCollectionViewCell.validate()
+      try _CardsCollectionViewCell.validate()
     }
     
     struct _AddNewCardCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
@@ -701,6 +823,20 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "AddNewCardIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'AddNewCardIcon' is used in nib 'AddNewCardCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _AmountFieldCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = AmountFieldCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "AmountFieldCell"
+      let name = "AmountFieldCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AmountFieldCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AmountFieldCell
       }
       
       fileprivate init() {}
@@ -738,6 +874,34 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _PaymentCardCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PaymentCardCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "PaymentCardCell"
+      let name = "PaymentCardCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> PaymentCardCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PaymentCardCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _PaymentMethodCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = PaymentMethodCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "PaymentMethodCell"
+      let name = "PaymentMethodCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> PaymentMethodCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PaymentMethodCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _SideMenuTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = SideMenuTableViewCell
       
@@ -752,12 +916,26 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _TransportCardCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = TransportCardCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "TransportCardCell"
+      let name = "TransportCardCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TransportCardCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TransportCardCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try mainMenuViewController.validate()
+      try topUpViewController.validate()
     }
     
     struct addNewCardViewController: Rswift.StoryboardResourceWithInitialControllerType {
@@ -805,15 +983,11 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct mainMenuViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct mainMenuViewController: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = MainMenuViewController
       
       let bundle = R.hostingBundle
       let name = "MainMenuViewController"
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "SideMenuIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'SideMenuIcon' is used in storyboard 'MainMenuViewController', but couldn't be loaded.") }
-      }
       
       fileprivate init() {}
     }
@@ -832,6 +1006,24 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "SettingsViewController"
+      
+      fileprivate init() {}
+    }
+    
+    struct topUpViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = TopUpViewController
+      
+      let bundle = R.hostingBundle
+      let name = "TopUpViewController"
+      let paymentViewController = StoryboardViewControllerResource<PaymentViewController>(identifier: "PaymentViewController")
+      
+      func paymentViewController(_: Void = ()) -> PaymentViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: paymentViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.topUpViewController().paymentViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'paymentViewController' could not be loaded from storyboard 'TopUpViewController' as 'PaymentViewController'.") }
+      }
       
       fileprivate init() {}
     }

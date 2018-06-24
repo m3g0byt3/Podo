@@ -14,7 +14,7 @@ final class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
 
         container.register(AnyViewModel<MainMenuCellViewModel>.self) { _ in
-            AnyViewModel(MainMenuViewModelImpl())
+            return AnyViewModel(MainMenuViewModelImpl())
         }
 
         container.register(CardsViewModel.self) { resolver in
@@ -39,6 +39,18 @@ final class ViewModelAssembly: Assembly {
                 unableToResolve(dependencyType)
             }
             return AddNewCardViewModelImpl(model)
+        }
+
+        container.register(PaymentMethodViewModel.self) { resolver in
+            let dependencyType = AnyDatabaseService<PaymentMethod>.self
+            guard let model = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
+            }
+            return PaymentMethodViewModelImpl(model)
+        }
+
+        container.register(PaymentConfirmationViewModel.self) { _ in
+            return PaymentConfirmationViewModelImpl()
         }
     }
 }

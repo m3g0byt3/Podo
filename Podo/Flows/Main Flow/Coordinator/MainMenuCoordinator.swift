@@ -88,9 +88,18 @@ final class MainMenuCoordinator: AbstractCoordinator {
         coordinator?.start()
     }
 
+    // FIXME: Use concrete type for `card` instance
     private func startTopUpFlowForCard(_ card: Any) {
-        // TODO: Add actual implementation
-        fatalError("\(#function) not implemented yet!")
+        let coordinator = assembler.resolver.resolve(Coordinator.self,
+                                                     flow: .topUp,
+                                                     argument: router)
+        addChild(coordinator)
+        coordinator?.onFlowFinish = { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+        }
+        // TODO: init `StartOption` with received card identifier
+        let option: StartOption = .topUp(cardIdentifier: "PASS_REAL_CARD_IDENTIFIER_HERE")
+        coordinator?.start(with: option)
     }
 
     // MARK: - Coordinator protocol conformance

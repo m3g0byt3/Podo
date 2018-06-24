@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-final class RoundShadowView: GradientView {
+class RoundShadowView: GradientView {
 
     // MARK: - Constants
 

@@ -17,3 +17,12 @@
 "settings" = "Настройки";
 "contacts" = "Контакты";
 "help" = "Поддержка";
+
+// MARK: - Payment Methods Localization
+
+"payment-selection-title" = "Выберете источник пополнения:";
+"applePay" = "Apple Pay";
+"bankCard" = "Банковская карта";
+"yandexMoney" = "Яндекс.Деньги";
+"qiwiWallet" = "QIWI Кошелек";
+"cellphoneBalance" = "Баланс сотового телефона";
