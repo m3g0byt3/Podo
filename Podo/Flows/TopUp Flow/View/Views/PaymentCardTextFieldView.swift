@@ -62,6 +62,17 @@ final class PaymentCardTextFieldView: UIView {
         }
     }
 
+    /*
+     Manually invalidate new Swift 4 block-based KVO observer on
+     iOS 10.x and below due to bug: https://bugs.swift.org/browse/SR-5816
+     */
+    override func removeFromSuperview() {
+        guard #available(iOS 11, *) else {
+            colorObserver?.invalidate()
+            return
+        }
+    }
+
     // MARK: - Private API
 
     /// Setup required UI.
