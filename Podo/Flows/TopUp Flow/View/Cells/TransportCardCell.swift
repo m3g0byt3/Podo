@@ -8,4 +8,10 @@
 
 import UIKit
 
-class TransportCardCell: UITableViewCell {}
+final class TransportCardCell: UITableViewCell {
+
+    // MARK: - IBOutlets
+
+    @IBOutlet private weak var transportCardView: RoundShadowView!
+    @IBOutlet private weak var transportCardLabel: UILabel!
+}
