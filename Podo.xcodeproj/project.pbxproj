@@ -17,7 +17,6 @@
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
 		4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */; };
-		4124169C20D9BBF7002C0306 /* paymentMethods.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4124169B20D9BBEF002C0306 /* paymentMethods.realm */; };
 		41250D9020D9986200B833AE /* PaymentMethodViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41250D8F20D9986200B833AE /* PaymentMethodViewModelImpl.swift */; };
 		4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130F2A8205C855B00DDFAD8 /* ViewModel.swift */; };
 		4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */; };
@@ -143,6 +142,7 @@
 		41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5082055F3FB0045A50A /* SideMenuView.swift */; };
 		41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */; };
 		41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */; };
+		41BF030C20EBFCDB00BCD2D3 /* paymentMethods.realm in Resources */ = {isa = PBXBuildFile; fileRef = 41BF030B20EBFCDB00BCD2D3 /* paymentMethods.realm */; };
 		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
 		41C9EB4E1FD40A0B000D77DD /* MainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */; };
 		41C9EB4F1FD40A0B000D77DD /* MainMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */; };
@@ -193,7 +193,6 @@
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
 		4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCoordinator.swift; sourceTree = "<group>"; };
-		4124169B20D9BBEF002C0306 /* paymentMethods.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = paymentMethods.realm; path = "/Users/MGBT/Developer/Podo/Podo/Supporting Files/paymentMethods.realm"; sourceTree = "<absolute>"; };
 		41250D8F20D9986200B833AE /* PaymentMethodViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModelImpl.swift; sourceTree = "<group>"; };
 		4130F2A8205C855B00DDFAD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
@@ -337,6 +336,7 @@
 		41BDD5082055F3FB0045A50A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningCapable.swift; sourceTree = "<group>"; };
 		41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningDelegate.swift; sourceTree = "<group>"; };
+		41BF030B20EBFCDB00BCD2D3 /* paymentMethods.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = paymentMethods.realm; sourceTree = "<group>"; };
 		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuTableViewCell.xib; sourceTree = "<group>"; };
@@ -1025,7 +1025,7 @@
 		41F84A781FC6C6F20056698C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4124169B20D9BBEF002C0306 /* paymentMethods.realm */,
+				41BF030B20EBFCDB00BCD2D3 /* paymentMethods.realm */,
 				415B8A5C208D0DC500BEAB93 /* sideMenuItems.realm */,
 				41BA55092075B62B00264837 /* PodoColors.clr */,
 				41BA550B2075BA6300264837 /* Apple HIG.clr */,
@@ -1187,7 +1187,6 @@
 				41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */,
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
 				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
-				4124169C20D9BBF7002C0306 /* paymentMethods.realm in Resources */,
 				41787B4120687E0300693FA1 /* AddNewCardViewController.storyboard in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */,
@@ -1199,6 +1198,7 @@
 				415B8A5D208D0DC500BEAB93 /* sideMenuItems.realm in Resources */,
 				41494AB41FC6C6570089F088 /* Assets.xcassets in Resources */,
 				41A3906520DC1821004D3499 /* TransportCardCell.xib in Resources */,
+				41BF030C20EBFCDB00BCD2D3 /* paymentMethods.realm in Resources */,
 				41494AB21FC6C6570089F088 /* MainMenuViewController.storyboard in Resources */,
 				41744BBB202E13B10063FE5E /* SideMenuTableViewCell.xib in Resources */,
 			);
