@@ -30,6 +30,8 @@ final class PaymentMethodCell: UITableViewCell {
     }
 }
 
+// MARK: - Configurable protocol conformance
+
 extension PaymentMethodCell: Configurable {
 
     typealias ViewModel = PaymentMethodCellViewModel
