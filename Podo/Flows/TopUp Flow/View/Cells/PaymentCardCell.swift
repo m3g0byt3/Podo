@@ -35,3 +35,16 @@ final class PaymentCardCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 }
+
+// MARK: - Configurable protocol conformance
+
+extension PaymentCardCell: Configurable {
+
+    typealias ViewModel = PaymentCardCellViewModelProtocol
+
+    @discardableResult
+    func configure(with viewModel: PaymentCardCellViewModelProtocol) -> Self {
+        // TODO: Add actual implementation
+        return self
+    }
+}
