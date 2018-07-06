@@ -75,4 +75,9 @@ enum Constant {
         /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 50
     }
+
+    enum CardPaymentMenu {
+        /// Margin for cells
+        static let cellMarginValue: CGFloat = 16
+    }
 }

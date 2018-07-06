@@ -37,7 +37,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(R.nib.paymentCardCell)
         tableView.register(R.nib.transportCardCell)
-        tableView.register(R.nib.amountFieldCell)
+        tableView.register(AmountFieldCell.self)
     }
 
     private func setupBindings() {
@@ -49,6 +49,8 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView {
     }
 }
 
+// MARK: - RxTableViewSectionedReloadDataSource factory
+
 private extension PaymentViewController {
 
     static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl> {
@@ -58,17 +60,20 @@ private extension PaymentViewController {
                 case .paymentCardSectionItem(let title):
                     let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.paymentCardCell,
                                                              for: indexPath)!
+                    // FIXME: test only logging
                     print(title)
                     return cell
                 case .transportCardSectionItem(let title):
                     let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.transportCardCell,
                                                              for: indexPath)!
+                    // FIXME: test only logging
                     print(title)
                     return cell
                 case .amountFieldSectionItem(let title):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.amountFieldCell,
-                                                             for: indexPath)!
+                    let cell: AmountFieldCell = tableView.dequeueReusableCell(for: indexPath)
+                    // FIXME: test only logging
                     print(title)
+                    cell.configure(with: NSObject())
                     return cell
                 }
             },
