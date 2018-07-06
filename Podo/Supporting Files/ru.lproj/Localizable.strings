@@ -26,3 +26,9 @@
 "yandexMoney" = "Яндекс.Деньги";
 "qiwiWallet" = "QIWI Кошелек";
 "cellphoneBalance" = "Баланс сотового телефона";
+
+// MARK: - Payment Confirmation Localization
+
+"payment-card-section" = "Банковская карта";
+"transport-card-section" = "Пополняемая карта \"Подорожник\"";
+"amount-field-section" = "Сумма пополнения";

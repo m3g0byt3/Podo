@@ -42,6 +42,7 @@ final class TopUpViewController: UIViewController, TopUpView, TrainIconTitleView
     // MARK: - Private API
 
     private func setupTableView() {
+        tableView.isScrollEnabled = false
         tableView.register(R.nib.paymentMethodCell)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constant.TopUpMenu.estimatedRowHeight

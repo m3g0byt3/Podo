@@ -7,14 +7,44 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class PaymentCardCell: UITableViewCell {
+final class PaymentCardCell: UITableViewCell {
 
     // MARK: - IBOutlets
 
     @IBOutlet private weak var cardNumberTextField: PaymentCardTextFieldView! {
+        // FIXME: test only logging
         didSet {
             cardNumberTextField.buttonHandler = { print("pressed button at view: \($0)") }
         }
+    }
+    @IBOutlet private weak var expirationTextField: PaymentCardTextFieldView!
+    @IBOutlet private weak var cvcTextField: PaymentCardTextFieldView!
+
+    // MARK: - Properties
+
+    private var disposeBag = DisposeBag()
+
+    // MARK: - Public API
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Create new dispose bag on every re-use of the cell
+        disposeBag = DisposeBag()
+    }
+}
+
+// MARK: - Configurable protocol conformance
+
+extension PaymentCardCell: Configurable {
+
+    typealias ViewModel = PaymentCardCellViewModelProtocol
+
+    @discardableResult
+    func configure(with viewModel: PaymentCardCellViewModelProtocol) -> Self {
+        // TODO: Add actual implementation
+        return self
     }
 }

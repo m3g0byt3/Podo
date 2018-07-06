@@ -8,4 +8,23 @@
 
 import UIKit
 
-class TransportCardCell: UITableViewCell {}
+final class TransportCardCell: UITableViewCell {
+
+    // MARK: - IBOutlets
+
+    @IBOutlet private weak var transportCardView: RoundShadowView!
+    @IBOutlet private weak var transportCardLabel: UILabel!
+}
+
+// MARK: - Configurable protocol conformance
+
+extension TransportCardCell: Configurable {
+
+    typealias ViewModel = Any
+
+    @discardableResult
+    func configure(with viewModel: Any) -> Self {
+        // TODO: Add actual implementation
+        return self
+    }
+}

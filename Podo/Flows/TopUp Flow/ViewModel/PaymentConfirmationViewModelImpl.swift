@@ -15,11 +15,11 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
     // MARK: - Properties
 
     private let models: [PaymentConfirmationSectionViewModelImpl] = [
-        .paymentCardSection(title: "Payment Card Section",
+        .paymentCardSection(title: R.string.localizable.paymentCardSection(),
                             items: [.paymentCardSectionItem(title: "payment")]),
-        .transportCardSection(title: "Transport Card Section",
+        .transportCardSection(title: R.string.localizable.transportCardSection(),
                             items: [.transportCardSectionItem(title: "transport")]),
-        .amountFieldSection(title: "Amount Field Section",
+        .amountFieldSection(title: R.string.localizable.amountFieldSection(),
                             items: [.amountFieldSectionItem(title: "amount")])
     ]
 
