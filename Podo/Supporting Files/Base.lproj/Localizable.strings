@@ -26,3 +26,9 @@
 "yandexMoney" = "Yandex.Money";
 "qiwiWallet" = "QIWI Wallet";
 "cellphoneBalance" = "Cellphone balance";
+
+// MARK: - Payment Confirmation Localization
+
+"payment-card-section" = "Payment card";
+"transport-card-section" = "Transport card";
+"amount-field-section" = "Amount to pay";
