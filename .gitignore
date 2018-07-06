@@ -69,3 +69,4 @@ xcshareddata/
 # Realm aux files
 **/*.mx
 **/*.lock
+R.generated.swift
