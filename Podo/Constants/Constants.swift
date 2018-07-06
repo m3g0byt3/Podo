@@ -77,6 +77,12 @@ enum Constant {
     }
 
     enum CardPaymentMenu {
+        /// TableView's estimatedHeightForRowAt
+        static let estimatedRowHeight: CGFloat = 250
+        /// TableView's header height
+        static let headerHeight: CGFloat = 32
+        /// TableView's footer height
+        static let footerHeight: CGFloat = .leastNonzeroMagnitude
         /// Margin for cells
         static let cellMarginValue: CGFloat = 16
     }

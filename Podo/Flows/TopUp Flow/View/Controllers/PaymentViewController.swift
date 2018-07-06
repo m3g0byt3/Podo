@@ -35,6 +35,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView {
 
     private func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = Constant.CardPaymentMenu.estimatedRowHeight
         tableView.register(R.nib.paymentCardCell)
         tableView.register(R.nib.transportCardCell)
         tableView.register(AmountFieldCell.self)
@@ -45,6 +46,10 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView {
 
         viewModel.sections
             .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        tableView.rx
+            .setDelegate(self)
             .disposed(by: disposeBag)
     }
 }
@@ -82,5 +87,18 @@ private extension PaymentViewController {
                 return section.headerTitle
             }
         )
+    }
+}
+
+// MARK: - UITableViewDelegate protocol conformance
+
+extension PaymentViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Constant.CardPaymentMenu.headerHeight
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return Constant.CardPaymentMenu.footerHeight
     }
 }
