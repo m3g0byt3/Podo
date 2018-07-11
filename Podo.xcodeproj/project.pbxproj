@@ -95,6 +95,7 @@
 		41816E20206A315E00A0FFCC /* AddNewCardViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816E1F206A315E00A0FFCC /* AddNewCardViewModelImpl.swift */; };
 		418733E120EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418733E020EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift */; };
 		4188E970206FBB5C0097D3DF /* TransportCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188E96F206FBB5C0097D3DF /* TransportCardType.swift */; };
+		418989C620F095DD00EACE1A /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418989C520F095DD00EACE1A /* NSObject+Extensions.swift */; };
 		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
 		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
@@ -281,6 +282,7 @@
 		41816E1F206A315E00A0FFCC /* AddNewCardViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModelImpl.swift; sourceTree = "<group>"; };
 		418733E020EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCardCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		4188E96F206FBB5C0097D3DF /* TransportCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardType.swift; sourceTree = "<group>"; };
+		418989C520F095DD00EACE1A /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
 		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
@@ -991,6 +993,7 @@
 				4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */,
 				4135F38020EAEEAD0078AFFB /* UITableView+Extensions.swift */,
 				4135F38220EB01130078AFFB /* UIButton+Extensions.swift */,
+				418989C520F095DD00EACE1A /* NSObject+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1517,6 +1520,7 @@
 				419EBEFE20E4054700952FDA /* DoubleMarginView.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
+				418989C620F095DD00EACE1A /* NSObject+Extensions.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */,
 				4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */,
