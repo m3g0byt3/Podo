@@ -24,6 +24,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Perform required swizzling
+        performSwizzling()
         // Perform initial DI
         try! AppDelegateAssembler().assemble(appDelegate: self)
         // Handle cold start from 3Dtouch shortcuts
@@ -63,5 +65,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let startOption = StartOption(with: userActivity)
         coordinator?.start(with: startOption)
         return true
+    }
+
+    private func performSwizzling() {
+        UITextField.performSwizzling()
     }
 }
