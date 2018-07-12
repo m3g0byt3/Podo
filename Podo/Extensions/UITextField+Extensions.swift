@@ -23,6 +23,10 @@ extension UITextField {
 
         print(top)
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.resignFirstResponder()
+        }
+
         return swizzledBecomeFirstResponder()
     }
 
