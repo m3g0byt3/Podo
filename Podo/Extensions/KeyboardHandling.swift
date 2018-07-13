@@ -110,5 +110,6 @@ private extension KeyboardHandling where Self: UIViewController {
         if let tokens = objc_getAssociatedObject(self, &AssociatedKeys.tokensKey) as? [NSObjectProtocol] {
             tokens.forEach(NotificationCenter.default.removeObserver(_:))
         }
+        objc_removeAssociatedObjects(self)
     }
 }
