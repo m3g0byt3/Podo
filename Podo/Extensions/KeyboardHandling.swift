@@ -13,6 +13,8 @@ import ObjectiveC.runtime
 private enum AssociatedKeys {
 
     static var tokensKey: Void?
+    static var textInput: Void?
+    static var initialOffset: Void?
 }
 
 /// Notification names
@@ -20,6 +22,7 @@ private enum Names {
 
     static var willShow: Notification.Name { return .UIKeyboardWillShow }
     static var willHide: Notification.Name { return .UIKeyboardWillHide }
+    static var beginEdit: Notification.Name { return .UITextFieldTextDidBeginEditing }
 }
 
 /// Moving views behind keyboard automatically.
@@ -60,18 +63,57 @@ private extension KeyboardHandling where Self: UIViewController {
         return manageableViews.compactMap { $0 as? UIScrollView }
     }
 
+    var nonScrollableViews: [UIView] {
+        return manageableViews.filter { !($0 is UIScrollView) }
+    }
+
     func keyboardShown(_ notification: Notification) {
+        // Handle scrollable views
         guard let parsed = parseNotification(notification) else { return }
+
         for view in scrollableViews where view.contentInset.bottom < parsed.offset {
             view.contentInset.bottom += parsed.offset
+        }
+
+        // Handle not-scrollable views
+        guard let textInput = objc_getAssociatedObject(self, &AssociatedKeys.textInput) as? UIView else { return }
+
+        for view in nonScrollableViews {
+            let textInputFrame = view.convert(textInput.frame, from: textInput)
+            let visibleHeight = view.frame.height - parsed.offset
+            let offset = textInputFrame.maxY - visibleHeight / 2
+
+            if textInputFrame.maxY > visibleHeight {
+                let option = UIView.AnimationOptions(curve: parsed.curve)
+                objc_setAssociatedObject(self, &AssociatedKeys.initialOffset, view.frame.origin.y, .OBJC_ASSOCIATION_ASSIGN)
+                UIView.animate(withDuration: parsed.duration, delay: 0, options: [option], animations: {
+                    view.frame.origin.y -= min(offset, parsed.offset)
+                })
+            }
         }
     }
 
     func keyboardDismissed(_ notification: Notification) {
+        // Handle scrollable views
         guard let parsed = parseNotification(notification) else { return }
+
         for view in scrollableViews where view.contentInset.bottom >= parsed.offset {
             view.contentInset.bottom -= parsed.offset
         }
+
+        // Handle not-scrollable views
+        let initialOffset = objc_getAssociatedObject(self, &AssociatedKeys.initialOffset) as? CGFloat ?? 0
+
+        for view in nonScrollableViews where view.frame.origin.y != initialOffset {
+            let option = UIView.AnimationOptions(curve: parsed.curve)
+            UIView.animate(withDuration: parsed.duration, delay: 0, options: [option], animations: {
+                view.frame.origin.y = initialOffset
+            })
+        }
+    }
+
+    func textInputBeginEditing(_ textInputView: UIView) {
+        objc_setAssociatedObject(self, &AssociatedKeys.textInput, textInputView, .OBJC_ASSOCIATION_ASSIGN)
     }
 
     func parseNotification(_ notification: Notification) -> ParsedNotification? {
@@ -101,7 +143,13 @@ private extension KeyboardHandling where Self: UIViewController {
         let willHideToken = defaultNC.addObserver(forName: Names.willHide, object: nil, queue: nil) { [weak self] note in
             self?.keyboardDismissed(note)
         }
-        let tokens = [willShowToken, willHideToken]
+        // TODO: observe notifications in separate `KeyboardHandler` class
+        let beginEditingToken = defaultNC.addObserver(forName: Names.beginEdit, object: nil, queue: nil) { [weak self] note in
+            note.object
+                .flatMap { $0 as? UIView }
+                .map { self?.textInputBeginEditing($0) }
+        }
+        let tokens = [willShowToken, willHideToken, beginEditingToken]
 
         objc_setAssociatedObject(self, &AssociatedKeys.tokensKey, tokens, .OBJC_ASSOCIATION_RETAIN)
     }
