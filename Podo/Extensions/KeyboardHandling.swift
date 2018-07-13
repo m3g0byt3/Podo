@@ -31,13 +31,13 @@ protocol KeyboardHandling {
     /// (Required) Array of views that should be managed.
     var manageableViews: [UIView] { get }
 
-    /// (Optional) Ratio by which the keyboard height is multiplied. By default equals `1.10`.
+    /// (Optional) Ratio by which the keyboard height is multiplied. By default equals `1.0`.
     var keyboardOffsetRatio: CGFloat { get }
 }
 
 extension KeyboardHandling {
 
-    var keyboardOffsetRatio: CGFloat { return 1.10 }
+    var keyboardOffsetRatio: CGFloat { return 1.0 }
 }
 
 // MARK: - Control methods
@@ -57,8 +57,6 @@ extension KeyboardHandling where Self: UIViewController {
 
 private extension KeyboardHandling where Self: UIViewController {
 
-    typealias ParsedNotification = (offset: CGFloat, curve: UIView.AnimationCurve, duration: TimeInterval)
-
     var scrollableViews: [UIScrollView] {
         return manageableViews.compactMap { $0 as? UIScrollView }
     }
@@ -68,11 +66,12 @@ private extension KeyboardHandling where Self: UIViewController {
     }
 
     func keyboardShown(_ notification: Notification) {
-        // Handle scrollable views
-        guard let parsed = parseNotification(notification) else { return }
+        guard let parsed = KeyboardNotification(notification) else { return }
+        let offset = parsed.offset * keyboardOffsetRatio
 
-        for view in scrollableViews where view.contentInset.bottom < parsed.offset {
-            view.contentInset.bottom += parsed.offset
+        // Handle scrollable views
+        for view in scrollableViews where view.contentInset.bottom < offset {
+            view.contentInset.bottom += offset
         }
 
         // Handle not-scrollable views
@@ -80,33 +79,33 @@ private extension KeyboardHandling where Self: UIViewController {
 
         for view in nonScrollableViews {
             let textInputFrame = view.convert(textInput.frame, from: textInput)
-            let visibleHeight = view.frame.height - parsed.offset
-            let offset = textInputFrame.maxY - visibleHeight / 2
+            let textInputMaxY = textInputFrame.maxY
+            let visibleHeight = view.frame.height - offset
+            let nonScrollableOffset = textInputMaxY - visibleHeight / 2
 
-            if textInputFrame.maxY > visibleHeight {
-                let option = UIView.AnimationOptions(curve: parsed.curve)
+            if textInputMaxY > visibleHeight {
                 objc_setAssociatedObject(self, &AssociatedKeys.initialOffset, view.frame.origin.y, .OBJC_ASSOCIATION_ASSIGN)
-                UIView.animate(withDuration: parsed.duration, delay: 0, options: [option], animations: {
-                    view.frame.origin.y -= min(offset, parsed.offset)
+                UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
+                    view.frame.origin.y -= min(offset, nonScrollableOffset)
                 })
             }
         }
     }
 
     func keyboardDismissed(_ notification: Notification) {
-        // Handle scrollable views
-        guard let parsed = parseNotification(notification) else { return }
+        guard let parsed = KeyboardNotification(notification) else { return }
+        let offset = parsed.offset * keyboardOffsetRatio
 
-        for view in scrollableViews where view.contentInset.bottom >= parsed.offset {
-            view.contentInset.bottom -= parsed.offset
+        // Handle scrollable views
+        for view in scrollableViews where view.contentInset.bottom >= offset {
+            view.contentInset.bottom -= offset
         }
 
         // Handle not-scrollable views
         let initialOffset = objc_getAssociatedObject(self, &AssociatedKeys.initialOffset) as? CGFloat ?? 0
 
         for view in nonScrollableViews where view.frame.origin.y != initialOffset {
-            let option = UIView.AnimationOptions(curve: parsed.curve)
-            UIView.animate(withDuration: parsed.duration, delay: 0, options: [option], animations: {
+            UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
                 view.frame.origin.y = initialOffset
             })
         }
@@ -114,18 +113,6 @@ private extension KeyboardHandling where Self: UIViewController {
 
     func textInputBeginEditing(_ textInputView: UIView) {
         objc_setAssociatedObject(self, &AssociatedKeys.textInput, textInputView, .OBJC_ASSOCIATION_ASSIGN)
-    }
-
-    func parseNotification(_ notification: Notification) -> ParsedNotification? {
-        guard
-            let info = notification.userInfo,
-            let frame = info[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let duration = info[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
-            let curveRaw = info[UIKeyboardAnimationCurveUserInfoKey] as? Int,
-            let curve = UIView.AnimationCurve(rawValue: curveRaw)
-            else { return nil }
-
-        return (frame.height * keyboardOffsetRatio, curve, duration)
     }
 }
 
