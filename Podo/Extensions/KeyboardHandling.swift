@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ObjectiveC
+import ObjectiveC.runtime
 
 /// Constants for associated objects
 private enum AssociatedKeys {
