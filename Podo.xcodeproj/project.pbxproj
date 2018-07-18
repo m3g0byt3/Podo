@@ -53,6 +53,7 @@
 		41555A682049727C007ADBF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A672049727C007ADBF0 /* Coordinator.swift */; };
 		41555A6A20497625007ADBF0 /* StartOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A6920497625007ADBF0 /* StartOption.swift */; };
 		4157F52120F658A900825816 /* KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157F52020F658A900825816 /* KeyboardHandling.swift */; };
+		4157F52320F65B2200825816 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157F52220F65B2200825816 /* KeyboardHandler.swift */; };
 		415B8A53208D0BCD00BEAB93 /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A52208D0BCC00BEAB93 /* SideMenuItem.swift */; };
 		415B8A55208D0BD300BEAB93 /* SideMenuItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A54208D0BD200BEAB93 /* SideMenuItemType.swift */; };
 		415B8A59208D0D1200BEAB93 /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A58208D0D1200BEAB93 /* PaymentMethodType.swift */; };
@@ -243,6 +244,7 @@
 		41555A672049727C007ADBF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41555A6920497625007ADBF0 /* StartOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOption.swift; sourceTree = "<group>"; };
 		4157F52020F658A900825816 /* KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandling.swift; sourceTree = "<group>"; };
+		4157F52220F65B2200825816 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		415B8A52208D0BCC00BEAB93 /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
 		415B8A54208D0BD200BEAB93 /* SideMenuItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemType.swift; sourceTree = "<group>"; };
 		415B8A58208D0D1200BEAB93 /* PaymentMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodType.swift; sourceTree = "<group>"; };
@@ -1002,6 +1004,7 @@
 				4135F38020EAEEAD0078AFFB /* UITableView+Extensions.swift */,
 				4135F38220EB01130078AFFB /* UIButton+Extensions.swift */,
 				4157F52020F658A900825816 /* KeyboardHandling.swift */,
+				4157F52220F65B2200825816 /* KeyboardHandler.swift */,
 				41FBB29D20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift */,
 				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
 				41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */,
@@ -1536,6 +1539,7 @@
 				419EBEFE20E4054700952FDA /* DoubleMarginView.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
 				4157F52120F658A900825816 /* KeyboardHandling.swift in Sources */,
+				4157F52320F65B2200825816 /* KeyboardHandler.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */,
