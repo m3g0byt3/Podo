@@ -44,6 +44,7 @@ extension KeyboardHandling {
 extension KeyboardHandling where Self: UIViewController {
 
     func beginKeyboardHandling() {
+        manageableViews.forEach(setupInputAccessoryView(in:))
         beginObserving()
     }
 
@@ -62,6 +63,29 @@ private extension KeyboardHandling where Self: UIViewController {
 
     var nonScrollableViews: [UIView] {
         return manageableViews.filter { !($0 is UIScrollView) }
+    }
+
+    var customInputView: UIToolbar {
+        get {
+            if let inputView = objc_getAssociatedObject(self, &AssociatedKeys.inputView) as? UIToolbar {
+                return inputView
+            }
+            let inputView = UIToolbar()
+            let backButton = UIBarButtonItem(title: "◀ ", style: .done, target: nil, action: nil)
+            let nextButton = UIBarButtonItem(title: " ▶", style: .done, target: nil, action: nil)
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+            inputView.items = [backButton, nextButton, flexibleSpace, doneButton]
+            inputView.items?.forEach { $0.tintColor = .darkGray }
+            inputView.sizeToFit()
+            objc_setAssociatedObject(self, &AssociatedKeys.inputView, inputView, .OBJC_ASSOCIATION_RETAIN)
+
+            return inputView
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.inputView, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
     }
 
     func keyboardShown(_ notification: Notification) {
@@ -111,6 +135,13 @@ private extension KeyboardHandling where Self: UIViewController {
         }
     }
 
+    func setupInputAccessoryView(in view: UIView) {
+        if let castedView = view as? _InputAccessoryViewProtocol {
+            castedView.inputAccessoryView = customInputView
+        } else {
+            view.subviews.forEach(setupInputAccessoryView)
+        }
+    }
     }
 }
 

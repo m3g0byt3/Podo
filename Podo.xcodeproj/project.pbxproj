@@ -138,6 +138,7 @@
 		41BA5502207598EF00264837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA5501207598EF00264837 /* UIImage+Extensions.swift */; };
 		41BA550A2075B62C00264837 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA55092075B62B00264837 /* PodoColors.clr */; };
 		41BA550C2075BA6300264837 /* Apple HIG.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA550B2075BA6300264837 /* Apple HIG.clr */; };
+		41BC827320FDF48A003157D7 /* InputAccessoryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */; };
 		41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */; };
 		41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5042055EBD70045A50A /* MainMenuViewController.swift */; };
 		41BDD5072055EBFC0045A50A /* TrainIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* TrainIconView.swift */; };
@@ -336,6 +337,7 @@
 		41BA5501207598EF00264837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		41BA55092075B62B00264837 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
 		41BA550B2075BA6300264837 /* Apple HIG.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Apple HIG.clr"; sourceTree = "<group>"; };
+		41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccessoryViewProtocol.swift; sourceTree = "<group>"; };
 		41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		41BDD5042055EBD70045A50A /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		41BDD5062055EBFC0045A50A /* TrainIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainIconView.swift; sourceTree = "<group>"; };
@@ -1003,6 +1005,7 @@
 				41FBB29D20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift */,
 				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
 				41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */,
+				41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1466,6 +1469,7 @@
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */,
 				41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */,
+				41BC827320FDF48A003157D7 /* InputAccessoryViewProtocol.swift in Sources */,
 				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
 				4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */,
 				416F52972085319300C519A6 /* PaymentMethodViewModel.swift in Sources */,
