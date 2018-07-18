@@ -107,6 +107,7 @@
 		418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */; };
 		418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */; };
 		418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */; };
+		419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */; };
 		41918F162060416B00C592F7 /* AddNewCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */; };
 		41968CDB20652DEE00501112 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CDD20652DEE00501112 /* Localizable.strings */; };
 		41968CEF2065347800501112 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CF12065347800501112 /* InfoPlist.strings */; };
@@ -296,6 +297,7 @@
 		418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModelImpl.swift; sourceTree = "<group>"; };
 		418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModel.swift; sourceTree = "<group>"; };
 		418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModelImpl.swift; sourceTree = "<group>"; };
+		419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extensions.swift"; sourceTree = "<group>"; };
 		41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CE6206532EF00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RootViewController.strings; sourceTree = "<group>"; };
@@ -999,6 +1001,7 @@
 				4135F38220EB01130078AFFB /* UIButton+Extensions.swift */,
 				4157F52020F658A900825816 /* KeyboardHandling.swift */,
 				41FBB29D20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift */,
+				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
 				41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */,
 			);
 			path = Extensions;
@@ -1514,6 +1517,7 @@
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				4135F38320EB01130078AFFB /* UIButton+Extensions.swift in Sources */,
 				418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */,
+				419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */,
 				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
 				41A3906020DC1806004D3499 /* PaymentCardCell.swift in Sources */,
 				41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */,

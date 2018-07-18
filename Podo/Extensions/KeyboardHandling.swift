@@ -13,8 +13,8 @@ import ObjectiveC.runtime
 private enum AssociatedKeys {
 
     static var tokensKey: Void?
-    static var textInput: Void?
     static var initialOffset: Void?
+    static var inputView: Void?
 }
 
 /// Notification names
@@ -22,7 +22,6 @@ private enum Names {
 
     static var willShow: Notification.Name { return .UIKeyboardWillShow }
     static var willHide: Notification.Name { return .UIKeyboardWillHide }
-    static var beginEdit: Notification.Name { return .UITextFieldTextDidBeginEditing }
 }
 
 /// Moving views behind keyboard automatically.
@@ -75,7 +74,7 @@ private extension KeyboardHandling where Self: UIViewController {
         }
 
         // Handle not-scrollable views
-        guard let textInput = objc_getAssociatedObject(self, &AssociatedKeys.textInput) as? UIView else { return }
+        guard let textInput = UIResponder.current as? UIView else { return }
 
         for view in nonScrollableViews {
             let textInputFrame = view.convert(textInput.frame, from: textInput)
@@ -111,8 +110,6 @@ private extension KeyboardHandling where Self: UIViewController {
         }
     }
 
-    func textInputBeginEditing(_ textInputView: UIView) {
-        objc_setAssociatedObject(self, &AssociatedKeys.textInput, textInputView, .OBJC_ASSOCIATION_ASSIGN)
     }
 }
 
@@ -130,13 +127,7 @@ private extension KeyboardHandling where Self: UIViewController {
         let willHideToken = defaultNC.addObserver(forName: Names.willHide, object: nil, queue: nil) { [weak self] note in
             self?.keyboardDismissed(note)
         }
-        // TODO: observe notifications in separate `KeyboardHandler` class
-        let beginEditingToken = defaultNC.addObserver(forName: Names.beginEdit, object: nil, queue: nil) { [weak self] note in
-            note.object
-                .flatMap { $0 as? UIView }
-                .map { self?.textInputBeginEditing($0) }
-        }
-        let tokens = [willShowToken, willHideToken, beginEditingToken]
+        let tokens = [willShowToken, willHideToken]
 
         objc_setAssociatedObject(self, &AssociatedKeys.tokensKey, tokens, .OBJC_ASSOCIATION_RETAIN)
     }
