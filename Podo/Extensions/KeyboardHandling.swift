@@ -77,8 +77,8 @@ private extension KeyboardHandling where Self: UIViewController {
         guard let textInput = UIResponder.current as? UIView else { return }
 
         for view in nonScrollableViews {
-            let textInputFrame = view.convert(textInput.frame, from: textInput)
-            let textInputMaxY = textInputFrame.maxY
+            let textInputConvertedFrame = view.convert(textInput.frame, from: textInput)
+            let textInputMaxY = textInputConvertedFrame.maxY
             let visibleHeight = view.frame.height - offset
             let nonScrollableOffset = textInputMaxY - visibleHeight / 2
 
