@@ -82,8 +82,9 @@ private extension KeyboardHandling where Self: UIViewController {
             let visibleHeight = view.frame.height - offset
             let nonScrollableOffset = textInputMaxY - visibleHeight / 2
 
+            objc_setAssociatedObject(view, &AssociatedKeys.initialOffset, view.frame.origin.y, .OBJC_ASSOCIATION_ASSIGN)
+
             if textInputMaxY > visibleHeight {
-                objc_setAssociatedObject(self, &AssociatedKeys.initialOffset, view.frame.origin.y, .OBJC_ASSOCIATION_ASSIGN)
                 UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
                     view.frame.origin.y -= min(offset, nonScrollableOffset)
                 })
@@ -101,9 +102,9 @@ private extension KeyboardHandling where Self: UIViewController {
         }
 
         // Handle not-scrollable views
-        let initialOffset = objc_getAssociatedObject(self, &AssociatedKeys.initialOffset) as? CGFloat ?? 0
+        let initialOffset = objc_getAssociatedObject(view, &AssociatedKeys.initialOffset) as? CGFloat ?? 0
 
-        for view in nonScrollableViews where view.frame.origin.y != initialOffset {
+        for view in nonScrollableViews {
             UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
                 view.frame.origin.y = initialOffset
             })
