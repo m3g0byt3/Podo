@@ -110,6 +110,8 @@
 		418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */; };
 		419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */; };
 		41918F162060416B00C592F7 /* AddNewCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */; };
+		41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */; };
+		41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947BDE2100E05600EA803A /* CGRect+Extensions.swift */; };
 		41968CDB20652DEE00501112 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CDD20652DEE00501112 /* Localizable.strings */; };
 		41968CEF2065347800501112 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CF12065347800501112 /* InfoPlist.strings */; };
 		419CFEA9206BBD44004F4897 /* Reactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CFEA8206BBD44004F4897 /* Reactive+Extensions.swift */; };
@@ -302,6 +304,8 @@
 		418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModelImpl.swift; sourceTree = "<group>"; };
 		419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extensions.swift"; sourceTree = "<group>"; };
 		41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		41947BDE2100E05600EA803A /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CE6206532EF00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RootViewController.strings; sourceTree = "<group>"; };
 		41968CE7206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenuViewController.strings; sourceTree = "<group>"; };
@@ -1009,6 +1013,8 @@
 				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
 				41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */,
 				41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */,
+				41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */,
+				41947BDE2100E05600EA803A /* CGRect+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1449,6 +1455,7 @@
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				41A3905920DBF74D004D3499 /* PaymentConfirmationSectionViewModelImpl.swift in Sources */,
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,
+				41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				415B8A59208D0D1200BEAB93 /* PaymentMethodType.swift in Sources */,
 				416F5299208531E700C519A6 /* PaymentMethodCellViewModel.swift in Sources */,
@@ -1557,6 +1564,7 @@
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
 				418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */,
 				41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */,
+				41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */,
 				4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */,
 				41CDEAB720828DB1008D30D5 /* SideMenuPresenting.swift in Sources */,
 				41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */,
