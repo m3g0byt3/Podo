@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView.AnimationOptions {
+public extension UIView.AnimationOptions {
 
     /// Left shift for `UIView.AnimationCurve` -> `UIView.AnimationOptions` conversion.
     private static let shift = 16

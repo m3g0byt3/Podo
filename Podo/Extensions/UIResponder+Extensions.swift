@@ -8,12 +8,12 @@
 
 import UIKit
 
-extension UIResponder {
+public extension UIResponder {
 
     // MARK: - Public API
 
     /// Represent current First Responder, if any.
-    public static var current: UIResponder? {
+    static var current: UIResponder? {
         UIResponder._current = nil
         UIApplication.shared.sendAction(#selector(setFirstResponder), to: nil, from: nil, for: nil)
 
