@@ -10,6 +10,13 @@ import UIKit
 
 private enum Direction {
     case forward, backward
+
+    func nextIndex(_ currentIndex: Int) -> Int {
+        switch self {
+        case .backward: return currentIndex - 1
+        case .forward: return currentIndex + 1
+        }
+    }
 }
 
 final class KeyboardHandler {
@@ -156,55 +163,35 @@ final class KeyboardHandler {
         // TODO: Calculate offset to place current first reponder in the center of visible rect
     }
 
-    private func switchToNextTextInput(in view: UIView) {
-        switchToTextInput(in: view, direction: .forward)
-    }
+    private func switchToTextInput(direction: Direction) {
+        guard let delegate = delegate else { return }
 
-    private func switchToPreviousTextInput(in view: UIView) {
-        switchToTextInput(in: view, direction: .backward)
-    }
+        for view in delegate.manageableViews {
+            var responders = view.responders.compactMap { $0 as? UIView }
 
-    private func switchToTextInput(in view: UIView, direction: Direction) {
-        guard let currentResponder = UIResponder.current as? UIView else { return }
-        let horizontalRelativeFunction: (CGRect) -> (CGRect) -> Bool
-        let horizontalBaselineFunction: (CGRect) -> (CGRect) -> Bool
-        let verticalRelativeFunction: (CGRect) -> (CGRect) -> Bool
 
-        switch direction {
-        case .backward:
-            horizontalRelativeFunction = CGRect.leftRelative
-            horizontalBaselineFunction = CGRect.withinHorizontalBaselines
-            verticalRelativeFunction = CGRect.aboveRelative
-        case .forward:
-            horizontalRelativeFunction = CGRect.rightRelative
-            horizontalBaselineFunction = CGRect.withinHorizontalBaselines
-            verticalRelativeFunction = CGRect.belowRelative
+            responders.sort { resp1, resp2 in
+                if resp1.normalizedFrame.withinHorizontalBaselines(of: resp2.normalizedFrame) {
+                    return resp1.normalizedFrame.leftRelative(to: resp2.normalizedFrame)
+                }
+                return resp1.normalizedFrame.aboveRelative(to: resp2.normalizedFrame)
+            }
+
+
+            guard
+                let currentResponder = UIResponder.current as? UIView,
+                let currentResponderIndex = responders.index(of: currentResponder)
+            else { continue }
+
+            let nextResponderIndex = direction.nextIndex(currentResponderIndex)
+
+            guard responders.indices.contains(nextResponderIndex) else {
+                currentResponder.resignFirstResponder()
+                continue
+            }
+
+            responders[nextResponderIndex].becomeFirstResponder()
         }
-
-        let candidateResponders = view.responders
-            .compactMap { $0 as? UIView }
-            .filter { $0 !== currentResponder }
-
-        let horizontalNextResponder = candidateResponders
-            .filter { horizontalRelativeFunction($0.normalizedFrame)(currentResponder.normalizedFrame) }
-            .filter { horizontalBaselineFunction($0.normalizedFrame)(currentResponder.normalizedFrame) }
-            .min { $0.normalizedFrame.minX < $1.normalizedFrame.minX }
-
-        if horizontalNextResponder != nil {
-            horizontalNextResponder?.becomeFirstResponder()
-            return
-        }
-
-        let verticalNextResponder = candidateResponders
-            .filter { verticalRelativeFunction($0.normalizedFrame)(currentResponder.normalizedFrame) }
-            .min { $0.normalizedFrame.minY < $1.normalizedFrame.minY }
-
-        if verticalNextResponder != nil {
-            verticalNextResponder?.becomeFirstResponder()
-            return
-        }
-
-        currentResponder.resignFirstResponder()
     }
 
     // MARK: - Button handlers
@@ -214,10 +201,10 @@ final class KeyboardHandler {
     }
 
     @objc private func backButtonHandler(_ sender: UIBarButtonItem) {
-        delegate?.manageableViews.forEach(switchToPreviousTextInput(in:))
+        switchToTextInput(direction: .backward)
     }
 
     @objc private func nextButtonHandler(_ sender: UIBarButtonItem) {
-        delegate?.manageableViews.forEach(switchToNextTextInput(in:))
+        switchToTextInput(direction: .forward)
     }
 }
