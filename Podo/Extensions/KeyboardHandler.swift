@@ -72,13 +72,13 @@ final class KeyboardHandler {
         return delegate?.keyboardOffsetRatio ?? 1.0
     }
 
-    private var initialOffsets: [UIView: CGFloat]
+    private var initialNonScrollableViewsOffsets: EphemeralDictionaryWrapper<UIView, CGFloat>
 
     // MARK: - Lifecycle
 
     init(delegate: KeyboardHandling) {
         self.delegate = delegate
-        self.initialOffsets = [:]
+        self.initialNonScrollableViewsOffsets = [:]
         delegate.manageableViews.forEach(setupInputAccessoryView(in:))
         registerForNotifications(in: NotificationCenter.default)
     }
@@ -114,18 +114,28 @@ final class KeyboardHandler {
         guard let textInput = UIResponder.current as? UIView else { return }
 
         for view in nonScrollableViews {
-            let textInputConvertedFrame = view.convert(textInput.frame, from: textInput)
-            let textInputMaxY = textInputConvertedFrame.maxY
-            let visibleHeight = view.frame.height - offset
-            let nonScrollableOffset = textInputMaxY - visibleHeight / 2
+            let textInputFrame = textInput.normalizedFrame
+            let visibleRect = CGRect(x: UIScreen.main.bounds.origin.x,
+                                     y: UIScreen.main.bounds.origin.y,
+                                     width: UIScreen.main.bounds.width,
+                                     height: UIScreen.main.bounds.height - parsed.endFrame.height)
+            let nonScrollableOffset = textInputFrame.minY - visibleRect.midY
 
-            initialOffsets[view] = view.frame.origin.y
+            initialNonScrollableViewsOffsets[view] = view.frame.origin.y
 
-            if textInputMaxY > visibleHeight {
-                UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
-                    view.frame.origin.y -= min(offset, nonScrollableOffset)
-                })
-            }
+            UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
+                if nonScrollableOffset < 0 {
+                    // move view down
+                    view.frame.origin.y -= max(nonScrollableOffset, view.frame.maxY - UIScreen.main.bounds.maxY)
+                } else {
+                    // move view up
+                    if view.frame.maxY - nonScrollableOffset - visibleRect.maxY > 0 {
+                        view.frame.origin.y -= nonScrollableOffset
+                    } else {
+                        view.frame.origin.y -= (view.frame.maxY - visibleRect.maxY)
+                    }
+                }
+            })
         }
 
         // Handle scrollable views
@@ -142,8 +152,10 @@ final class KeyboardHandler {
 
         // Handle not-scrollable views
         for view in nonScrollableViews {
+            guard let initialOffset = initialNonScrollableViewsOffsets[view] else { continue }
+
             UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
-                view.frame.origin.y = self.initialOffsets[view, default: 0]
+                view.frame.origin.y = initialOffset
             })
         }
 
