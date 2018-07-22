@@ -55,6 +55,7 @@ final class KeyboardHandler {
 
         this.items = [backButton, nextButton, flexibleSpace, doneButton]
         this.items?.forEach { $0.tintColor = .darkGray }
+        this.isTranslucent = false
         this.sizeToFit()
 
         return this
