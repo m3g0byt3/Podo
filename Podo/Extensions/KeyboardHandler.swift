@@ -79,7 +79,7 @@ final class KeyboardHandler {
     init(delegate: KeyboardHandling) {
         self.delegate = delegate
         self.initialOffsets = [:]
-        setupDelegate(delegate)
+        delegate.manageableViews.forEach(setupInputAccessoryView(in:))
         registerForNotifications(in: NotificationCenter.default)
     }
 
@@ -88,10 +88,6 @@ final class KeyboardHandler {
     }
 
     // MARK: - Private API
-
-    private func setupDelegate(_ delegate: KeyboardHandling) {
-        delegate.manageableViews.forEach(setupInputAccessoryView(in:))
-    }
 
     private func setupInputAccessoryView(in view: UIView) {
         if let castedView = view as? _InputAccessoryViewProtocol {
