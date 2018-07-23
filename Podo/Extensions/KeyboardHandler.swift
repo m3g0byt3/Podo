@@ -158,6 +158,12 @@ final class KeyboardHandler {
 
     private func centerForInput() {
         // TODO: Calculate offset to place current first reponder in the center of visible rect
+    private func yAxisOffset(for rect: CGRect, basedOn info: KeyboardNotification) -> CGFloat {
+        let visibleRect = CGRect(x: UIScreen.main.bounds.origin.x,
+                                 y: UIScreen.main.bounds.origin.y,
+                                 width: UIScreen.main.bounds.width,
+                                 height: UIScreen.main.bounds.height - info.endFrame.height)
+        return rect.minY - visibleRect.midY
     }
 
     private func switchToTextResponder(direction: Direction) {
