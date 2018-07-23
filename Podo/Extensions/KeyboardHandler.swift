@@ -174,11 +174,30 @@ final class KeyboardHandler {
     }
 
     private func handleScrollableView(_ view: UIScrollView, info: KeyboardNotification, action: KeyboardAction) {
+        switch action {
 
+        case .show:
+            if info.endFrame != info.beginFrame {
+                view.contentInset.bottom += info.offset * offsetRatio
+            }
 
+            guard let currentResponder = UIResponder.current as? UIView else { return }
+            let currentResponderConvertedFrame = view.convert(currentResponder.frame, from: currentResponder)
+            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedFrame, basedOn: info)
+            let contentOffset = CGPoint(x: view.contentOffset.x, y: yAxisContentOffset)
+
+            UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
+                view.contentOffset = contentOffset
             })
 
+            // Redudant, but prevents absent of inputAccessoryView when current First Responder
+            // was not visible initially - for example outside of visible area of scrollable view.
+            setupInputAccessoryView(in: view)
 
+        case .hide:
+            if info.endFrame != info.beginFrame {
+                view.contentInset.bottom -= info.offset * offsetRatio
+            }
         }
     }
 
