@@ -33,14 +33,14 @@ final class KeyboardHandler {
 
     // MARK: - Constants
 
-    /// Notification names
+    /// Notification names.
     private enum Names {
 
         static var willShow: Notification.Name { return .UIKeyboardWillShow }
         static var willHide: Notification.Name { return .UIKeyboardWillHide }
     }
 
-    /// Various selectors
+    /// Various selectors.
     private enum Selectors {
 
         static var shown: Selector { return #selector(keyboardShown(_:)) }
@@ -201,8 +201,6 @@ final class KeyboardHandler {
         }
     }
 
-    private func centerForInput() {
-        // TODO: Calculate offset to place current first reponder in the center of visible rect
     private func yAxisOffset(for rect: CGRect, basedOn info: KeyboardNotification) -> CGFloat {
         let visibleRect = CGRect(x: UIScreen.main.bounds.origin.x,
                                  y: UIScreen.main.bounds.origin.y,
