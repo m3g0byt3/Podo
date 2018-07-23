@@ -172,12 +172,11 @@ final class KeyboardHandler {
         // TODO: Calculate offset to place current first reponder in the center of visible rect
     }
 
-        guard let delegate = delegate else { return }
     private func switchToTextResponder(direction: Direction) {
+        guard let manageableViews = delegate?.manageableViews else { return }
 
-        for view in delegate.manageableViews {
+        for view in manageableViews {
             var responders = view.responders.compactMap { $0 as? UIView }
-
 
             responders.sort { resp1, resp2 in
                 if resp1.normalizedFrame.withinHorizontalBaselines(of: resp2.normalizedFrame) {
@@ -186,7 +185,6 @@ final class KeyboardHandler {
                 return resp1.normalizedFrame.aboveRelative(to: resp2.normalizedFrame)
             }
 
-
             guard
                 let currentResponder = UIResponder.current as? UIView,
                 let currentResponderIndex = responders.index(of: currentResponder)
@@ -194,12 +192,12 @@ final class KeyboardHandler {
 
             let nextResponderIndex = direction.nextIndex(currentResponderIndex)
 
-            guard responders.indices.contains(nextResponderIndex) else {
+            guard let nextResponder = responders[safe: nextResponderIndex] else {
                 currentResponder.resignFirstResponder()
                 continue
             }
 
-            responders[nextResponderIndex].becomeFirstResponder()
+            nextResponder.becomeFirstResponder()
         }
     }
 

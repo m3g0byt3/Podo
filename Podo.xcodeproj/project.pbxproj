@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		410176F92078047A00785469 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410176F82078047A00785469 /* GradientView.swift */; };
+		41023C51210667FB009AE7C4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023C50210667FB009AE7C4 /* Array+Extensions.swift */; };
 		410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A51207D1A57003DD5C0 /* Configurable.swift */; };
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
@@ -193,6 +194,7 @@
 /* Begin PBXFileReference section */
 		15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410176F82078047A00785469 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		41023C50210667FB009AE7C4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		410F0A51207D1A57003DD5C0 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -1018,6 +1020,7 @@
 				41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */,
 				41947BDE2100E05600EA803A /* CGRect+Extensions.swift */,
 				418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */,
+				41023C50210667FB009AE7C4 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1521,6 +1524,7 @@
 				41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */,
 				41A3905D20DBFA20004D3499 /* PaymentConfirmationSectionItemViewModelImpl.swift in Sources */,
 				41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */,
+				41023C51210667FB009AE7C4 /* Array+Extensions.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
 				415B8A65208D16A900BEAB93 /* OptionalType.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
