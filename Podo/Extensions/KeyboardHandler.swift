@@ -138,13 +138,39 @@ final class KeyboardHandler {
     }
 
     private func handleNonScrollableView(_ view: UIView, info: KeyboardNotification, action: KeyboardAction) {
+        switch action {
+
+        case .show:
+            guard let currentResponder = UIResponder.current as? UIView else { return }
+            let currentResponderConvertedFrame = currentResponder.normalizedFrame
+            let nonScrollableOffset = yAxisOffset(for: currentResponderConvertedFrame, basedOn: info)
+            let maxNonScrollableOffset: CGFloat
+            let offsetComparator: (CGFloat, CGFloat) -> CGFloat
+
+            if nonScrollableOffset > 0 {
+                // View moves up
+                maxNonScrollableOffset = view.frame.maxY - info.endFrame.minY
+                offsetComparator = min
+            } else {
+                // View moves down
+                maxNonScrollableOffset = view.frame.maxY - UIScreen.main.bounds.maxY
+                offsetComparator = max
+            }
 
             initialNonScrollableViewsOffsets[view] = view.frame.origin.y
 
+            UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
+                view.frame.origin.y -= offsetComparator(nonScrollableOffset, maxNonScrollableOffset)
             })
 
+        case .hide:
+            guard let initialOffset = initialNonScrollableViewsOffsets[view] else { break }
 
+            UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
+                view.frame.origin.y = initialOffset
+            })
         }
+
     }
 
     private func handleScrollableView(_ view: UIScrollView, info: KeyboardNotification, action: KeyboardAction) {
