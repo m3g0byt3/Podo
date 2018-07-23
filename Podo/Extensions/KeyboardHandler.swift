@@ -172,8 +172,8 @@ final class KeyboardHandler {
         // TODO: Calculate offset to place current first reponder in the center of visible rect
     }
 
-    private func switchToTextInput(direction: Direction) {
         guard let delegate = delegate else { return }
+    private func switchToTextResponder(direction: Direction) {
 
         for view in delegate.manageableViews {
             var responders = view.responders.compactMap { $0 as? UIView }
@@ -210,10 +210,10 @@ final class KeyboardHandler {
     }
 
     @objc private func backButtonHandler(_ sender: UIBarButtonItem) {
-        switchToTextInput(direction: .backward)
+        switchToTextResponder(direction: .backward)
     }
 
     @objc private func nextButtonHandler(_ sender: UIBarButtonItem) {
-        switchToTextInput(direction: .forward)
+        switchToTextResponder(direction: .forward)
     }
 }
