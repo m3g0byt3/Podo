@@ -8,18 +8,23 @@
 
 import UIKit
 
-private enum Direction {
-    case forward, backward
+final class KeyboardHandler {
 
-    func nextIndex(_ currentIndex: Int) -> Int {
-        switch self {
-        case .backward: return currentIndex - 1
-        case .forward: return currentIndex + 1
+    // MARK: - Private helpers types
+
+    /// Represent direction of next responder switching.
+    private enum Direction {
+
+        case forward, backward
+
+        func nextIndex(_ currentIndex: Int) -> Int {
+            switch self {
+            case .backward: return currentIndex - 1
+            case .forward: return currentIndex + 1
+            }
         }
     }
-}
 
-final class KeyboardHandler {
 
     // MARK: - Constants
 
