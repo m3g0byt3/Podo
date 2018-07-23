@@ -25,6 +25,11 @@ final class KeyboardHandler {
         }
     }
 
+    /// Represents type of action for keyboard.
+    private enum KeyboardAction {
+
+        case show, hide
+    }
 
     // MARK: - Constants
 
@@ -114,62 +119,40 @@ final class KeyboardHandler {
 
     @objc private func keyboardShown(_ notification: Notification) {
         guard let parsed = KeyboardNotification(notification) else { return }
-        let offset = parsed.offset * offsetRatio
 
-        // Handle not-scrollable views
-        guard let textInput = UIResponder.current as? UIView else { return }
-
-        for view in nonScrollableViews {
-            let textInputFrame = textInput.normalizedFrame
-            let visibleRect = CGRect(x: UIScreen.main.bounds.origin.x,
-                                     y: UIScreen.main.bounds.origin.y,
-                                     width: UIScreen.main.bounds.width,
-                                     height: UIScreen.main.bounds.height - parsed.endFrame.height)
-            let nonScrollableOffset = textInputFrame.minY - visibleRect.midY
-
-            initialNonScrollableViewsOffsets[view] = view.frame.origin.y
-
-            UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
-                if nonScrollableOffset < 0 {
-                    // move view down
-                    view.frame.origin.y -= max(nonScrollableOffset, view.frame.maxY - UIScreen.main.bounds.maxY)
-                } else {
-                    // move view up
-                    if view.frame.maxY - nonScrollableOffset - visibleRect.maxY > 0 {
-                        view.frame.origin.y -= nonScrollableOffset
-                    } else {
-                        view.frame.origin.y -= (view.frame.maxY - visibleRect.maxY)
-                    }
-                }
-            })
-        }
+        // Handle non-scrollable views
+        nonScrollableViews.forEach { handleNonScrollableView($0, info: parsed, action: .show) }
 
         // Handle scrollable views
-        guard parsed.endFrame != parsed.beginFrame else { return }
-
-        for view in scrollableViews {
-            view.contentInset.bottom += offset
-        }
+        scrollableViews.forEach { handleScrollableView($0, info: parsed, action: .show) }
     }
 
     @objc private func keyboardDismissed(_ notification: Notification) {
         guard let parsed = KeyboardNotification(notification) else { return }
-        let offset = parsed.offset * offsetRatio
 
-        // Handle not-scrollable views
-        for view in nonScrollableViews {
-            guard let initialOffset = initialNonScrollableViewsOffsets[view] else { continue }
-
-            UIView.animate(withDuration: parsed.duration, delay: 0, options: parsed.options, animations: {
-                view.frame.origin.y = initialOffset
-            })
-        }
+        // Handle non-scrollable views
+        nonScrollableViews.forEach { handleNonScrollableView($0, info: parsed, action: .hide) }
 
         // Handle scrollable views
-        guard parsed.endFrame != parsed.beginFrame else { return }
+        scrollableViews.forEach { handleScrollableView($0, info: parsed, action: .hide) }
+    }
 
-        for view in scrollableViews {
-            view.contentInset.bottom -= offset
+    private func handleNonScrollableView(_ view: UIView, info: KeyboardNotification, action: KeyboardAction) {
+
+            initialNonScrollableViewsOffsets[view] = view.frame.origin.y
+
+            })
+
+
+        }
+    }
+
+    private func handleScrollableView(_ view: UIScrollView, info: KeyboardNotification, action: KeyboardAction) {
+
+
+            })
+
+
         }
     }
 
