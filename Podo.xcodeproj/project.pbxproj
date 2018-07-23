@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		410176F92078047A00785469 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410176F82078047A00785469 /* GradientView.swift */; };
+		41023C51210667FB009AE7C4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023C50210667FB009AE7C4 /* Array+Extensions.swift */; };
 		410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A51207D1A57003DD5C0 /* Configurable.swift */; };
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
@@ -52,6 +53,8 @@
 		41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */; };
 		41555A682049727C007ADBF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A672049727C007ADBF0 /* Coordinator.swift */; };
 		41555A6A20497625007ADBF0 /* StartOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41555A6920497625007ADBF0 /* StartOption.swift */; };
+		4157F52120F658A900825816 /* KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157F52020F658A900825816 /* KeyboardHandling.swift */; };
+		4157F52320F65B2200825816 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157F52220F65B2200825816 /* KeyboardHandler.swift */; };
 		415B8A53208D0BCD00BEAB93 /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A52208D0BCC00BEAB93 /* SideMenuItem.swift */; };
 		415B8A55208D0BD300BEAB93 /* SideMenuItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A54208D0BD200BEAB93 /* SideMenuItemType.swift */; };
 		415B8A59208D0D1200BEAB93 /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415B8A58208D0D1200BEAB93 /* PaymentMethodType.swift */; };
@@ -98,6 +101,7 @@
 		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
 		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
+		418ECEC92104077700AD4230 /* EphemeralDictionaryWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */; };
 		418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */; };
 		418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D1205C8F8600397B48 /* AnyViewModel.swift */; };
 		418F79D8205D141200397B48 /* SideMenuCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D7205D141200397B48 /* SideMenuCellViewModel.swift */; };
@@ -106,7 +110,10 @@
 		418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */; };
 		418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */; };
 		418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */; };
+		419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */; };
 		41918F162060416B00C592F7 /* AddNewCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */; };
+		41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */; };
+		41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947BDE2100E05600EA803A /* CGRect+Extensions.swift */; };
 		41968CDB20652DEE00501112 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CDD20652DEE00501112 /* Localizable.strings */; };
 		41968CEF2065347800501112 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CF12065347800501112 /* InfoPlist.strings */; };
 		419CFEA9206BBD44004F4897 /* Reactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CFEA8206BBD44004F4897 /* Reactive+Extensions.swift */; };
@@ -136,6 +143,7 @@
 		41BA5502207598EF00264837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA5501207598EF00264837 /* UIImage+Extensions.swift */; };
 		41BA550A2075B62C00264837 /* PodoColors.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA55092075B62B00264837 /* PodoColors.clr */; };
 		41BA550C2075BA6300264837 /* Apple HIG.clr in Resources */ = {isa = PBXBuildFile; fileRef = 41BA550B2075BA6300264837 /* Apple HIG.clr */; };
+		41BC827320FDF48A003157D7 /* InputAccessoryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */; };
 		41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */; };
 		41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5042055EBD70045A50A /* MainMenuViewController.swift */; };
 		41BDD5072055EBFC0045A50A /* TrainIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BDD5062055EBFC0045A50A /* TrainIconView.swift */; };
@@ -150,6 +158,7 @@
 		41CD4CC920939BB80029800B /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD4CC820939BB80029800B /* PaymentView.swift */; };
 		41CDEAB420828C6C008D30D5 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDEAB320828C6C008D30D5 /* Customizable.swift */; };
 		41CDEAB720828DB1008D30D5 /* SideMenuPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDEAB620828DB1008D30D5 /* SideMenuPresenting.swift */; };
+		41D1313020F9073F00F2D7BB /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */; };
 		41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */; };
 		41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */; };
 		41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1781FC7908E00F12C20 /* R.generated.swift */; };
@@ -159,6 +168,7 @@
 		41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */; };
 		41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */; };
 		41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */; };
+		41FBB29E20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FBB29D20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
 		B59440046E43C73F9F737D42 /* Pods_PodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */; };
 		CD80C1C7512D6728FC11D3DC /* Pods_PodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE37FEA68995A95EE9E55FBC /* Pods_PodoUITests.framework */; };
@@ -184,6 +194,7 @@
 /* Begin PBXFileReference section */
 		15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410176F82078047A00785469 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		41023C50210667FB009AE7C4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		410F0A51207D1A57003DD5C0 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -237,6 +248,8 @@
 		41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		41555A672049727C007ADBF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41555A6920497625007ADBF0 /* StartOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOption.swift; sourceTree = "<group>"; };
+		4157F52020F658A900825816 /* KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandling.swift; sourceTree = "<group>"; };
+		4157F52220F65B2200825816 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		415B8A52208D0BCC00BEAB93 /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
 		415B8A54208D0BD200BEAB93 /* SideMenuItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemType.swift; sourceTree = "<group>"; };
 		415B8A58208D0D1200BEAB93 /* PaymentMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodType.swift; sourceTree = "<group>"; };
@@ -284,6 +297,7 @@
 		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
 		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
+		418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemeralDictionaryWrapper.swift; sourceTree = "<group>"; };
 		418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		418F79D1205C8F8600397B48 /* AnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyViewModel.swift; sourceTree = "<group>"; };
 		418F79D7205D141200397B48 /* SideMenuCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellViewModel.swift; sourceTree = "<group>"; };
@@ -292,7 +306,10 @@
 		418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModelImpl.swift; sourceTree = "<group>"; };
 		418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModel.swift; sourceTree = "<group>"; };
 		418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModelImpl.swift; sourceTree = "<group>"; };
+		419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extensions.swift"; sourceTree = "<group>"; };
 		41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		41947BDE2100E05600EA803A /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CE6206532EF00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RootViewController.strings; sourceTree = "<group>"; };
 		41968CE7206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenuViewController.strings; sourceTree = "<group>"; };
@@ -330,6 +347,7 @@
 		41BA5501207598EF00264837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		41BA55092075B62B00264837 /* PodoColors.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PodoColors.clr; sourceTree = "<group>"; };
 		41BA550B2075BA6300264837 /* Apple HIG.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Apple HIG.clr"; sourceTree = "<group>"; };
+		41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccessoryViewProtocol.swift; sourceTree = "<group>"; };
 		41BDD4EB2054562E0045A50A /* AbstractCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractCoordinator.swift; sourceTree = "<group>"; };
 		41BDD5042055EBD70045A50A /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		41BDD5062055EBFC0045A50A /* TrainIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainIconView.swift; sourceTree = "<group>"; };
@@ -344,6 +362,7 @@
 		41CD4CC820939BB80029800B /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		41CDEAB320828C6C008D30D5 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
 		41CDEAB620828DB1008D30D5 /* SideMenuPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresenting.swift; sourceTree = "<group>"; };
+		41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		41D1F16E1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningDelegate.swift; sourceTree = "<group>"; };
 		41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningAnimator.swift; sourceTree = "<group>"; };
 		41D1F1781FC7908E00F12C20 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -353,6 +372,7 @@
 		41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
 		41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
 		41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateAssembler.swift; sourceTree = "<group>"; };
+		41FBB29D20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView.AnimationOptions+Extensions.swift"; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B615A5FF118833E14B0AC2E /* Pods-Podo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.debug.xcconfig"; sourceTree = "<group>"; };
 		A3171AEBAEF479E5D8132E90 /* Pods-Podo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.release.xcconfig"; sourceTree = "<group>"; };
@@ -991,6 +1011,16 @@
 				4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */,
 				4135F38020EAEEAD0078AFFB /* UITableView+Extensions.swift */,
 				4135F38220EB01130078AFFB /* UIButton+Extensions.swift */,
+				4157F52020F658A900825816 /* KeyboardHandling.swift */,
+				4157F52220F65B2200825816 /* KeyboardHandler.swift */,
+				41FBB29D20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift */,
+				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
+				41D1312F20F9073F00F2D7BB /* KeyboardNotification.swift */,
+				41BC827220FDF48A003157D7 /* InputAccessoryViewProtocol.swift */,
+				41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */,
+				41947BDE2100E05600EA803A /* CGRect+Extensions.swift */,
+				418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */,
+				41023C50210667FB009AE7C4 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1422,14 +1452,17 @@
 				4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */,
 				415B8A5B208D0D3400BEAB93 /* PaymentMethod.swift in Sources */,
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModelImpl.swift in Sources */,
+				418ECEC92104077700AD4230 /* EphemeralDictionaryWrapper.swift in Sources */,
 				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
 				41AA3C7E20D94B6900A3D298 /* Global+Extensions.swift in Sources */,
 				410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */,
 				418733E120EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift in Sources */,
+				41FBB29E20F8BEB5002EC422 /* UIView.AnimationOptions+Extensions.swift in Sources */,
 				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				41A3905920DBF74D004D3499 /* PaymentConfirmationSectionViewModelImpl.swift in Sources */,
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,
+				41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				415B8A59208D0D1200BEAB93 /* PaymentMethodType.swift in Sources */,
 				416F5299208531E700C519A6 /* PaymentMethodCellViewModel.swift in Sources */,
@@ -1453,6 +1486,7 @@
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */,
 				41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */,
+				41BC827320FDF48A003157D7 /* InputAccessoryViewProtocol.swift in Sources */,
 				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
 				4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */,
 				416F52972085319300C519A6 /* PaymentMethodViewModel.swift in Sources */,
@@ -1490,6 +1524,7 @@
 				41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */,
 				41A3905D20DBFA20004D3499 /* PaymentConfirmationSectionItemViewModelImpl.swift in Sources */,
 				41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */,
+				41023C51210667FB009AE7C4 /* Array+Extensions.swift in Sources */,
 				4180B4E6204C92810064529A /* Router.swift in Sources */,
 				415B8A65208D16A900BEAB93 /* OptionalType.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
@@ -1498,11 +1533,13 @@
 				41A3905320DBF4FE004D3499 /* PaymentConfirmationViewModel.swift in Sources */,
 				41816E20206A315E00A0FFCC /* AddNewCardViewModelImpl.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
+				41D1313020F9073F00F2D7BB /* KeyboardNotification.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModel.swift in Sources */,
 				4148964320669C3C00C3C000 /* HelpView.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				4135F38320EB01130078AFFB /* UIButton+Extensions.swift in Sources */,
 				418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */,
+				419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */,
 				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
 				41A3906020DC1806004D3499 /* PaymentCardCell.swift in Sources */,
 				41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */,
@@ -1516,6 +1553,8 @@
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				419EBEFE20E4054700952FDA /* DoubleMarginView.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
+				4157F52120F658A900825816 /* KeyboardHandling.swift in Sources */,
+				4157F52320F65B2200825816 /* KeyboardHandler.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */,
@@ -1533,6 +1572,7 @@
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
 				418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */,
 				41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */,
+				41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */,
 				4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */,
 				41CDEAB720828DB1008D30D5 /* SideMenuPresenting.swift in Sources */,
 				41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */,

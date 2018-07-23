@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView {
+class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, KeyboardHandling {
 
     // MARK: IBOutlets
 
@@ -23,12 +23,28 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView {
     var viewModel: PaymentConfirmationViewModel!
     private let disposeBag = DisposeBag()
 
+    // MARK: - KeyboardHandling protocol conformance
+
+    var manageableViews: [UIView] {
+        return [tableView]
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupBindings()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        beginKeyboardHandling()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        endKeyboardHandling()
     }
 
     // MARK: - Private API
