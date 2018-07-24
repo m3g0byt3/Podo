@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class AddNewCardViewController: UIViewController, AddNewCardView, TrainIconTitleView {
+final class AddNewCardViewController: UIViewController, AddNewCardView, TrainIconTitleView, KeyboardHandling {
 
     // MARK: - Properties
 
@@ -34,8 +34,18 @@ final class AddNewCardViewController: UIViewController, AddNewCardView, TrainIco
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        beginKeyboardHandling()
         cardNumberTextField.becomeFirstResponder()
     }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        endKeyboardHandling()
+    }
+
+    // MARK: - KeyboardHandling protocol conformance
+
+    var manageableViews: [UIView] { return [view] }
 
     // MARK: - AddNewCardView protocol conformance
 
