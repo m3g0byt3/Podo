@@ -142,8 +142,8 @@ final class KeyboardHandler {
 
         case .show:
             guard let currentResponder = UIResponder.current as? UIView else { return }
-            let currentResponderConvertedFrame = currentResponder.normalizedFrame
-            let nonScrollableOffset = yAxisOffset(for: currentResponderConvertedFrame, basedOn: info)
+            let currentResponderConvertedBounds = currentResponder.normalizedBounds
+            let nonScrollableOffset = yAxisOffset(for: currentResponderConvertedBounds, basedOn: info)
             let maxNonScrollableOffset: CGFloat
             let offsetComparator: (CGFloat, CGFloat) -> CGFloat
 
@@ -182,8 +182,8 @@ final class KeyboardHandler {
             }
 
             guard let currentResponder = UIResponder.current as? UIView else { return }
-            let currentResponderConvertedFrame = view.convert(currentResponder.frame, from: currentResponder)
-            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedFrame, basedOn: info)
+            let currentResponderConvertedBounds = view.convert(currentResponder.frame, from: currentResponder)
+            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedBounds, basedOn: info)
             let contentOffset = CGPoint(x: view.contentOffset.x, y: yAxisContentOffset)
 
             UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
@@ -216,10 +216,10 @@ final class KeyboardHandler {
             var responders = view.responders.compactMap { $0 as? UIView }
 
             responders.sort { resp1, resp2 in
-                if resp1.normalizedFrame.withinHorizontalBaselines(of: resp2.normalizedFrame) {
-                    return resp1.normalizedFrame.leftRelative(to: resp2.normalizedFrame)
+                if resp1.normalizedBounds.withinHorizontalBaselines(of: resp2.normalizedBounds) {
+                    return resp1.normalizedBounds.leftRelative(to: resp2.normalizedBounds)
                 }
-                return resp1.normalizedFrame.aboveRelative(to: resp2.normalizedFrame)
+                return resp1.normalizedBounds.aboveRelative(to: resp2.normalizedBounds)
             }
 
             guard
