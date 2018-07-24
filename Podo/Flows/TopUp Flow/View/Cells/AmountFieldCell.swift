@@ -32,6 +32,13 @@ final class AmountFieldCell: UITableViewCell {
         return 1 / UIScreen.main.scale
     }
 
+    private static var buttonContentInset: UIEdgeInsets {
+        return UIEdgeInsets(top: Constant.CardPaymentMenu.sumButtonVerticalInset,
+                            left: Constant.CardPaymentMenu.sumButtonHorizontalInset,
+                            bottom: Constant.CardPaymentMenu.sumButtonVerticalInset,
+                            right: Constant.CardPaymentMenu.sumButtonHorizontalInset)
+    }
+
     // MARK: - Private properties
 
     private let containerView = UIView()
@@ -114,18 +121,18 @@ final class AmountFieldCell: UITableViewCell {
         let emptyButtonLabel = NSAttributedString(string: AmountFieldCell.defaultButtonText,
                                                   attributes: buttonTextAttributes)
         [firstSumButton, secondSumButton, thirdSumButton].forEach { button in
+            button.contentEdgeInsets = AmountFieldCell.buttonContentInset
             button.layer.borderWidth = AmountFieldCell.buttonBorderWidth
-            button.layer.borderColor = R.clr.podoColors.empty().cgColor
             button.heightToCornerRadiusRatio = AmountFieldCell.buttonHeightToCornerRadiusRatio
+            button.layer.borderColor = R.clr.podoColors.empty().cgColor
             button.shadowColor = .clear
             button.setAttributedTitle(emptyButtonLabel, for: .normal)
             buttonStackView.addArrangedSubview(button)
         }
 
         // StackView setup
-        buttonStackView.spacing = Constant.CardPaymentMenu.cellMarginValue
         buttonStackView.alignment = .center
-        buttonStackView.distribution = .fillEqually
+        buttonStackView.distribution = .equalCentering
 
         // Adding subviews
         [sumTextField, buttonStackView].forEach(containerView.addSubview(_:))
