@@ -170,7 +170,6 @@ final class KeyboardHandler {
                 view.frame.origin.y = initialOffset
             })
         }
-
     }
 
     private func handleScrollableView(_ view: UIScrollView, info: KeyboardNotification, action: KeyboardAction) {
