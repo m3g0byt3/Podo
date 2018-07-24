@@ -85,5 +85,9 @@ enum Constant {
         static let footerHeight: CGFloat = .leastNonzeroMagnitude
         /// Margin for cells
         static let cellMarginValue: CGFloat = 16
+        /// Fixed sum button left/right content inset
+        static let sumButtonHorizontalInset: CGFloat = 8
+        /// Fixed sum button top/bottom content inset
+        static let sumButtonVerticalInset: CGFloat = 4
     }
 }
