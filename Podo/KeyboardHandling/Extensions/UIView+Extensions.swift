@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIView {
-    
+
     /**
      All First Responders from view's subviews or this view itself if
      the view returns `true` in `canBecomeFirstResponder`.

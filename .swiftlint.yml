@@ -33,4 +33,4 @@ opt_in_rules:
  - vertical_parameter_alignment_on_call
 
 # Rules customization
-line_length: 160
+line_length: 140

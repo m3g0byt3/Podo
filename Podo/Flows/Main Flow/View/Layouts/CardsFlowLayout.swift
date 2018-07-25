@@ -63,7 +63,8 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
         setupInitialInsets()
     }
 
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint,
+                                      withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView else {
             CardsFlowLayout.noCollectionView()
         }

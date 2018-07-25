@@ -56,7 +56,8 @@ final class SideMenuPresentationController: UIPresentationController {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [unowned self] _ in
             self.dimmingView?.alpha = Constant.DimmingViewAlpha.final
         })
-        presentingViewController.transitionCoordinator?.animateAlongsideTransition(in: presentingViewController.view, animation: { [unowned self] _ in
+        presentingViewController.transitionCoordinator?.animateAlongsideTransition(in: presentingViewController.view,
+                                                                                   animation: { [unowned self] _ in
             self.presentingViewController.horizontalContentLayoutOffset += self.frameOfPresentedViewInContainerView.width
         })
     }
@@ -71,7 +72,8 @@ final class SideMenuPresentationController: UIPresentationController {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [unowned self] _ in
             self.dimmingView?.alpha = Constant.DimmingViewAlpha.initial
         })
-        presentingViewController.transitionCoordinator?.animateAlongsideTransition(in: presentingViewController.view, animation: { [unowned self] _ in
+        presentingViewController.transitionCoordinator?.animateAlongsideTransition(in: presentingViewController.view,
+                                                                                   animation: { [unowned self] _ in
             self.presentingViewController.horizontalContentLayoutOffset -= self.frameOfPresentedViewInContainerView.width * 2
         })
     }
