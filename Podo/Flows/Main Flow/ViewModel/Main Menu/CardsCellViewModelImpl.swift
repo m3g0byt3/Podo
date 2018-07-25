@@ -22,7 +22,8 @@ struct CardsCellViewModelImpl: CardsCellViewModel {
     init(_ model: TransportCard) {
 
         cardTheme = Observable.just(model.themeIdentifier)
-            .map { TransportCardTheme(rawValue: $0)! }
+            .map { TransportCardTheme(rawValue: $0) }
+            .filterNil()
             .asDriver(onErrorJustReturn: .green)
 
         cardTitle = Observable.just(model.cardNumber)
