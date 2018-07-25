@@ -16,6 +16,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
     // MARK: IBOutlets
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var paymentButton: UIBarButtonItem!
 
     // MARK: - Properties
 
