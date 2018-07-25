@@ -108,8 +108,8 @@
 		418F79DA205D145500397B48 /* SideMenuCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D9205D145500397B48 /* SideMenuCellViewModelImpl.swift */; };
 		418F79DE205D9B2800397B48 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79DD205D9B2800397B48 /* CardsViewModel.swift */; };
 		418F79E0205D9B5000397B48 /* CardsViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */; };
-		418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */; };
-		418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */; };
+		418F79E2205D9BE000397B48 /* TransportCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E1205D9BE000397B48 /* TransportCardViewModelProtocol.swift */; };
+		418F79E4205D9C1300397B48 /* TransportCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79E3205D9C1300397B48 /* TransportCardViewModel.swift */; };
 		419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */; };
 		41918F162060416B00C592F7 /* AddNewCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */; };
 		41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */; };
@@ -304,8 +304,8 @@
 		418F79D9205D145500397B48 /* SideMenuCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellViewModelImpl.swift; sourceTree = "<group>"; };
 		418F79DD205D9B2800397B48 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModelImpl.swift; sourceTree = "<group>"; };
-		418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModel.swift; sourceTree = "<group>"; };
-		418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCellViewModelImpl.swift; sourceTree = "<group>"; };
+		418F79E1205D9BE000397B48 /* TransportCardViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardViewModelProtocol.swift; sourceTree = "<group>"; };
+		418F79E3205D9C1300397B48 /* TransportCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardViewModel.swift; sourceTree = "<group>"; };
 		419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extensions.swift"; sourceTree = "<group>"; };
 		41918F142060416B00C592F7 /* AddNewCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -684,8 +684,8 @@
 				4179E9F920461B3F007CF219 /* MainMenuCellViewModelImpl.swift */,
 				418F79DD205D9B2800397B48 /* CardsViewModel.swift */,
 				418F79DF205D9B5000397B48 /* CardsViewModelImpl.swift */,
-				418F79E1205D9BE000397B48 /* CardsCellViewModel.swift */,
-				418F79E3205D9C1300397B48 /* CardsCellViewModelImpl.swift */,
+				418F79E1205D9BE000397B48 /* TransportCardViewModelProtocol.swift */,
+				418F79E3205D9C1300397B48 /* TransportCardViewModel.swift */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -1490,7 +1490,7 @@
 				417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */,
 				41489636206698D200C3C000 /* HelpViewController.swift in Sources */,
 				41A9FC6E1FCDBFAD007443D7 /* SideMenuTransitioningInteractor.swift in Sources */,
-				418F79E2205D9BE000397B48 /* CardsCellViewModel.swift in Sources */,
+				418F79E2205D9BE000397B48 /* TransportCardViewModelProtocol.swift in Sources */,
 				418F79D8205D141200397B48 /* SideMenuCellViewModel.swift in Sources */,
 				415B8A55208D0BD300BEAB93 /* SideMenuItemType.swift in Sources */,
 				41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */,
@@ -1586,7 +1586,7 @@
 				41CD4CC720939B980029800B /* PaymentViewController.swift in Sources */,
 				41787B3D20687DC000693FA1 /* AddNewCardViewController.swift in Sources */,
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
-				418F79E4205D9C1300397B48 /* CardsCellViewModelImpl.swift in Sources */,
+				418F79E4205D9C1300397B48 /* TransportCardViewModel.swift in Sources */,
 				41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */,
 				41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */,
 				4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */,

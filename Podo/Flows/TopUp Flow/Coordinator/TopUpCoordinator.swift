@@ -12,7 +12,7 @@ final class TopUpCoordinator: AbstractCoordinator {
 
     // MARK: - Private Properties
 
-    private var transportCard: CardsCellViewModel?
+    private var transportCard: TransportCardViewModelProtocol?
 
     // MARK: - Private API
 

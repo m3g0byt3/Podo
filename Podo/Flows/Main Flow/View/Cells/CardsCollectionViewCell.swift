@@ -39,10 +39,10 @@ final class CardsCollectionViewCell: UICollectionViewCell {
 
 extension CardsCollectionViewCell: Configurable {
 
-    typealias ViewModel = CardsCellViewModel
+    typealias ViewModel = TransportCardViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: CardsCellViewModel) -> Self {
+    func configure(with viewModel: TransportCardViewModelProtocol) -> Self {
 
         viewModel.cardTitle
             .drive(cardNumberLabel.rx.text)

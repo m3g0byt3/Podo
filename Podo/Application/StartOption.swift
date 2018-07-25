@@ -13,7 +13,7 @@ enum StartOption {
     case tutorial
     case settings
     // swiftlint:disable:next identifier_name
-    case topUp(transpordCard: CardsCellViewModel)
+    case topUp(transpordCard: TransportCardViewModelProtocol)
     case addNewCard
 
     // MARK: - Constants

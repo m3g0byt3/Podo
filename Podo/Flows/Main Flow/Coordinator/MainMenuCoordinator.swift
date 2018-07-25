@@ -88,7 +88,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
         coordinator?.start()
     }
 
-    private func startTopUpFlowFor(_ card: CardsCellViewModel) {
+    private func startTopUpFlowFor(_ card: TransportCardViewModelProtocol) {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
                                                      flow: .topUp,
                                                      argument: router)

@@ -24,7 +24,7 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
 
     // MARK: - Initialization
 
-    init(transportCardViewModel: CardsCellViewModel) {
+    init(transportCardViewModel: TransportCardViewModelProtocol) {
         models = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
                                       items: [.paymentCardSectionItem]),
                   .transportCardSection(title: R.string.localizable.transportCardSection(),

@@ -11,7 +11,7 @@ import Foundation
 
 enum PaymentConfirmationSectionItemViewModelImpl {
 
-    case transportCardSectionItem(innerViewModel: CardsCellViewModel)
+    case transportCardSectionItem(innerViewModel: TransportCardViewModelProtocol)
     case paymentCardSectionItem
     case amountFieldSectionItem
 }

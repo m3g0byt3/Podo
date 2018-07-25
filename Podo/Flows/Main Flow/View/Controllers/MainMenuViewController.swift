@@ -82,7 +82,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, TrainIconTit
     // MARK: - MainMenuView protocol conformance
 
     var onAddNewCardSelection: Completion?
-    var onCardSelection: ((CardsCellViewModel) -> Void)?
+    var onCardSelection: ((TransportCardViewModelProtocol) -> Void)?
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
 
