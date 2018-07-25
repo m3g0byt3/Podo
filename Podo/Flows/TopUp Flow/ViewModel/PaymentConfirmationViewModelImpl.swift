@@ -12,18 +12,25 @@ import RxCocoa
 
 struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
 
-    // MARK: - Properties
+    // MARK: - Private properties
 
-    private let models: [PaymentConfirmationSectionViewModelImpl] = [
-        .paymentCardSection(title: R.string.localizable.paymentCardSection(),
-                            items: [.paymentCardSectionItem(title: "payment")]),
-        .transportCardSection(title: R.string.localizable.transportCardSection(),
-                            items: [.transportCardSectionItem(title: "transport")]),
-        .amountFieldSection(title: R.string.localizable.amountFieldSection(),
-                            items: [.amountFieldSectionItem(title: "amount")])
-    ]
+    private let models: [PaymentConfirmationSectionViewModelImpl]
 
+    // MARK: - PaymentConfirmationViewModel protocol conformance
+    
     var sections: Driver<[PaymentConfirmationSectionViewModelImpl]> {
         return Driver.just(models)
+    }
+
+    // MARK: - Initialization
+
+    init(transportCardViewModel: CardsCellViewModel) {
+        models = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
+                                      items: [.paymentCardSectionItem]),
+                  .transportCardSection(title: R.string.localizable.transportCardSection(),
+                                        items: [.transportCardSectionItem(innerViewModel: transportCardViewModel)]),
+                  .amountFieldSection(title: R.string.localizable.amountFieldSection(),
+                                      items: [.amountFieldSectionItem])
+        ]
     }
 }

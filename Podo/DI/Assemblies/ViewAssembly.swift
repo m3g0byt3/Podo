@@ -81,11 +81,11 @@ final class ViewAssembly: Assembly {
             return viewController
         }
 
-        container.register(PaymentView.self) { resolver in
+        container.register(PaymentView.self) { (resolver: Resolver, transportCardViewModel: CardsCellViewModel) in
             guard let viewController = R.storyboard.topUpViewController.paymentViewController() else {
-                unableToResolve(PaymentViewController.self)
+                unableToResolve(PaymentView.self)
             }
-            viewController.viewModel = resolver.resolve(PaymentConfirmationViewModel.self)
+            viewController.viewModel = resolver.resolve(PaymentConfirmationViewModel.self, argument: transportCardViewModel)
             return viewController
         }
     }

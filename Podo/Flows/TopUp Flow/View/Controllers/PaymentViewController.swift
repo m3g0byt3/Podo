@@ -76,26 +76,19 @@ private extension PaymentViewController {
 
     static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl> {
         return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl>(
-            configureCell: { (dataSource, tableView, indexPath, viewModel) in
-                switch dataSource[indexPath] {
-                case .paymentCardSectionItem(let title):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.paymentCardCell,
-                                                             for: indexPath)!
-                    // FIXME: test only logging
-                    print(title)
-                    return cell
-                case .transportCardSectionItem(let title):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.transportCardCell,
-                                                             for: indexPath)!
-                    // FIXME: test only logging
-                    print(title)
-                    return cell
-                case .amountFieldSectionItem(let title):
+            configureCell: { (_, tableView, indexPath, viewModel) in
+                switch viewModel {
+                case .paymentCardSectionItem:
+                    let cell: PaymentCardCell = tableView.dequeueReusableCell(for: indexPath)
+                    // FIXME: Configure with real VM
+                    return cell.configure(with: NSObject())
+                case .transportCardSectionItem(let innerViewModel):
+                    let cell: TransportCardCell = tableView.dequeueReusableCell(for: indexPath)
+                    return cell.configure(with: innerViewModel)
+                case .amountFieldSectionItem:
                     let cell: AmountFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                    // FIXME: test only logging
-                    print(title)
-                    cell.configure(with: NSObject())
-                    return cell
+                    // FIXME: Configure with real VM
+                    return cell.configure(with: NSObject())
                 }
             },
             titleForHeaderInSection: { (dataSource, index) in
