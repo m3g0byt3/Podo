@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
 
@@ -17,15 +16,14 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
     private let models: [PaymentConfirmationSectionViewModelImpl]
 
     // MARK: - PaymentConfirmationViewModel protocol conformance
-    
-    var sections: Driver<[PaymentConfirmationSectionViewModelImpl]> {
-        return Driver.just(models)
+    var sections: Observable<[PaymentConfirmationSectionViewModelImpl]> {
+        return Observable.just(models)
     }
 
     // MARK: - Initialization
 
     init(transportCardViewModel: TransportCardViewModelProtocol) {
-        models = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
+        self.models = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
                                       items: [.paymentCardSectionItem]),
                   .transportCardSection(title: R.string.localizable.transportCardSection(),
                                         items: [.transportCardSectionItem(innerViewModel: transportCardViewModel)]),

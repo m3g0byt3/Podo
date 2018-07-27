@@ -62,6 +62,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
         let dataSource = PaymentViewController.dataSource()
 
         viewModel.sections
+            .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
