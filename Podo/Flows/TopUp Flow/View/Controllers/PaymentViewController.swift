@@ -55,7 +55,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
         tableView.estimatedRowHeight = Constant.CardPaymentMenu.estimatedRowHeight
         tableView.register(R.nib.paymentCardCell)
         tableView.register(R.nib.transportCardCell)
-        tableView.register(AmountFieldCell.self)
+        tableView.register(PaymentAmountCell.self)
     }
 
     private func setupBindings() {
@@ -87,9 +87,9 @@ private extension PaymentViewController {
                     let cell: TransportCardCell = tableView.dequeueReusableCell(for: indexPath)
                     return cell.configure(with: innerViewModel)
                 case .amountFieldSectionItem:
-                    let cell: AmountFieldCell = tableView.dequeueReusableCell(for: indexPath)
                     // FIXME: Configure with real VM
                     return cell.configure(with: NSObject())
+                    let cell: PaymentAmountCell = tableView.dequeueReusableCell(for: indexPath)
                 }
             },
             titleForHeaderInSection: { (dataSource, index) in

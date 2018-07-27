@@ -1,5 +1,5 @@
 //
-//  AmountFieldCell.swift
+//  PaymentAmountCell.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/06/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-final class AmountFieldCell: UITableViewCell {
+final class PaymentAmountCell: UITableViewCell {
 
     // MARK: - Constants
 
@@ -111,14 +111,14 @@ final class AmountFieldCell: UITableViewCell {
         sumTextField.keyboardType = .numberPad
         sumTextField.clearButtonMode = .never
         sumTextField.textColor = R.clr.podoColors.empty()
-        sumTextField.font = AmountFieldCell.textFieldFont
+        sumTextField.font = PaymentAmountCell.textFieldFont
 
         // Buttons setup
         let buttonTextAttributes: [NSAttributedString.Key: Any] = [
-            .font: AmountFieldCell.buttonFont,
+            .font: PaymentAmountCell.buttonFont,
             .foregroundColor: R.clr.podoColors.empty()
         ]
-        let emptyButtonLabel = NSAttributedString(string: AmountFieldCell.defaultButtonText,
+        let emptyButtonLabel = NSAttributedString(string: PaymentAmountCell.defaultButtonText,
                                                   attributes: buttonTextAttributes)
         [firstSumButton, secondSumButton, thirdSumButton].forEach { button in
             button.contentEdgeInsets = AmountFieldCell.buttonContentInset
@@ -144,7 +144,7 @@ final class AmountFieldCell: UITableViewCell {
         let endPoint = CGPoint(x: rect.maxX - Constant.CardPaymentMenu.cellMarginValue, y: rect.midY)
 
         if let context = UIGraphicsGetCurrentContext() {
-            context.setLineWidth(AmountFieldCell.separatorWidth)
+            context.setLineWidth(PaymentAmountCell.separatorWidth)
             context.setStrokeColor(R.clr.podoColors.empty().cgColor)
             context.move(to: startPorint)
             context.addLine(to: endPoint)
@@ -155,7 +155,7 @@ final class AmountFieldCell: UITableViewCell {
 
 // MARK: - Configurable protocol conformance
 
-extension AmountFieldCell: Configurable {
+extension PaymentAmountCell: Configurable {
 
     typealias ViewModel = Any
 
