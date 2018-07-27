@@ -69,6 +69,11 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
         tableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)
+
+        viewModel.isPaymentValid
+            .asDriver(onErrorJustReturn: false)
+            .drive(paymentButton.rx.isEnabled)
+            .disposed(by: disposeBag)
     }
 }
 

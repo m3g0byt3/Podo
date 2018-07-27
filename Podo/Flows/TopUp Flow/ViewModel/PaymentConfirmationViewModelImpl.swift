@@ -16,6 +16,8 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
     private let models: [PaymentConfirmationSectionViewModelImpl]
 
     // MARK: - PaymentConfirmationViewModel protocol conformance
+
+    let isPaymentValid: Observable<Bool>
     var sections: Observable<[PaymentConfirmationSectionViewModelImpl]> {
         return Observable.just(models)
     }
@@ -23,6 +25,9 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
     // MARK: - Initialization
 
     init(transportCardViewModel: TransportCardViewModelProtocol) {
+        self.isPaymentValid = PaymentConfirmationViewModelImpl
+            .isValid()
+
         self.models = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
                                       items: [.paymentCardSectionItem]),
                   .transportCardSection(title: R.string.localizable.transportCardSection(),
@@ -30,5 +35,12 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
                   .amountFieldSection(title: R.string.localizable.amountFieldSection(),
                                       items: [.amountFieldSectionItem])
         ]
+    }
+
+    private static func isValid() -> Observable<Bool> {
+        return Observable.create { observer in
+            // TODO: replace with real logic!
+            return Disposables.create()
+        }
     }
 }
