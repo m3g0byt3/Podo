@@ -93,9 +93,9 @@ private extension PaymentViewController {
                     let cell: TransportCardCell = tableView.dequeueReusableCell(for: indexPath)
                     return cell.configure(with: innerViewModel)
                 case .amountFieldSectionItem:
-                    // FIXME: Configure with real VM
-                    return cell.configure(with: NSObject())
                     let cell: PaymentAmountCell = tableView.dequeueReusableCell(for: indexPath)
+                    // FIXME: Inject VM in fabric/DI
+                    return cell.configure(with: PaymentAmountCellViewModel())
                 }
             },
             titleForHeaderInSection: { (dataSource, index) in

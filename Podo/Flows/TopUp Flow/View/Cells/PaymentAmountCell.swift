@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class PaymentAmountCell: UITableViewCell {
 
@@ -15,6 +17,7 @@ final class PaymentAmountCell: UITableViewCell {
 
     private static let buttonHeightToCornerRadiusRatio: CGFloat = 0.5
     private static let defaultButtonText = "%unassigned_label%"
+    private static let onErrorPlaceholder = ""
 
     private static var textFieldFont: UIFont {
         return UIFont.monospacedDigitSystemFont(ofSize: 44.0, weight: .thin)
@@ -39,14 +42,18 @@ final class PaymentAmountCell: UITableViewCell {
                             right: Constant.CardPaymentMenu.sumButtonHorizontalInset)
     }
 
+    private enum PositionParameters {
+        static let direction = UITextLayoutDirection.left
+        static let offset = 1
+    }
+
     // MARK: - Private properties
 
     private let containerView = UIView()
     private let sumTextField = UITextField()
-    private let firstSumButton = RoundShadowButton(type: .system)
-    private let secondSumButton = RoundShadowButton(type: .system)
-    private let thirdSumButton = RoundShadowButton(type: .system)
+    private let sumButtons = (0..<3).map { _ in RoundShadowButton(type: .system) }
     private let buttonStackView = UIStackView()
+    private let disposeBag = DisposeBag()
 
     // MARK: - Public properties
 
@@ -120,10 +127,10 @@ final class PaymentAmountCell: UITableViewCell {
         ]
         let emptyButtonLabel = NSAttributedString(string: PaymentAmountCell.defaultButtonText,
                                                   attributes: buttonTextAttributes)
-        [firstSumButton, secondSumButton, thirdSumButton].forEach { button in
-            button.contentEdgeInsets = AmountFieldCell.buttonContentInset
-            button.layer.borderWidth = AmountFieldCell.buttonBorderWidth
-            button.heightToCornerRadiusRatio = AmountFieldCell.buttonHeightToCornerRadiusRatio
+        sumButtons.forEach { button in
+            button.contentEdgeInsets = PaymentAmountCell.buttonContentInset
+            button.layer.borderWidth = PaymentAmountCell.buttonBorderWidth
+            button.heightToCornerRadiusRatio = PaymentAmountCell.buttonHeightToCornerRadiusRatio
             button.layer.borderColor = R.clr.podoColors.empty().cgColor
             button.shadowColor = .clear
             button.setAttributedTitle(emptyButtonLabel, for: .normal)
@@ -151,21 +158,75 @@ final class PaymentAmountCell: UITableViewCell {
             context.strokePath()
         }
     }
+
+    private func setPositionForTextField(_ sender: UITextField?) {
+        guard
+            let textField = sender,
+            let newPosition = textField.position(from: textField.endOfDocument,
+                                                 in: PositionParameters.direction,
+                                                 offset: PositionParameters.offset)
+        else { return }
+        textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
+    }
 }
 
 // MARK: - Configurable protocol conformance
 
 extension PaymentAmountCell: Configurable {
 
-    typealias ViewModel = Any
+    typealias ViewModel = PaymentAmountCellViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: Any) -> Self {
-        // TODO: Add actual implementation
-        sumTextField.placeholder = "0₽"
-        [firstSumButton, secondSumButton, thirdSumButton]
-            .enumerated()
-            .forEach { $1?.setTitle("+\($0 + 1)00₽", for: .normal, preserveAttributes: true) }
+    func configure(with viewModel: ViewModel) -> Self {
+
+        sumTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .bind(to: viewModel.input.amountInput)
+            .disposed(by: disposeBag)
+
+        sumTextField.rx.text
+            .orEmpty
+            .subscribe(onNext: { [weak self] _ in
+                self?.setPositionForTextField(self?.sumTextField)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.output.amountOutput
+            .asDriver(onErrorJustReturn: PaymentAmountCell.onErrorPlaceholder)
+            .drive(sumTextField.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.placeholder
+            .asDriver(onErrorJustReturn: PaymentAmountCell.onErrorPlaceholder)
+            .drive(sumTextField.rx.placeholder)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isAmountValid
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isValid in
+                self?.sumTextField.textColor = isValid ? R.clr.podoColors.empty() : R.clr.appleHIG.red()
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.output.buttonViewModels
+            .toArray()
+            .asDriver(onErrorJustReturn: [])
+            .drive(onNext: { [weak self] viewModels in
+                guard
+                    let buttons = self?.sumButtons,
+                    let bag = self?.disposeBag
+                else { return }
+
+                for (viewModel, button) in zip(viewModels, buttons) {
+                    button.setTitle(viewModel.output.title, for: .normal, preserveAttributes: true)
+                    button.rx.tap
+                        .bind(to: viewModel.input.selected)
+                        .disposed(by: bag)
+                }
+            })
+            .disposed(by: disposeBag)
+
         return self
     }
 }
