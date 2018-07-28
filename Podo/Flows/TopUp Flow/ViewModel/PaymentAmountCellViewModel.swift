@@ -15,6 +15,7 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
 
     // MARK: - Constants
 
+    private static let buttonOutputSkip = 1
     private static let minTopUpAmount = 1
     private static let maxTopUpAmount = 14_500
     private static let currencySign = "₽"
@@ -45,12 +46,18 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
         let buttonViewModels = PaymentAmountCellViewModel.buttonViewModelRange
             .map { $0 * PaymentAmountCellViewModel.buttonViewModelMultiplier }
             .map { Int($0) }
-            .map { PaymentAmountCellButtonViewModel(value: $0) }
+            .map { PaymentAmountCellButtonViewModel(value: $0, sign: PaymentAmountCellViewModel.currencySign) }
 
-        self.buttonViewModels = Observable.from(buttonViewModels)
+        self.buttonViewModels = Observable
+            .from(buttonViewModels)
 
-        self.amountOutput = self.amountInput
-            .asObservable()
+        let buttonViewModelInputs = buttonViewModels
+            .map { $0.output.title.skip(PaymentAmountCellViewModel.buttonOutputSkip) }
+
+        let amountInputs = [self.amountInput.asObservable()]
+
+        self.amountOutput = Observable
+            .merge([buttonViewModelInputs, amountInputs].joined())
             .map { $0.replacingOccurrences(of: PaymentAmountCellViewModel.notNumericSet,
                                            with: PaymentAmountCellViewModel.notNumericReplacement)
             }

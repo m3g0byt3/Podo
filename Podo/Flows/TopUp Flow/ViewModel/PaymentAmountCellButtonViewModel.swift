@@ -13,28 +13,23 @@ struct PaymentAmountCellButtonViewModel: PaymentAmountCellButtonViewModelProtoco
                                             PaymentAmountCellButtonViewModelInputProtocol,
                                             PaymentAmountCellButtonViewModelOutputProtocol {
 
-    // MARK: - Constants
-
-    private static let currencySign = "₽"
-
     // MARK: - PaymentAmountCellButtonViewModelProtocol protocol conformance
 
     var input: PaymentAmountCellButtonViewModelInputProtocol { return self }
     var output: PaymentAmountCellButtonViewModelOutputProtocol { return self }
     let selected: PublishSubject<Void>
-    // TODO: Use single value instead `value` and `title`
-    let value: Observable<Int>
-    let title: String
+    let title: Observable<String>
 
     // MARK: - Initialization
 
-    init(value: Int) {
+    init(value: Int, sign: String) {
+        let title = String(value).appending(sign)
+
         self.selected = PublishSubject<Void>()
 
-        self.value = self.selected
+        self.title = self.selected
             .asObservable()
-            .map { value }
-
-        self.title = String(value).appending(PaymentAmountCellButtonViewModel.currencySign)
+            .map { title }
+            .startWith(title)
     }
 }

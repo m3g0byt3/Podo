@@ -13,6 +13,10 @@ import RxCocoa
 
 final class PaymentAmountCell: UITableViewCell {
 
+    // MARK: - Typealiases
+
+    private typealias Mapped = (button: RoundShadowButton, viewModel: PaymentAmountCellButtonViewModelProtocol)
+
     // MARK: - Constants
 
     private static let buttonHeightToCornerRadiusRatio: CGFloat = 0.5
@@ -168,6 +172,28 @@ final class PaymentAmountCell: UITableViewCell {
         else { return }
         textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
     }
+
+    private func mapButtonsTo(viewModels: [PaymentAmountCellButtonViewModelProtocol]) -> Observable<Mapped> {
+        return Observable.create { observer in
+            zip(self.sumButtons, viewModels).forEach(observer.onNext)
+            observer.onCompleted()
+
+            return Disposables.create()
+        }
+    }
+
+    private static func bindButtonTitle(_ mapped: Mapped) -> Observable<Mapped> {
+        return mapped.viewModel.output.title
+            .map { mapped.button.setTitle($0, for: .normal, preserveAttributes: true) }
+            .map { mapped }
+    }
+
+    private static func bindButtonTap(_ mapped: Mapped) -> Observable<Void> {
+        return Observable.create { subscriber in
+            return mapped.button.rx.tap
+                .bind(to: mapped.viewModel.input.selected)
+        }
+    }
 }
 
 // MARK: - Configurable protocol conformance
@@ -178,7 +204,6 @@ extension PaymentAmountCell: Configurable {
 
     @discardableResult
     func configure(with viewModel: ViewModel) -> Self {
-
         sumTextField.rx.text
             .orEmpty
             .distinctUntilChanged()
@@ -211,20 +236,13 @@ extension PaymentAmountCell: Configurable {
 
         viewModel.output.buttonViewModels
             .toArray()
-            .asDriver(onErrorJustReturn: [])
-            .drive(onNext: { [weak self] viewModels in
-                guard
-                    let buttons = self?.sumButtons,
-                    let bag = self?.disposeBag
-                else { return }
-
-                for (viewModel, button) in zip(viewModels, buttons) {
-                    button.setTitle(viewModel.output.title, for: .normal, preserveAttributes: true)
-                    button.rx.tap
-                        .bind(to: viewModel.input.selected)
-                        .disposed(by: bag)
-                }
-            })
+            .flatMap { [weak self] viewModels in
+                self?.mapButtonsTo(viewModels: viewModels) ?? .empty()
+            }
+            .observeOn(MainScheduler.instance)
+            .flatMap(PaymentAmountCell.bindButtonTitle)
+            .flatMap(PaymentAmountCell.bindButtonTap)
+            .subscribe()
             .disposed(by: disposeBag)
 
         return self

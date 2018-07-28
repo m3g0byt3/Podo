@@ -22,6 +22,5 @@ protocol PaymentAmountCellButtonViewModelInputProtocol {
 
 protocol PaymentAmountCellButtonViewModelOutputProtocol {
 
-    var value: Observable<Int> { get }
-    var title: String { get }
+    var title: Observable<String> { get }
 }
