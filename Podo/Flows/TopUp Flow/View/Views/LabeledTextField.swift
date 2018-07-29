@@ -14,7 +14,7 @@ final class LabeledTextField: UIView {
 
     // MARK: - Typealiases
 
-    typealias ButtonHandler = (LabeledTextField) -> Void
+    typealias ButtonHandler = (LabeledTextField?) -> Void
 
     // MARK: - Private Properties
 
@@ -86,8 +86,8 @@ final class LabeledTextField: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.keyboardType = .numberPad
-        textField.buttonHandler = { [unowned self] _ in
-            self.buttonHandler?(self)
+        textField.buttonHandler = { [weak self] _ in
+            self?.buttonHandler?(self)
         }
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
