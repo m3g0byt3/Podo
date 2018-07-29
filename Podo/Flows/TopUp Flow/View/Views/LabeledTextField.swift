@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 @IBDesignable
-final class LabeledTextField: UIView {
+final class LabeledTextField: UIControl {
 
     // MARK: - Typealiases
 
@@ -86,8 +86,10 @@ final class LabeledTextField: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.keyboardType = .numberPad
+        textField.addTarget(self, action: #selector(forwardEditingEvents), for: .allEditingEvents)
         textField.buttonHandler = { [weak self] _ in
             self?.buttonHandler?(self)
+            self?.forwardTouchEvents()
         }
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
@@ -112,9 +114,15 @@ final class LabeledTextField: UIView {
                 make.top.equalTo(label.snp.bottom)
             }
         }
+    @objc private func forwardEditingEvents() {
+        sendActions(for: .allEditingEvents)
+    }
 
         return {}
     }()
+    @objc private func forwardTouchEvents() {
+        sendActions(for: .allTouchEvents)
+    }
 
     /// Setup KVO for `backgroundColor` property.
     private func setupObservers() {
