@@ -173,7 +173,7 @@ final class PaymentAmountCell: UITableViewCell {
         textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
     }
 
-    private func mapButtonsTo(viewModels: [PaymentAmountCellButtonViewModelProtocol]) -> Observable<Mapped> {
+    private func mapButtonsTo(_ viewModels: [PaymentAmountCellButtonViewModelProtocol]) -> Observable<Mapped> {
         return Observable.create { observer in
             zip(self.sumButtons, viewModels).forEach(observer.onNext)
             observer.onCompleted()
@@ -237,7 +237,7 @@ extension PaymentAmountCell: Configurable {
         viewModel.output.buttonViewModels
             .toArray()
             .flatMap { [weak self] viewModels in
-                self?.mapButtonsTo(viewModels: viewModels) ?? .empty()
+                self?.mapButtonsTo(viewModels) ?? .empty()
             }
             .observeOn(MainScheduler.instance)
             .flatMap(PaymentAmountCell.bindButtonTitle)
