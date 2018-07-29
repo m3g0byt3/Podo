@@ -45,7 +45,16 @@ final class LabeledTextField: UIControl {
     // MARK: - Public API
 
     override func updateConstraints() {
-        setupConstraints()
+        label?.snp.updateConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+        }
+
+        textField?.snp.updateConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            if let label = label {
+                make.top.equalTo(label.snp.bottom)
+            }
+        }
         super.updateConstraints()
     }
 
@@ -99,27 +108,10 @@ final class LabeledTextField: UIControl {
         isOpaque = false
     }
 
-    /**
-     Setup required constraints.
-     - warning: ⚠️ Dispatched once ⚠️
-     */
-    private lazy var setupConstraints: () -> Void = { [weak self] in
-        label?.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
-        }
-
-        textField?.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            if let label = label {
-                make.top.equalTo(label.snp.bottom)
-            }
-        }
     @objc private func forwardEditingEvents() {
         sendActions(for: .allEditingEvents)
     }
 
-        return {}
-    }()
     @objc private func forwardTouchEvents() {
         sendActions(for: .allTouchEvents)
     }
