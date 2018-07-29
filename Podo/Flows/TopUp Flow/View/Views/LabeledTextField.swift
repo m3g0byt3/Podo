@@ -1,5 +1,5 @@
 //
-//  PaymentCardTextFieldView.swift
+//  LabeledTextField.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 24/06/2018.
@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 
 @IBDesignable
-final class PaymentCardTextFieldView: UIView {
+final class LabeledTextField: UIView {
 
     // MARK: - Typealiases
 
-    typealias ButtonHandler = (PaymentCardTextFieldView) -> Void
+    typealias ButtonHandler = (LabeledTextField) -> Void
 
     // MARK: - Private Properties
 
@@ -54,7 +54,7 @@ final class PaymentCardTextFieldView: UIView {
         let endPoint = CGPoint(x: bounds.maxX, y: bounds.maxY)
 
         if let context = UIGraphicsGetCurrentContext() {
-            context.setLineWidth(PaymentCardTextFieldView.underlineWidth)
+            context.setLineWidth(LabeledTextField.underlineWidth)
             underlineColor.map { $0.cgColor }.map { context.setStrokeColor($0) }
             context.move(to: startPorint)
             context.addLine(to: endPoint)
@@ -129,7 +129,7 @@ final class PaymentCardTextFieldView: UIView {
 
 // MARK: - Public IBInspectable Properties
 
-extension PaymentCardTextFieldView {
+extension LabeledTextField {
 
     @IBInspectable
     var labelText: String? {
