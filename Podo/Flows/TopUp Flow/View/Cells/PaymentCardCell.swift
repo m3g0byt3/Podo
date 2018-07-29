@@ -14,14 +14,14 @@ final class PaymentCardCell: UITableViewCell {
 
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var cardNumberTextField: PaymentCardTextFieldView! {
+    @IBOutlet private weak var cardNumberTextField: LabeledTextField! {
         // FIXME: test only logging
         didSet {
             cardNumberTextField.buttonHandler = { print("pressed button at view: \($0)") }
         }
     }
-    @IBOutlet private weak var expirationTextField: PaymentCardTextFieldView!
-    @IBOutlet private weak var cvcTextField: PaymentCardTextFieldView!
+    @IBOutlet private weak var expirationTextField: LabeledTextField!
+    @IBOutlet private weak var cvcTextField: LabeledTextField!
 
     // MARK: - Properties
 

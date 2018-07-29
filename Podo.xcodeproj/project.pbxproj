@@ -73,7 +73,6 @@
 		416F52972085319300C519A6 /* PaymentMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F52962085319300C519A6 /* PaymentMethodViewModel.swift */; };
 		416F5299208531E700C519A6 /* PaymentMethodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F5298208531E700C519A6 /* PaymentMethodCellViewModel.swift */; };
 		416F529D20853EAC00C519A6 /* PaymentMethodCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F529C20853EAC00C519A6 /* PaymentMethodCellViewModelImpl.swift */; };
-		416FD02420DFE0F600558BCB /* PaymentCardTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416FD02320DFE0F600558BCB /* PaymentCardTextFieldView.swift */; };
 		41744BBA202E13B10063FE5E /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */; };
 		41744BBB202E13B10063FE5E /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */; };
 		41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41787B3A206879D900693FA1 /* AddNewCardView.swift */; };
@@ -101,6 +100,7 @@
 		418A84032043254000A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModel.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */; };
 		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
+		418AD788210DDEC6008E54E7 /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418AD787210DDEC6008E54E7 /* LabeledTextField.swift */; };
 		418ECEC92104077700AD4230 /* EphemeralDictionaryWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */; };
 		418EDE672062841600E54E33 /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */; };
 		418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D1205C8F8600397B48 /* AnyViewModel.swift */; };
@@ -268,7 +268,6 @@
 		416F52962085319300C519A6 /* PaymentMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModel.swift; sourceTree = "<group>"; };
 		416F5298208531E700C519A6 /* PaymentMethodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModel.swift; sourceTree = "<group>"; };
 		416F529C20853EAC00C519A6 /* PaymentMethodCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModelImpl.swift; sourceTree = "<group>"; };
-		416FD02320DFE0F600558BCB /* PaymentCardTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCardTextFieldView.swift; sourceTree = "<group>"; };
 		41744BB8202E13B10063FE5E /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		41744BB9202E13B10063FE5E /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		41787B3A206879D900693FA1 /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
@@ -297,6 +296,7 @@
 		418A84022043254000A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModelImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelImpl.swift; sourceTree = "<group>"; };
 		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
+		418AD787210DDEC6008E54E7 /* LabeledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledTextField.swift; sourceTree = "<group>"; };
 		418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemeralDictionaryWrapper.swift; sourceTree = "<group>"; };
 		418EDE662062841600E54E33 /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		418F79D1205C8F8600397B48 /* AnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyViewModel.swift; sourceTree = "<group>"; };
@@ -588,7 +588,7 @@
 		416FD02220DFE0E100558BCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				416FD02320DFE0F600558BCB /* PaymentCardTextFieldView.swift */,
+				418AD787210DDEC6008E54E7 /* LabeledTextField.swift */,
 				411C322420E00AA5008964AD /* PaymentCardBackgroundView.swift */,
 				419EBEFD20E4054700952FDA /* DoubleMarginView.swift */,
 			);
@@ -1551,6 +1551,7 @@
 				4179E9F62046074D007CF219 /* DatabaseService.swift in Sources */,
 				41D1313020F9073F00F2D7BB /* KeyboardNotification.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModel.swift in Sources */,
+				418AD788210DDEC6008E54E7 /* LabeledTextField.swift in Sources */,
 				4148964320669C3C00C3C000 /* HelpView.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
 				4135F38320EB01130078AFFB /* UIButton+Extensions.swift in Sources */,
@@ -1582,7 +1583,6 @@
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModel.swift in Sources */,
 				4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
-				416FD02420DFE0F600558BCB /* PaymentCardTextFieldView.swift in Sources */,
 				41CD4CC720939B980029800B /* PaymentViewController.swift in Sources */,
 				41787B3D20687DC000693FA1 /* AddNewCardViewController.swift in Sources */,
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,

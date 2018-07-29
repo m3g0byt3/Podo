@@ -1,5 +1,5 @@
 //
-//  PaymentCardTextFieldView.swift
+//  LabeledTextField.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 24/06/2018.
@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 
 @IBDesignable
-final class PaymentCardTextFieldView: UIView {
+final class LabeledTextField: UIControl {
 
     // MARK: - Typealiases
 
-    typealias ButtonHandler = (PaymentCardTextFieldView) -> Void
+    typealias ButtonHandler = (LabeledTextField?) -> Void
 
     // MARK: - Private Properties
 
@@ -54,7 +54,7 @@ final class PaymentCardTextFieldView: UIView {
         let endPoint = CGPoint(x: bounds.maxX, y: bounds.maxY)
 
         if let context = UIGraphicsGetCurrentContext() {
-            context.setLineWidth(PaymentCardTextFieldView.underlineWidth)
+            context.setLineWidth(LabeledTextField.underlineWidth)
             underlineColor.map { $0.cgColor }.map { context.setStrokeColor($0) }
             context.move(to: startPorint)
             context.addLine(to: endPoint)
@@ -86,8 +86,10 @@ final class PaymentCardTextFieldView: UIView {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.keyboardType = .numberPad
-        textField.buttonHandler = { [unowned self] _ in
-            self.buttonHandler?(self)
+        textField.addTarget(self, action: #selector(forwardEditingEvents), for: .allEditingEvents)
+        textField.buttonHandler = { [weak self] _ in
+            self?.buttonHandler?(self)
+            self?.forwardTouchEvents()
         }
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
@@ -112,9 +114,15 @@ final class PaymentCardTextFieldView: UIView {
                 make.top.equalTo(label.snp.bottom)
             }
         }
+    @objc private func forwardEditingEvents() {
+        sendActions(for: .allEditingEvents)
+    }
 
         return {}
     }()
+    @objc private func forwardTouchEvents() {
+        sendActions(for: .allTouchEvents)
+    }
 
     /// Setup KVO for `backgroundColor` property.
     private func setupObservers() {
@@ -129,7 +137,7 @@ final class PaymentCardTextFieldView: UIView {
 
 // MARK: - Public IBInspectable Properties
 
-extension PaymentCardTextFieldView {
+extension LabeledTextField {
 
     @IBInspectable
     var labelText: String? {
