@@ -25,6 +25,13 @@ extension Reactive where Base: UITextField {
     var rightOverlayButtonTap: ControlEvent<Void>? {
         return base.rightView.flatMap { $0 as? UIButton }?.rx.tap
     }
+
+    /// Bindable sink for `placeholder` property.
+    public var placeholder: Binder<String?> {
+        return Binder(self.base) { textField, value in
+            textField.placeholder = value
+        }
+    }
 }
 
 extension Reactive where Base: GradientView {
