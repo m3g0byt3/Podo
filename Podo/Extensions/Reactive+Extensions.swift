@@ -38,8 +38,11 @@ extension Reactive where Base: GradientView {
 
     /// Bindable sink for `gradientColors` property.
     var gradientColors: Binder<[UIColor]> {
-        return Binder(self.base) { view, gradientColors in
-            view.gradientColors = gradientColors
+        return Binder(self.base) { view, value in
+            view.gradientColors = value
+        }
+    }
+}
 
 extension Reactive where Base: LabeledTextField {
 
