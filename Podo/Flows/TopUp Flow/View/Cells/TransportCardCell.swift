@@ -34,7 +34,7 @@ final class TransportCardCell: UITableViewCell {
 
 extension TransportCardCell: Configurable {
 
-    typealias ViewModel = CardsCellViewModel
+    typealias ViewModel = TransportCardViewModelProtocol
 
     @discardableResult
     func configure(with viewModel: ViewModel) -> Self {
