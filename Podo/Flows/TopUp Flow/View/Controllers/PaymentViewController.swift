@@ -85,17 +85,18 @@ private extension PaymentViewController {
         return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl>(
             configureCell: { (_, tableView, indexPath, viewModel) in
                 switch viewModel {
-                case .paymentCardSectionItem:
+
+                case .paymentCardSectionItem(let viewModel):
                     let cell: PaymentCardCell = tableView.dequeueReusableCell(for: indexPath)
-                    // FIXME: Configure with real VM
-                    return cell.configure(with: NSObject())
-                case .transportCardSectionItem(let innerViewModel):
+                    return cell.configure(with: viewModel)
+
+                case .transportCardSectionItem(let viewModel):
                     let cell: TransportCardCell = tableView.dequeueReusableCell(for: indexPath)
-                    return cell.configure(with: innerViewModel)
-                case .amountFieldSectionItem:
+                    return cell.configure(with: viewModel)
+
+                case .amountFieldSectionItem(let viewModel):
                     let cell: PaymentAmountCell = tableView.dequeueReusableCell(for: indexPath)
-                    // FIXME: Inject VM in fabric/DI
-                    return cell.configure(with: PaymentAmountCellViewModel())
+                    return cell.configure(with: viewModel)
                 }
             },
             titleForHeaderInSection: { (dataSource, index) in
