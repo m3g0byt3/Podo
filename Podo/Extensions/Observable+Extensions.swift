@@ -29,3 +29,24 @@ public extension ObservableType where E: OptionalType {
         }
     }
 }
+
+public extension ObservableType where E == String {
+
+    /// Filters out non-numeric characters from observable of type `Observable<String>`.
+    ///
+    /// - Returns: `Observable<String>` with non-numeric characters elements filtered out.
+    public func filterNonNumeric() -> Observable<E> {
+        let notNumericSet = CharacterSet.decimalDigits.inverted
+        let notNumericReplacement = ""
+
+        return self.map { string in
+            var newString = string
+
+            while let range = newString.rangeOfCharacter(from: notNumericSet) {
+                newString = newString.replacingCharacters(in: range, with: notNumericReplacement)
+            }
+
+            return newString
+        }
+    }
+}
