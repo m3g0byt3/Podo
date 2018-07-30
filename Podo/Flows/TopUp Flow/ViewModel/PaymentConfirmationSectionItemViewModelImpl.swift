@@ -10,8 +10,8 @@
 import Foundation
 
 enum PaymentConfirmationSectionItemViewModelImpl {
-    // TODO: replace `String` associated values with child view model associated values
-    case transportCardSectionItem(title: String)
-    case paymentCardSectionItem(title: String)
-    case amountFieldSectionItem(title: String)
+
+    case transportCardSectionItem(viewModel: TransportCardViewModelProtocol)
+    case paymentCardSectionItem(viewModel: PaymentCardCellViewModelProtocol)
+    case amountFieldSectionItem(viewModel: PaymentAmountCellViewModelProtocol)
 }

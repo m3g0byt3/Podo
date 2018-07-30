@@ -20,9 +20,9 @@ extension PaymentConfirmationSectionViewModelImpl: SectionModelType {
 
     var items: [PaymentConfirmationSectionItemViewModelImpl] {
         switch self {
-        case .transportCardSection(_, items: let items): return items
-        case .paymentCardSection(_, items: let items): return items
-        case .amountFieldSection(_, items: let items): return items
+        case .transportCardSection(_, let items): return items
+        case .paymentCardSection(_, let items): return items
+        case .amountFieldSection(_, let items): return items
         }
     }
 
@@ -36,11 +36,11 @@ extension PaymentConfirmationSectionViewModelImpl: SectionModelType {
 
     init(original: PaymentConfirmationSectionViewModelImpl, items: [PaymentConfirmationSectionItemViewModelImpl]) {
         switch original {
-        case .transportCardSection(title: let title, _):
+        case .transportCardSection(let title, _):
             self = .transportCardSection(title: title, items: items)
-        case .paymentCardSection(title: let title, _):
+        case .paymentCardSection(let title, _):
             self = .paymentCardSection(title: title, items: items)
-        case .amountFieldSection(title: let title, _):
+        case .amountFieldSection(let title, _):
             self = .amountFieldSection(title: title, items: items)
         }
     }

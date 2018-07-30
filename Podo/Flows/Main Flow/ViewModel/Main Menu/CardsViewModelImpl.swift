@@ -15,21 +15,21 @@ final class CardsViewModelImpl: CardsViewModel {
     // MARK: - Properties
 
     private let model: AnyDatabaseService<TransportCard>
-    private let viewModels: BehaviorRelay<[CardsCellViewModel]>
+    private let viewModels: BehaviorRelay<[TransportCardViewModelProtocol]>
 
     // MARK: - CardsViewModel protocol conformance
 
-    var childViewModels: Driver<[CardsCellViewModel]> {
+    var childViewModels: Driver<[TransportCardViewModelProtocol]> {
         return viewModels.asDriver()
     }
 
     // MARK: - Initialization
 
     init(_ model: AnyDatabaseService<TransportCard>) {
-        self.viewModels = BehaviorRelay(value: [CardsCellViewModel]())
+        self.viewModels = BehaviorRelay(value: [TransportCardViewModelProtocol]())
         self.model = model
         try? model.fetch(predicate: nil, sorted: nil) { [weak self] result in
-            let viewModels = result.map(CardsCellViewModelImpl.init)
+            let viewModels = result.map(TransportCardViewModel.init)
             self?.viewModels.accept(viewModels)
         }
     }

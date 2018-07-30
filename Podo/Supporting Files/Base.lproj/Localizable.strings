@@ -32,3 +32,8 @@
 "payment-card-section" = "Payment card";
 "transport-card-section" = "Transport card";
 "amount-field-section" = "Amount to pay";
+
+"card-cell-title" = "Enter card details";
+"card-cell-number-label" = "Card number";
+"card-cell-expiration-label" = "Expiration";
+"card-cell-cvv-label" = "CVC/CVV code";

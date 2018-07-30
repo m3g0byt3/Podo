@@ -7,21 +7,36 @@
 //
 
 import Foundation
-import struct RxCocoa.Driver
-import class RxSwift.PublishSubject
+import RxSwift
 
 protocol PaymentCardCellViewModelProtocol {
 
-    // MARK: - Inputs
+    var input: PaymentCardCellViewModelInputProtocol { get }
+    var output: PaymentCardCellViewModelOutputProtocol { get }
+}
 
-    var cardNumberInput: PublishSubject<String> { get }
-    var cvcNumberInput: PublishSubject<String> { get }
-    var expiryDateInput: PublishSubject<String> { get }
-    var scanRequested: PublishSubject<Void> { get }
+protocol PaymentCardCellViewModelInputProtocol {
 
-    // MARK: - Outputs
+    var cardNumber: PublishSubject<String> { get }
+    var cvcNumber: PublishSubject<String> { get }
+    var expiryDate: PublishSubject<String> { get }
+}
 
-    var cardNumberOutput: Driver<String> { get }
-    var cvcNumberOutput: Driver<String> { get }
-    var expiryDateOutput: Driver<String> { get }
+protocol PaymentCardCellViewModelOutputProtocol {
+
+    var isCardValid: Observable<Bool> { get }
+
+    var cardTitle: Single<String> { get }
+
+    var cardNumberText: Observable<String> { get }
+    var cardNumberLabel: Single<String> { get }
+    var cardNumberPlaceholder: Single<String> { get }
+
+    var cvcNumberText: Observable<String> { get }
+    var cvcNumberLabel: Single<String> { get }
+    var cvcNumberPlaceholder: Single<String> { get }
+
+    var expiryDateText: Observable<String> { get }
+    var expiryDateLabel: Single<String> { get }
+    var expiryDatePlaceholder: Single<String> { get }
 }

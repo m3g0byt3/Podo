@@ -16,6 +16,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
     // MARK: IBOutlets
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var paymentButton: UIBarButtonItem!
 
     // MARK: - Properties
 
@@ -54,18 +55,24 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
         tableView.estimatedRowHeight = Constant.CardPaymentMenu.estimatedRowHeight
         tableView.register(R.nib.paymentCardCell)
         tableView.register(R.nib.transportCardCell)
-        tableView.register(AmountFieldCell.self)
+        tableView.register(PaymentAmountCell.self)
     }
 
     private func setupBindings() {
         let dataSource = PaymentViewController.dataSource()
 
         viewModel.sections
+            .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
         tableView.rx
             .setDelegate(self)
+            .disposed(by: disposeBag)
+
+        viewModel.isPaymentValid
+            .asDriver(onErrorJustReturn: false)
+            .drive(paymentButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }
@@ -76,26 +83,20 @@ private extension PaymentViewController {
 
     static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl> {
         return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl>(
-            configureCell: { (dataSource, tableView, indexPath, viewModel) in
-                switch dataSource[indexPath] {
-                case .paymentCardSectionItem(let title):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.paymentCardCell,
-                                                             for: indexPath)!
-                    // FIXME: test only logging
-                    print(title)
-                    return cell
-                case .transportCardSectionItem(let title):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.transportCardCell,
-                                                             for: indexPath)!
-                    // FIXME: test only logging
-                    print(title)
-                    return cell
-                case .amountFieldSectionItem(let title):
-                    let cell: AmountFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                    // FIXME: test only logging
-                    print(title)
-                    cell.configure(with: NSObject())
-                    return cell
+            configureCell: { (_, tableView, indexPath, viewModel) in
+                switch viewModel {
+
+                case .paymentCardSectionItem(let viewModel):
+                    let cell: PaymentCardCell = tableView.dequeueReusableCell(for: indexPath)
+                    return cell.configure(with: viewModel)
+
+                case .transportCardSectionItem(let viewModel):
+                    let cell: TransportCardCell = tableView.dequeueReusableCell(for: indexPath)
+                    return cell.configure(with: viewModel)
+
+                case .amountFieldSectionItem(let viewModel):
+                    let cell: PaymentAmountCell = tableView.dequeueReusableCell(for: indexPath)
+                    return cell.configure(with: viewModel)
                 }
             },
             titleForHeaderInSection: { (dataSource, index) in

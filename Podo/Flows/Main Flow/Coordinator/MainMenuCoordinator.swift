@@ -23,7 +23,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
             self?.startAddNewCardFlow()
         }
         view.onCardSelection = { [weak self] card in
-            self?.startTopUpFlowForCard(card)
+            self?.startTopUpFlowFor(card)
         }
         router.setRootView(view, animated: true, fullscreen: false)
     }
@@ -88,8 +88,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
         coordinator?.start()
     }
 
-    // FIXME: Use concrete type for `card` instance
-    private func startTopUpFlowForCard(_ card: Any) {
+    private func startTopUpFlowFor(_ card: TransportCardViewModelProtocol) {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
                                                      flow: .topUp,
                                                      argument: router)
@@ -97,8 +96,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
         }
-        // TODO: init `StartOption` with received card identifier
-        let option: StartOption = .topUp(cardIdentifier: "PASS_REAL_CARD_IDENTIFIER_HERE")
+        let option: StartOption = .topUp(transpordCard: card)
         coordinator?.start(with: option)
     }
 
@@ -110,8 +108,8 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     override func start(with option: StartOption?) {
         switch option {
-        // TODO: Find transport card by `cardIdentifier` and pass it to the `startTopUpFlowForCard` func
-        case .some(.topUp(let cardIdentifier)): startTopUpFlowForCard(cardIdentifier)
+        // TODO: Find transport card by `cardIdentifier` and pass it to the `startTopUpFlowFor(_:)` func
+        case .some(.topUp(let cardIdentifier)): assertionFailure("Using identifier \(cardIdentifier) not supported yet")
         case .some(.addNewCard): startAddNewCardFlow()
         case .some(.settings): startSettingsFlow()
         default: break

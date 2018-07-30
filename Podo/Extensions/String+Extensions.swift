@@ -42,4 +42,20 @@ extension String {
         }
         return string
     }
+
+    /// Returns a new string from equal-size chunks of the original string, joined by the given separator.
+    ///
+    /// - Parameters:
+    ///   - size: Size of individual chunk.
+    ///   - separator: Separator between chunks.
+    /// - Returns: String from equal-size chunks of the original string.
+    func split(size: Int, separator: String) -> String {
+        return self.indices
+            .filter { self.distance(from: self.startIndex, to: $0) % size == 0 }
+            .map { (index: String.Index) -> Substring in
+                let endIndex = self.index(index, offsetBy: size, limitedBy: self.endIndex) ?? self.endIndex
+                return self[index..<endIndex]
+            }
+            .joined(separator: separator)
+    }
 }

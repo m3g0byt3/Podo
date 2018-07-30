@@ -1,5 +1,5 @@
 //
-//  AmountFieldCell.swift
+//  PaymentAmountCell.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/06/2018.
@@ -8,13 +8,20 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
-final class AmountFieldCell: UITableViewCell {
+final class PaymentAmountCell: UITableViewCell {
+
+    // MARK: - Typealiases
+
+    private typealias Mapped = (button: RoundShadowButton, viewModel: PaymentAmountCellButtonViewModelProtocol)
 
     // MARK: - Constants
 
     private static let buttonHeightToCornerRadiusRatio: CGFloat = 0.5
     private static let defaultButtonText = "%unassigned_label%"
+    private static let onErrorPlaceholder = ""
 
     private static var textFieldFont: UIFont {
         return UIFont.monospacedDigitSystemFont(ofSize: 44.0, weight: .thin)
@@ -39,14 +46,18 @@ final class AmountFieldCell: UITableViewCell {
                             right: Constant.CardPaymentMenu.sumButtonHorizontalInset)
     }
 
+    private enum PositionParameters {
+        static let direction = UITextLayoutDirection.left
+        static let offset = 1
+    }
+
     // MARK: - Private properties
 
     private let containerView = UIView()
     private let sumTextField = UITextField()
-    private let firstSumButton = RoundShadowButton(type: .system)
-    private let secondSumButton = RoundShadowButton(type: .system)
-    private let thirdSumButton = RoundShadowButton(type: .system)
+    private let sumButtons = (0..<3).map { _ in RoundShadowButton(type: .system) }
     private let buttonStackView = UIStackView()
+    private let disposeBag = DisposeBag()
 
     // MARK: - Public properties
 
@@ -111,19 +122,19 @@ final class AmountFieldCell: UITableViewCell {
         sumTextField.keyboardType = .numberPad
         sumTextField.clearButtonMode = .never
         sumTextField.textColor = R.clr.podoColors.empty()
-        sumTextField.font = AmountFieldCell.textFieldFont
+        sumTextField.font = PaymentAmountCell.textFieldFont
 
         // Buttons setup
         let buttonTextAttributes: [NSAttributedString.Key: Any] = [
-            .font: AmountFieldCell.buttonFont,
+            .font: PaymentAmountCell.buttonFont,
             .foregroundColor: R.clr.podoColors.empty()
         ]
-        let emptyButtonLabel = NSAttributedString(string: AmountFieldCell.defaultButtonText,
+        let emptyButtonLabel = NSAttributedString(string: PaymentAmountCell.defaultButtonText,
                                                   attributes: buttonTextAttributes)
-        [firstSumButton, secondSumButton, thirdSumButton].forEach { button in
-            button.contentEdgeInsets = AmountFieldCell.buttonContentInset
-            button.layer.borderWidth = AmountFieldCell.buttonBorderWidth
-            button.heightToCornerRadiusRatio = AmountFieldCell.buttonHeightToCornerRadiusRatio
+        sumButtons.forEach { button in
+            button.contentEdgeInsets = PaymentAmountCell.buttonContentInset
+            button.layer.borderWidth = PaymentAmountCell.buttonBorderWidth
+            button.heightToCornerRadiusRatio = PaymentAmountCell.buttonHeightToCornerRadiusRatio
             button.layer.borderColor = R.clr.podoColors.empty().cgColor
             button.shadowColor = .clear
             button.setAttributedTitle(emptyButtonLabel, for: .normal)
@@ -144,28 +155,96 @@ final class AmountFieldCell: UITableViewCell {
         let endPoint = CGPoint(x: rect.maxX - Constant.CardPaymentMenu.cellMarginValue, y: rect.midY)
 
         if let context = UIGraphicsGetCurrentContext() {
-            context.setLineWidth(AmountFieldCell.separatorWidth)
+            context.setLineWidth(PaymentAmountCell.separatorWidth)
             context.setStrokeColor(R.clr.podoColors.empty().cgColor)
             context.move(to: startPorint)
             context.addLine(to: endPoint)
             context.strokePath()
         }
     }
+
+    private func setPositionForTextField(_ sender: UITextField?) {
+        guard
+            let textField = sender,
+            let newPosition = textField.position(from: textField.endOfDocument,
+                                                 in: PositionParameters.direction,
+                                                 offset: PositionParameters.offset)
+        else { return }
+        textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
+    }
+
+    private func mapButtonsTo(_ viewModels: [PaymentAmountCellButtonViewModelProtocol]) -> Observable<Mapped> {
+        return Observable.create { observer in
+            zip(self.sumButtons, viewModels).forEach(observer.onNext)
+            observer.onCompleted()
+
+            return Disposables.create()
+        }
+    }
+
+    private static func bindButtonTitle(_ mapped: Mapped) -> Observable<Mapped> {
+        return mapped.viewModel.output.title
+            .map { mapped.button.setTitle($0, for: .normal, preserveAttributes: true) }
+            .map { mapped }
+    }
+
+    private static func bindButtonTap(_ mapped: Mapped) -> Observable<Void> {
+        return Observable.create { subscriber in
+            return mapped.button.rx.tap
+                .bind(to: mapped.viewModel.input.selected)
+        }
+    }
 }
 
 // MARK: - Configurable protocol conformance
 
-extension AmountFieldCell: Configurable {
+extension PaymentAmountCell: Configurable {
 
-    typealias ViewModel = Any
+    typealias ViewModel = PaymentAmountCellViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: Any) -> Self {
-        // TODO: Add actual implementation
-        sumTextField.placeholder = "0₽"
-        [firstSumButton, secondSumButton, thirdSumButton]
-            .enumerated()
-            .forEach { $1?.setTitle("+\($0 + 1)00₽", for: .normal, preserveAttributes: true) }
+    func configure(with viewModel: ViewModel) -> Self {
+        sumTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .bind(to: viewModel.input.amountInput)
+            .disposed(by: disposeBag)
+
+        sumTextField.rx.text
+            .orEmpty
+            .subscribe(onNext: { [weak self] _ in
+                self?.setPositionForTextField(self?.sumTextField)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.output.amountOutput
+            .asDriver(onErrorJustReturn: PaymentAmountCell.onErrorPlaceholder)
+            .drive(sumTextField.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.placeholder
+            .asDriver(onErrorJustReturn: PaymentAmountCell.onErrorPlaceholder)
+            .drive(sumTextField.rx.placeholder)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isAmountValid
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isValid in
+                self?.sumTextField.textColor = isValid ? R.clr.podoColors.empty() : R.clr.appleHIG.red()
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.output.buttonViewModels
+            .toArray()
+            .flatMap { [weak self] viewModels in
+                self?.mapButtonsTo(viewModels) ?? .empty()
+            }
+            .observeOn(MainScheduler.instance)
+            .flatMap(PaymentAmountCell.bindButtonTitle)
+            .flatMap(PaymentAmountCell.bindButtonTap)
+            .subscribe()
+            .disposed(by: disposeBag)
+
         return self
     }
 }

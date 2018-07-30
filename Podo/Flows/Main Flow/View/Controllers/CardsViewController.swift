@@ -73,13 +73,13 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     // MARK: - MainMenuChildView protocol conformance
 
     var onAddNewCardSelection: Completion?
-    var onCardSelection: ((CardsCellViewModel) -> Void)?
+    var onCardSelection: ((TransportCardViewModelProtocol) -> Void)?
 
     // MARK: - Types
 
     private enum ViewModelWrapper {
         // swiftlint:disable:next identifier_name
-        case data(CardsCellViewModel)
+        case data(TransportCardViewModelProtocol)
         case empty
     }
 
@@ -120,7 +120,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
      - parameter viewModels: Array of view models.
      - returns: Driver trait: `Driver<[ViewModelWrapper]`
      */
-    private static func wrapViewModels(_ viewModels: [CardsCellViewModel]) -> Driver<[ViewModelWrapper]> {
+    private static func wrapViewModels(_ viewModels: [TransportCardViewModelProtocol]) -> Driver<[ViewModelWrapper]> {
         let wrappedViewModels = viewModels.map(ViewModelWrapper.data)
         let empty = [ViewModelWrapper.empty]
         return Driver.of(Array([wrappedViewModels, empty].joined()))

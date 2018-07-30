@@ -49,8 +49,28 @@ final class ViewModelAssembly: Assembly {
             return PaymentMethodViewModelImpl(model)
         }
 
-        container.register(PaymentConfirmationViewModel.self) { _ in
-            return PaymentConfirmationViewModelImpl()
+        container.register(PaymentAmountCellViewModelProtocol.self) { _ in
+            return PaymentAmountCellViewModel()
+        }
+
+        container.register(PaymentCardCellViewModelProtocol.self) { _ in
+            return PaymentCardCellViewModel()
+        }
+
+        container.register(PaymentConfirmationViewModel.self) { (resolver, transportCardViewModel: TransportCardViewModelProtocol) in
+            let paymentAmountDependencyType = PaymentAmountCellViewModelProtocol.self
+            let paymentCardDependencyType = PaymentCardCellViewModelProtocol.self
+
+            guard let paymentAmountViewModel = resolver.resolve(paymentAmountDependencyType) else {
+                unableToResolve(paymentAmountDependencyType)
+            }
+            guard let paymentCardViewModel = resolver.resolve(paymentCardDependencyType) else {
+                unableToResolve(paymentCardDependencyType)
+            }
+
+            return PaymentConfirmationViewModelImpl(transportCardViewModel: transportCardViewModel,
+                                                    paymentAmountViewModel: paymentAmountViewModel,
+                                                    paymentCardViewModel: paymentCardViewModel)
         }
     }
 }

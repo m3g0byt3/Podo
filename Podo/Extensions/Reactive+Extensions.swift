@@ -54,7 +54,7 @@ extension Reactive where Base: LabeledTextField {
     }
 
     /// Bindable sink for `labelText` property.
-    var text: Binder<String?> {
+    var labelText: Binder<String?> {
         return Binder(self.base) { labeledTextField, value in
             labeledTextField.labelText = value
         }

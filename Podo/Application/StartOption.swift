@@ -13,7 +13,7 @@ enum StartOption {
     case tutorial
     case settings
     // swiftlint:disable:next identifier_name
-    case topUp(cardIdentifier: String)
+    case topUp(transpordCard: TransportCardViewModelProtocol)
     case addNewCard
 
     // MARK: - Constants
@@ -39,7 +39,7 @@ enum StartOption {
         switch shortcutIdentifier {
         case .addNewCard: self = .addNewCard
         // TODO: Extract card identifier from `userInfo` of `UIApplicationShortcutItem`
-        case .topUpCard: self = .topUp(cardIdentifier: "cardIdentifier")
+        case .topUpCard: notImplemented()
         case .openSettings: self = .settings
         }
     }

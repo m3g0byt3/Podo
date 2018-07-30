@@ -15,5 +15,5 @@ protocol MainMenuParentView: View, InteractiveTransitioningCapable, SideMenuPres
 protocol MainMenuChildView: View {
 
     var onAddNewCardSelection: Completion? { get set }
-    var onCardSelection: ((CardsCellViewModel) -> Void)? { get set }
+    var onCardSelection: ((TransportCardViewModelProtocol) -> Void)? { get set }
 }

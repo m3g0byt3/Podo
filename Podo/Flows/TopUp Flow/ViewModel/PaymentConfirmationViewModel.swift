@@ -8,9 +8,9 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 protocol PaymentConfirmationViewModel {
 
-    var sections: Driver<[PaymentConfirmationSectionViewModelImpl]> { get }
+    var isPaymentValid: Observable<Bool> { get }
+    var sections: Observable<[PaymentConfirmationSectionViewModelImpl]> { get }
 }

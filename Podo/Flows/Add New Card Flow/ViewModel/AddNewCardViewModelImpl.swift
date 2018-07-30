@@ -14,7 +14,6 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
 
     // MARK: - Properties
 
-    static private let notNumericSet = CharacterSet.decimalDigits.inverted
     private let model: AnyDatabaseService<TransportCard>
     private let card: Observable<TransportCard?>
     private let disposeBag = DisposeBag()
@@ -37,7 +36,7 @@ final class AddNewCardViewModelImpl: AddNewCardViewModel {
         self.model = model
 
         cardNumberOutput = cardNumberInput
-            .map { $0.replacingOccurrences(of: AddNewCardViewModelImpl.notNumericSet, with: "") }
+            .filterNonNumeric()
             .asDriver(onErrorJustReturn: "")
 
         cardTheme = themeChanged

@@ -12,5 +12,5 @@ import RxCocoa
 
 protocol CardsViewModel {
 
-    var childViewModels: Driver<[CardsCellViewModel]> { get }
+    var childViewModels: Driver<[TransportCardViewModelProtocol]> { get }
 }

@@ -1,5 +1,5 @@
 //
-//  CardsCellViewModel.swift
+//  TransportCardViewModelProtocol.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 17/03/2018.
@@ -10,8 +10,9 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol CardsCellViewModel {
+protocol TransportCardViewModelProtocol {
 
     var cardTheme: Driver<TransportCardTheme> { get }
     var cardTitle: Driver<String> { get }
+    var isCardValid: Observable<Bool> { get }
 }

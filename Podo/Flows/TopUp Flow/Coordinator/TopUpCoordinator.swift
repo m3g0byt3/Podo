@@ -10,6 +10,10 @@ import Foundation
 
 final class TopUpCoordinator: AbstractCoordinator {
 
+    // MARK: - Private Properties
+
+    private var transportCard: TransportCardViewModelProtocol?
+
     // MARK: - Private API
 
     // MARK: - Internal flows
@@ -20,16 +24,24 @@ final class TopUpCoordinator: AbstractCoordinator {
             self?.showPaymentDialog(for: paymentMethod)
         }
         view.onPaymentCancel = { [weak self] in
+            self?.transportCard = nil
             self?.onFlowFinish?()
         }
         router.push(view, animated: true)
     }
 
     private func showPaymentDialog(for paymentMethod: PaymentMethodCellViewModel) {
-        guard let view = assembler.resolver.resolve(PaymentView.self) else { return }
-        // FIXME: test only logging
-        print(paymentMethod.type)
-        router.push(view, animated: true)
+        switch paymentMethod.type {
+        case .bankCard:
+            guard
+                let card = transportCard,
+                let view = assembler.resolver.resolve(PaymentView.self, argument: card)
+            else { return }
+            router.push(view, animated: true)
+        case .applePay, .cellphoneBalance, .qiwiWallet, .yandexMoney:
+            // TODO: Handle .applePay, .cellphoneBalance, .qiwiWallet and .yandexMoney payment methods
+            assertionFailure("Unable to top up using payment method \"\(paymentMethod.type)\"")
+        }
     }
 
     // MARK: - Coordinator protocol conformance
@@ -40,8 +52,7 @@ final class TopUpCoordinator: AbstractCoordinator {
 
     override func start(with option: StartOption?) {
         guard case .some(.topUp(let card)) = option else { return }
-        // FIXME: test only logging
-        print(card)
+        transportCard = card
         showTopUpMethods()
     }
 }
