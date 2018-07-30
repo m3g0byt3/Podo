@@ -32,3 +32,8 @@
 "payment-card-section" = "Банковская карта";
 "transport-card-section" = "Пополняемая карта \"Подорожник\"";
 "amount-field-section" = "Сумма пополнения";
+
+"card-cell-title" = "Введите данные карты";
+"card-cell-number-label" = "Номер";
+"card-cell-expiration-label" = "Срок действия";
+"card-cell-cvv-label" = "CVC/CVV код";
