@@ -27,8 +27,14 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
 
     var input: PaymentAmountCellViewModelInputProtocol { return self }
     var output: PaymentAmountCellViewModelOutputProtocol { return self }
-    let buttonViewModels: Observable<PaymentAmountCellButtonViewModelProtocol>
+
+    // MARK: - PaymentAmountCellViewModelInputProtocol protocol conformance
+
     let amountInput: PublishSubject<String>
+
+    // MARK: - PaymentAmountCellViewModelOutputProtocol protocol conformance
+
+    let buttonViewModels: Observable<PaymentAmountCellButtonViewModelProtocol>
     let amountOutput: Observable<String>
     let isAmountValid: Observable<Bool>
     let placeholder: Single<String>
