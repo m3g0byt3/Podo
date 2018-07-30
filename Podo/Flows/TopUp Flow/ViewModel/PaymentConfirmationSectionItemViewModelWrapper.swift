@@ -1,5 +1,5 @@
 //
-//  PaymentConfirmationSectionItemViewModelImpl.swift
+//  PaymentConfirmationSectionItemViewModelWrapper.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/06/2018.
@@ -9,7 +9,7 @@
 
 import Foundation
 
-enum PaymentConfirmationSectionItemViewModelImpl {
+enum PaymentConfirmationSectionItemViewModelWrapper {
 
     case transportCardSectionItem(viewModel: TransportCardViewModelProtocol)
     case paymentCardSectionItem(viewModel: PaymentCardCellViewModelProtocol)

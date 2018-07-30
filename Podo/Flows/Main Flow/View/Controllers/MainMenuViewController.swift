@@ -20,7 +20,7 @@ final class MainMenuViewController: UIViewController, MainMenuView, TrainIconTit
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: AnyViewModel<MainMenuCellViewModel>!
+    var viewModel: AnyViewModel<MainMenuCellViewModelProtocol>!
     var assembler: Assembler?
     private weak var transportCardsView: UIView?
     private var tableViewVerticalInset: CGFloat { return view.bounds.height * Constant.MainMenu.verticalInsetRatio }

@@ -19,7 +19,7 @@ final class TopUpViewController: UIViewController, TopUpView, TrainIconTitleView
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: PaymentMethodViewModel!
+    var viewModel: PaymentMethodViewModelProtocol!
     private let disposeBag = DisposeBag()
 
     // MARK: - Lifecycle
@@ -36,7 +36,7 @@ final class TopUpViewController: UIViewController, TopUpView, TrainIconTitleView
 
     // MARK: - TopUpView protocol conformance
 
-    var onPaymentMethodSelection: ((PaymentMethodCellViewModel) -> Void)?
+    var onPaymentMethodSelection: ((PaymentMethodCellViewModelProtocol) -> Void)?
     var onPaymentCancel: Completion?
 
     // MARK: - Private API
@@ -65,7 +65,7 @@ final class TopUpViewController: UIViewController, TopUpView, TrainIconTitleView
             })
             .disposed(by: disposeBag)
 
-        tableView.rx.modelSelected(PaymentMethodCellViewModel.self)
+        tableView.rx.modelSelected(PaymentMethodCellViewModelProtocol.self)
             .subscribe(onNext: { [weak self] paymentMethod in
                 self?.onPaymentMethodSelection?(paymentMethod)
             })

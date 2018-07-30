@@ -10,17 +10,64 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol AddNewCardViewModel {
+final class AddNewCardViewModel: AddNewCardViewModelProtocol {
 
-    // MARK: - Inputs
+    // MARK: - Properties
 
-    var cardNumberInput: PublishSubject<String> { get }
-    var saveState: PublishSubject<Void> { get }
-    var themeChanged: PublishSubject<Int> { get }
+    private let model: AnyDatabaseService<TransportCard>
+    private let card: Observable<TransportCard?>
+    private let disposeBag = DisposeBag()
 
-    // MARK: - Outputs
+    // MARK: - AddNewCardViewModelProtocol protocol conformance
 
-    var cardNumberOutput: Driver<String> { get }
-    var isCardValid: Driver<Bool> { get }
-    var cardTheme: Driver<TransportCardTheme> { get }
+    // Inputs
+    let cardNumberInput = PublishSubject<String>()
+    let themeChanged = PublishSubject<Int>()
+    let saveState = PublishSubject<Void>()
+
+    // Outputs
+    let cardNumberOutput: Driver<String>
+    let cardTheme: Driver<TransportCardTheme>
+    let isCardValid: Driver<Bool>
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<TransportCard>) {
+        self.model = model
+
+        cardNumberOutput = cardNumberInput
+            .filterNonNumeric()
+            .asDriver(onErrorJustReturn: "")
+
+        cardTheme = themeChanged
+            .asObservable()
+            .startWith(0)
+            .map { TransportCardTheme(rawValue: $0) ?? .green }
+            .asDriver(onErrorJustReturn: .green)
+            .distinctUntilChanged()
+
+        card = Observable
+            .combineLatest(cardNumberOutput.asObservable(), cardTheme.asObservable()) { (number, theme) in
+                let card = TransportCard(cardNumber: number)
+                card?.themeIdentifier = theme.rawValue
+                return card
+            }
+            .distinctUntilChanged()
+            .share()
+
+        isCardValid = card
+            .asObservable()
+            .map { $0 != nil }
+            .asDriver(onErrorJustReturn: false)
+            .distinctUntilChanged()
+
+        _ = saveState
+            .asObservable()
+            .withLatestFrom(card)
+            .filterNil()
+            .subscribe(onNext: { [weak self] card in
+                try? self?.model.save(item: card)
+            })
+            .disposed(by: disposeBag)
+    }
 }

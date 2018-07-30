@@ -22,7 +22,7 @@ final class CardsViewController: UIViewController, MainMenuChildView {
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: CardsViewModel!
+    var viewModel: CardsViewModelProtocol!
     private let disposeBag = DisposeBag()
     /**
      Stores initial this VC's view size after `viewDidAppear(_ animated:)` called

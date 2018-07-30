@@ -10,8 +10,40 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol PaymentMethodViewModel {
+final class PaymentMethodViewModel: PaymentMethodViewModelProtocol {
 
-    var title: Driver<String> { get }
-    var paymentMethods: Driver<[PaymentMethodCellViewModel]> { get }
+    // MARK: - Properties
+
+    private let model: AnyDatabaseService<PaymentMethod>
+    private let viewModels: BehaviorRelay<[PaymentMethodCellViewModelProtocol]>
+
+    // MARK: - PaymentMethodViewModelProtocol protocol conformance
+
+    let title: Driver<String>
+    var paymentMethods: Driver<[PaymentMethodCellViewModelProtocol]> {
+        return viewModels.asDriver()
+    }
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<PaymentMethod>) {
+        self.title = Driver.just(R.string.localizable.paymentSelectionTitle())
+        self.viewModels = BehaviorRelay(value: [PaymentMethodCellViewModelProtocol]())
+        self.model = model
+        try? model.fetch(predicate: PaymentMethodViewModel.filterPredicate, sorted: nil) { [weak self] result in
+            let viewModels = result.map(PaymentMethodCellViewModel.init)
+            self?.viewModels.accept(viewModels)
+        }
+    }
+
+    // MARK: - Private API
+
+    private static var filterPredicate: NSPredicate = {
+        let lhs = NSExpression(forKeyPath: \PaymentMethod.isEnabled)
+        let rhs = NSExpression(forConstantValue: true)
+        return NSComparisonPredicate(leftExpression: lhs,
+                                     rightExpression: rhs,
+                                     modifier: .direct,
+                                     type: .equalTo)
+    }()
 }

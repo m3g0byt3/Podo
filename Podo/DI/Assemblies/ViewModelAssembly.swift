@@ -13,40 +13,40 @@ final class ViewModelAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(AnyViewModel<MainMenuCellViewModel>.self) { _ in
-            return AnyViewModel(MainMenuViewModelImpl())
+        container.register(AnyViewModel<MainMenuCellViewModelProtocol>.self) { _ in
+            return AnyViewModel(MainMenuViewModel())
         }
 
-        container.register(CardsViewModel.self) { resolver in
+        container.register(CardsViewModelProtocol.self) { resolver in
             let dependencyType = AnyDatabaseService<TransportCard>.self
             guard let model = resolver.resolve(dependencyType) else {
                 unableToResolve(dependencyType)
             }
-            return CardsViewModelImpl(model)
+            return CardsViewModel(model)
         }
 
-        container.register(AnyViewModel<SideMenuCellViewModel>.self) { resolver in
+        container.register(AnyViewModel<SideMenuCellViewModelProtocol>.self) { resolver in
             let dependencyType = AnyDatabaseService<SideMenuItem>.self
             guard let model = resolver.resolve(dependencyType) else {
                 unableToResolve(dependencyType)
             }
-            return AnyViewModel(SideMenuViewModelImpl(model))
+            return AnyViewModel(SideMenuViewModel(model))
         }
 
-        container.register(AddNewCardViewModel.self) { resolver in
+        container.register(AddNewCardViewModelProtocol.self) { resolver in
             let dependencyType = AnyDatabaseService<TransportCard>.self
             guard let model = resolver.resolve(dependencyType) else {
                 unableToResolve(dependencyType)
             }
-            return AddNewCardViewModelImpl(model)
+            return AddNewCardViewModel(model)
         }
 
-        container.register(PaymentMethodViewModel.self) { resolver in
+        container.register(PaymentMethodViewModelProtocol.self) { resolver in
             let dependencyType = AnyDatabaseService<PaymentMethod>.self
             guard let model = resolver.resolve(dependencyType) else {
                 unableToResolve(dependencyType)
             }
-            return PaymentMethodViewModelImpl(model)
+            return PaymentMethodViewModel(model)
         }
 
         container.register(PaymentAmountCellViewModelProtocol.self) { _ in
@@ -57,7 +57,7 @@ final class ViewModelAssembly: Assembly {
             return PaymentCardCellViewModel()
         }
 
-        container.register(PaymentConfirmationViewModel.self) { (resolver, transportCardViewModel: TransportCardViewModelProtocol) in
+        container.register(PaymentConfirmationViewModelProtocol.self) { (resolver, transportCardViewModel: TransportCardViewModelProtocol) in
             let paymentAmountDependencyType = PaymentAmountCellViewModelProtocol.self
             let paymentCardDependencyType = PaymentCardCellViewModelProtocol.self
 
@@ -68,7 +68,7 @@ final class ViewModelAssembly: Assembly {
                 unableToResolve(paymentCardDependencyType)
             }
 
-            return PaymentConfirmationViewModelImpl(transportCardViewModel: transportCardViewModel,
+            return PaymentConfirmationViewModel(transportCardViewModel: transportCardViewModel,
                                                     paymentAmountViewModel: paymentAmountViewModel,
                                                     paymentCardViewModel: paymentCardViewModel)
         }

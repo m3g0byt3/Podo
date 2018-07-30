@@ -1,5 +1,5 @@
 //
-//  RouterImpl.swift
+//  Router.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 05/03/2018.
@@ -9,12 +9,12 @@
 import UIKit
 import Swinject
 
-final class RouterImpl {
+final class Router {
 
     // MARK: - Properties
 
     private var transitioningDelegates = [UIViewController: InteractiveTransitioningDelegate]()
-    private let themeProvider: ThemeProvider?
+    private let themeProvider: ThemeProviderProtocol?
     private let assembler: Assembler
     private weak var rootViewController: UINavigationController?
     private var visibleViewController: UIViewController? { return rootViewController?.visibleViewController }
@@ -24,7 +24,7 @@ final class RouterImpl {
     init(_ rootViewController: UINavigationController, assembler: Assembler) {
         self.rootViewController = rootViewController
         self.assembler = assembler
-        self.themeProvider = assembler.resolver.resolve(ThemeProvider.self)
+        self.themeProvider = assembler.resolver.resolve(ThemeProviderProtocol.self)
         self.themeProvider?.appearanceSetup()
     }
 
@@ -45,9 +45,9 @@ final class RouterImpl {
     }
 }
 
-// MARK: - Router protocol conformance
+// MARK: - RouterProtocol protocol conformance
 
-extension RouterImpl: Router {
+extension Router: RouterProtocol {
 
     // Presentation
     func setRootView(_ view: View, animated: Bool, fullscreen: Bool) {

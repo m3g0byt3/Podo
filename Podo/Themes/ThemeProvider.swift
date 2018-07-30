@@ -1,5 +1,5 @@
 //
-//  ThemeProviderImpl.swift
+//  ThemeProvider.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 08/03/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ThemeProviderImpl: ThemeProvider {
+final class ThemeProvider: ThemeProviderProtocol {
 
     // MARK: - Properties
 

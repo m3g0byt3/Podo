@@ -30,7 +30,7 @@ final class TopUpCoordinator: AbstractCoordinator {
         router.push(view, animated: true)
     }
 
-    private func showPaymentDialog(for paymentMethod: PaymentMethodCellViewModel) {
+    private func showPaymentDialog(for paymentMethod: PaymentMethodCellViewModelProtocol) {
         switch paymentMethod.type {
         case .bankCard:
             guard

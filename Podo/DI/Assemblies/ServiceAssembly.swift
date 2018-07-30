@@ -24,15 +24,15 @@ final class ServiceAssembly: Assembly {
             let configuration = Realm.Configuration(fileURL: R.file.sideMenuItemsRealm(),
                                                     readOnly: true,
                                                     objectTypes: [SideMenuItem.self])
-            guard let service = try? DatabaseServiceImpl<SideMenuItem>(configuration: configuration) else {
-                unableToResolve(DatabaseServiceImpl<SideMenuItem>.self)
+            guard let service = try? DatabaseService<SideMenuItem>(configuration: configuration) else {
+                unableToResolve(DatabaseService<SideMenuItem>.self)
             }
             return AnyDatabaseService<SideMenuItem>(service)
         }
 
         container.register(AnyDatabaseService<TransportCard>.self) { _ in
-            guard let service = try? DatabaseServiceImpl<TransportCard>() else {
-                unableToResolve(DatabaseServiceImpl<TransportCard>.self)
+            guard let service = try? DatabaseService<TransportCard>() else {
+                unableToResolve(DatabaseService<TransportCard>.self)
             }
             return AnyDatabaseService<TransportCard>(service)
         }
@@ -42,8 +42,8 @@ final class ServiceAssembly: Assembly {
             let configuration = Realm.Configuration(fileURL: R.file.paymentMethodsRealm(),
                                                     readOnly: true,
                                                     objectTypes: [PaymentMethod.self])
-            guard let service = try? DatabaseServiceImpl<PaymentMethod>(configuration: configuration) else {
-                unableToResolve(DatabaseServiceImpl<PaymentMethod>.self)
+            guard let service = try? DatabaseService<PaymentMethod>(configuration: configuration) else {
+                unableToResolve(DatabaseService<PaymentMethod>.self)
             }
             return AnyDatabaseService<PaymentMethod>(service)
         }

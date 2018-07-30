@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MainMenuCellViewModel {
+struct MainMenuCellViewModel: MainMenuCellViewModelProtocol {
 
     // TODO: Add actual implementation
 }
