@@ -6,9 +6,11 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+// Still imports RxCocoa because BehaviorRelay not available without RxCocoa until RxSwift 5.0
+// See https://github.com/ReactiveX/RxSwift/issues/1501 and https://github.com/ReactiveX/RxSwift/issues/1502
 import Foundation
 import RxSwift
-import RxCocoa
+import class RxCocoa.BehaviorRelay
 
 final class CardsViewModel: CardsViewModelProtocol {
 
@@ -19,8 +21,8 @@ final class CardsViewModel: CardsViewModelProtocol {
 
     // MARK: - CardsViewModelProtocol protocol conformance
 
-    var childViewModels: Driver<[TransportCardViewModelProtocol]> {
-        return viewModels.asDriver()
+    var childViewModels: Observable<[TransportCardViewModelProtocol]> {
+        return viewModels.asObservable()
     }
 
     // MARK: - Initialization

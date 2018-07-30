@@ -6,7 +6,7 @@
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class MainMenuViewModel: MainMenuViewModelProtocol {
 

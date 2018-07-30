@@ -56,6 +56,7 @@ final class TopUpViewController: UIViewController,
         let type = PaymentMethodCell.self
 
         viewModel.paymentMethods
+            .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { (_, viewModel, cell) in
                 cell.configure(with: viewModel)
             }

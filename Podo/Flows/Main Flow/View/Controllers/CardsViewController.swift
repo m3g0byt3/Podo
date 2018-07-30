@@ -90,6 +90,7 @@ final class CardsViewController: UIViewController,
         // Cell factory
         viewModel.childViewModels
             .flatMap(CardsViewController.wrapViewModels)
+            .asDriver(onErrorJustReturn: [])
             .drive(collectionView.rx.items) { (collectionView, index, wrappedViewModel) in
                 let indexPath = IndexPath(item: index, section: 0)
                 switch wrappedViewModel {

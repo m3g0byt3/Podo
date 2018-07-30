@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit.UIImage
 
 struct SideMenuCellViewModel: SideMenuCellViewModelProtocol {
 
@@ -15,13 +14,13 @@ struct SideMenuCellViewModel: SideMenuCellViewModelProtocol {
 
     let title: String
     let type: SideMenuItemType
-    let image: UIImage?
+    let imageBlob: Data?
 
     // MARK: - Initialization
 
     init(_ model: SideMenuItem) {
         self.title = model.title.localized
-        self.image = UIImage(data: model.imageBlob!)
+        self.imageBlob = model.imageBlob
         self.type = SideMenuItemType(rawValue: model.title)!
     }
 }

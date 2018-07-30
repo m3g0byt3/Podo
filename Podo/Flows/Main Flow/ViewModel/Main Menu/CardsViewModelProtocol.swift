@@ -8,9 +8,8 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 protocol CardsViewModelProtocol {
 
-    var childViewModels: Driver<[TransportCardViewModelProtocol]> { get }
+    var childViewModels: Observable<[TransportCardViewModelProtocol]> { get }
 }

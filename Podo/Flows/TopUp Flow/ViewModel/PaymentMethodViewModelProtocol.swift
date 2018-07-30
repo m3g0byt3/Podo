@@ -8,10 +8,9 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 protocol PaymentMethodViewModelProtocol {
 
-    var title: Driver<String> { get }
-    var paymentMethods: Driver<[PaymentMethodCellViewModelProtocol]> { get }
+    var title: Observable<String> { get }
+    var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> { get }
 }

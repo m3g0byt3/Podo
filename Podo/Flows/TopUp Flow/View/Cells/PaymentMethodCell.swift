@@ -40,10 +40,14 @@ extension PaymentMethodCell: Configurable {
     func configure(with viewModel: PaymentMethodCellViewModelProtocol) -> Self {
 
         viewModel.title
+            .asDriver(onErrorJustReturn: "")
             .drive(title.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel.icon
+        viewModel.iconBlob
+            .map(UIImage.init)
+            .filterNil()
+            .asDriver(onErrorJustReturn: UIImage())
             .drive(icon.rx.image)
             .disposed(by: disposeBag)
 

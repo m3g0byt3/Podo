@@ -6,28 +6,25 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import UIKit.UIImage
+import Foundation
 import RxSwift
-import RxCocoa
 
 struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol {
 
     // MARK: - PaymentMethodCellViewModelProtocol protocol conformance
 
-    let title: Driver<String>
-    let icon: Driver<UIImage>
+    let title: Observable<String>
+    let iconBlob: Observable<Data>
     let type: PaymentMethodType
 
     // MARK: - Initialization
 
     init(_ model: PaymentMethod) {
-        self.title = Driver.just(model.type)
+        self.title = Observable.just(model.type)
             .map { $0.rawValue }
             .map { $0.localized }
 
-        self.icon = Driver.just(model.imageBlob)
-            .filterNil()
-            .map(UIImage.init)
+        self.iconBlob = Observable.just(model.imageBlob)
             .filterNil()
 
         self.type = model.type

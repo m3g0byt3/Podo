@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import UIKit.UIImage
 
 protocol SideMenuCellViewModelProtocol {
 
     var title: String { get }
     var type: SideMenuItemType { get }
-    var image: UIImage? { get }
+    var imageBlob: Data? { get }
 }
