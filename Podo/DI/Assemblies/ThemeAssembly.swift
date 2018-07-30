@@ -14,7 +14,7 @@ final class ThemeAssembly: Assembly {
     func assemble(container: Container) {
 
         container.register(ThemeProviderProtocol.self) { _ in
-            ThemeProvider()
+            return ThemeProvider()
         }
     }
 }
