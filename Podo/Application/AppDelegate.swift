@@ -7,6 +7,7 @@
 //
 // swiftlint:disable force_try force_cast
 
+import Foundation
 import UIKit
 
 @UIApplicationMain

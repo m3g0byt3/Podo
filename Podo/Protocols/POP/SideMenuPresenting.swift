@@ -6,8 +6,9 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
-import ObjectiveC
+import ObjectiveC.runtime
 
 /**
  Constants for associated objects
