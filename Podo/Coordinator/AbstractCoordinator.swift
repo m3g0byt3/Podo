@@ -35,8 +35,10 @@ class AbstractCoordinator: Coordinator {
     }
 
     final func removeChild(_ coordinator: Coordinator?) {
-        guard let coordinator = coordinator,
-            let index = coordinators.index(where: { $0 === coordinator }) else { return }
+        guard
+            let coordinator = coordinator,
+            let index = coordinators.index(where: { $0 === coordinator })
+        else { return }
         coordinators.remove(at: index)
     }
 

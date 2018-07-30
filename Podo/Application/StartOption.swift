@@ -31,10 +31,10 @@ enum StartOption {
     // MARK: - Initialization
 
     init?(with shortcutItem: UIApplicationShortcutItem) {
-        guard let shortcutType = shortcutItem.type.components(separatedBy: ".").last,
-            let shortcutIdentifier = ShortcutItemIdentifiers(rawValue: shortcutType) else {
-                return nil
-        }
+        guard
+            let shortcutType = shortcutItem.type.components(separatedBy: ".").last,
+            let shortcutIdentifier = ShortcutItemIdentifiers(rawValue: shortcutType)
+        else { return nil }
 
         switch shortcutIdentifier {
         case .addNewCard: self = .addNewCard
