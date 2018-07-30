@@ -16,6 +16,7 @@ struct TransportCardViewModel: TransportCardViewModelProtocol {
 
     let cardTheme: Driver<TransportCardTheme>
     let cardTitle: Driver<String>
+    let isCardValid: Observable<Bool>
 
     // MARK: - Initialization
 
@@ -29,5 +30,8 @@ struct TransportCardViewModel: TransportCardViewModelProtocol {
         cardTitle = Observable.just(model.cardNumber)
             .map { "●●●●" + $0.suffix(4) }
             .asDriver(onErrorJustReturn: "")
+
+        self.isCardValid = Observable
+            .just(true)
     }
 }

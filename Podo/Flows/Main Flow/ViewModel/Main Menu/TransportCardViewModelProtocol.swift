@@ -14,4 +14,5 @@ protocol TransportCardViewModelProtocol {
 
     var cardTheme: Driver<TransportCardTheme> { get }
     var cardTitle: Driver<String> { get }
+    var isCardValid: Observable<Bool> { get }
 }
