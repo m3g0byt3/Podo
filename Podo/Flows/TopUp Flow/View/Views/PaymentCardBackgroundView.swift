@@ -8,4 +8,5 @@
 
 import UIKit
 
-final class PaymentCardBackgroundView: RoundShadowView, DoubleMargin {}
+final class PaymentCardBackgroundView: RoundShadowView,
+                                       DoubleMargin {}

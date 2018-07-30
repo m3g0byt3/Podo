@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class HelpViewController: UIViewController, HelpView, TrainIconTitleView {
+final class HelpViewController: UIViewController,
+                                HelpView,
+                                TrainIconTitleView {
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
 

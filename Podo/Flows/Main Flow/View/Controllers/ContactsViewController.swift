@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class ContactsViewController: UIViewController, ContactsView, TrainIconTitleView {
+final class ContactsViewController: UIViewController,
+                                    ContactsView,
+                                    TrainIconTitleView {
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
 

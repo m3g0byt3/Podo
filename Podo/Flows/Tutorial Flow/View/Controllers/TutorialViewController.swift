@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class TutorialViewController: UIViewController, TutorialView {
+final class TutorialViewController: UIViewController,
+                                    TutorialView {
 
     // MARK: - TutorialView protocol conformance
 

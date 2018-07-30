@@ -11,7 +11,8 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class CardsViewController: UIViewController, MainMenuChildView {
+final class CardsViewController: UIViewController,
+                                 MainMenuChildView {
 
     // MARK: - IBOutlets
 

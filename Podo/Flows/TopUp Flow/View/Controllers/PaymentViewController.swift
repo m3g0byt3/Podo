@@ -11,7 +11,10 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, KeyboardHandling {
+class PaymentViewController: UIViewController,
+                             PaymentView,
+                             TrainIconTitleView,
+                             KeyboardHandling {
 
     // MARK: IBOutlets
 

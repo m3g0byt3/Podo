@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 struct PaymentCardCellViewModel: PaymentCardCellViewModelProtocol,
-                                    PaymentCardCellViewModelInputProtocol,
-                                    PaymentCardCellViewModelOutputProtocol {
+                                 PaymentCardCellViewModelInputProtocol,
+                                 PaymentCardCellViewModelOutputProtocol {
 
     // MARK: - Constants
 

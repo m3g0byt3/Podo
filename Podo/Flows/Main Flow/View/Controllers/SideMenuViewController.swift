@@ -9,7 +9,9 @@
 import UIKit
 import SnapKit
 
-final class SideMenuViewController: UIViewController, SideMenuView, InteractiveTransitioningCapable {
+final class SideMenuViewController: UIViewController,
+                                    SideMenuView,
+                                    InteractiveTransitioningCapable {
 
     // MARK: - Properties
 

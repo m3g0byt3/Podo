@@ -10,7 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class TopUpViewController: UIViewController, TopUpView, TrainIconTitleView {
+final class TopUpViewController: UIViewController,
+                                 TopUpView,
+                                 TrainIconTitleView {
 
     // MARK: - IBOutlets
 

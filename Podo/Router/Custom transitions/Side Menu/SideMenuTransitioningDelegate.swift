@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class SideMenuTransitioningDelegate: NSObject, InteractiveTransitioningDelegate {
+final class SideMenuTransitioningDelegate: NSObject,
+                                           InteractiveTransitioningDelegate {
 
     // MARK: - Properties
 

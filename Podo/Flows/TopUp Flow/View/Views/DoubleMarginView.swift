@@ -8,4 +8,5 @@
 
 import UIKit
 
-final class DoubleMarginView: UIView, DoubleMargin {}
+final class DoubleMarginView: UIView,
+                              DoubleMargin {}

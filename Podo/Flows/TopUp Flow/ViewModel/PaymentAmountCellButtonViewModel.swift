@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 struct PaymentAmountCellButtonViewModel: PaymentAmountCellButtonViewModelProtocol,
-                                            PaymentAmountCellButtonViewModelInputProtocol,
-                                            PaymentAmountCellButtonViewModelOutputProtocol {
+                                         PaymentAmountCellButtonViewModelInputProtocol,
+                                         PaymentAmountCellButtonViewModelOutputProtocol {
 
     // MARK: - PaymentAmountCellButtonViewModelProtocol protocol conformance
 

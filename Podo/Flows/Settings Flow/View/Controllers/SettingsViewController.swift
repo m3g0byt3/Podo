@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class SettingsViewController: UIViewController, SettingsView, TrainIconTitleView {
+final class SettingsViewController: UIViewController,
+                                    SettingsView,
+                                    TrainIconTitleView {
 
     // MARK: - SettingsView protocol conformance
 

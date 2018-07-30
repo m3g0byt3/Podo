@@ -10,7 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class AddNewCardViewController: UIViewController, AddNewCardView, TrainIconTitleView, KeyboardHandling {
+final class AddNewCardViewController: UIViewController,
+                                      AddNewCardView,
+                                      TrainIconTitleView,
+                                      KeyboardHandling {
 
     // MARK: - Properties
 

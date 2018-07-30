@@ -8,7 +8,8 @@
 
 import Foundation
 
-final class SettingsCoordinator: AbstractCoordinator, SideMenuCoordinator {
+final class SettingsCoordinator: AbstractCoordinator,
+                                 SideMenuCoordinator {
 
     // MARK: - Private API
 
