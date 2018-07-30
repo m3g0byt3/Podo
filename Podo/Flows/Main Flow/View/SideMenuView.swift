@@ -10,6 +10,6 @@ import Foundation
 
 protocol SideMenuView: View {
 
-    var onSideMenuEntrySelection: ((SideMenuCellViewModel) -> Void)? { get set }
+    var onSideMenuEntrySelection: ((SideMenuCellViewModelProtocol) -> Void)? { get set }
     var onSideMenuClose: Completion? { get set }
 }

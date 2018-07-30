@@ -46,7 +46,7 @@ struct AppDelegateAssembler {
      */
     func assemble(appDelegate: AppDelegate) throws {
 
-        guard let router = assembler.resolver.resolve(Router.self, argument: appDelegate.rootViewController) else {
+        guard let router = assembler.resolver.resolve(RouterProtocol.self, argument: appDelegate.rootViewController) else {
             throw AssembleError.routerError
         }
 

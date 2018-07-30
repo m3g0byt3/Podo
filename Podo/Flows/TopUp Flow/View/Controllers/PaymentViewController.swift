@@ -21,7 +21,7 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: PaymentConfirmationViewModel!
+    var viewModel: PaymentConfirmationViewModelProtocol!
     private let disposeBag = DisposeBag()
 
     // MARK: - KeyboardHandling protocol conformance
@@ -81,8 +81,8 @@ class PaymentViewController: UIViewController, PaymentView, TrainIconTitleView, 
 
 private extension PaymentViewController {
 
-    static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl> {
-        return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelImpl>(
+    static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelWrapper> {
+        return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelWrapper>(
             configureCell: { (_, tableView, indexPath, viewModel) in
                 switch viewModel {
 

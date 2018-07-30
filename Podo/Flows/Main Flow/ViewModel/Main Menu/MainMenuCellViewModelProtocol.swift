@@ -1,5 +1,5 @@
 //
-//  MainMenuCellViewModelImpl.swift
+//  MainMenuCellViewModelProtocol.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 28/02/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MainMenuCellViewModelImpl: MainMenuCellViewModel {
+protocol MainMenuCellViewModelProtocol {
 
     // TODO: Add actual implementation
 }

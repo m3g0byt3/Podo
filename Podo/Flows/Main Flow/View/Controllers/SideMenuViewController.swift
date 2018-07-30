@@ -16,7 +16,7 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
     // swiftlint:disable:next implicitly_unwrapped_optional
     private weak var navigationBar: UINavigationBar!
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: AnyViewModel<SideMenuCellViewModel>!
+    var viewModel: AnyViewModel<SideMenuCellViewModelProtocol>!
 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
@@ -66,7 +66,7 @@ final class SideMenuViewController: UIViewController, SideMenuView, InteractiveT
 
     // MARK: - SideMenuView protocol conformance
 
-    var onSideMenuEntrySelection: ((SideMenuCellViewModel) -> Void)?
+    var onSideMenuEntrySelection: ((SideMenuCellViewModelProtocol) -> Void)?
     var onSideMenuClose: Completion?
 
     // MARK: - InteractiveTransitioningCapable protocol conformance

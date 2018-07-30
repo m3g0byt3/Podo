@@ -15,7 +15,7 @@ final class AddNewCardViewController: UIViewController, AddNewCardView, TrainIco
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: AddNewCardViewModel!
+    var viewModel: AddNewCardViewModelProtocol!
     private let disposeBag = DisposeBag()
 
     // MARK: - IBOutlets

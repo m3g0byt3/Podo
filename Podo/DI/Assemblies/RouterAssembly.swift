@@ -13,8 +13,8 @@ final class RouterAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(Router.self) { _, rootViewController in
-            return RouterImpl(rootViewController, assembler: ApplicationAssembler.defaultAssembler)
+        container.register(RouterProtocol.self) { _, rootViewController in
+            return Router(rootViewController, assembler: ApplicationAssembler.defaultAssembler)
         }
 
         container.register(InteractiveTransitioningDelegate.self) { _ in

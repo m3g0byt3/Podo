@@ -9,9 +9,19 @@
 import Foundation
 import UIKit.UIImage
 
-protocol SideMenuCellViewModel {
+struct SideMenuCellViewModel: SideMenuCellViewModelProtocol {
 
-    var title: String { get }
-    var type: SideMenuItemType { get }
-    var image: UIImage? { get }
+    // MARK: - SideMenuCellViewModelProtocol protocol conformance
+
+    let title: String
+    let type: SideMenuItemType
+    let image: UIImage?
+
+    // MARK: - Initialization
+
+    init(_ model: SideMenuItem) {
+        self.title = model.title.localized
+        self.image = UIImage(data: model.imageBlob!)
+        self.type = SideMenuItemType(rawValue: model.title)!
+    }
 }

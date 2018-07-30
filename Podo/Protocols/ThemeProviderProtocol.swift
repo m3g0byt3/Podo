@@ -1,5 +1,5 @@
 //
-//  ThemeProvider.swift
+//  ThemeProviderProtocol.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 08/03/2018.
@@ -13,7 +13,7 @@ enum Theme {
     case light, dark
 }
 
-protocol ThemeProvider {
+protocol ThemeProviderProtocol {
 
     var currentTheme: Theme { get set }
 
@@ -21,7 +21,7 @@ protocol ThemeProvider {
     func changeTheme(_ theme: Theme)
 }
 
-extension ThemeProvider {
+extension ThemeProviderProtocol {
 
     func appearanceSetup() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

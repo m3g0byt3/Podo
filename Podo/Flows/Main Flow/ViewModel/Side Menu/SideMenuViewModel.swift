@@ -8,4 +8,34 @@
 
 import Foundation
 
-protocol SideMenuViewModel: ViewModel {}
+final class SideMenuViewModel {
+
+    // MARK: - Properties
+
+    private let model: AnyDatabaseService<SideMenuItem>
+    private var items = [SideMenuItem]()
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<SideMenuItem>) {
+        self.model = model
+        let sortKeyPath = #keyPath(SideMenuItem.identifier)
+        let sortOption = SortOption.ascending(keyPath: sortKeyPath)
+        try? model.fetch(predicate: nil, sorted: sortOption) { [weak self] items in
+            self?.items = items
+        }
+    }
+}
+
+// MARK: - SideMenuViewModelProtocol protocol conformance
+
+extension SideMenuViewModel: SideMenuViewModelProtocol {
+
+    func numberOfChildViewModels(in section: Int) -> Int {
+        return items.count
+    }
+
+    func childViewModel(for indexPath: IndexPath) -> SideMenuCellViewModelProtocol {
+        return SideMenuCellViewModel(items[indexPath.row])
+    }
+}

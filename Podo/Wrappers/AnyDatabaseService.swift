@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- Type-erasure wrapper for DatabaseService protocol
+ Type-erasure wrapper for DatabaseServiceProtocol protocol
  */
 final class AnyDatabaseService<ItemType> {
 
@@ -25,7 +25,7 @@ final class AnyDatabaseService<ItemType> {
 
     // MARK: - Initialization
 
-    init<DatabaseType: DatabaseService>(_ database: DatabaseType) where DatabaseType.Item == ItemType {
+    init<DatabaseType: DatabaseServiceProtocol>(_ database: DatabaseType) where DatabaseType.Item == ItemType {
         _saveItem = database.save
         _saveItems = database.save
         _deleteItem = database.delete
@@ -36,9 +36,9 @@ final class AnyDatabaseService<ItemType> {
     }
 }
 
-// MARK: - DatabaseService protocol conformance
+// MARK: - DatabaseServiceProtocol protocol conformance
 
-extension AnyDatabaseService: DatabaseService {
+extension AnyDatabaseService: DatabaseServiceProtocol {
 
     func save(item: ItemType) throws {
         return try _saveItem(item)

@@ -10,7 +10,27 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol CardsViewModel {
+final class CardsViewModel: CardsViewModelProtocol {
 
-    var childViewModels: Driver<[TransportCardViewModelProtocol]> { get }
+    // MARK: - Properties
+
+    private let model: AnyDatabaseService<TransportCard>
+    private let viewModels: BehaviorRelay<[TransportCardViewModelProtocol]>
+
+    // MARK: - CardsViewModelProtocol protocol conformance
+
+    var childViewModels: Driver<[TransportCardViewModelProtocol]> {
+        return viewModels.asDriver()
+    }
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<TransportCard>) {
+        self.viewModels = BehaviorRelay(value: [TransportCardViewModelProtocol]())
+        self.model = model
+        try? model.fetch(predicate: nil, sorted: nil) { [weak self] result in
+            let viewModels = result.map(TransportCardViewModel.init)
+            self?.viewModels.accept(viewModels)
+        }
+    }
 }

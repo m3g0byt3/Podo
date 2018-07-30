@@ -1,5 +1,5 @@
 //
-//  Router.swift
+//  RouterProtocol.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 04/03/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Router: class {
+protocol RouterProtocol: class {
 
     // Presentation
     func setRootView(_ view: View, animated: Bool, fullscreen: Bool)

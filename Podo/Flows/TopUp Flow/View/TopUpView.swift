@@ -10,6 +10,6 @@ import Foundation
 
 protocol TopUpView: View {
 
-    var onPaymentMethodSelection: ((PaymentMethodCellViewModel) -> Void)? { get set }
+    var onPaymentMethodSelection: ((PaymentMethodCellViewModelProtocol) -> Void)? { get set }
     var onPaymentCancel: Completion? { get set }
 }

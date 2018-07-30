@@ -19,10 +19,10 @@ final class MainMenuTableViewCell: UITableViewCell {
 
 extension MainMenuTableViewCell: Configurable {
 
-    typealias ViewModel = MainMenuCellViewModel
+    typealias ViewModel = MainMenuCellViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: MainMenuCellViewModel) -> Self {
+    func configure(with viewModel: MainMenuCellViewModelProtocol) -> Self {
         // TODO: Add actual implementation
         return self
     }

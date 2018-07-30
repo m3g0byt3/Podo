@@ -34,10 +34,10 @@ final class PaymentMethodCell: UITableViewCell {
 
 extension PaymentMethodCell: Configurable {
 
-    typealias ViewModel = PaymentMethodCellViewModel
+    typealias ViewModel = PaymentMethodCellViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: PaymentMethodCellViewModel) -> Self {
+    func configure(with viewModel: PaymentMethodCellViewModelProtocol) -> Self {
 
         viewModel.title
             .drive(title.rx.text)

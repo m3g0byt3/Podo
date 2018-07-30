@@ -37,10 +37,10 @@ final class SideMenuTableViewCell: UITableViewCell {
 
 extension SideMenuTableViewCell: Configurable {
 
-    typealias ViewModel = SideMenuCellViewModel
+    typealias ViewModel = SideMenuCellViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: SideMenuCellViewModel) -> Self {
+    func configure(with viewModel: SideMenuCellViewModelProtocol) -> Self {
         customTextLabel.text = viewModel.title
         customImageView.image = viewModel.image
         return self
