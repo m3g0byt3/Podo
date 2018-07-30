@@ -90,7 +90,7 @@ final class KeyboardHandler {
     init(delegate: KeyboardHandling) {
         self.delegate = delegate
         self.initialNonScrollableViewsOffsets = [:]
-        delegate.manageableViews.forEach(setupInputAccessoryView(in:))
+        self.delegate.manageableViews.forEach(setupInputAccessoryView(in:))
         registerForNotifications(in: NotificationCenter.default)
     }
 

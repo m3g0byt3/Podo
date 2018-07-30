@@ -21,7 +21,6 @@ struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol {
     // MARK: - Initialization
 
     init(_ model: PaymentMethod) {
-
         self.title = Driver.just(model.type)
             .map { $0.rawValue }
             .map { $0.localized }

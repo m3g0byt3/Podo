@@ -27,7 +27,7 @@ struct AppDelegateAssembler {
      Using `ApplicationAssembler.defaultAssembler` as an assembler
      */
     init() {
-        assembler = ApplicationAssembler.defaultAssembler
+        self.assembler = ApplicationAssembler.defaultAssembler
     }
 
     /**
@@ -35,7 +35,7 @@ struct AppDelegateAssembler {
      - parameter assemblies: Array of assemblies
      */
     init(assemblies: [Assembly]) {
-        assembler = Assembler(assemblies)
+        self.assembler = Assembler(assemblies)
     }
 
     // MARK: - Public API

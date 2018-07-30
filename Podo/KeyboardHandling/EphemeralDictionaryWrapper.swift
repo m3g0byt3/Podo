@@ -32,9 +32,9 @@ struct EphemeralDictionaryWrapper<K, V> where K: Hashable {
 extension EphemeralDictionaryWrapper: ExpressibleByDictionaryLiteral {
 
     init(dictionaryLiteral elements: (K, V)...) {
-        _dictionary = [:]
+        self._dictionary = [:]
         for (key, value) in elements {
-            _dictionary[key] = value
+            self._dictionary[key] = value
         }
     }
 }
