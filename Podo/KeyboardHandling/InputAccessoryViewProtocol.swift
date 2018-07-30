@@ -6,6 +6,7 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 /// Just a placeholder to avoid unnecessary casts for UIKit classes that have settable (RW) `inputAccessoryView` property.
