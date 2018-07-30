@@ -6,7 +6,7 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import UIKit.UIImage
+import Foundation
 import RxSwift
 
 struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol {
@@ -14,7 +14,7 @@ struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol {
     // MARK: - PaymentMethodCellViewModelProtocol protocol conformance
 
     let title: Observable<String>
-    let icon: Observable<UIImage>
+    let iconBlob: Observable<Data>
     let type: PaymentMethodType
 
     // MARK: - Initialization
@@ -24,9 +24,7 @@ struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol {
             .map { $0.rawValue }
             .map { $0.localized }
 
-        self.icon = Observable.just(model.imageBlob)
-            .filterNil()
-            .map(UIImage.init)
+        self.iconBlob = Observable.just(model.imageBlob)
             .filterNil()
 
         self.type = model.type

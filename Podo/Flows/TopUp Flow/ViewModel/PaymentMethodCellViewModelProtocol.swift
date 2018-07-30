@@ -6,12 +6,12 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import UIKit.UIImage
+import Foundation
 import RxSwift
 
 protocol PaymentMethodCellViewModelProtocol {
 
     var title: Observable<String> { get }
-    var icon: Observable<UIImage> { get }
+    var iconBlob: Observable<Data> { get }
     var type: PaymentMethodType { get }
 }
