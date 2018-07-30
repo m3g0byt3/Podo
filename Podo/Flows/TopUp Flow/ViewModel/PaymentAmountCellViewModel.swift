@@ -18,10 +18,10 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
     private static let buttonOutputSkip = 1
     private static let minTopUpAmount = 1
     private static let maxTopUpAmount = 14_500
+    private static let defaultTopUpAmount = 0
     private static let currencySign = "₽"
     private static let placeholder = "0".appending(PaymentAmountCellViewModel.currencySign)
-    private static let buttonViewModelRange = [1.0, 2.5, 5.0]
-    private static let buttonViewModelMultiplier = 100.0
+    private static let buttonViewModelRange = [100, 250, 500]
 
     // MARK: - PaymentAmountCellViewModelProtocol protocol conformance
 
@@ -42,8 +42,6 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
         self.amountInput = PublishSubject<String>()
 
         let buttonViewModels = PaymentAmountCellViewModel.buttonViewModelRange
-            .map { $0 * PaymentAmountCellViewModel.buttonViewModelMultiplier }
-            .map { Int($0) }
             .map { PaymentAmountCellButtonViewModel(value: $0, sign: PaymentAmountCellViewModel.currencySign) }
 
         self.buttonViewModels = Observable
@@ -56,14 +54,14 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
 
         self.amountOutput = Observable
             .merge([buttonViewModelInputs, amountInputs].joined())
-            .map { $0.isEmpty ? $0 : String($0).appending(PaymentAmountCellViewModel.currencySign) }
             .filterNonNumeric()
+            .map { $0.isEmpty ? $0 : $0.appending(PaymentAmountCellViewModel.currencySign) }
 
         self.isAmountValid = self.amountOutput
-            .map { $0.dropLast() }
-            .map { Int($0) }
             .filterNonNumeric()
+            .map { Int($0) ?? PaymentAmountCellViewModel.defaultTopUpAmount }
             .map { $0 >= PaymentAmountCellViewModel.minTopUpAmount && $0 <= PaymentAmountCellViewModel.maxTopUpAmount }
+            .distinctUntilChanged()
             .startWith(false)
     }
 }
