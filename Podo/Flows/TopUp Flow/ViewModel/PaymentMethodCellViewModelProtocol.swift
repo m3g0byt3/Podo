@@ -8,11 +8,10 @@
 
 import UIKit.UIImage
 import RxSwift
-import RxCocoa
 
 protocol PaymentMethodCellViewModelProtocol {
 
-    var title: Driver<String> { get }
-    var icon: Driver<UIImage> { get }
+    var title: Observable<String> { get }
+    var icon: Observable<UIImage> { get }
     var type: PaymentMethodType { get }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 protocol AddNewCardViewModelProtocol {
 
@@ -20,7 +19,7 @@ protocol AddNewCardViewModelProtocol {
 
     // MARK: - Outputs
 
-    var cardNumberOutput: Driver<String> { get }
-    var isCardValid: Driver<Bool> { get }
-    var cardTheme: Driver<TransportCardTheme> { get }
+    var cardNumberOutput: Observable<String> { get }
+    var isCardValid: Observable<Bool> { get }
+    var cardTheme: Observable<TransportCardTheme> { get }
 }

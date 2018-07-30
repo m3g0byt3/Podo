@@ -8,11 +8,10 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 protocol TransportCardViewModelProtocol {
 
-    var cardTheme: Driver<TransportCardTheme> { get }
-    var cardTitle: Driver<String> { get }
+    var cardTheme: Observable<TransportCardTheme> { get }
+    var cardTitle: Observable<String> { get }
     var isCardValid: Observable<Bool> { get }
 }

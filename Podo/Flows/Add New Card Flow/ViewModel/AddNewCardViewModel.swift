@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 final class AddNewCardViewModel: AddNewCardViewModelProtocol {
 
@@ -26,9 +25,9 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol {
     let saveState = PublishSubject<Void>()
 
     // Outputs
-    let cardNumberOutput: Driver<String>
-    let cardTheme: Driver<TransportCardTheme>
-    let isCardValid: Driver<Bool>
+    let cardNumberOutput: Observable<String>
+    let cardTheme: Observable<TransportCardTheme>
+    let isCardValid: Observable<Bool>
 
     // MARK: - Initialization
 
@@ -37,13 +36,11 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol {
 
         cardNumberOutput = cardNumberInput
             .filterNonNumeric()
-            .asDriver(onErrorJustReturn: "")
 
         cardTheme = themeChanged
             .asObservable()
             .startWith(0)
             .map { TransportCardTheme(rawValue: $0) ?? .green }
-            .asDriver(onErrorJustReturn: .green)
             .distinctUntilChanged()
 
         card = Observable
@@ -58,7 +55,6 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol {
         isCardValid = card
             .asObservable()
             .map { $0 != nil }
-            .asDriver(onErrorJustReturn: false)
             .distinctUntilChanged()
 
         _ = saveState

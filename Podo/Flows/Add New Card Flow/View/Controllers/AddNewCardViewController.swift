@@ -86,15 +86,18 @@ final class AddNewCardViewController: UIViewController,
             .disposed(by: disposeBag)
 
         viewModel.cardNumberOutput
+            .asDriver(onErrorJustReturn: "")
             .drive(cardNumberTextField.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.isCardValid
+            .asDriver(onErrorJustReturn: false)
             .drive(saveButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
         viewModel.cardTheme
             .map { [$0.firstGradientColor, $0.secondGradientColor] }
+            .asDriver(onErrorJustReturn: [])
             .drive(cardView.rx.gradientColors)
             .disposed(by: disposeBag)
     }

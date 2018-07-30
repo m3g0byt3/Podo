@@ -6,9 +6,11 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+// Still imports RxCocoa because BehaviorRelay not available without RxCocoa until RxSwift 5.0
+// See https://github.com/ReactiveX/RxSwift/issues/1501 and https://github.com/ReactiveX/RxSwift/issues/1502
 import Foundation
 import RxSwift
-import RxCocoa
+import class RxCocoa.BehaviorRelay
 
 final class PaymentMethodViewModel: PaymentMethodViewModelProtocol {
 
@@ -19,15 +21,15 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol {
 
     // MARK: - PaymentMethodViewModelProtocol protocol conformance
 
-    let title: Driver<String>
-    var paymentMethods: Driver<[PaymentMethodCellViewModelProtocol]> {
-        return viewModels.asDriver()
+    let title: Observable<String>
+    var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> {
+        return viewModels.asObservable()
     }
 
     // MARK: - Initialization
 
     init(_ model: AnyDatabaseService<PaymentMethod>) {
-        self.title = Driver.just(R.string.localizable.paymentSelectionTitle())
+        self.title = Observable.just(R.string.localizable.paymentSelectionTitle())
         self.viewModels = BehaviorRelay(value: [PaymentMethodCellViewModelProtocol]())
         self.model = model
         try? model.fetch(predicate: PaymentMethodViewModel.filterPredicate, sorted: nil) { [weak self] result in

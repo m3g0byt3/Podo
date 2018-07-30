@@ -8,19 +8,17 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 struct TransportCardViewModel: TransportCardViewModelProtocol {
 
     // MARK: - Constants
 
     private static let titleLength = 4
-    private static let onErrorPlaceholder = ""
 
     // MARK: - TransportCardViewModelProtocol protocol conformance
 
-    let cardTheme: Driver<TransportCardTheme>
-    let cardTitle: Driver<String>
+    let cardTheme: Observable<TransportCardTheme>
+    let cardTitle: Observable<String>
     let isCardValid: Observable<Bool>
 
     // MARK: - Initialization
@@ -30,12 +28,10 @@ struct TransportCardViewModel: TransportCardViewModelProtocol {
             .just(model.themeIdentifier)
             .map { TransportCardTheme(rawValue: $0) }
             .filterNil()
-            .asDriver(onErrorJustReturn: .green)
 
         self.cardTitle = Observable
             .just(model.cardNumber)
             .map { "●●●●" + $0.suffix(TransportCardViewModel.titleLength) }
-            .asDriver(onErrorJustReturn: TransportCardViewModel.onErrorPlaceholder)
 
         self.isCardValid = Observable
             .just(true)

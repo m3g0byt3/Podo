@@ -45,11 +45,13 @@ extension CardsCollectionViewCell: Configurable {
     func configure(with viewModel: TransportCardViewModelProtocol) -> Self {
 
         viewModel.cardTitle
+            .asDriver(onErrorJustReturn: "")
             .drive(cardNumberLabel.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.cardTheme
             .map { [$0.firstGradientColor, $0.secondGradientColor] }
+            .asDriver(onErrorJustReturn: [])
             .drive(cardView.rx.gradientColors)
             .disposed(by: disposeBag)
 
