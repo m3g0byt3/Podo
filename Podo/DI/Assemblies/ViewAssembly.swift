@@ -16,7 +16,7 @@ final class ViewAssembly: Assembly {
 
         container.register(MainMenuView.self) { resolver in
             guard let viewController = MainMenuViewController.storyboardInstance() else {
-                unableToResolve(MainMenuViewController.self)
+                unableToResolve(MainMenuView.self)
             }
             viewController.viewModel = resolver.resolve(AnyViewModel<MainMenuCellViewModelProtocol>.self)
             viewController.assembler = ApplicationAssembler.defaultAssembler
@@ -25,7 +25,7 @@ final class ViewAssembly: Assembly {
 
         container.register(MainMenuChildView.self) { resolver in
             guard let viewController = CardsViewController.storyboardInstance() else {
-                unableToResolve(CardsViewController.self)
+                unableToResolve(MainMenuChildView.self)
             }
             viewController.viewModel = resolver.resolve(CardsViewModelProtocol.self)
             return viewController
@@ -39,35 +39,35 @@ final class ViewAssembly: Assembly {
 
         container.register(TutorialView.self) { _ in
             guard let viewController = TutorialViewController.storyboardInstance() else {
-                unableToResolve(TutorialViewController.self)
+                unableToResolve(TutorialView.self)
             }
             return viewController
         }
 
         container.register(SettingsView.self) { _ in
             guard let viewController = SettingsViewController.storyboardInstance() else {
-                unableToResolve(SettingsViewController.self)
+                unableToResolve(SettingsView.self)
             }
             return viewController
         }
 
         container.register(ContactsView.self) { _ in
             guard let viewController = ContactsViewController.storyboardInstance() else {
-                unableToResolve(ContactsViewController.self)
+                unableToResolve(ContactsView.self)
             }
             return viewController
         }
 
         container.register(HelpView.self) { _ in
             guard let viewController = HelpViewController.storyboardInstance() else {
-                unableToResolve(HelpViewController.self)
+                unableToResolve(HelpView.self)
             }
             return viewController
         }
 
         container.register(AddNewCardView.self) { resolver in
             guard let viewController = AddNewCardViewController.storyboardInstance() else {
-                unableToResolve(AddNewCardViewController.self)
+                unableToResolve(AddNewCardView.self)
             }
             viewController.viewModel = resolver.resolve(AddNewCardViewModelProtocol.self)
             return viewController
@@ -75,7 +75,7 @@ final class ViewAssembly: Assembly {
 
         container.register(TopUpView.self) { resolver in
             guard let viewController = TopUpViewController.storyboardInstance() else {
-                unableToResolve(TopUpViewController.self)
+                unableToResolve(TopUpView.self)
             }
             viewController.viewModel = resolver.resolve(PaymentMethodViewModelProtocol.self)
             return viewController
