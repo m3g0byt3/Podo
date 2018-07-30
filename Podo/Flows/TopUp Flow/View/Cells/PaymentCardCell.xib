@@ -25,7 +25,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcU-YK-BmO" customClass="PaymentCardBackgroundView" customModule="Podo" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="480" height="301.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter card details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFc-DO-Zl3">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFc-DO-Zl3">
                                         <rect key="frame" x="8" y="8" width="464" height="55"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
@@ -37,7 +37,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xm-jZ-Hkz" customClass="LabeledTextField" customModule="Podo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="464" height="99.5"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Card number"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Number"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="textFieldPlaceholder" value="0000 0000 0000 0000"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="textFieldTextColor">
                                                         <color key="value" red="0.56862745100000001" green="0.56862745100000001" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,10 +134,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cardNumberTextField" destination="5xm-jZ-Hkz" id="ZpL-Ku-Xau"/>
+                <outlet property="cellTitle" destination="OFc-DO-Zl3" id="vvV-Ue-QIt"/>
                 <outlet property="cvcTextField" destination="Wzq-RS-MuS" id="2AV-o8-Zcr"/>
                 <outlet property="expirationTextField" destination="a1e-c4-hkx" id="zwt-g5-pgR"/>
             </connections>
-            <point key="canvasLocation" x="-471" y="-1"/>
+            <point key="canvasLocation" x="-724" y="-51"/>
         </tableViewCell>
     </objects>
 </document>
