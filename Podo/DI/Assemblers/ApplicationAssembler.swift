@@ -34,6 +34,6 @@ final class ApplicationAssembler {
      - parameter assemblies: Array of assemblies
      */
     init(assemblies: [Assembly]) {
-        assembler = Assembler(assemblies)
+        self.assembler = Assembler(assemblies)
     }
 }
