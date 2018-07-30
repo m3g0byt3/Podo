@@ -13,34 +13,34 @@ struct PaymentConfirmationViewModelImpl: PaymentConfirmationViewModel {
 
     // MARK: - Private properties
 
-    private let models: [PaymentConfirmationSectionViewModelImpl]
+    private let childViewModels: [PaymentConfirmationSectionViewModelImpl]
 
     // MARK: - PaymentConfirmationViewModel protocol conformance
 
     let isPaymentValid: Observable<Bool>
     var sections: Observable<[PaymentConfirmationSectionViewModelImpl]> {
-        return Observable.just(models)
+        return Observable.just(childViewModels)
     }
 
     // MARK: - Initialization
 
-    init(transportCardViewModel: TransportCardViewModelProtocol) {
-        self.isPaymentValid = PaymentConfirmationViewModelImpl
-            .isValid()
+    init(transportCardViewModel: TransportCardViewModelProtocol,
+         paymentAmountViewModel: PaymentAmountCellViewModelProtocol,
+         paymentCardViewModel: PaymentCardCellViewModelProtocol) {
 
-        self.models = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
-                                      items: [.paymentCardSectionItem]),
-                  .transportCardSection(title: R.string.localizable.transportCardSection(),
-                                        items: [.transportCardSectionItem(innerViewModel: transportCardViewModel)]),
-                  .amountFieldSection(title: R.string.localizable.amountFieldSection(),
-                                      items: [.amountFieldSectionItem])
+        let isPaymentCardValid = paymentCardViewModel.output.isCardValid
+        let isTransportCardValid = transportCardViewModel.isCardValid
+        let isPaymentAmoundValid = paymentAmountViewModel.output.isAmountValid
+
+        self.isPaymentValid = Observable
+            .combineLatest(isTransportCardValid, isPaymentCardValid, isPaymentAmoundValid) { $0 && $1 && $2 }
+
+        self.childViewModels = [.paymentCardSection(title: R.string.localizable.paymentCardSection(),
+                                                    items: [.paymentCardSectionItem(viewModel: paymentCardViewModel)]),
+                                .transportCardSection(title: R.string.localizable.transportCardSection(),
+                                                      items: [.transportCardSectionItem(viewModel: transportCardViewModel)]),
+                                .amountFieldSection(title: R.string.localizable.amountFieldSection(),
+                                                    items: [.amountFieldSectionItem(viewModel: paymentAmountViewModel)])
         ]
-    }
-
-    private static func isValid() -> Observable<Bool> {
-        return Observable.create { observer in
-            // TODO: replace with real logic!
-            return Disposables.create()
-        }
     }
 }
