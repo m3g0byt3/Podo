@@ -51,6 +51,14 @@ final class ViewModelAssembly: Assembly {
 
         container.register(PaymentConfirmationViewModel.self) { _, transportCardViewModel in
             return PaymentConfirmationViewModelImpl(transportCardViewModel: transportCardViewModel)
+        container.register(PaymentAmountCellViewModelProtocol.self) { _ in
+            return PaymentAmountCellViewModel()
+        }
+
+        container.register(PaymentCardCellViewModelProtocol.self) { _ in
+            return PaymentCardCellViewModel()
+        }
+
         }
     }
 }
