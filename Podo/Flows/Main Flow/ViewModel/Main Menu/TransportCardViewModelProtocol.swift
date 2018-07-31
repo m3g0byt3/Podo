@@ -11,6 +11,14 @@ import RxSwift
 
 protocol TransportCardViewModelProtocol {
 
+    var input: TransportCardViewModelInputProtocol { get }
+    var output: TransportCardViewModelOutputProtocol { get }
+}
+
+protocol TransportCardViewModelInputProtocol {}
+
+protocol TransportCardViewModelOutputProtocol {
+
     var cardTheme: Observable<TransportCardTheme> { get }
     var cardTitle: Observable<String> { get }
     var isCardValid: Observable<Bool> { get }

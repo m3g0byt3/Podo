@@ -10,5 +10,10 @@ import Foundation
 
 protocol MainMenuCellViewModelProtocol {
 
-    // TODO: Add actual implementation
+    var input: MainMenuCellViewModelInputProtocol { get }
+    var output: MainMenuCellViewModelOutputProtocol { get }
 }
+
+protocol MainMenuCellViewModelInputProtocol {}
+
+protocol MainMenuCellViewModelOutputProtocol {}

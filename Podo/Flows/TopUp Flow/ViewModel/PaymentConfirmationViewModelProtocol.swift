@@ -11,6 +11,14 @@ import RxSwift
 
 protocol PaymentConfirmationViewModelProtocol {
 
+    var input: PaymentConfirmationViewModelInputProtocol { get }
+    var output: PaymentConfirmationViewModelOutputProtocol { get }
+}
+
+protocol PaymentConfirmationViewModelInputProtocol {}
+
+protocol PaymentConfirmationViewModelOutputProtocol {
+
     var isPaymentValid: Observable<Bool> { get }
     var sections: Observable<[PaymentConfirmationSectionViewModelWrapper]> { get }
 }

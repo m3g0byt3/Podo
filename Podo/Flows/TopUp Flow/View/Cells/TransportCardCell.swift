@@ -40,12 +40,12 @@ extension TransportCardCell: Configurable {
     @discardableResult
     func configure(with viewModel: ViewModel) -> Self {
 
-        viewModel.cardTitle
+        viewModel.output.cardTitle
             .asDriver(onErrorJustReturn: "")
             .drive(transportCardLabel.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel.cardTheme
+        viewModel.output.cardTheme
             .map { [$0.firstGradientColor, $0.secondGradientColor] }
             .asDriver(onErrorJustReturn: [])
             .drive(transportCardView.rx.gradientColors)

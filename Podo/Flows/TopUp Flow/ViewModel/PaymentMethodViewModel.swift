@@ -12,7 +12,9 @@ import Foundation
 import RxSwift
 import class RxCocoa.BehaviorRelay
 
-final class PaymentMethodViewModel: PaymentMethodViewModelProtocol {
+final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
+                                    PaymentMethodViewModelInputProtocol,
+                                    PaymentMethodViewModelOutputProtocol {
 
     // MARK: - Properties
 
@@ -20,6 +22,11 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol {
     private let viewModels: BehaviorRelay<[PaymentMethodCellViewModelProtocol]>
 
     // MARK: - PaymentMethodViewModelProtocol protocol conformance
+
+    var input: PaymentMethodViewModelInputProtocol { return self }
+    var output: PaymentMethodViewModelOutputProtocol { return self }
+
+    // MARK: - PaymentMethodViewModelOutputProtocol protocol conformance
 
     let title: Observable<String>
     var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> {

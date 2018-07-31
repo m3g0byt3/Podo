@@ -9,9 +9,16 @@
 import Foundation
 import RxSwift
 
-struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol {
+struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol,
+                                   PaymentMethodCellViewModelInputProtocol,
+                                   PaymentMethodCellViewModelOutputProtocol {
 
     // MARK: - PaymentMethodCellViewModelProtocol protocol conformance
+
+    var input: PaymentMethodCellViewModelInputProtocol { return self }
+    var output: PaymentMethodCellViewModelOutputProtocol { return self }
+
+    // MARK: - PaymentMethodCellViewModelOutputProtocol protocol conformance
 
     let title: Observable<String>
     let iconBlob: Observable<Data>

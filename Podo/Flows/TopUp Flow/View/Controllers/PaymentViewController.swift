@@ -65,7 +65,7 @@ class PaymentViewController: UIViewController,
     private func setupBindings() {
         let dataSource = PaymentViewController.dataSource()
 
-        viewModel.sections
+        viewModel.output.sections
             .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -74,7 +74,7 @@ class PaymentViewController: UIViewController,
             .setDelegate(self)
             .disposed(by: disposeBag)
 
-        viewModel.isPaymentValid
+        viewModel.output.isPaymentValid
             .asDriver(onErrorJustReturn: false)
             .drive(paymentButton.rx.isEnabled)
             .disposed(by: disposeBag)

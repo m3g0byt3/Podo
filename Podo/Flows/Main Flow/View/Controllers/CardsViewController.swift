@@ -89,7 +89,7 @@ final class CardsViewController: UIViewController,
 
     private func setupBindings() {
         // Cell factory
-        viewModel.childViewModels
+        viewModel.output.childViewModels
             .flatMap(CardsViewController.wrapViewModels)
             .asDriver(onErrorJustReturn: [])
             .drive(collectionView.rx.items) { (collectionView, index, wrappedViewModel) in

@@ -11,5 +11,13 @@ import RxSwift
 
 protocol CardsViewModelProtocol {
 
+    var input: CardsViewModelInputProtocol { get }
+    var output: CardsViewModelOutputProtocol { get }
+}
+
+protocol CardsViewModelInputProtocol {}
+
+protocol CardsViewModelOutputProtocol {
+
     var childViewModels: Observable<[TransportCardViewModelProtocol]> { get }
 }

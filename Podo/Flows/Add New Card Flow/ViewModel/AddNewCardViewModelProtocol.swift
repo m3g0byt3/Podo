@@ -11,15 +11,20 @@ import RxSwift
 
 protocol AddNewCardViewModelProtocol {
 
-    // MARK: - Inputs
+    var input: AddNewCardViewModelInputProtocol { get }
+    var output: AddNewCardViewModelOutputProtocol { get }
+}
 
-    var cardNumberInput: PublishSubject<String> { get }
+protocol AddNewCardViewModelInputProtocol {
+
+    var cardNumber: PublishSubject<String> { get }
     var saveState: PublishSubject<Void> { get }
     var themeChanged: PublishSubject<Int> { get }
+}
 
-    // MARK: - Outputs
+protocol AddNewCardViewModelOutputProtocol {
 
-    var cardNumberOutput: Observable<String> { get }
+    var cardNumberText: Observable<String> { get }
     var isCardValid: Observable<Bool> { get }
     var cardTheme: Observable<TransportCardTheme> { get }
 }

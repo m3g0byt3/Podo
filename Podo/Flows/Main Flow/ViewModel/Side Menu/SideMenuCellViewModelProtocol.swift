@@ -10,6 +10,14 @@ import Foundation
 
 protocol SideMenuCellViewModelProtocol {
 
+    var input: SideMenuCellViewModelInputProtocol { get }
+    var output: SideMenuCellViewModelOutputProtocol { get }
+}
+
+protocol SideMenuCellViewModelInputProtocol {}
+
+protocol SideMenuCellViewModelOutputProtocol {
+
     var title: String { get }
     var type: SideMenuItemType { get }
     var imageBlob: Data? { get }

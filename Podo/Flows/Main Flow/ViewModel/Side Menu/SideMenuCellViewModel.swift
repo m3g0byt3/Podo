@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct SideMenuCellViewModel: SideMenuCellViewModelProtocol {
+struct SideMenuCellViewModel: SideMenuCellViewModelProtocol,
+                              SideMenuCellViewModelInputProtocol,
+                              SideMenuCellViewModelOutputProtocol {
 
     // MARK: - SideMenuCellViewModelProtocol protocol conformance
+
+    var input: SideMenuCellViewModelInputProtocol { return self }
+    var output: SideMenuCellViewModelOutputProtocol { return self }
+
+    // MARK: - SideMenuCellViewModelOutputProtocol protocol conformance
 
     let title: String
     let type: SideMenuItemType
