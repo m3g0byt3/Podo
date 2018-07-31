@@ -6,9 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import class UIKit.UIButton
-import class UIKit.NSMutableAttributedString
-import struct UIKit.UIControlState
+import Foundation
+import UIKit
 
 extension UIButton {
 

@@ -6,9 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-import class UIKit.UITableView
-import class UIKit.UITableViewCell
-import struct Foundation.IndexPath
+import Foundation
+import UIKit
 
 extension UITableView {
 

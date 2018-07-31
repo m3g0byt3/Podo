@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import struct UIKit.CGFloat
+import CoreGraphics
 
 protocol CustomMargin: Customizable {
 
