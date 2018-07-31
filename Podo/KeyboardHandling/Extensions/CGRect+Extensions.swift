@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import struct CoreGraphics.CGRect
+import CoreGraphics
 
 public extension CGRect {
 
