@@ -12,7 +12,9 @@ import Foundation
 import RxSwift
 import class RxCocoa.BehaviorRelay
 
-final class CardsViewModel: CardsViewModelProtocol {
+final class CardsViewModel: CardsViewModelProtocol,
+                            CardsViewModelInputProtocol,
+                            CardsViewModelOutputProtocol {
 
     // MARK: - Properties
 
@@ -20,6 +22,11 @@ final class CardsViewModel: CardsViewModelProtocol {
     private let viewModels: BehaviorRelay<[TransportCardViewModelProtocol]>
 
     // MARK: - CardsViewModelProtocol protocol conformance
+
+    var input: CardsViewModelInputProtocol { return self }
+    var output: CardsViewModelOutputProtocol { return self }
+
+    // MARK: - CardsViewModelOutputProtocol protocol conformance
 
     var childViewModels: Observable<[TransportCardViewModelProtocol]> {
         return viewModels.asObservable()

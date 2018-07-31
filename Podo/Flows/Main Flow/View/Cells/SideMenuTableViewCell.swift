@@ -42,8 +42,8 @@ extension SideMenuTableViewCell: Configurable {
 
     @discardableResult
     func configure(with viewModel: SideMenuCellViewModelProtocol) -> Self {
-        customTextLabel.text = viewModel.title
-        customImageView.image = viewModel.imageBlob.flatMap(UIImage.init)
+        customTextLabel.text = viewModel.output.title
+        customImageView.image = viewModel.output.imageBlob.flatMap(UIImage.init)
 
         return self
     }

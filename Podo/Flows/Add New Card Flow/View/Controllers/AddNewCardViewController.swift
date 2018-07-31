@@ -63,40 +63,44 @@ final class AddNewCardViewController: UIViewController,
             .orEmpty
             .distinctUntilChanged()
             .throttle(Constant.ThrottleDuration.textField, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.cardNumberInput)
+            .bind(to: viewModel.input.cardNumber)
             .disposed(by: disposeBag)
 
-        colorButtons.enumerated().forEach { index, button in
+        for (index, button) in colorButtons.enumerated() {
             button.rx.tap
                 .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
-                .subscribe(onNext: { [unowned self] in
-                    self.viewModel.themeChanged.onNext(index)
+                .subscribe(onNext: { [weak self] in
+                    self?.viewModel.input.themeChanged.onNext(index)
                 })
                 .disposed(by: disposeBag)
         }
 
         cardNumberTextField.rx.rightOverlayButtonTap?
             .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
-            .subscribe { [unowned self] _ in self.onScanButtonTap?() }
+            .subscribe { [weak self] _ in
+                self?.onScanButtonTap?()
+            }
             .disposed(by: disposeBag)
 
         saveButton.rx.tap
             .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
-            .do(onNext: { [unowned self] _ in self.onSaveButtonTap?() })
-            .bind(to: viewModel.saveState)
+            .do(onNext: { [weak self] _ in
+                self?.onSaveButtonTap?()
+            })
+            .bind(to: viewModel.input.saveState)
             .disposed(by: disposeBag)
 
-        viewModel.cardNumberOutput
+        viewModel.output.cardNumberText
             .asDriver(onErrorJustReturn: "")
             .drive(cardNumberTextField.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel.isCardValid
+        viewModel.output.isCardValid
             .asDriver(onErrorJustReturn: false)
             .drive(saveButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
-        viewModel.cardTheme
+        viewModel.output.cardTheme
             .map { [$0.firstGradientColor, $0.secondGradientColor] }
             .asDriver(onErrorJustReturn: [])
             .drive(cardView.rx.gradientColors)

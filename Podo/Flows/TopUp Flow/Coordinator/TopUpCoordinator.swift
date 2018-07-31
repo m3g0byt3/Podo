@@ -31,7 +31,7 @@ final class TopUpCoordinator: AbstractCoordinator {
     }
 
     private func showPaymentDialog(for paymentMethod: PaymentMethodCellViewModelProtocol) {
-        switch paymentMethod.type {
+        switch paymentMethod.output.type {
         case .bankCard:
             guard
                 let card = transportCard,
@@ -40,7 +40,7 @@ final class TopUpCoordinator: AbstractCoordinator {
             router.push(view, animated: true)
         case .applePay, .cellphoneBalance, .qiwiWallet, .yandexMoney:
             // TODO: Handle .applePay, .cellphoneBalance, .qiwiWallet and .yandexMoney payment methods
-            assertionFailure("Unable to top up using payment method \"\(paymentMethod.type)\"")
+            assertionFailure("Unable to top up using payment method \"\(paymentMethod.output.type)\"")
         }
     }
 

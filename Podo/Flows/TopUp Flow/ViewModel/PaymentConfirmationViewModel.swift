@@ -9,13 +9,20 @@
 import Foundation
 import RxSwift
 
-struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol {
+struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
+                                     PaymentConfirmationViewModelInputProtocol,
+                                     PaymentConfirmationViewModelOutputProtocol {
 
     // MARK: - Private properties
 
     private let childViewModels: [PaymentConfirmationSectionViewModelWrapper]
 
     // MARK: - PaymentConfirmationViewModelProtocol protocol conformance
+
+    var input: PaymentConfirmationViewModelInputProtocol { return self }
+    var output: PaymentConfirmationViewModelOutputProtocol { return self }
+
+    // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
 
     let isPaymentValid: Observable<Bool>
     var sections: Observable<[PaymentConfirmationSectionViewModelWrapper]> {
@@ -29,7 +36,7 @@ struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol {
          paymentCardViewModel: PaymentCardCellViewModelProtocol) {
 
         let isPaymentCardValid = paymentCardViewModel.output.isCardValid
-        let isTransportCardValid = transportCardViewModel.isCardValid
+        let isTransportCardValid = transportCardViewModel.output.isCardValid
         let isPaymentAmoundValid = paymentAmountViewModel.output.isAmountValid
 
         self.isPaymentValid = Observable

@@ -9,13 +9,20 @@
 import Foundation
 import RxSwift
 
-struct TransportCardViewModel: TransportCardViewModelProtocol {
+struct TransportCardViewModel: TransportCardViewModelProtocol,
+                               TransportCardViewModelInputProtocol,
+                               TransportCardViewModelOutputProtocol {
 
     // MARK: - Constants
 
     private static let titleLength = 4
 
     // MARK: - TransportCardViewModelProtocol protocol conformance
+
+    var input: TransportCardViewModelInputProtocol { return self }
+    var output: TransportCardViewModelOutputProtocol { return self }
+
+    // MARK: - TransportCardViewModelOutputProtocol protocol conformance
 
     let cardTheme: Observable<TransportCardTheme>
     let cardTitle: Observable<String>

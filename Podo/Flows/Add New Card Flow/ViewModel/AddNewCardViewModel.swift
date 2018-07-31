@@ -9,7 +9,26 @@
 import Foundation
 import RxSwift
 
-final class AddNewCardViewModel: AddNewCardViewModelProtocol {
+final class AddNewCardViewModel: AddNewCardViewModelProtocol,
+                                 AddNewCardViewModelInputProtocol,
+                                 AddNewCardViewModelOutputProtocol {
+
+    // MARK: - AddNewCardViewModelProtocol protocol conformance
+
+    var input: AddNewCardViewModelInputProtocol { return self }
+    var output: AddNewCardViewModelOutputProtocol { return self }
+
+    // MARK: - AddNewCardViewModelInputProtocol protocol conformance
+
+    let cardNumber = PublishSubject<String>()
+    let themeChanged = PublishSubject<Int>()
+    let saveState = PublishSubject<Void>()
+
+    // MARK: - AddNewCardViewModelOutputProtocol protocol conformance
+
+    let cardNumberText: Observable<String>
+    let cardTheme: Observable<TransportCardTheme>
+    let isCardValid: Observable<Bool>
 
     // MARK: - Properties
 
@@ -17,24 +36,12 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol {
     private let card: Observable<TransportCard?>
     private let disposeBag = DisposeBag()
 
-    // MARK: - AddNewCardViewModelProtocol protocol conformance
-
-    // Inputs
-    let cardNumberInput = PublishSubject<String>()
-    let themeChanged = PublishSubject<Int>()
-    let saveState = PublishSubject<Void>()
-
-    // Outputs
-    let cardNumberOutput: Observable<String>
-    let cardTheme: Observable<TransportCardTheme>
-    let isCardValid: Observable<Bool>
-
     // MARK: - Initialization
 
     init(_ model: AnyDatabaseService<TransportCard>) {
         self.model = model
 
-        cardNumberOutput = cardNumberInput
+        cardNumberText = cardNumber
             .filterNonNumeric()
 
         cardTheme = themeChanged
@@ -44,7 +51,7 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol {
             .distinctUntilChanged()
 
         card = Observable
-            .combineLatest(cardNumberOutput.asObservable(), cardTheme.asObservable()) { (number, theme) in
+            .combineLatest(cardNumberText.asObservable(), cardTheme.asObservable()) { (number, theme) in
                 let card = TransportCard(cardNumber: number)
                 card?.themeIdentifier = theme.rawValue
                 return card

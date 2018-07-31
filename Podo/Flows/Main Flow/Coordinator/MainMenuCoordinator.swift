@@ -32,7 +32,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
         guard let view = assembler.resolver.resolve(SideMenuView.self) else { return }
         view.onSideMenuEntrySelection = { [weak self] sideMenuItem in
             self?.router.dismiss(animated: true, completion: nil)
-            switch sideMenuItem.type {
+            switch sideMenuItem.output.type {
             case .main: self?.router.popToRootView(animated: false)
             case .settings: self?.startSettingsFlow()
             case .contacts: self?.showContacts()

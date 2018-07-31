@@ -11,6 +11,14 @@ import RxSwift
 
 protocol PaymentMethodCellViewModelProtocol {
 
+    var input: PaymentMethodCellViewModelInputProtocol { get }
+    var output: PaymentMethodCellViewModelOutputProtocol { get }
+}
+
+protocol PaymentMethodCellViewModelInputProtocol {}
+
+protocol PaymentMethodCellViewModelOutputProtocol {
+
     var title: Observable<String> { get }
     var iconBlob: Observable<Data> { get }
     var type: PaymentMethodType { get }
