@@ -37,6 +37,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
             case .settings: self?.startSettingsFlow()
             case .contacts: self?.showContacts()
             case .help: self?.showAbout()
+            case .unknown: break
             }
         }
         view.onSideMenuClose = { [weak self] in

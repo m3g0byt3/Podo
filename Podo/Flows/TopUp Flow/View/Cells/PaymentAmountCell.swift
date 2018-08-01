@@ -190,7 +190,7 @@ final class PaymentAmountCell: UITableViewCell {
     }
 
     private static func bindButtonTap(_ mapped: Mapped) -> Observable<Void> {
-        return Observable.create { subscriber in
+        return Observable.create { _ in
             return mapped.button.rx.tap
                 .bind(to: mapped.viewModel.input.selected)
         }

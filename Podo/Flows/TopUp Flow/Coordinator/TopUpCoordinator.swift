@@ -41,6 +41,7 @@ final class TopUpCoordinator: AbstractCoordinator {
         case .applePay, .cellphoneBalance, .qiwiWallet, .yandexMoney:
             // TODO: Handle .applePay, .cellphoneBalance, .qiwiWallet and .yandexMoney payment methods
             assertionFailure("Unable to top up using payment method \"\(paymentMethod.output.type)\"")
+        case .unknown: break
         }
     }
 

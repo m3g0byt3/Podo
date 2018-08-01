@@ -58,7 +58,7 @@ final class TopUpViewController: UIViewController,
 
         viewModel.output.paymentMethods
             .asDriver(onErrorJustReturn: [])
-            .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { (_, viewModel, cell) in
+            .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
                 cell.configure(with: viewModel)
             }
             .disposed(by: disposeBag)

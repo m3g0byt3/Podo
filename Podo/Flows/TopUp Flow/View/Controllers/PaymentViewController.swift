@@ -87,7 +87,7 @@ private extension PaymentViewController {
 
     static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelWrapper> {
         return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelWrapper>(
-            configureCell: { (_, tableView, indexPath, viewModel) in
+            configureCell: { _, tableView, indexPath, viewModel in
                 switch viewModel {
 
                 case .paymentCardSectionItem(let viewModel):
@@ -103,7 +103,7 @@ private extension PaymentViewController {
                     return cell.configure(with: viewModel)
                 }
             },
-            titleForHeaderInSection: { (dataSource, index) in
+            titleForHeaderInSection: { dataSource, index in
                 let section = dataSource[index]
                 return section.headerTitle
             }

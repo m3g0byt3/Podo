@@ -28,7 +28,7 @@ class GradientView: UIView {
      - Bottom Right To Top Left = 7
      */
     enum Direction: Int {
-
+        // swiftlint:disable:next strict_fileprivate
         fileprivate var points: (startPoint: CGPoint, endPoint: CGPoint) {
             switch self {
             case .leftToRight: return (CGPoint(x: 0, y: 0.5), CGPoint(x: 1, y: 0.5))

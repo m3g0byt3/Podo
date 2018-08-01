@@ -96,9 +96,9 @@ extension SideMenuViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sideMenuTableViewCell, for: indexPath)!
+        // swiftlint:disable force_unwrapping
+        return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sideMenuTableViewCell, for: indexPath)!
             .configure(with: viewModel.childViewModel(for: indexPath))
-        return cell
     }
 }
 

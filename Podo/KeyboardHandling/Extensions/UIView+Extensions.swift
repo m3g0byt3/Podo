@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public extension UIView {
+extension UIView {
 
     /**
      All First Responders from view's subviews or this view itself if

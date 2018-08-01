@@ -19,4 +19,5 @@ enum PaymentMethodType: String {
     case cellphoneBalance
     case yandexMoney
     case qiwiWallet
+    case unknown
 }

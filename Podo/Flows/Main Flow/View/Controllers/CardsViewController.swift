@@ -80,7 +80,6 @@ final class CardsViewController: UIViewController,
     // MARK: - Types
 
     private enum ViewModelWrapper {
-        // swiftlint:disable:next identifier_name
         case data(TransportCardViewModelProtocol)
         case empty
     }
@@ -92,15 +91,17 @@ final class CardsViewController: UIViewController,
         viewModel.output.childViewModels
             .flatMap(CardsViewController.wrapViewModels)
             .asDriver(onErrorJustReturn: [])
-            .drive(collectionView.rx.items) { (collectionView, index, wrappedViewModel) in
+            .drive(collectionView.rx.items) { collectionView, index, wrappedViewModel in
                 let indexPath = IndexPath(item: index, section: 0)
                 switch wrappedViewModel {
                 case .data(let viewModel):
                     return collectionView
+                        // swiftlint:disable force_unwrapping
                         .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.cardsCollectionViewCell, for: indexPath)!
                         .configure(with: viewModel)
                 case .empty:
                     return collectionView
+                        // swiftlint:disable force_unwrapping
                         .dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.addNewCardCollectionViewCell, for: indexPath)!
                 }
             }

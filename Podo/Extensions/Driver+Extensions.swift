@@ -13,12 +13,12 @@ import RxCocoa
 /*
  Originally from here: https://github.com/RxSwiftCommunity/RxOptional/blob/master/Source/Driver%2BOptional.swift
  */
-public extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy, E: OptionalType {
+extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy, E: OptionalType {
     /**
      Unwraps and filters out `nil` elements.
      - returns: `Driver` of source `Driver`'s elements, with `nil` elements filtered out.
      */
-    public func filterNil() -> Driver<E.Wrapped> {
+    func filterNil() -> Driver<E.Wrapped> {
         return self.flatMap { element -> Driver<E.Wrapped> in
             guard let value = element.value else {
                 return Driver<E.Wrapped>.empty()

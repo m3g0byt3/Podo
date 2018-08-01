@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public extension UIResponder {
+extension UIResponder {
 
     // MARK: - Public API
 

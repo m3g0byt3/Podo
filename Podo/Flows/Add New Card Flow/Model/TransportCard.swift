@@ -15,21 +15,23 @@ final class TransportCard: Object {
 
     // swiftlint:disable:next force_try
     private static let notNumericRegex = try! NSRegularExpression(pattern: "[^0-9]+", options: .caseInsensitive)
+    private static let unknownIdentifier = 0
     private static let podorozhnikIdentifier = 1
     private static let sputnikIdentifier = 2
     /// Type of card
-    var cardType: TransportCardType { return TransportCardType(rawValue: _cardType)! }
+    var cardType: TransportCardType { return TransportCardType(rawValue: _cardType) ?? .unknown }
     /// Identifier of card, used by an API
     var cardIdentifier: Int {
         switch self.cardType {
         case .sputnik: return TransportCard.sputnikIdentifier
         case .podorozhnikShort, .podorozhnikLong: return TransportCard.podorozhnikIdentifier
+        case .unknown: return TransportCard.unknownIdentifier
         }
     }
     /// Card unique number
     @objc dynamic var cardNumber = ""
     /// Private variable used to store `cardType` in Realm database
-    @objc dynamic private var _cardType = 0
+    @objc private dynamic var _cardType = 0
     /// Visual theme identifier for a card
     @objc dynamic var themeIdentifier = 0
 

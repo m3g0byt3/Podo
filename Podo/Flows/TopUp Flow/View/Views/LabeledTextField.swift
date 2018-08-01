@@ -119,7 +119,7 @@ final class LabeledTextField: UIControl {
 
     /// Setup KVO for `backgroundColor` property.
     private func setupObservers() {
-        colorObserver = self.observe(\.backgroundColor, options: [.initial, .new]) { (obj, change) in
+        colorObserver = self.observe(\.backgroundColor, options: [.initial, .new]) { obj, change in
             if let color = change.newValue {
                 obj.label?.backgroundColor = color
                 obj.textField?.backgroundColor = color

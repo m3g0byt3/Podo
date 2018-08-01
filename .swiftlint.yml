@@ -13,7 +13,6 @@ opt_in_rules:
  - closure_end_indentation
  - contains_over_first_not_nil
  - empty_count
-# - explicit_enum_raw_value
  - explicit_init
  - implicitly_unwrapped_optional
  - joined_default_parameter
@@ -29,8 +28,37 @@ opt_in_rules:
  - prohibited_super_call
  - redundant_nil_coalescing
  - sorted_first_last
-# - sorted_imports
  - vertical_parameter_alignment_on_call
+ - convenience_type
+ - empty_string
+ - fallthrough
+ - fatal_error_message
+ - file_name
+ - force_unwrapping
+ - function_default_parameter_at_end
+ - lower_acl_than_parent
+ - missing_docs
+ - modifier_order
+ - multiline_arguments
+ - multiline_function_chains
+ - pattern_matching_keywords
+ - quick_discouraged_call
+ - redundant_type_annotation
+ - required_enum_case
+ - single_test_class
+ - strict_fileprivate
+ - unneeded_parentheses_in_closure_argument
+ - untyped_error_in_catch
+ - yoda_condition
 
 # Rules customization
 line_length: 140
+# Due to issue #2277: https://github.com/realm/SwiftLint/issues/2277
+file_name:
+  excluded:
+    - Constants.swift
+    - InputAccessoryViewProtocol.swift
+    - UIView.AnimationOptions+Extensions.swift
+    - Observable+Extensions.swift
+    - Driver+Extensions.swift
+    - Swinject+Extensions.swift
