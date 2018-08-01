@@ -11,15 +11,13 @@ import UIKit
 
 extension UITableView {
 
-    /**
-     Strongly-typed reusable cell dequeueing.
-     - parameter indexPath: The index path specifying the location of the cell.
-     - returns: Cell instance of type `T`
-     - throws: ❗️May throw `fatalError` if generic type of cell (`T`) does not registered on the `tableView` instance.❗️
-     ```
-     let cell: SomeCustomCell = tableView.dequeueReusableCell(for: indexPath)
-     ```
-     */
+    /// Strongly-typed reusable cell dequeueing.
+    /// - parameter indexPath: The index path specifying the location of the cell.
+    /// - returns: Cell instance of type `T`
+    /// - throws: ❗️May throw `fatalError` if generic type of cell (`T`) does not registered on the `tableView` instance.❗️
+    /// ```
+    /// let cell: SomeCustomCell = tableView.dequeueReusableCell(for: indexPath)
+    /// ```
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
             print("""
@@ -32,10 +30,8 @@ extension UITableView {
         return cell
     }
 
-    /**
-     Register cell that conforms to `ReusableView` protocol.
-     - parameter aReusable: Cell class that conforms to `ReusableView` protocol.
-     */
+    /// Register cell that conforms to `ReusableView` protocol.
+    /// - parameter aReusable: Cell class that conforms to `ReusableView` protocol.
     func register(_ aReusable: ReusableView.Type) {
         register(aReusable.reusableType, forCellReuseIdentifier: aReusable.reuseIdentifier)
     }

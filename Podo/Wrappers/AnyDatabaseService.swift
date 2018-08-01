@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Type-erasure wrapper for DatabaseServiceProtocol protocol
- */
+/// Type-erasure wrapper for DatabaseServiceProtocol protocol
 final class AnyDatabaseService<ItemType> {
 
     // MARK: - Properties

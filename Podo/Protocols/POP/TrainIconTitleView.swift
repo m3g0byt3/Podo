@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-/**
- `UIViewController` instance with `TrainIconView` set as `UINavigationItem's titleView`
- */
+/// `UIViewController` instance with `TrainIconView` set as `UINavigationItem's titleView`
 protocol TrainIconTitleView: NavigationBarTitleViewCustomizable {}
 
 extension TrainIconTitleView {

@@ -8,27 +8,19 @@
 
 import Foundation
 
-/**
- Represents data source for classes like UITableView and UICollectionView
- */
+/// Represents data source for classes like UITableView and UICollectionView
 protocol ViewModel {
 
-    /**
-     Associated type for child view model
-     */
+    /// Associated type for child view model
     associatedtype ChildViewModel
 
-    /**
-     * Returns number of child view models in given section
-     * - parameter section: Section number
-     * - returns: Number of child view models
-     */
+    /// Returns number of child view models in given section
+    /// - parameter section: Section number
+    /// - returns: Number of child view models
     func numberOfChildViewModels(in section: Int) -> Int
 
-    /**
-     * Returns child view model for given index path
-     * - parameter indexPath: IndexPath for child view model
-     * - returns: Child view model
-     */
+    /// Returns child view model for given index path
+    /// - parameter indexPath: IndexPath for child view model
+    /// - returns: Child view model
     func childViewModel(for indexPath: IndexPath) -> ChildViewModel
 }

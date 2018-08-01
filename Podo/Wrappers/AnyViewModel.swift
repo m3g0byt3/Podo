@@ -8,10 +8,8 @@
 
 import Foundation
 
-/**
- Type-erasure wrapper for ViewModel protocol
- `P` - Parent view model type, `C` - child view model type
- */
+/// Type-erasure wrapper for ViewModel protocol
+/// `P` - Parent view model type, `C` - child view model type
 final class AnyViewModel<C>: ViewModel {
 
     // MARK: - Properties

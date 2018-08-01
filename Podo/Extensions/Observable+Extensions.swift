@@ -14,11 +14,9 @@ import RxSwift
 /// https://github.com/artsy/eidolon/blob/24e36a69bbafb4ef6dbe4d98b575ceb4e1d8345f/Kiosk/Observable%2BOperators.swift#L42-L62
 /// Credit to Artsy and @ashfurrow
 extension ObservableType where E: OptionalType {
-    /**
-     Unwraps and filters out `nil` elements.
-     - returns: `Observable` of source `Observable`'s elements, with `nil` elements filtered out.
-     */
 
+    /// Unwraps and filters out `nil` elements.
+    /// - returns: `Observable` of source `Observable`'s elements, with `nil` elements filtered out.
     func filterNil() -> Observable<E.Wrapped> {
         return self.flatMap { element -> Observable<E.Wrapped> in
             guard let value = element.value else {
@@ -32,7 +30,6 @@ extension ObservableType where E: OptionalType {
 extension ObservableType where E == String {
 
     /// Filters out non-numeric characters from observable of type `Observable<String>`.
-    ///
     /// - Returns: `Observable<String>` with non-numeric characters elements filtered out.
     public func filterNonNumeric() -> Observable<E> {
         let notNumericSet = CharacterSet.decimalDigits.inverted

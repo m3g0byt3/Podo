@@ -8,11 +8,9 @@
 
 import Foundation
 
-/**
- Generic opaque wrapper above `Dictionary` collection with subscript with following rules:
- - Setter: value for key will be set only if current value for this key equals `nil`.
- - Getter: value for key will be set to `nil` upon returned.
- */
+/// Generic opaque wrapper above `Dictionary` collection with subscript with following rules:
+/// - Setter: value for key will be set only if current value for this key equals `nil`.
+/// - Getter: value for key will be set to `nil` upon returned.
 struct EphemeralDictionaryWrapper<K, V> where K: Hashable {
 
     private var _dictionary: [K: V]

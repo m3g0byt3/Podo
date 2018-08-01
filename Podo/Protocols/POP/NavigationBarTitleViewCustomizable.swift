@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-/**
- `UIViewController` instance with custom `UIView` set as `UINavigationItem's titleView`
- */
+/// `UIViewController` instance with custom `UIView` set as `UINavigationItem's titleView`
 protocol NavigationBarTitleViewCustomizable: Customizable {
 
     var titleView: UIView { get }
