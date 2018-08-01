@@ -9,10 +9,8 @@
 import Foundation
 import RealmSwift
 
-/**
- Generic DatabaseServiceProtocol implementation using Realm ORM.
- `T` - type of Realm object.
- */
+/// Generic DatabaseServiceProtocol implementation using Realm ORM.
+/// `T` - type of Realm object.
 final class DatabaseService<T> where T: Object {
 
     // MARK: - Properties
@@ -22,16 +20,12 @@ final class DatabaseService<T> where T: Object {
 
     // MARK: - Initialization
 
-    /**
-     Initialize service with custom Realm
-     */
+    /// Initialize service with custom Realm
     init(configuration: Realm.Configuration) throws {
         self.realm = try Realm(configuration: configuration)
     }
 
-    /**
-     Initialize service with default Realm
-     */
+    /// Initialize service with default Realm
     convenience init() throws {
         try self.init(configuration: Realm.Configuration())
     }

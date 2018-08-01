@@ -26,21 +26,18 @@ final class CardsViewController: UIViewController,
     // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: CardsViewModelProtocol!
     private let disposeBag = DisposeBag()
-    /**
-     Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
-     */
+
+    /// Stores initial this VC's view size after `viewDidAppear(_ animated:)` called
     private var viewInitialSize: CGSize?
-    /**
-     Returns ratio between initial and current height of this VC's view
-     */
+
+    /// Returns ratio between initial and current height of this VC's view
     private var parentViewHeightRatio: CGFloat? {
         guard let viewInitialSize = viewInitialSize else { return nil }
         return view.bounds.height / viewInitialSize.height
     }
-    /**
-     Setup constraints for the collection view.
-     - warning: ⚠️ Dispatched once. ⚠️
-     */
+
+    /// Setup constraints for the collection view.
+    /// - warning: ⚠️ Dispatched once. ⚠️
     private lazy var setupCollectionViewTopConstraint: () -> Void = {
         // First deactivate top-to-superview IB constrait..
         NSLayoutConstraint.deactivate([collectionViewTopConstraint])
@@ -118,12 +115,10 @@ final class CardsViewController: UIViewController,
             .disposed(by: disposeBag)
     }
 
-    /**
-     Wraps view models inside simple wrapper enum `ViewModelWrapper` and appends `ViewModelWrapper.empty`
-     at the end of the resulting sequence to show additional `add new card` cell.
-     - parameter viewModels: Array of view models.
-     - returns: Driver trait: `Driver<[ViewModelWrapper]`
-     */
+    /// Wraps view models inside simple wrapper enum `ViewModelWrapper` and appends `ViewModelWrapper.empty`
+    /// at the end of the resulting sequence to show additional `add new card` cell.
+    /// - parameter viewModels: Array of view models.
+    /// - returns: Driver trait: `Driver<[ViewModelWrapper]`
     private static func wrapViewModels(_ viewModels: [TransportCardViewModelProtocol]) -> Driver<[ViewModelWrapper]> {
         let wrappedViewModels = viewModels.map(ViewModelWrapper.data)
         let empty = [ViewModelWrapper.empty]

@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Represents sorting by keypath
- */
+/// Represents sorting by keypath
 enum SortOption {
 
     case ascending(keyPath: String)

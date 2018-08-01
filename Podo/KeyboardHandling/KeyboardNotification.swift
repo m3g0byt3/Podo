@@ -29,11 +29,9 @@ struct KeyboardNotification {
         return endFrame.size.height
     }
 
-    /**
-     Failable init from `UIKeyboardWillShow` and `UIKeyboardWillHide` notifications.
-     - parameter notification: `Notification` object.
-     - Important: Returns `nil` if passed notification does not contain `userInfo` dictionary.
-     */
+    /// Failable init from `UIKeyboardWillShow` and `UIKeyboardWillHide` notifications.
+    /// - parameter notification: `Notification` object.
+    /// - Important: Returns `nil` if passed notification does not contain `userInfo` dictionary.
     init?(_ notification: Notification) {
         guard let info = notification.userInfo else { return nil }
         let beginFrame = info[UIKeyboardFrameBeginUserInfoKey] as? CGRect

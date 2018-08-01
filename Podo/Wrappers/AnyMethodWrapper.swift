@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Wraps closure passed at initialization in Selector, available for the Objective-C runtime.
- */
+/// Wraps closure passed at initialization in Selector, available for the Objective-C runtime.
 final class AnyMethodWrapper<T> {
 
     // MARK: - Typealiases

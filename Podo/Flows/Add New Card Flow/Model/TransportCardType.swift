@@ -8,10 +8,8 @@
 
 import Foundation
 
-/**
- Strongly-typed representation of trasport card type
- - Remark: Raw value = length of the card number for appropriate card type
- */
+/// Strongly-typed representation of trasport card type
+/// - Remark: Raw value = length of the card number for appropriate card type
 enum TransportCardType: Int {
 
     case sputnik = 11

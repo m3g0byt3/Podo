@@ -23,27 +23,21 @@ struct AppDelegateAssembler {
 
     // MARK: - Initialization
 
-    /**
-     Using `ApplicationAssembler.defaultAssembler` as an assembler
-     */
+    /// Using `ApplicationAssembler.defaultAssembler` as an assembler
     init() {
         self.assembler = ApplicationAssembler.defaultAssembler
     }
 
-    /**
-     Using custom assembler with given assemblies as an assembler
-     - parameter assemblies: Array of assemblies
-     */
+    /// Using custom assembler with given assemblies as an assembler
+    /// - parameter assemblies: Array of assemblies
     init(assemblies: [Assembly]) {
         self.assembler = Assembler(assemblies)
     }
 
     // MARK: - Public API
 
-    /**
-     Perform dependency injection for AppDelegate instance.
-     - parameter appDelegate: AppDelegate instance
-     */
+    /// Perform dependency injection for AppDelegate instance.
+    /// - parameter appDelegate: AppDelegate instance
     func assemble(appDelegate: AppDelegate) throws {
 
         guard let router = assembler.resolver.resolve(RouterProtocol.self, argument: appDelegate.rootViewController) else {

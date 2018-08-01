@@ -9,37 +9,35 @@
 import Foundation
 import UIKit
 
-/**
- Use POP for aggregation.
- Customization details should be provided by the inheritors of this protocol.
- Customization details should be applied in the `customize()` func, see example below:
- ```
- protocol ColoredView: Customizable {
-    var color: UIColor { get }
- }
-
- protocol BlackView: ColoredView {}
-
- extension BlackView {
-    var color: UIColor { return .black }
- }
-
- extension UIView: Customizable {
-    func customize() {
-        if let custom = self as? ColoredView {
-            self.backgroundColor = custom.color
-        }
-    }
-
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        customize()
-    }
- }
-
- final class CustomView: UIView, BlackView {}
- ```
- */
+/// Use POP for aggregation.
+/// Customization details should be provided by the inheritors of this protocol.
+/// Customization details should be applied in the `customize()` func, see example below:
+/// ```
+/// protocol ColoredView: Customizable {
+///    var color: UIColor { get }
+/// }
+///
+/// protocol BlackView: ColoredView {}
+///
+/// extension BlackView {
+///    var color: UIColor { return .black }
+/// }
+///
+/// extension UIView: Customizable {
+///    func customize() {
+///        if let custom = self as? ColoredView {
+///            self.backgroundColor = custom.color
+///        }
+///    }
+///
+///    override open func awakeFromNib() {
+///        super.awakeFromNib()
+///        customize()
+///    }
+/// }
+///
+/// final class CustomView: UIView, BlackView {}
+/// ```
 protocol Customizable {
 
     /// Called from `awakeFromNib()` in the protocol extensions, don't call directly.

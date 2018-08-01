@@ -11,25 +11,19 @@ import UIKit
 
 extension UIViewController {
 
-    /**
-     Private func used by `storyboardInstance()` public wrapper.
-     */
+    /// Private func used by `storyboardInstance()` public wrapper.
     private static func _storyboardInstance<T: UIViewController>() -> T? {
         let storyboard = UIStoryboard(name: String(describing: self), bundle: nil)
         return storyboard.instantiateInitialViewController() as? T
     }
 
-    /**
-     Returns new UIViewController instance from storyboard with the same name (if exist).
-     - returns: New UIViewController instance.
-     */
+    /// Returns new UIViewController instance from storyboard with the same name (if exist).
+    /// - returns: New UIViewController instance.
     static func storyboardInstance() -> Self? {
         return _storyboardInstance()
     }
 
-    /**
-     Horizontal offset for UIViewController view.
-     */
+    /// Horizontal offset for UIViewController view.
     var horizontalContentLayoutOffset: CGFloat {
         get {
             return view.frame.origin.x
@@ -44,10 +38,8 @@ extension UIViewController {
         }
     }
 
-    /**
-     Inner visible (first) controller for `UINavigationController` and `UITabBarController`
-     or controller itself for `UIViewController`.
-     */
+    /// Inner visible (first) controller for `UINavigationController` and `UITabBarController`
+    /// or controller itself for `UIViewController`.
     var contentViewController: UIViewController? {
         switch self {
         case let navigationController as UINavigationController:
@@ -59,17 +51,13 @@ extension UIViewController {
         }
     }
 
-    /**
-     Custom layoutGuide identifier.
-     */
+    /// Custom layoutGuide identifier.
     @available(iOS 9, *)
     private static var identifier: String {
         return "com.m3g0byt3.safeAreaLayoutGuide"
     }
 
-    /**
-     `safeAreaLayoutGuide` for `UIViewController` on iOS 9.x and above.
-     */
+    /// `safeAreaLayoutGuide` for `UIViewController` on iOS 9.x and above.
     @available(iOS 9, *)
     var safeAreaLayoutGuide: UILayoutGuide {
         // Early exit if we're on iOS 11.x

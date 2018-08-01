@@ -13,16 +13,12 @@ import RxCocoa
 
 extension Reactive where Base: UITextField {
 
-    /**
-     Reactive wrapper for target action pattern on `self.leftView` as `UIButton`
-     */
+    /// Reactive wrapper for target action pattern on `self.leftView` as `UIButton`
     var leftOverlayButtonTap: ControlEvent<Void>? {
         return base.leftView.flatMap { $0 as? UIButton }?.rx.tap
     }
 
-    /**
-     Reactive wrapper for target action pattern on `self.rightView` as `UIButton`
-     */
+    /// Reactive wrapper for target action pattern on `self.rightView` as `UIButton`
     var rightOverlayButtonTap: ControlEvent<Void>? {
         return base.rightView.flatMap { $0 as? UIButton }?.rx.tap
     }

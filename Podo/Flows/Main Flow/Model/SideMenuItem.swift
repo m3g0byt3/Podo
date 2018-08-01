@@ -9,9 +9,7 @@
 import Foundation
 import RealmSwift
 
-/**
- Represents entry in side menu, stored in bundled Realm database
- */
+/// Represents entry in side menu, stored in bundled Realm database
 @objcMembers final class SideMenuItem: Object {
 
     // MARK: - Properties

@@ -11,10 +11,8 @@ import UIKit
 
 extension UIView {
 
-    /**
-     All First Responders from view's subviews or this view itself if
-     the view returns `true` in `canBecomeFirstResponder`.
-     */
+    /// All First Responders from view's subviews or this view itself if
+    /// the view returns `true` in `canBecomeFirstResponder`.
     var responders: [UIResponder] {
         // Early exit if view is not a part of the active view hierarchy.
         guard let currentWindow = window, currentWindow.isKeyWindow else { return [] }
