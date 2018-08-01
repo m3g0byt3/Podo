@@ -23,14 +23,14 @@ extension UIViewController {
      Returns new UIViewController instance from storyboard with the same name (if exist).
      - returns: New UIViewController instance.
      */
-    public static func storyboardInstance() -> Self? {
+    static func storyboardInstance() -> Self? {
         return _storyboardInstance()
     }
 
     /**
      Horizontal offset for UIViewController view.
      */
-    public var horizontalContentLayoutOffset: CGFloat {
+    var horizontalContentLayoutOffset: CGFloat {
         get {
             return view.frame.origin.x
         }
@@ -48,7 +48,7 @@ extension UIViewController {
      Inner visible (first) controller for `UINavigationController` and `UITabBarController`
      or controller itself for `UIViewController`.
      */
-    public var contentViewController: UIViewController? {
+    var contentViewController: UIViewController? {
         switch self {
         case let navigationController as UINavigationController:
             return navigationController.viewControllers.first?.contentViewController

@@ -48,7 +48,9 @@ final class SideMenuPresentationController: UIPresentationController {
 
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let container = containerView else { return UIScreen.main.bounds }
-        return CGRect(x: 0, y: 0, width: container.frame.width * Constant.SideMenu.widthRatio,
+        return CGRect(x: 0,
+                      y: 0,
+                      width: container.frame.width * Constant.SideMenu.widthRatio,
                       height: container.frame.height)
     }
 

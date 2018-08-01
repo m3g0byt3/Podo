@@ -17,4 +17,5 @@ enum TransportCardType: Int {
     case sputnik = 11
     case podorozhnikShort = 19
     case podorozhnikLong = 26
+    case unknown = 0
 }

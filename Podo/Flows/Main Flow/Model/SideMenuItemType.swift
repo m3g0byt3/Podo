@@ -18,4 +18,5 @@ enum SideMenuItemType: String {
     case settings
     case contacts
     case help
+    case unknown
 }

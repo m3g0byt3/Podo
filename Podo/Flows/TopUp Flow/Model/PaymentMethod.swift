@@ -13,7 +13,7 @@ final class PaymentMethod: Object {
 
     // MARK: - Properties
 
-    var type: PaymentMethodType { return PaymentMethodType(rawValue: _type)! }
+    var type: PaymentMethodType { return PaymentMethodType(rawValue: _type) ?? .unknown }
     @objc private dynamic var _type = ""
     @objc dynamic var imageBlob: Data?
     @objc dynamic var isEnabled = false
@@ -21,7 +21,7 @@ final class PaymentMethod: Object {
 
     // MARK: - Initialization
 
-    convenience required init(type: PaymentMethodType, enabled: Bool = false, image: UIImage) {
+    convenience required init(type: PaymentMethodType, image: UIImage, enabled: Bool = false) {
         self.init()
         self._type = type.rawValue
         self.isEnabled = enabled

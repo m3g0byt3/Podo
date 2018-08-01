@@ -9,9 +9,8 @@
 import Foundation
 import RxDataSources
 
+// swiftlint:disable:next type_name
 enum PaymentConfirmationSectionViewModelWrapper {
-    // swiftlint:disable:previous type_name
-    // swiftlint:disable identifier_name
     case transportCardSection(title: String, items: [PaymentConfirmationSectionItemViewModelWrapper])
     case paymentCardSection(title: String, items: [PaymentConfirmationSectionItemViewModelWrapper])
     case amountFieldSection(title: String, items: [PaymentConfirmationSectionItemViewModelWrapper])

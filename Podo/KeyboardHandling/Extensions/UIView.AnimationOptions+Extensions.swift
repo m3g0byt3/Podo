@@ -9,15 +9,13 @@
 import Foundation
 import UIKit
 
-public extension UIView.AnimationOptions {
+extension UIView.AnimationOptions {
 
     /// Left shift for `UIView.AnimationCurve` -> `UIView.AnimationOptions` conversion.
     private static let shift = 16
 
-    /**
-     Convenience init from `UIView.AnimationCurve`.
-     - parameter curve: an `UIView.AnimationCurve` enum.
-     */
+    /// Convenience init from `UIView.AnimationCurve`.
+    /// - parameter curve: an `UIView.AnimationCurve` enum.
     init(curve: UIView.AnimationCurve) {
         let rawValue = curve.rawValue << UIView.AnimationOptions.shift
         self.init(rawValue: UInt(rawValue))

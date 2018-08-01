@@ -51,7 +51,7 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
             .distinctUntilChanged()
 
         card = Observable
-            .combineLatest(cardNumberText.asObservable(), cardTheme.asObservable()) { (number, theme) in
+            .combineLatest(cardNumberText.asObservable(), cardTheme.asObservable()) { number, theme in
                 let card = TransportCard(cardNumber: number)
                 card?.themeIdentifier = theme.rawValue
                 return card

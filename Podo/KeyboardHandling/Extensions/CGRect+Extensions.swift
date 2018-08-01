@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-public extension CGRect {
+extension CGRect {
 
     /// Returns whether a rectangle located on the left relative to another rectangle.
     func leftRelative(to rect: CGRect) -> Bool {
@@ -32,7 +32,7 @@ public extension CGRect {
     }
 }
 
-public extension CGRect {
+extension CGRect {
 
     /// Returns whether rect.minY <= self.maxY and rect.maxY >= self.minY
     func withinHorizontalBaselines(of rect: CGRect) -> Bool {

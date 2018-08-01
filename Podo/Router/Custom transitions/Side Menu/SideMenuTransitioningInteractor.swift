@@ -44,7 +44,7 @@ final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransitio
         case .changed:
             update(transitionPercentageFor(gestureRecognizer, in: container))
         default:
-            if (transitionPercentageFor(gestureRecognizer, in: container) > boundaryTransitionPercentage) {
+            if transitionPercentageFor(gestureRecognizer, in: container) > boundaryTransitionPercentage {
                 finish()
             } else {
                 cancel()

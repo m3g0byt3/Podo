@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Typealiases
 
-public typealias Completion = () -> Void
+typealias Completion = () -> Void
 
 protocol Coordinator: class {
 

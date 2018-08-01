@@ -28,6 +28,6 @@ struct SideMenuCellViewModel: SideMenuCellViewModelProtocol,
     init(_ model: SideMenuItem) {
         self.title = model.title.localized
         self.imageBlob = model.imageBlob
-        self.type = SideMenuItemType(rawValue: model.title)!
+        self.type = SideMenuItemType(rawValue: model.title) ?? .unknown
     }
 }
