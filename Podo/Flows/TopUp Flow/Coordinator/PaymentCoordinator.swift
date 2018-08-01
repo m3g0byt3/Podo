@@ -1,5 +1,5 @@
 //
-//  TopUpCoordinator.swift
+//  PaymentCoordinator.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 16/04/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class TopUpCoordinator: AbstractCoordinator {
+final class PaymentCoordinator: AbstractCoordinator {
 
     // MARK: - Private Properties
 
@@ -18,10 +18,10 @@ final class TopUpCoordinator: AbstractCoordinator {
 
     // MARK: - Internal flows
 
-    private func showTopUpMethods() {
-        guard let view = assembler.resolver.resolve(TopUpView.self) else { return }
+    private func showPaymentMethods() {
+        guard let view = assembler.resolver.resolve(PaymentMethodsView.self) else { return }
         view.onPaymentMethodSelection = { [weak self] paymentMethod in
-            self?.showPaymentDialog(for: paymentMethod)
+            self?.showPaymentComposition(for: paymentMethod)
         }
         view.onPaymentCancel = { [weak self] in
             self?.transportCard = nil
@@ -30,12 +30,12 @@ final class TopUpCoordinator: AbstractCoordinator {
         router.push(view, animated: true)
     }
 
-    private func showPaymentDialog(for paymentMethod: PaymentMethodCellViewModelProtocol) {
+    private func showPaymentComposition(for paymentMethod: PaymentMethodCellViewModelProtocol) {
         switch paymentMethod.output.type {
         case .bankCard:
             guard
                 let card = transportCard,
-                let view = assembler.resolver.resolve(PaymentView.self, argument: card)
+                let view = assembler.resolver.resolve(PaymentCompositionView.self, argument: card)
             else { return }
             router.push(view, animated: true)
         case .applePay, .cellphoneBalance, .qiwiWallet, .yandexMoney:
@@ -54,6 +54,6 @@ final class TopUpCoordinator: AbstractCoordinator {
     override func start(with option: StartOption?) {
         guard case .some(.topUp(let card)) = option else { return }
         transportCard = card
-        showTopUpMethods()
+        showPaymentMethods()
     }
 }

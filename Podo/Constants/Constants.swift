@@ -72,7 +72,7 @@ enum Constant {
         static let emptyVerticalOffsetRatio: CGFloat = -0.15
     }
 
-    enum TopUpMenu {
+    enum PaymentMethodsMenu {
         /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 50
     }

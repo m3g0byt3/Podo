@@ -34,7 +34,7 @@ final class CoordinatorAssembly: Assembly {
         }
 
         container.register(Coordinator.self, flow: .topUp) { _, router in
-            return TopUpCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
+            return PaymentCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
         }
     }
 }

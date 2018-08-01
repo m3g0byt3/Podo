@@ -1,5 +1,5 @@
 //
-//  PaymentViewController.swift
+//  PaymentCompositionViewController.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 27/04/2018.
@@ -12,10 +12,10 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class PaymentViewController: UIViewController,
-                             PaymentView,
-                             TrainIconTitleView,
-                             KeyboardHandling {
+class PaymentCompositionViewController: UIViewController,
+                                        PaymentCompositionView,
+                                        TrainIconTitleView,
+                                        KeyboardHandling {
 
     // MARK: IBOutlets
 
@@ -25,7 +25,7 @@ class PaymentViewController: UIViewController,
     // MARK: - Properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: PaymentConfirmationViewModelProtocol!
+    var viewModel: PaymentCompositionViewModelProtocol!
     private let disposeBag = DisposeBag()
 
     // MARK: - KeyboardHandling protocol conformance
@@ -63,7 +63,7 @@ class PaymentViewController: UIViewController,
     }
 
     private func setupBindings() {
-        let dataSource = PaymentViewController.dataSource()
+        let dataSource = PaymentCompositionViewController.dataSource()
 
         viewModel.output.sections
             .asDriver(onErrorJustReturn: [])
@@ -83,10 +83,10 @@ class PaymentViewController: UIViewController,
 
 // MARK: - RxTableViewSectionedReloadDataSource factory
 
-private extension PaymentViewController {
+private extension PaymentCompositionViewController {
 
-    static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelWrapper> {
-        return RxTableViewSectionedReloadDataSource<PaymentConfirmationSectionViewModelWrapper>(
+    static func dataSource() -> RxTableViewSectionedReloadDataSource<PaymentCompositionSectionViewModelWrapper> {
+        return RxTableViewSectionedReloadDataSource<PaymentCompositionSectionViewModelWrapper>(
             configureCell: { _, tableView, indexPath, viewModel in
                 switch viewModel {
 
@@ -113,7 +113,7 @@ private extension PaymentViewController {
 
 // MARK: - UITableViewDelegate protocol conformance
 
-extension PaymentViewController: UITableViewDelegate {
+extension PaymentCompositionViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constant.CardPaymentMenu.headerHeight

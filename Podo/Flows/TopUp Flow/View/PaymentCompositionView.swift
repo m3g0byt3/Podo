@@ -1,5 +1,5 @@
 //
-//  PaymentView.swift
+//  PaymentCompositionView.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 27/04/2018.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol PaymentView: View {}
+protocol PaymentCompositionView: View {}

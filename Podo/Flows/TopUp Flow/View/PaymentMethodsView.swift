@@ -1,5 +1,5 @@
 //
-//  TopUpView.swift
+//  PaymentMethodsView.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 16/04/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TopUpView: View {
+protocol PaymentMethodsView: View {
 
     var onPaymentMethodSelection: ((PaymentMethodCellViewModelProtocol) -> Void)? { get set }
     var onPaymentCancel: Completion? { get set }

@@ -1,5 +1,5 @@
 //
-//  TopUpViewController.swift
+//  PaymentMethodsViewController.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 16/04/2018.
@@ -11,9 +11,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class TopUpViewController: UIViewController,
-                                 TopUpView,
-                                 TrainIconTitleView {
+final class PaymentMethodsViewController: UIViewController,
+                                          PaymentMethodsView,
+                                          TrainIconTitleView {
 
     // MARK: - IBOutlets
 
@@ -37,7 +37,7 @@ final class TopUpViewController: UIViewController,
         onPaymentCancel?()
     }
 
-    // MARK: - TopUpView protocol conformance
+    // MARK: - PaymentMethodsView protocol conformance
 
     var onPaymentMethodSelection: ((PaymentMethodCellViewModelProtocol) -> Void)?
     var onPaymentCancel: Completion?
@@ -48,7 +48,7 @@ final class TopUpViewController: UIViewController,
         tableView.isScrollEnabled = false
         tableView.register(R.nib.paymentMethodCell)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = Constant.TopUpMenu.estimatedRowHeight
+        tableView.estimatedRowHeight = Constant.PaymentMethodsMenu.estimatedRowHeight
     }
 
     private func setupBindings() {

@@ -1,5 +1,5 @@
 //
-//  PaymentConfirmationSectionItemViewModelWrapper.swift
+//  PaymentCompositionSectionItemViewModelWrapper.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/06/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 // swiftlint:disable:next type_name
-enum PaymentConfirmationSectionItemViewModelWrapper {
+enum PaymentCompositionSectionItemViewModelWrapper {
 
     case transportCardSectionItem(viewModel: TransportCardViewModelProtocol)
     case paymentCardSectionItem(viewModel: PaymentCardCellViewModelProtocol)

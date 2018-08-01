@@ -1,5 +1,5 @@
 //
-//  PaymentConfirmationSectionViewModelWrapper.swift
+//  PaymentCompositionSectionViewModelWrapper.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/06/2018.
@@ -10,15 +10,15 @@ import Foundation
 import RxDataSources
 
 // swiftlint:disable:next type_name
-enum PaymentConfirmationSectionViewModelWrapper {
-    case transportCardSection(title: String, items: [PaymentConfirmationSectionItemViewModelWrapper])
-    case paymentCardSection(title: String, items: [PaymentConfirmationSectionItemViewModelWrapper])
-    case amountFieldSection(title: String, items: [PaymentConfirmationSectionItemViewModelWrapper])
+enum PaymentCompositionSectionViewModelWrapper {
+    case transportCardSection(title: String, items: [PaymentCompositionSectionItemViewModelWrapper])
+    case paymentCardSection(title: String, items: [PaymentCompositionSectionItemViewModelWrapper])
+    case amountFieldSection(title: String, items: [PaymentCompositionSectionItemViewModelWrapper])
 }
 
-extension PaymentConfirmationSectionViewModelWrapper: SectionModelType {
+extension PaymentCompositionSectionViewModelWrapper: SectionModelType {
 
-    var items: [PaymentConfirmationSectionItemViewModelWrapper] {
+    var items: [PaymentCompositionSectionItemViewModelWrapper] {
         switch self {
         case .transportCardSection(_, let items): return items
         case .paymentCardSection(_, let items): return items
@@ -34,7 +34,7 @@ extension PaymentConfirmationSectionViewModelWrapper: SectionModelType {
         }
     }
 
-    init(original: PaymentConfirmationSectionViewModelWrapper, items: [PaymentConfirmationSectionItemViewModelWrapper]) {
+    init(original: PaymentCompositionSectionViewModelWrapper, items: [PaymentCompositionSectionItemViewModelWrapper]) {
         switch original {
         case .transportCardSection(let title, _):
             self = .transportCardSection(title: title, items: items)

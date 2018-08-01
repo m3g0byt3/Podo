@@ -74,19 +74,19 @@ final class ViewAssembly: Assembly {
             return viewController
         }
 
-        container.register(TopUpView.self) { resolver in
-            guard let viewController = TopUpViewController.storyboardInstance() else {
-                unableToResolve(TopUpView.self)
+        container.register(PaymentMethodsView.self) { resolver in
+            guard let viewController = R.storyboard.topUpViewController.instantiateInitialViewController() else {
+                unableToResolve(PaymentMethodsView.self)
             }
             viewController.viewModel = resolver.resolve(PaymentMethodViewModelProtocol.self)
             return viewController
         }
 
-        container.register(PaymentView.self) { (resolver: Resolver, transportCardViewModel: TransportCardViewModelProtocol) in
+        container.register(PaymentCompositionView.self) { (resolver: Resolver, transportCardViewModel: TransportCardViewModelProtocol) in
             guard let viewController = R.storyboard.topUpViewController.paymentViewController() else {
-                unableToResolve(PaymentView.self)
+                unableToResolve(PaymentCompositionView.self)
             }
-            viewController.viewModel = resolver.resolve(PaymentConfirmationViewModelProtocol.self, argument: transportCardViewModel)
+            viewController.viewModel = resolver.resolve(PaymentCompositionViewModelProtocol.self, argument: transportCardViewModel)
             return viewController
         }
     }

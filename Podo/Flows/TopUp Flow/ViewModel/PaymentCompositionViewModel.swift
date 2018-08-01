@@ -1,5 +1,5 @@
 //
-//  PaymentConfirmationViewModel.swift
+//  PaymentCompositionViewModel.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/06/2018.
@@ -9,23 +9,23 @@
 import Foundation
 import RxSwift
 
-struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
-                                     PaymentConfirmationViewModelInputProtocol,
-                                     PaymentConfirmationViewModelOutputProtocol {
+struct PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
+                                    PaymentCompositionViewModelInputProtocol,
+                                    PaymentCompositionViewModelOutputProtocol {
 
     // MARK: - Private properties
 
-    private let childViewModels: [PaymentConfirmationSectionViewModelWrapper]
+    private let childViewModels: [PaymentCompositionSectionViewModelWrapper]
 
-    // MARK: - PaymentConfirmationViewModelProtocol protocol conformance
+    // MARK: - PaymentCompositionViewModelProtocol protocol conformance
 
-    var input: PaymentConfirmationViewModelInputProtocol { return self }
-    var output: PaymentConfirmationViewModelOutputProtocol { return self }
+    var input: PaymentCompositionViewModelInputProtocol { return self }
+    var output: PaymentCompositionViewModelOutputProtocol { return self }
 
     // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
 
     let isPaymentValid: Observable<Bool>
-    var sections: Observable<[PaymentConfirmationSectionViewModelWrapper]> {
+    var sections: Observable<[PaymentCompositionSectionViewModelWrapper]> {
         return Observable.just(childViewModels)
     }
 

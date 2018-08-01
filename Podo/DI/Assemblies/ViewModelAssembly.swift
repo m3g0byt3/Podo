@@ -57,7 +57,7 @@ final class ViewModelAssembly: Assembly {
             return PaymentCardCellViewModel()
         }
 
-        container.register(PaymentConfirmationViewModelProtocol.self) { (resolver, viewModel: TransportCardViewModelProtocol) in
+        container.register(PaymentCompositionViewModelProtocol.self) { (resolver, viewModel: TransportCardViewModelProtocol) in
             let paymentAmountDependencyType = PaymentAmountCellViewModelProtocol.self
             let paymentCardDependencyType = PaymentCardCellViewModelProtocol.self
 
@@ -68,9 +68,9 @@ final class ViewModelAssembly: Assembly {
                 unableToResolve(paymentCardDependencyType)
             }
 
-            return PaymentConfirmationViewModel(transportCardViewModel: viewModel,
-                                                paymentAmountViewModel: paymentAmountViewModel,
-                                                paymentCardViewModel: paymentCardViewModel)
+            return PaymentCompositionViewModel(transportCardViewModel: viewModel,
+                                               paymentAmountViewModel: paymentAmountViewModel,
+                                               paymentCardViewModel: paymentCardViewModel)
         }
     }
 }
