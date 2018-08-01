@@ -53,3 +53,12 @@ opt_in_rules:
 
 # Rules customization
 line_length: 140
+# Due to issue #2277: https://github.com/realm/SwiftLint/issues/2277
+file_name:
+  excluded:
+    - Constants.swift
+    - InputAccessoryViewProtocol.swift
+    - UIView.AnimationOptions+Extensions.swift
+    - Observable+Extensions.swift
+    - Driver+Extensions.swift
+    - Swinject+Extensions.swift
