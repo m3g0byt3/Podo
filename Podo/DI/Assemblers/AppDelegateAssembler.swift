@@ -9,12 +9,6 @@
 import Foundation
 import Swinject
 
-enum AssembleError: Error {
-
-    case routerError
-    case coordinatorError
-}
-
 struct AppDelegateAssembler {
 
     // MARK: - Properties
@@ -38,14 +32,13 @@ struct AppDelegateAssembler {
 
     /// Perform dependency injection for AppDelegate instance.
     /// - parameter appDelegate: AppDelegate instance
-    func assemble(appDelegate: AppDelegate) throws {
+    func assemble(appDelegate: AppDelegate) {
+        let rootViewAssembly = RootViewAssembly(rootView: appDelegate.rootViewController)
 
-        guard let router = assembler.resolver.resolve(RouterProtocol.self, argument: appDelegate.rootViewController) else {
-            throw AssembleError.routerError
-        }
+        assembler.apply(assembly: rootViewAssembly)
 
-        guard let coordinator = assembler.resolver.resolve(Coordinator.self, argument: router) else {
-            throw AssembleError.coordinatorError
+        guard let coordinator = assembler.resolver.resolve(Coordinator.self) else {
+            unableToResolve(Coordinator.self)
         }
 
         appDelegate.coordinator = coordinator

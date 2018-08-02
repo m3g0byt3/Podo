@@ -23,6 +23,7 @@
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
 		4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */; };
 		41250D9020D9986200B833AE /* PaymentMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41250D8F20D9986200B833AE /* PaymentMethodViewModel.swift */; };
+		412C77DF2113AD45005943DD /* RootViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C77DE2113AD45005943DD /* RootViewAssembly.swift */; };
 		4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130F2A8205C855B00DDFAD8 /* ViewModel.swift */; };
 		4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */; };
 		4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135F38020EAEEAD0078AFFB /* UITableView+Extensions.swift */; };
@@ -214,6 +215,7 @@
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
 		4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCoordinator.swift; sourceTree = "<group>"; };
 		41250D8F20D9986200B833AE /* PaymentMethodViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModel.swift; sourceTree = "<group>"; };
+		412C77DE2113AD45005943DD /* RootViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewAssembly.swift; sourceTree = "<group>"; };
 		4130F2A8205C855B00DDFAD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		4135F38020EAEEAD0078AFFB /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 			children = (
 				41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */,
 				411F3E43204E1123002D466E /* RouterAssembly.swift */,
+				412C77DE2113AD45005943DD /* RootViewAssembly.swift */,
 				4179EA0020462256007CF219 /* ViewModelAssembly.swift */,
 				4179EA022046241E007CF219 /* ViewAssembly.swift */,
 				4179E9ED204603CE007CF219 /* ServiceAssembly.swift */,
@@ -1489,6 +1492,7 @@
 				410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */,
 				41DC8D7B21076CAE00119A4C /* UIView.AnimationOptions+Extensions.swift in Sources */,
 				418733E120EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift in Sources */,
+				412C77DF2113AD45005943DD /* RootViewAssembly.swift in Sources */,
 				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,

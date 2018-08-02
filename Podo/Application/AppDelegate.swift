@@ -5,7 +5,7 @@
 //  Created by m3g0byt3 on 23/11/2017.
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
-// swiftlint:disable force_try force_cast force_unwrapping
+// swiftlint:disable force_cast force_unwrapping
 
 import Foundation
 import UIKit
@@ -27,7 +27,7 @@ final class AppDelegate: UIResponder,
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Perform initial DI
-        try! AppDelegateAssembler().assemble(appDelegate: self)
+        AppDelegateAssembler().assemble(appDelegate: self)
         // Handle cold start from 3Dtouch shortcuts
         var startOption: StartOption?
 
