@@ -1,5 +1,5 @@
 //
-//  AppDelegateAssembler.swift
+//  AppDelegateConfigurator.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 19/03/2018.
@@ -9,7 +9,7 @@
 import Foundation
 import Swinject
 
-struct AppDelegateAssembler {
+struct AppDelegateConfigurator {
 
     // MARK: - Properties
 
@@ -32,15 +32,16 @@ struct AppDelegateAssembler {
 
     /// Perform dependency injection for AppDelegate instance.
     /// - parameter appDelegate: AppDelegate instance
-    func assemble(appDelegate: AppDelegate) {
+    func configure(_ appDelegate: AppDelegate) {
+        // Create assembly for `rootViewController` property of an AppDelegate instance
         let rootViewAssembly = RootViewAssembly(rootView: appDelegate.rootViewController)
-
+        // Lazily apply this assembly to assembler
         assembler.apply(assembly: rootViewAssembly)
-
+        // Resolve dependencies for AppDelegate
         guard let coordinator = assembler.resolver.resolve(Coordinator.self) else {
             unableToResolve(Coordinator.self)
         }
-
+        // Inject dependencies for AppDelegate
         appDelegate.coordinator = coordinator
     }
 }

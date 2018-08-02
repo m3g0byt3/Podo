@@ -27,7 +27,7 @@ final class AppDelegate: UIResponder,
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Perform initial DI
-        AppDelegateAssembler().assemble(appDelegate: self)
+        AppDelegateConfigurator().configure(self)
         // Handle cold start from 3Dtouch shortcuts
         var startOption: StartOption?
 

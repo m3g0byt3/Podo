@@ -25,6 +25,7 @@ final class RootViewAssembly: Assembly {
     // MARK: - Assembly protocol conformance
 
     func assemble(container: Container) {
+        // `unowned` is safe here because container tries to register Service only once
         container.register(UINavigationController.self) { [unowned self] _ in
             return self.rootView
         }
