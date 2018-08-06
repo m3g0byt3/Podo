@@ -19,7 +19,7 @@ final class AnyDatabaseService<ItemType> {
     private let _deleteItem: (ItemType) throws -> Void
     private let _deleteItems: ([ItemType]) throws -> Void
     private let _fetch: (NSPredicate?, SortOption?, (@escaping ([ItemType]) -> Void)) throws -> Void
-    private let _update: (@escaping () -> Void) throws -> Void
+    private let _update: ([ItemType], @escaping ([ItemType]) -> Void) throws -> Void
 
     // MARK: - Initialization
 
@@ -62,7 +62,7 @@ extension AnyDatabaseService: DatabaseServiceProtocol {
         return try _fetch(predicate, sorted, completion)
     }
 
-    func update(in block: @escaping () -> Void) throws {
-        return try _update(block)
+    func update(_ items: [ItemType], in block: @escaping ([ItemType]) -> Void) throws {
+        return try _update(items, block)
     }
 }
