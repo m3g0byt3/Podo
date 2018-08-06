@@ -13,19 +13,28 @@ import RealmSwift
 /// `T` - type of Realm object.
 final class DatabaseService<T> where T: Object {
 
+    // MARK: - Typealiases
+
+    private typealias BackgroundBlock = (_ items: [T], _ realm: Realm) -> Void
+
     // MARK: - Properties
 
-    private let realm: Realm
+    // Store configuration instead of Realm instance to provide thread safety
+    private let configuration: Realm.Configuration
     private var tokens = [NotificationToken]()
+    private let semaphore = DispatchSemaphore(value: 1)
+    private let queue = DispatchQueue(label: "com.m3g0byt3.databaseServiceQueue.\(UUID().uuidString)",
+                                      qos: .background,
+                                      attributes: .concurrent)
 
     // MARK: - Initialization
 
     /// Initialize service with custom Realm
     init(configuration: Realm.Configuration) throws {
-        self.realm = try Realm(configuration: configuration)
+        self.configuration = configuration
     }
 
-    /// Initialize service with default Realm
+    /// Initialize service with default Realm Configuration
     convenience init() throws {
         try self.init(configuration: Realm.Configuration())
     }
@@ -35,38 +44,69 @@ final class DatabaseService<T> where T: Object {
     deinit {
         tokens.forEach { $0.invalidate() }
     }
+
+    // MARK: - Private API
+
+    private func process(_ items: [T], in block: @escaping BackgroundBlock) {
+        let wrappedItems = ThreadSafeItems(items)
+
+        queue.async { [weak self] in
+            guard
+                let `self` = self,
+                let realm = try? Realm(configuration: self.configuration)
+            else { return }
+
+            let resolvedObjects = wrappedItems.objectsResolved(by: realm)
+
+            try? realm.write {
+                block(resolvedObjects, realm)
+            }
+        }
+    }
 }
 
 // MARK: - DatabaseServiceProtocol protocol conformance
 
 extension DatabaseService: DatabaseServiceProtocol {
 
-    func save(items: [T]) throws {
-        try realm.write {
-            realm.add(items, update: true)
+    func save(items: [T]) {
+        semaphore.wait()
+        process(items) { [weak self] threadSafeObjects, realm in
+            realm.add(threadSafeObjects, update: true)
+            self?.semaphore.signal()
         }
     }
 
-    func delete(items: [T]) throws {
-        try realm.write {
-            realm.delete(items)
+    func delete(items: [T]) {
+        semaphore.wait()
+        process(items) { [weak self] threadSafeObjects, realm in
+            realm.delete(threadSafeObjects)
+            self?.semaphore.signal()
         }
     }
 
-    func deleteAll() throws {
-        try realm.write {
-            let objects = realm.objects(T.self)
-            realm.delete(objects)
+    func deleteAll() {
+        guard let realm = try? Realm(configuration: configuration) else { return }
+        let items: [T] = realm.objects(T.self).map { $0 }
+
+        semaphore.wait()
+        process(items) { [weak self] threadSafeObjects, realm in
+            realm.delete(threadSafeObjects)
+            self?.semaphore.signal()
         }
     }
 
-    func update(in block: @escaping () -> Void) throws {
-        try realm.write {
-            block()
+    func update(_ items: [T], in block: @escaping ([T]) -> Void) throws {
+        semaphore.wait()
+        process(items) { [weak self] threadSafeObjects, _ in
+            block(threadSafeObjects)
+            self?.semaphore.signal()
         }
     }
 
+    // Not using bg queue for querying because Realm already has bg queue where queries performed.
     func fetch(predicate: NSPredicate?, sorted: SortOption?, completion: @escaping ([T]) -> Void) throws {
+        guard let realm = try? Realm(configuration: configuration) else { return }
         // Fetch objects
         var results = realm.objects(T.self)
         // Filtering

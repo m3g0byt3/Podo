@@ -174,6 +174,7 @@
 		41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */; };
 		41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */; };
 		41F0F2952066C524005C3631 /* AppDelegateAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */; };
+		41FA0BB92117B98C00B7B602 /* ThreadSafeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA0BB82117B98C00B7B602 /* ThreadSafeItems.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
 		B59440046E43C73F9F737D42 /* Pods_PodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */; };
 		CD80C1C7512D6728FC11D3DC /* Pods_PodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE37FEA68995A95EE9E55FBC /* Pods_PodoUITests.framework */; };
@@ -383,6 +384,7 @@
 		41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
 		41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
 		41F0F2942066C524005C3631 /* AppDelegateAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateAssembler.swift; sourceTree = "<group>"; };
+		41FA0BB82117B98C00B7B602 /* ThreadSafeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeItems.swift; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B615A5FF118833E14B0AC2E /* Pods-Podo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.debug.xcconfig"; sourceTree = "<group>"; };
 		A3171AEBAEF479E5D8132E90 /* Pods-Podo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Podo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Podo/Pods-Podo.release.xcconfig"; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 				418F79D1205C8F8600397B48 /* AnyViewModel.swift */,
 				414BB4A720630683006A5C74 /* AnyDatabaseService.swift */,
 				417AB4222082A027004B6BE5 /* AnyMethodWrapper.swift */,
+				41FA0BB82117B98C00B7B602 /* ThreadSafeItems.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -1562,6 +1565,7 @@
 				415B8A65208D16A900BEAB93 /* OptionalType.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
+				41FA0BB92117B98C00B7B602 /* ThreadSafeItems.swift in Sources */,
 				415523942084FFCB00EEADD8 /* PaymentMethodsView.swift in Sources */,
 				41816E20206A315E00A0FFCC /* AddNewCardViewModel.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseServiceProtocol.swift in Sources */,

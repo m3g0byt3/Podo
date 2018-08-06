@@ -44,7 +44,7 @@ protocol DatabaseServiceProtocol: class {
 
     func fetch(predicate: NSPredicate?, sorted: SortOption?, completion: @escaping ([Item]) -> Void) throws
 
-    func update(in block: @escaping () -> Void) throws
+    func update(_ items: [Item], in block: @escaping ([Item]) -> Void) throws
 }
 
 // MARK: - Convenience default implementation for some methods
