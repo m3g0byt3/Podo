@@ -48,18 +48,20 @@ final class DatabaseService<T> where T: Object {
     // MARK: - Private API
 
     private func process(_ items: [T], in block: @escaping BackgroundBlock) {
-        let wrappedItems = ThreadSafeItems(items)
+        autoreleasepool {
+            let wrappedItems = ThreadSafeItems(items)
 
-        queue.async { [weak self] in
-            guard
-                let `self` = self,
-                let realm = try? Realm(configuration: self.configuration)
-            else { return }
+            queue.async { [weak self] in
+                guard
+                    let `self` = self,
+                    let realm = try? Realm(configuration: self.configuration)
+                else { return }
 
-            let resolvedObjects = wrappedItems.objectsResolved(by: realm)
+                let resolvedObjects = wrappedItems.objectsResolved(by: realm)
 
-            try? realm.write {
-                block(resolvedObjects, realm)
+                try? realm.write {
+                    block(resolvedObjects, realm)
+                }
             }
         }
     }
