@@ -96,6 +96,7 @@
 		417AB4232082A027004B6BE5 /* AnyMethodWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AB4222082A027004B6BE5 /* AnyMethodWrapper.swift */; };
 		417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417D0A782056E7D2005076F8 /* PresentationType.swift */; };
 		417DBE12206B9E2100993C9B /* ScanCardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417DBE11206B9E2100993C9B /* ScanCardTextField.swift */; };
+		417F78BF2119AA1900E87C82 /* AppDelegateConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417F78BE2119AA1900E87C82 /* AppDelegateConfigurable.swift */; };
 		417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417F964820712DBF0089C7B0 /* RoundShadowButton.swift */; };
 		417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417F964A207171D60089C7B0 /* TransportCardTheme.swift */; };
 		4180B4E6204C92810064529A /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180B4E5204C92810064529A /* RouterProtocol.swift */; };
@@ -298,6 +299,7 @@
 		417AB4222082A027004B6BE5 /* AnyMethodWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMethodWrapper.swift; sourceTree = "<group>"; };
 		417D0A782056E7D2005076F8 /* PresentationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationType.swift; sourceTree = "<group>"; };
 		417DBE11206B9E2100993C9B /* ScanCardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardTextField.swift; sourceTree = "<group>"; };
+		417F78BE2119AA1900E87C82 /* AppDelegateConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateConfigurable.swift; sourceTree = "<group>"; };
 		417F964820712DBF0089C7B0 /* RoundShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowButton.swift; sourceTree = "<group>"; };
 		417F964A207171D60089C7B0 /* TransportCardTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardTheme.swift; sourceTree = "<group>"; };
 		4180B4E5204C92810064529A /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
@@ -668,9 +670,9 @@
 			children = (
 				41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */,
 				411F3E43204E1123002D466E /* RouterAssembly.swift */,
-				412C77DE2113AD45005943DD /* RootViewAssembly.swift */,
 				4179EA0020462256007CF219 /* ViewModelAssembly.swift */,
 				4179EA022046241E007CF219 /* ViewAssembly.swift */,
+				412C77DE2113AD45005943DD /* RootViewAssembly.swift */,
 				4179E9ED204603CE007CF219 /* ServiceAssembly.swift */,
 				4160A5122051770E00485C8B /* ThemeAssembly.swift */,
 			);
@@ -1080,6 +1082,7 @@
 			children = (
 				41494AAC1FC6C6570089F088 /* AppDelegate.swift */,
 				41F0F2942066C524005C3631 /* AppDelegateConfigurator.swift */,
+				417F78BE2119AA1900E87C82 /* AppDelegateConfigurable.swift */,
 				41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */,
 				41555A6920497625007ADBF0 /* StartOption.swift */,
 			);
@@ -1571,6 +1574,7 @@
 				4179E9F62046074D007CF219 /* DatabaseServiceProtocol.swift in Sources */,
 				41D1313020F9073F00F2D7BB /* KeyboardNotification.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModelProtocol.swift in Sources */,
+				417F78BF2119AA1900E87C82 /* AppDelegateConfigurable.swift in Sources */,
 				418AD788210DDEC6008E54E7 /* LabeledTextField.swift in Sources */,
 				4148964320669C3C00C3C000 /* HelpView.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,

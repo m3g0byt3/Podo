@@ -14,11 +14,11 @@ final class RootViewAssembly: Assembly {
 
     // MARK: - Properties
 
-    private let rootView: UINavigationController
+    private let rootView: UIViewController
 
     // MARK: - Initialization
 
-    init(rootView: UINavigationController) {
+    init(rootView: UIViewController) {
         self.rootView = rootView
     }
 
@@ -27,7 +27,10 @@ final class RootViewAssembly: Assembly {
     func assemble(container: Container) {
         // `unowned` is safe here because container tries to register Service only once
         container.register(UINavigationController.self) { [unowned self] _ in
-            return self.rootView
+            guard let rootView = self.rootView as? UINavigationController else {
+                unableToResolve(UINavigationController.self)
+            }
+            return rootView
         }
     }
 }

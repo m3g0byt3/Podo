@@ -9,6 +9,12 @@
 import Foundation
 import Swinject
 
+enum AppDelegateConfigurationError: Error {
+
+    case rootViewError
+    case rootCoordinatorError
+}
+
 struct AppDelegateConfigurator {
 
     // MARK: - Properties
@@ -32,16 +38,21 @@ struct AppDelegateConfigurator {
 
     /// Perform dependency injection for AppDelegate instance.
     /// - parameter appDelegate: AppDelegate instance
-    func configure(_ appDelegate: AppDelegate) {
-        // Create assembly for `rootViewController` property of an AppDelegate instance
-        let rootViewAssembly = RootViewAssembly(rootView: appDelegate.rootViewController)
+    func configure(_ appDelegate: AppDelegateConfigurable) throws {
+        // Get application root viewcontroller
+        guard let rootView = appDelegate.rootView else {
+            throw AppDelegateConfigurationError.rootViewError
+        }
+        // Create assembly for application root viewcontroller
+        let rootViewAssembly = RootViewAssembly(rootView: rootView)
         // Lazily apply this assembly to assembler
         assembler.apply(assembly: rootViewAssembly)
-        // Resolve dependencies for AppDelegate
+        // Resolve `coordinator` dependency
         guard let coordinator = assembler.resolver.resolve(Coordinator.self) else {
-            unableToResolve(Coordinator.self)
+            throw AppDelegateConfigurationError.rootCoordinatorError
         }
-        // Inject dependencies for AppDelegate
-        appDelegate.coordinator = coordinator
+        // Inject dependencies
+        appDelegate.rootCoordinator = coordinator
+    }
     }
 }
