@@ -13,9 +13,13 @@ final class RouterAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(RouterProtocol.self) { _, rootViewController in
-            return Router(rootViewController, assembler: ApplicationAssembler.defaultAssembler)
+        container.register(RouterProtocol.self) { resolver in
+            guard let rootView = resolver.resolve(UINavigationController.self) else {
+                unableToResolve(UINavigationController.self)
+            }
+            return Router(rootView, assembler: ApplicationAssembler.defaultAssembler)
         }
+        .inObjectScope(.container)
 
         container.register(InteractiveTransitioningDelegate.self) { _ in
             return SideMenuTransitioningDelegate()

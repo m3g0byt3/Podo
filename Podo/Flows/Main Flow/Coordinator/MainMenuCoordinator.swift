@@ -66,8 +66,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func startSettingsFlow() {
         let coordinator = assembler.resolver.resolve(SideMenuCoordinator.self,
-                                                     flow: .settings,
-                                                     argument: router)
+                                                     flow: .settings)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
@@ -80,8 +79,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func startAddNewCardFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
-                                                     flow: .addNewCard,
-                                                     argument: router)
+                                                     flow: .addNewCard)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
@@ -91,8 +89,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func startTopUpFlowFor(_ card: TransportCardViewModelProtocol) {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
-                                                     flow: .topUp,
-                                                     argument: router)
+                                                     flow: .topUp)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)

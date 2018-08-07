@@ -16,16 +16,14 @@ final class ApplicationCoordinator: AbstractCoordinator {
 
     private func startMainFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
-                                                     flow: .main,
-                                                     argument: router)
+                                                     flow: .main)
         addChild(coordinator)
         coordinator?.start()
     }
 
     private func startTutorialFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
-                                                     flow: .tutorial,
-                                                     argument: router)
+                                                     flow: .tutorial)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
