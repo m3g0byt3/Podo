@@ -47,5 +47,9 @@ final class ServiceAssembly: Assembly {
             }
             return AnyDatabaseService<PaymentMethod>(service)
         }
+
+        container.register(ReportingServiceProtocol.self) { _ in
+            return CrashlyticsReportingService()
+        }
     }
 }

@@ -1,6 +1,9 @@
 PODS:
+  - Crashlytics (3.10.5):
+    - Fabric (~> 1.7.9)
   - Differentiator (3.0.2)
   - EmptyDataSet-Swift (4.0.5)
+  - Fabric (1.7.9)
   - Nimble (7.1.3)
   - Quick (1.3.1)
   - R.swift (4.0.0):
@@ -27,7 +30,9 @@ PODS:
   - Swinject (2.4.1)
 
 DEPENDENCIES:
+  - Crashlytics
   - EmptyDataSet-Swift (~> 4.0.4)
+  - Fabric
   - Nimble (~> 7.0)
   - Quick (~> 1.2)
   - R.swift (~> 4.0)
@@ -43,8 +48,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Crashlytics
     - Differentiator
     - EmptyDataSet-Swift
+    - Fabric
     - Nimble
     - Quick
     - R.swift
@@ -61,8 +68,10 @@ SPEC REPOS:
     - Swinject
 
 SPEC CHECKSUMS:
+  Crashlytics: 7f2e38d302d9da96475b3d64d86fb29e31a542b7
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   EmptyDataSet-Swift: a25810f50c3adfaa3840aa33ae8b5ba12ac29279
+  Fabric: a2917d3895e4c1569b9c3170de7320ea1b1e6661
   Nimble: 2839b01d1b31f6a6a7777a221f0d91cf52e8e27b
   Quick: d17304d58d0d169dd0bd1c6e5c28e3318de32a1a
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
@@ -78,6 +87,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Swinject: f7f15a9672e99328c1f07f277091087917215700
 
-PODFILE CHECKSUM: d6a23af1a3f19f97b0ed8681f6ed7ca6497404ee
+PODFILE CHECKSUM: d5bb2bcc69d7134f311b70bc9d5115e9d7ab5114
 
 COCOAPODS: 1.5.3

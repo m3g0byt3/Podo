@@ -23,6 +23,8 @@
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
 		4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */; };
 		41250D9020D9986200B833AE /* PaymentMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41250D8F20D9986200B833AE /* PaymentMethodViewModel.swift */; };
+		412A15C32119E0980014E694 /* ReportingServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */; };
+		412A15C52119E2830014E694 /* CrashlyticsReportingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */; };
 		412C77DF2113AD45005943DD /* RootViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412C77DE2113AD45005943DD /* RootViewAssembly.swift */; };
 		4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130F2A8205C855B00DDFAD8 /* ViewModel.swift */; };
 		4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */; };
@@ -217,6 +219,8 @@
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
 		4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCoordinator.swift; sourceTree = "<group>"; };
 		41250D8F20D9986200B833AE /* PaymentMethodViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModel.swift; sourceTree = "<group>"; };
+		412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingServiceProtocol.swift; sourceTree = "<group>"; };
+		412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsReportingService.swift; sourceTree = "<group>"; };
 		412C77DE2113AD45005943DD /* RootViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewAssembly.swift; sourceTree = "<group>"; };
 		4130F2A8205C855B00DDFAD8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4135F37E20EAE90C0078AFFB /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
@@ -724,6 +728,8 @@
 				4179E9F320460728007CF219 /* NetworkService.swift */,
 				4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */,
 				418EDE662062841600E54E33 /* DatabaseService.swift */,
+				412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */,
+				412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1145,6 +1151,7 @@
 				41494AA61FC6C6560089F088 /* Frameworks */,
 				41494AA71FC6C6560089F088 /* Resources */,
 				5DCD34022B29AAE6B003589E /* [CP] Embed Pods Frameworks */,
+				41F3A1FF2119E70400B9013F /* Crashlytics Run Script */,
 			);
 			buildRules = (
 			);
@@ -1318,6 +1325,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
+		41F3A1FF2119E70400B9013F /* Crashlytics Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Crashlytics Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" bc03b3b93fa09b597e2846970701531ee968395d 4cc9b434a62bf16aee517d844c76abe688999b5abfbcc1e6ca28bb70135830a4\n";
 		};
 		41F57F4B1FD4887500AD8D64 /* Copy colors pallete */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1545,6 +1571,7 @@
 				41A3906420DC1821004D3499 /* TransportCardCell.swift in Sources */,
 				417DBE12206B9E2100993C9B /* ScanCardTextField.swift in Sources */,
 				41DE34CA210FB9B20063E805 /* SideMenuViewModel.swift in Sources */,
+				412A15C32119E0980014E694 /* ReportingServiceProtocol.swift in Sources */,
 				411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */,
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				41CDEAB420828C6C008D30D5 /* Customizable.swift in Sources */,
@@ -1599,6 +1626,7 @@
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				4119ED7621124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift in Sources */,
 				419EBEFE20E4054700952FDA /* DoubleMarginView.swift in Sources */,
+				412A15C52119E2830014E694 /* CrashlyticsReportingService.swift in Sources */,
 				4119ED7221124AD1009EDA42 /* PaymentCompositionViewModelProtocol.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
 				4157F52120F658A900825816 /* KeyboardHandling.swift in Sources */,
@@ -1895,6 +1923,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 49BLJJ9CJU;
 				INFOPLIST_FILE = "Podo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
