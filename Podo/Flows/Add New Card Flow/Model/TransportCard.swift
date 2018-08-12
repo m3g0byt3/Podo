@@ -11,13 +11,16 @@ import RealmSwift
 
 final class TransportCard: Object {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
     // swiftlint:disable:next force_try
     private static let notNumericRegex = try! NSRegularExpression(pattern: "[^0-9]+", options: .caseInsensitive)
     private static let unknownIdentifier = 0
     private static let podorozhnikIdentifier = 1
     private static let sputnikIdentifier = 2
+
+    // MARK: - Properties
+
     /// Type of card
     var cardType: TransportCardType { return TransportCardType(rawValue: _cardType) ?? .unknown }
     /// Identifier of card, used by an API
@@ -56,5 +59,23 @@ final class TransportCard: Object {
 
     override static func primaryKey() -> String {
         return #keyPath(TransportCard.cardNumber)
+    }
+}
+
+// MARK: - CustomStringConvertible protocol conformance
+
+extension TransportCard {
+
+    override public var description: String {
+        let cardTypeDescription: String
+
+        switch cardType {
+        case .sputnik: cardTypeDescription = "Sputnik"
+        case .podorozhnikShort: cardTypeDescription = "Podorozhnik (Short number format)"
+        case .podorozhnikLong: cardTypeDescription = "Podorozhnik (Long number format)"
+        case .unknown: cardTypeDescription = "Unknown card type"
+        }
+
+        return "Transport card \(cardTypeDescription)"
     }
 }

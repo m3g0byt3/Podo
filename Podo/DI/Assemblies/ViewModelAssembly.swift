@@ -34,11 +34,16 @@ final class ViewModelAssembly: Assembly {
         }
 
         container.register(AddNewCardViewModelProtocol.self) { resolver in
-            let dependencyType = AnyDatabaseService<TransportCard>.self
-            guard let model = resolver.resolve(dependencyType) else {
-                unableToResolve(dependencyType)
+            let databaseDependencyType = AnyDatabaseService<TransportCard>.self
+            let reportingDependencyType = ReportingServiceProtocol.self
+
+            guard let model = resolver.resolve(databaseDependencyType) else {
+                unableToResolve(databaseDependencyType)
             }
-            return AddNewCardViewModel(model)
+            guard let reportingService = resolver.resolve(reportingDependencyType) else {
+                unableToResolve(reportingDependencyType)
+            }
+            return AddNewCardViewModel(model: model, reportingService: reportingService)
         }
 
         container.register(PaymentMethodViewModelProtocol.self) { resolver in
