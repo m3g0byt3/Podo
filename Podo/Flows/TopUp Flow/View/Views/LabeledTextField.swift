@@ -29,6 +29,18 @@ final class LabeledTextField: UIControl {
 
     var buttonHandler: ButtonHandler?
 
+    override var canBecomeFirstResponder: Bool {
+        return textField?.canBecomeFirstResponder ?? false
+    }
+
+    override var canResignFirstResponder: Bool {
+        return textField?.canResignFirstResponder ?? false
+    }
+
+    override var isFirstResponder: Bool {
+        return textField?.isFirstResponder ?? false
+    }
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -79,6 +91,16 @@ final class LabeledTextField: UIControl {
             colorObserver?.invalidate()
             return
         }
+    }
+
+    override func becomeFirstResponder() -> Bool {
+        super.becomeFirstResponder()
+        return textField?.becomeFirstResponder() ?? false
+    }
+
+    override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        return textField?.resignFirstResponder() ?? false
     }
 
     // MARK: - Private API
