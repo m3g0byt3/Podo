@@ -22,11 +22,19 @@ final class CoordinatorAssembly: Assembly {
         }
 
         container.register(Coordinator.self, flow: .main) { resolver in
-            let dependencyType = RouterProtocol.self
-            guard let router = resolver.resolve(dependencyType) else {
-                unableToResolve(dependencyType)
+            let routerDependencyType = RouterProtocol.self
+            let reportingDependencyType = ReportingServiceProtocol.self
+
+            guard let router = resolver.resolve(routerDependencyType) else {
+                unableToResolve(routerDependencyType)
             }
-            return MainMenuCoordinator(router: router, assembler: ApplicationAssembler.defaultAssembler)
+            guard let reportingService = resolver.resolve(reportingDependencyType) else {
+                unableToResolve(reportingDependencyType)
+            }
+
+            return MainMenuCoordinator(router: router,
+                                       assembler: ApplicationAssembler.defaultAssembler,
+                                       reportingService: reportingService)
         }
 
         container.register(Coordinator.self, flow: .tutorial) { resolver in

@@ -53,5 +53,8 @@ struct AppDelegateConfigurator {
         }
         // Inject dependencies
         appDelegate.rootCoordinator = coordinator
+        // Initialize reporting
+        let reportingService = assembler.resolver.resolve(ReportingServiceProtocol.self)
+        reportingService?.beginReporting()
     }
 }

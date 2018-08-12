@@ -17,6 +17,8 @@ target 'Podo' do
   pod 'EmptyDataSet-Swift', '~> 4.0.4'
   pod 'RxDataSources', '~> 3.0'
   pod 'SwiftLint', '~> 0.1'
+  pod 'Fabric'
+  pod 'Crashlytics'
   # workaround for Xcode 10 beta 3 to use 0.25.1 until 0.26.1 is released
   # https://stackoverflow.com/a/51174106/1033581
   # pod 'SwiftLint', '~> 0.25.1'

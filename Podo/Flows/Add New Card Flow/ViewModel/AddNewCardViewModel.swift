@@ -34,23 +34,26 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
 
     private let model: AnyDatabaseService<TransportCard>
     private let card: Observable<TransportCard?>
+    private let reportingService: ReportingServiceProtocol
     private let disposeBag = DisposeBag()
 
     // MARK: - Initialization
 
-    init(_ model: AnyDatabaseService<TransportCard>) {
+    init(model: AnyDatabaseService<TransportCard>, reportingService: ReportingServiceProtocol) {
         self.model = model
 
-        cardNumberText = cardNumber
+        self.reportingService = reportingService
+
+        self.cardNumberText = cardNumber
             .filterNonNumeric()
 
-        cardTheme = themeChanged
+        self.cardTheme = themeChanged
             .asObservable()
             .startWith(0)
             .map { TransportCardTheme(rawValue: $0) ?? .green }
             .distinctUntilChanged()
 
-        card = Observable
+        self.card = Observable
             .combineLatest(cardNumberText.asObservable(), cardTheme.asObservable()) { number, theme in
                 let card = TransportCard(cardNumber: number)
                 card?.themeIdentifier = theme.rawValue
@@ -59,16 +62,19 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
             .distinctUntilChanged()
             .share()
 
-        isCardValid = card
+        self.isCardValid = card
             .asObservable()
             .map { $0 != nil }
             .distinctUntilChanged()
 
+        // TODO: remove subscription (use Action instead)
         _ = saveState
             .asObservable()
             .withLatestFrom(card)
             .filterNil()
             .subscribe(onNext: { [weak self] card in
+                let identifier = String(describing: card)
+                self?.reportingService.report(event: .transportCardAdded(identifier: identifier))
                 try? self?.model.save(item: card)
             })
             .disposed(by: disposeBag)
