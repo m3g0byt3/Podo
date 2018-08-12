@@ -29,6 +29,18 @@ final class LabeledTextField: UIControl {
 
     var buttonHandler: ButtonHandler?
 
+    override var canBecomeFirstResponder: Bool {
+        return textField?.canBecomeFirstResponder ?? false
+    }
+
+    override var canResignFirstResponder: Bool {
+        return textField?.canResignFirstResponder ?? false
+    }
+
+    override var isFirstResponder: Bool {
+        return textField?.isFirstResponder ?? false
+    }
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -46,14 +58,14 @@ final class LabeledTextField: UIControl {
     // MARK: - Public API
 
     override func updateConstraints() {
-        label?.snp.updateConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
+        label?.snp.updateConstraints { maker in
+            maker.leading.trailing.top.equalToSuperview()
         }
 
-        textField?.snp.updateConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
+        textField?.snp.updateConstraints { maker in
+            maker.leading.trailing.bottom.equalToSuperview()
             if let label = label {
-                make.top.equalTo(label.snp.bottom)
+                maker.top.equalTo(label.snp.bottom)
             }
         }
         super.updateConstraints()
@@ -79,6 +91,16 @@ final class LabeledTextField: UIControl {
             colorObserver?.invalidate()
             return
         }
+    }
+
+    override func becomeFirstResponder() -> Bool {
+        super.becomeFirstResponder()
+        return textField?.becomeFirstResponder() ?? false
+    }
+
+    override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        return textField?.resignFirstResponder() ?? false
     }
 
     // MARK: - Private API
