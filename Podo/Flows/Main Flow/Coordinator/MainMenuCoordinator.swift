@@ -7,8 +7,25 @@
 //
 
 import Foundation
+import Swinject
 
 final class MainMenuCoordinator: AbstractCoordinator {
+
+    // MARK: - Private Properties
+
+    private let reportingService: ReportingServiceProtocol
+
+    // MARK: - Initialization
+
+    init(router: RouterProtocol, assembler: Assembler, reportingService: ReportingServiceProtocol) {
+        self.reportingService = reportingService
+        super.init(router: router, assembler: assembler)
+    }
+
+    @available(*, unavailable, message: "Use init(router:assembler:reportingService:) instead")
+    required init(router: RouterProtocol, assembler: Assembler) {
+        fatalError("Unable to initialize instance of class \(MainMenuCoordinator.self) without all dependencies.")
+    }
 
     // MARK: - Private API
 
@@ -31,6 +48,8 @@ final class MainMenuCoordinator: AbstractCoordinator {
     private func showSideMenu() {
         guard let view = assembler.resolver.resolve(SideMenuView.self) else { return }
         view.onSideMenuEntrySelection = { [weak self] sideMenuItem in
+            let itemType = sideMenuItem.output.type
+            self?.reportingService.report(event: .sideMenuItemSelected(type: itemType))
             self?.router.dismiss(animated: true, completion: nil)
             switch sideMenuItem.output.type {
             case .main: self?.router.popToRootView(animated: false)
