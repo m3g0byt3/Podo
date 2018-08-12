@@ -61,7 +61,7 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
 
         isCardValid = card
             .asObservable()
-            .map { $0 != nil }
+            .mapNil()
             .distinctUntilChanged()
 
         _ = saveState
