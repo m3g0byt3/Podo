@@ -14,9 +14,7 @@ final class ServiceAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(NetworkService.self) { _ in
-            // TODO: Add actual implementation
-            unableToResolve(NetworkService.self)
+        container.register(NetworkServiceProtocol.self) { _ in
         }
 
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in

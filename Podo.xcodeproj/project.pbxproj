@@ -86,7 +86,7 @@
 		41787B4120687E0300693FA1 /* AddNewCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41787B3F20687E0300693FA1 /* AddNewCardViewController.storyboard */; };
 		41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41787B42206894C900693FA1 /* AddNewCardCoordinator.swift */; };
 		4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9ED204603CE007CF219 /* ServiceAssembly.swift */; };
-		4179E9F420460728007CF219 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F320460728007CF219 /* NetworkService.swift */; };
+		4179E9F420460728007CF219 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F320460728007CF219 /* NetworkServiceProtocol.swift */; };
 		4179E9F62046074D007CF219 /* DatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */; };
 		4179E9F8204618EC007CF219 /* MainMenuCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F7204618EC007CF219 /* MainMenuCellViewModelProtocol.swift */; };
 		4179E9FA20461B3F007CF219 /* MainMenuCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179E9F920461B3F007CF219 /* MainMenuCellViewModel.swift */; };
@@ -290,7 +290,7 @@
 		41787B42206894C900693FA1 /* AddNewCardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardCoordinator.swift; sourceTree = "<group>"; };
 		41787B452068982800693FA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddNewCardViewController.strings; sourceTree = "<group>"; };
 		4179E9ED204603CE007CF219 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
-		4179E9F320460728007CF219 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4179E9F320460728007CF219 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceProtocol.swift; sourceTree = "<group>"; };
 		4179E9F7204618EC007CF219 /* MainMenuCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		4179E9F920461B3F007CF219 /* MainMenuCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCellViewModel.swift; sourceTree = "<group>"; };
@@ -721,7 +721,7 @@
 		41A5E7931FDAC36800A835F5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4179E9F320460728007CF219 /* NetworkService.swift */,
+				4179E9F320460728007CF219 /* NetworkServiceProtocol.swift */,
 				4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */,
 				418EDE662062841600E54E33 /* RealmDatabaseService.swift */,
 			);
@@ -1595,7 +1595,7 @@
 				4135F38320EB01130078AFFB /* UIButton+Extensions.swift in Sources */,
 				418F79E0205D9B5000397B48 /* CardsViewModel.swift in Sources */,
 				419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */,
-				4179E9F420460728007CF219 /* NetworkService.swift in Sources */,
+				4179E9F420460728007CF219 /* NetworkServiceProtocol.swift in Sources */,
 				41DC8D8C2108D08C00119A4C /* PaymentAmountCellViewModelProtocol.swift in Sources */,
 				41A3906020DC1806004D3499 /* PaymentCardCell.swift in Sources */,
 				41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */,
