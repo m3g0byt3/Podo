@@ -109,7 +109,7 @@
 		418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A8407204474EE00A950AE /* ApplicationAssembler.swift */; };
 		418AD788210DDEC6008E54E7 /* LabeledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418AD787210DDEC6008E54E7 /* LabeledTextField.swift */; };
 		418ECEC92104077700AD4230 /* EphemeralDictionaryWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */; };
-		418EDE672062841600E54E33 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EDE662062841600E54E33 /* DatabaseService.swift */; };
+		418EDE672062841600E54E33 /* RealmDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EDE662062841600E54E33 /* RealmDatabaseService.swift */; };
 		418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D1205C8F8600397B48 /* AnyViewModel.swift */; };
 		418F79D8205D141200397B48 /* SideMenuCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D7205D141200397B48 /* SideMenuCellViewModelProtocol.swift */; };
 		418F79DA205D145500397B48 /* SideMenuCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F79D9205D145500397B48 /* SideMenuCellViewModel.swift */; };
@@ -313,7 +313,7 @@
 		418A8407204474EE00A950AE /* ApplicationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAssembler.swift; sourceTree = "<group>"; };
 		418AD787210DDEC6008E54E7 /* LabeledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledTextField.swift; sourceTree = "<group>"; };
 		418ECEC82104077700AD4230 /* EphemeralDictionaryWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EphemeralDictionaryWrapper.swift; sourceTree = "<group>"; };
-		418EDE662062841600E54E33 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		418EDE662062841600E54E33 /* RealmDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseService.swift; sourceTree = "<group>"; };
 		418F79D1205C8F8600397B48 /* AnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyViewModel.swift; sourceTree = "<group>"; };
 		418F79D7205D141200397B48 /* SideMenuCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		418F79D9205D145500397B48 /* SideMenuCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellViewModel.swift; sourceTree = "<group>"; };
@@ -723,7 +723,7 @@
 			children = (
 				4179E9F320460728007CF219 /* NetworkService.swift */,
 				4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */,
-				418EDE662062841600E54E33 /* DatabaseService.swift */,
+				418EDE662062841600E54E33 /* RealmDatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1518,7 +1518,7 @@
 				416F5299208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift in Sources */,
 				41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */,
 				4146D5ED207EE99400FCABA4 /* AddNewCardCollectionViewCell.swift in Sources */,
-				418EDE672062841600E54E33 /* DatabaseService.swift in Sources */,
+				418EDE672062841600E54E33 /* RealmDatabaseService.swift in Sources */,
 				418A8408204474EE00A950AE /* ApplicationAssembler.swift in Sources */,
 				41CD4CC920939BB80029800B /* PaymentCompositionView.swift in Sources */,
 				417D0A792056E7D2005076F8 /* PresentationType.swift in Sources */,
