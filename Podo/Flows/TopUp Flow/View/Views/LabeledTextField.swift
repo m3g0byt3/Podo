@@ -58,14 +58,14 @@ final class LabeledTextField: UIControl {
     // MARK: - Public API
 
     override func updateConstraints() {
-        label?.snp.updateConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
+        label?.snp.updateConstraints { maker in
+            maker.leading.trailing.top.equalToSuperview()
         }
 
-        textField?.snp.updateConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
+        textField?.snp.updateConstraints { maker in
+            maker.leading.trailing.bottom.equalToSuperview()
             if let label = label {
-                make.top.equalTo(label.snp.bottom)
+                maker.top.equalTo(label.snp.bottom)
             }
         }
         super.updateConstraints()
