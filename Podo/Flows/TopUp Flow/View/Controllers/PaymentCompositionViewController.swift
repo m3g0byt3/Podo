@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import BSK
+import Result
 import RxSwift
 import RxCocoa
 import RxDataSources
@@ -30,9 +32,13 @@ class PaymentCompositionViewController: UIViewController,
 
     // MARK: - KeyboardHandling protocol conformance
 
-    var manageableViews: [UIView] {
-        return [tableView]
-    }
+    var manageableViews: [UIView] { return [tableView] }
+
+    // MARK: - PaymentCompositionView protocol conformance
+
+    var onPaymentConfirmation: ((Result<URLRequest, BSKError>) -> Void)?
+    var onPaymentCancel: Completion?
+    var onScanButtonTap: Completion?
 
     // MARK: - Lifecycle
 
@@ -65,18 +71,29 @@ class PaymentCompositionViewController: UIViewController,
     private func setupBindings() {
         let dataSource = PaymentCompositionViewController.dataSource()
 
+        paymentButton.rx.tap
+            .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
+            .bind(to: viewModel.input.startPayment)
+            .disposed(by: disposeBag)
+
         viewModel.output.sections
             .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        viewModel.output.isPaymentValid
+            .asDriver(onErrorJustReturn: false)
+            .drive(paymentButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
         tableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)
 
-        viewModel.output.isPaymentValid
-            .asDriver(onErrorJustReturn: false)
-            .drive(paymentButton.rx.isEnabled)
+        viewModel.output.confirmationRequest
+            .subscribe(onNext: { [weak self] result in
+                self?.onPaymentConfirmation?(result)
+            })
             .disposed(by: disposeBag)
     }
 }

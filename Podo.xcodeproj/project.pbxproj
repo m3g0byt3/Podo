@@ -135,6 +135,7 @@
 		41A3906420DC1821004D3499 /* TransportCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3906220DC1821004D3499 /* TransportCardCell.swift */; };
 		41A3906520DC1821004D3499 /* TransportCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A3906320DC1821004D3499 /* TransportCardCell.xib */; };
 		41A3906820DC1837004D3499 /* PaymentAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3906620DC1837004D3499 /* PaymentAmountCell.swift */; };
+		41A4C63E2121B7DB0063C539 /* PaymentCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A4C63D2121B7DA0063C539 /* PaymentCompositionViewController.swift */; };
 		41A5E78B1FD97FC300A835F5 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */; };
 		41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */; };
 		41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */; };
@@ -160,7 +161,6 @@
 		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
 		41C9EB4E1FD40A0B000D77DD /* MainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */; };
 		41C9EB4F1FD40A0B000D77DD /* MainMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */; };
-		41CD4CC720939B980029800B /* PaymentCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD4CC620939B980029800B /* PaymentCompositionViewController.swift */; };
 		41CD4CC920939BB80029800B /* PaymentCompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CD4CC820939BB80029800B /* PaymentCompositionView.swift */; };
 		41CDEAB420828C6C008D30D5 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDEAB320828C6C008D30D5 /* Customizable.swift */; };
 		41CDEAB720828DB1008D30D5 /* SideMenuPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDEAB620828DB1008D30D5 /* SideMenuPresenting.swift */; };
@@ -349,6 +349,7 @@
 		41A3906220DC1821004D3499 /* TransportCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardCell.swift; sourceTree = "<group>"; };
 		41A3906320DC1821004D3499 /* TransportCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransportCardCell.xib; sourceTree = "<group>"; };
 		41A3906620DC1837004D3499 /* PaymentAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAmountCell.swift; sourceTree = "<group>"; };
+		41A4C63D2121B7DA0063C539 /* PaymentCompositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCompositionViewController.swift; sourceTree = "<group>"; };
 		41A5E7891FD97FC300A835F5 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		41A5E78A1FD97FC300A835F5 /* CardsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsCollectionViewCell.xib; sourceTree = "<group>"; };
 		41A5E79A1FDB3A7200A835F5 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -374,7 +375,6 @@
 		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuTableViewCell.xib; sourceTree = "<group>"; };
-		41CD4CC620939B980029800B /* PaymentCompositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompositionViewController.swift; sourceTree = "<group>"; };
 		41CD4CC820939BB80029800B /* PaymentCompositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompositionView.swift; sourceTree = "<group>"; };
 		41CDEAB320828C6C008D30D5 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
 		41CDEAB620828DB1008D30D5 /* SideMenuPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresenting.swift; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				415523962085005900EEADD8 /* PaymentMethodsViewController.swift */,
-				41CD4CC620939B980029800B /* PaymentCompositionViewController.swift */,
+				41A4C63D2121B7DA0063C539 /* PaymentCompositionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1518,6 +1518,7 @@
 				412C77DF2113AD45005943DD /* RootViewAssembly.swift in Sources */,
 				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
+				41A4C63E2121B7DB0063C539 /* PaymentCompositionViewController.swift in Sources */,
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,
 				41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
@@ -1632,7 +1633,6 @@
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModelProtocol.swift in Sources */,
 				4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
-				41CD4CC720939B980029800B /* PaymentCompositionViewController.swift in Sources */,
 				41787B3D20687DC000693FA1 /* AddNewCardViewController.swift in Sources */,
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
 				418F79E4205D9C1300397B48 /* TransportCardViewModel.swift in Sources */,
