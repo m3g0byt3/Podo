@@ -9,12 +9,15 @@
 import Foundation
 import Swinject
 import RealmSwift
+import BSK
 
 final class ServiceAssembly: Assembly {
 
     func assemble(container: Container) {
 
         container.register(NetworkServiceProtocol.self) { _ in
+            let adapter = BSKAdapter()
+            return BSKNetworkService(adapter)
         }
 
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
