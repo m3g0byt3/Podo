@@ -93,6 +93,13 @@ final class ViewAssembly: Assembly {
                                                         argument: transportCardViewModel)
             return viewController
         }
+
+        container.register(PaymentConfirmationView.self) { (resolver: Resolver, request: URLRequest) in
+            guard let viewController = R.storyboard.topUpViewController.paymentConfirmationViewController() else {
+                unableToResolve(PaymentConfirmationView.self)
+            }
+            viewController.viewModel = resolver.resolve(PaymentConfirmationViewModelProtocol.self,
+                                                        argument: request)
             return viewController
         }
     }

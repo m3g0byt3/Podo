@@ -77,5 +77,55 @@
             </objects>
             <point key="canvasLocation" x="4" y="41"/>
         </scene>
+        <!--Payment Confirmation View Controller-->
+        <scene sceneID="PQw-Jr-kl2">
+            <objects>
+                <viewController storyboardIdentifier="PaymentConfirmationViewController" id="fva-3e-mV4" customClass="PaymentConfirmationViewController" customModule="Podo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XOf-hn-Cg5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tez-Xf-eVe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MV-Yh-QWe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="q7e-Ej-tvb">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" style="done" id="2eY-2u-436">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="closeButtonHandler:" destination="fva-3e-mV4" id="dnE-sy-yu5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="fva-3e-mV4" id="9Y4-w9-2TY"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tez-Xf-eVe" firstAttribute="trailing" secondItem="Iw0-43-bf4" secondAttribute="trailing" id="5vR-L2-k6p"/>
+                            <constraint firstItem="Tez-Xf-eVe" firstAttribute="bottom" secondItem="Iw0-43-bf4" secondAttribute="bottom" id="6d1-TU-6kh"/>
+                            <constraint firstItem="Tez-Xf-eVe" firstAttribute="top" secondItem="4MV-Yh-QWe" secondAttribute="bottom" id="ByT-nU-nLb"/>
+                            <constraint firstItem="Tez-Xf-eVe" firstAttribute="leading" secondItem="Iw0-43-bf4" secondAttribute="leading" id="CMh-cr-Bey"/>
+                            <constraint firstItem="4MV-Yh-QWe" firstAttribute="top" secondItem="Iw0-43-bf4" secondAttribute="top" id="Wh8-Lx-bs9"/>
+                            <constraint firstItem="4MV-Yh-QWe" firstAttribute="trailing" secondItem="Iw0-43-bf4" secondAttribute="trailing" id="aXi-nX-i9U"/>
+                            <constraint firstItem="4MV-Yh-QWe" firstAttribute="leading" secondItem="Iw0-43-bf4" secondAttribute="leading" id="yhS-f8-GIJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Iw0-43-bf4"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="2eY-2u-436" id="JAF-Dy-Rdi"/>
+                        <outlet property="webView" destination="Tez-Xf-eVe" id="ALt-wI-Gzv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vpX-ST-ZzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="766" y="41"/>
+        </scene>
     </scenes>
 </document>
