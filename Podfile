@@ -12,7 +12,6 @@ target 'Podo' do
   pod 'R.swift', 	'~> 4.0'
   pod 'RxSwift', 	'~> 4.0'
   pod 'RxCocoa', 	'~> 4.0'
-  pod 'Action',		'~> 3.5'
   pod 'Swinject', 	'~> 2.0'
   pod 'RealmSwift', 	'~> 3.2'
   pod 'EmptyDataSet-Swift', '~> 4.0.4'

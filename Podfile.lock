@@ -1,7 +1,4 @@
 PODS:
-  - Action (3.6.0):
-    - RxCocoa (~> 4.2.0)
-    - RxSwift (~> 4.2.0)
   - Alamofire (4.7.3)
   - BSK (0.2.2):
     - Moya
@@ -39,7 +36,6 @@ PODS:
   - Swinject (2.4.1)
 
 DEPENDENCIES:
-  - Action (~> 3.5)
   - BSK (from `https://github.com/m3g0byt3/BSK.git`, branch `experimental/strict-credit-card-initializer`)
   - EmptyDataSet-Swift (~> 4.0.4)
   - Nimble (~> 7.0)
@@ -57,7 +53,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Action
     - Alamofire
     - Differentiator
     - EmptyDataSet-Swift
@@ -89,7 +84,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/m3g0byt3/BSK.git
 
 SPEC CHECKSUMS:
-  Action: 3d9486d3da02b572b0a034b6c49ac4c3fbcc8b63
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   BSK: 592dc144ddfcdce9b31eab0d8d76180784a04aef
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
@@ -111,6 +105,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Swinject: f7f15a9672e99328c1f07f277091087917215700
 
-PODFILE CHECKSUM: 3bbc0e55afefbc8030590f80e4e0acce7118244a
+PODFILE CHECKSUM: d5bc33bd47c9e3677986afe3c64da2f8e64f0ae5
 
 COCOAPODS: 1.5.3
