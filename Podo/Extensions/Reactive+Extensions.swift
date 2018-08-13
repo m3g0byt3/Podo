@@ -82,6 +82,16 @@ extension Reactive where Base: LabeledTextField {
     }
 }
 
+extension Reactive where Base: UIWebView {
+
+    /// Bindable sink for load(_:) method.
+    var loadRequest: Binder<URLRequest> {
+        return Binder(self.base) { webView, request in
+            webView.loadRequest(request)
+        }
+    }
+}
+
 extension BSKAdapter: ReactiveCompatible {}
 
 extension Reactive where Base: BSKAdapter {
