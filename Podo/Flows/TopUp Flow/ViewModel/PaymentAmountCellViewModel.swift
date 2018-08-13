@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
+                                   PaymentAmountCellViewModelLinkProtocol,
                                    PaymentAmountCellViewModelInputProtocol,
                                    PaymentAmountCellViewModelOutputProtocol {
 
@@ -27,6 +28,11 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
 
     var input: PaymentAmountCellViewModelInputProtocol { return self }
     var output: PaymentAmountCellViewModelOutputProtocol { return self }
+    var link: PaymentAmountCellViewModelLinkProtocol { return self }
+
+    // MARK: - PaymentAmountCellViewModelLinkProtocol protocol conformance
+
+    let model: Observable<Int>
 
     // MARK: - PaymentAmountCellViewModelInputProtocol protocol conformance
 
@@ -58,10 +64,17 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
 
         let amountInputs = [self.amountInput.asObservable()]
 
-        self.amountOutput = Observable
+        let filteredAmountOutput = Observable
             .merge([buttonViewModelInputs, amountInputs].joined())
             .filterNonNumeric()
+            .share(replay: 1, scope: .whileConnected)
+
+        self.amountOutput = filteredAmountOutput
             .map { $0.isEmpty ? $0 : $0.appending(PaymentAmountCellViewModel.currencySign) }
+
+        self.model = filteredAmountOutput
+            .map(Int.init)
+            .filterNil()
 
         self.isAmountValid = self.amountOutput
             .filterNonNumeric()

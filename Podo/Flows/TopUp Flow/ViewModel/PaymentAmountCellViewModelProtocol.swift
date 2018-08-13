@@ -13,6 +13,7 @@ protocol PaymentAmountCellViewModelProtocol {
 
     var input: PaymentAmountCellViewModelInputProtocol { get }
     var output: PaymentAmountCellViewModelOutputProtocol { get }
+    var link: PaymentAmountCellViewModelLinkProtocol { get }
 }
 
 protocol PaymentAmountCellViewModelInputProtocol {
@@ -26,4 +27,9 @@ protocol PaymentAmountCellViewModelOutputProtocol {
     var amountOutput: Observable<String> { get }
     var isAmountValid: Observable<Bool> { get }
     var placeholder: Single<String> { get }
+}
+
+protocol PaymentAmountCellViewModelLinkProtocol {
+
+    var model: Observable<Int> { get }
 }
