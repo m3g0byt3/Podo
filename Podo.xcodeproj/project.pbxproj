@@ -13,6 +13,7 @@
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
 		4119ED6E21124659009EDA42 /* PaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119ED6D21124659009EDA42 /* PaymentCoordinator.swift */; };
+		4119ED7021124718009EDA42 /* PaymentConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119ED6F21124718009EDA42 /* PaymentConfirmationView.swift */; };
 		4119ED7221124AD1009EDA42 /* PaymentCompositionViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119ED7121124AD1009EDA42 /* PaymentCompositionViewModelProtocol.swift */; };
 		4119ED7521124BD5009EDA42 /* PaymentCompositionSectionViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119ED7321124BD4009EDA42 /* PaymentCompositionSectionViewModelWrapper.swift */; };
 		4119ED7621124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119ED7421124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift */; };
@@ -103,6 +104,8 @@
 		41816E1E206A312D00A0FFCC /* AddNewCardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816E1D206A312D00A0FFCC /* AddNewCardViewModelProtocol.swift */; };
 		41816E20206A315E00A0FFCC /* AddNewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816E1F206A315E00A0FFCC /* AddNewCardViewModel.swift */; };
 		418733E120EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418733E020EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift */; };
+		418874942118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418874932118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift */; };
+		418874962118AA3700FF7825 /* PaymentConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418874952118AA3700FF7825 /* PaymentConfirmationViewModel.swift */; };
 		418874982118AD5D00FF7825 /* BSKNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418874972118AD5D00FF7825 /* BSKNetworkService.swift */; };
 		4188E970206FBB5C0097D3DF /* TransportCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188E96F206FBB5C0097D3DF /* TransportCardType.swift */; };
 		418A84032043254000A950AE /* MainMenuViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModelProtocol.swift */; };
@@ -309,6 +312,8 @@
 		41816E1D206A312D00A0FFCC /* AddNewCardViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModelProtocol.swift; sourceTree = "<group>"; };
 		41816E1F206A315E00A0FFCC /* AddNewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewModel.swift; sourceTree = "<group>"; };
 		418733E020EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCardCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		418874932118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationViewModelProtocol.swift; sourceTree = "<group>"; };
+		418874952118AA3700FF7825 /* PaymentConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationViewModel.swift; sourceTree = "<group>"; };
 		418874972118AD5D00FF7825 /* BSKNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKNetworkService.swift; sourceTree = "<group>"; };
 		4188E96F206FBB5C0097D3DF /* TransportCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardType.swift; sourceTree = "<group>"; };
 		418A84022043254000A950AE /* MainMenuViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -802,6 +807,8 @@
 				41DC8D872108D05B00119A4C /* PaymentAmountCellViewModel.swift */,
 				413D8CDC210B8E87005D388E /* PaymentAmountCellButtonViewModelProtocol.swift */,
 				413D8CDE210B8F34005D388E /* PaymentAmountCellButtonViewModel.swift */,
+				418874932118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift */,
+				418874952118AA3700FF7825 /* PaymentConfirmationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1520,6 +1527,7 @@
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				41A4C63E2121B7DB0063C539 /* PaymentCompositionViewController.swift in Sources */,
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,
+				418874942118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift in Sources */,
 				41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */,
 				414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */,
 				415B8A59208D0D1200BEAB93 /* PaymentMethodType.swift in Sources */,
@@ -1634,6 +1642,7 @@
 				4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
 				41787B3D20687DC000693FA1 /* AddNewCardViewController.swift in Sources */,
+				418874962118AA3700FF7825 /* PaymentConfirmationViewModel.swift in Sources */,
 				41BDD5092055F3FB0045A50A /* SideMenuView.swift in Sources */,
 				418F79E4205D9C1300397B48 /* TransportCardViewModel.swift in Sources */,
 				41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */,

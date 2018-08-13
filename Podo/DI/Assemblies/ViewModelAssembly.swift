@@ -81,6 +81,9 @@ final class ViewModelAssembly: Assembly {
                                                paymentCardViewModel: paymentCardViewModel,
                                                service: networkService)
         }
+
+        container.register(PaymentConfirmationViewModelProtocol.self) { _, request in
+            return PaymentConfirmationViewModel(request)
         }
     }
 }
