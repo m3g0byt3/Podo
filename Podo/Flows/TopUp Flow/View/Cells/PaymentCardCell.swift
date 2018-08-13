@@ -50,21 +50,21 @@ extension PaymentCardCell: Configurable {
             .orEmpty
             .distinctUntilChanged()
             .throttle(Constant.ThrottleDuration.textField, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.input.cardNumber)
+            .bind(to: viewModel.input.cardNumberInput)
             .disposed(by: disposeBag)
 
         expirationTextField.rx.textFieldText
             .orEmpty
             .distinctUntilChanged()
             .throttle(Constant.ThrottleDuration.textField, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.input.expiryDate)
+            .bind(to: viewModel.input.expiryDateInput)
             .disposed(by: disposeBag)
 
         cvcTextField.rx.textFieldText
             .orEmpty
             .distinctUntilChanged()
             .throttle(Constant.ThrottleDuration.textField, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.input.cvcNumber)
+            .bind(to: viewModel.input.cvcNumberInput)
             .disposed(by: disposeBag)
 
         viewModel.output.cardTitle
@@ -102,17 +102,17 @@ extension PaymentCardCell: Configurable {
             .drive(cvcTextField.rx.placeholder)
             .disposed(by: disposeBag)
 
-        viewModel.output.cardNumberText
+        viewModel.output.cardNumberOutput
             .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
             .drive(cardNumberTextField.rx.textFieldText)
             .disposed(by: disposeBag)
 
-        viewModel.output.expiryDateText
+        viewModel.output.expiryDateOutput
             .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
             .drive(expirationTextField.rx.textFieldText)
             .disposed(by: disposeBag)
 
-        viewModel.output.cvcNumberText
+        viewModel.output.cvcNumberOutput
             .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
             .drive(cvcTextField.rx.textFieldText)
             .disposed(by: disposeBag)
