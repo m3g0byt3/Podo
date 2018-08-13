@@ -8,18 +8,20 @@
 
 import Foundation
 import RxSwift
+import BSK
 
 protocol PaymentCardCellViewModelProtocol {
 
     var input: PaymentCardCellViewModelInputProtocol { get }
     var output: PaymentCardCellViewModelOutputProtocol { get }
+    var link: PaymentCardCellViewModelLinkProtocol { get }
 }
 
 protocol PaymentCardCellViewModelInputProtocol {
 
-    var cardNumber: PublishSubject<String> { get }
-    var cvcNumber: PublishSubject<String> { get }
-    var expiryDate: PublishSubject<String> { get }
+    var cardNumberInput: PublishSubject<String> { get }
+    var cvcNumberInput: PublishSubject<String> { get }
+    var expiryDateInput: PublishSubject<String> { get }
 }
 
 protocol PaymentCardCellViewModelOutputProtocol {
@@ -28,15 +30,20 @@ protocol PaymentCardCellViewModelOutputProtocol {
 
     var cardTitle: Single<String> { get }
 
-    var cardNumberText: Observable<String> { get }
+    var cardNumberOutput: Observable<String> { get }
     var cardNumberLabel: Single<String> { get }
     var cardNumberPlaceholder: Single<String> { get }
 
-    var cvcNumberText: Observable<String> { get }
+    var cvcNumberOutput: Observable<String> { get }
     var cvcNumberLabel: Single<String> { get }
     var cvcNumberPlaceholder: Single<String> { get }
 
-    var expiryDateText: Observable<String> { get }
+    var expiryDateOutput: Observable<String> { get }
     var expiryDateLabel: Single<String> { get }
     var expiryDatePlaceholder: Single<String> { get }
+}
+
+protocol PaymentCardCellViewModelLinkProtocol {
+
+    var model: Observable<BSKPaymentMethod.CreditCard> { get }
 }

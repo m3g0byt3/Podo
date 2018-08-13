@@ -25,6 +25,12 @@ extension ObservableType where E: OptionalType {
             return Observable<E.Wrapped>.just(value)
         }
     }
+
+    /// Map `.some` to `true` and `.none` to `false`.
+    /// - returns: `true` if source `Observable` contains non-nil element, false otherwise.
+    func mapNil() -> Observable<Bool> {
+        return self.map { $0.value != nil }
+    }
 }
 
 extension ObservableType where E == String {

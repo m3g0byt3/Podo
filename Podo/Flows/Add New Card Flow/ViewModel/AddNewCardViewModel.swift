@@ -64,7 +64,7 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
 
         self.isCardValid = card
             .asObservable()
-            .map { $0 != nil }
+            .mapNil()
             .distinctUntilChanged()
 
         // TODO: remove subscription (use Action instead)

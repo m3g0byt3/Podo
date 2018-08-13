@@ -1,5 +1,5 @@
 //
-//  DatabaseService.swift
+//  RealmDatabaseService.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 21/03/2018.
@@ -11,7 +11,7 @@ import RealmSwift
 
 /// Generic DatabaseServiceProtocol implementation using Realm ORM.
 /// `T` - type of Realm object.
-final class DatabaseService<T> where T: Object {
+final class RealmDatabaseService<T> where T: Object {
 
     // MARK: - Typealiases
 
@@ -69,7 +69,7 @@ final class DatabaseService<T> where T: Object {
 
 // MARK: - DatabaseServiceProtocol protocol conformance
 
-extension DatabaseService: DatabaseServiceProtocol {
+extension RealmDatabaseService: DatabaseServiceProtocol {
 
     func save(items: [T]) {
         semaphore.wait()

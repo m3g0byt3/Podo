@@ -7,5 +7,12 @@
 //
 
 import Foundation
+import BSK
+import Result
 
-protocol PaymentCompositionView: View {}
+protocol PaymentCompositionView: View {
+
+    var onPaymentConfirmation: ((Result<URLRequest, BSKError>) -> Void)? { get set }
+    var onPaymentCancel: Completion? { get set }
+    var onScanButtonTap: Completion? { get set }
+}

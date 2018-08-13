@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import Result
+import BSK
 
 protocol PaymentCompositionViewModelProtocol {
 
@@ -15,10 +17,14 @@ protocol PaymentCompositionViewModelProtocol {
     var output: PaymentCompositionViewModelOutputProtocol { get }
 }
 
-protocol PaymentCompositionViewModelInputProtocol {}
+protocol PaymentCompositionViewModelInputProtocol {
+
+    var startPayment: PublishSubject<Void> { get }
+}
 
 protocol PaymentCompositionViewModelOutputProtocol {
 
     var isPaymentValid: Observable<Bool> { get }
+    var confirmationRequest: Observable<Result<URLRequest, BSKError>> { get }
     var sections: Observable<[PaymentCompositionSectionViewModelWrapper]> { get }
 }

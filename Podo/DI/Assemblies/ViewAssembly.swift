@@ -5,7 +5,6 @@
 //  Created by m3g0byt3 on 28/02/2018.
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
-// swiftlint:disable function_body_length
 
 import Foundation
 import UIKit
@@ -13,7 +12,11 @@ import Swinject
 
 final class ViewAssembly: Assembly {
 
+    // swiftlint:disable:next type_name
+    private typealias T = TransportCardViewModelProtocol
+
     func assemble(container: Container) {
+        // swiftlint:disable:previous function_body_length
 
         container.register(MainMenuView.self) { resolver in
             guard let viewController = MainMenuViewController.storyboardInstance() else {
@@ -82,11 +85,21 @@ final class ViewAssembly: Assembly {
             return viewController
         }
 
-        container.register(PaymentCompositionView.self) { (resolver: Resolver, transportCardViewModel: TransportCardViewModelProtocol) in
+        container.register(PaymentCompositionView.self) { (resolver: Resolver, transportCardViewModel: T) in
             guard let viewController = R.storyboard.topUpViewController.paymentViewController() else {
                 unableToResolve(PaymentCompositionView.self)
             }
-            viewController.viewModel = resolver.resolve(PaymentCompositionViewModelProtocol.self, argument: transportCardViewModel)
+            viewController.viewModel = resolver.resolve(PaymentCompositionViewModelProtocol.self,
+                                                        argument: transportCardViewModel)
+            return viewController
+        }
+
+        container.register(PaymentConfirmationView.self) { (resolver: Resolver, request: URLRequest) in
+            guard let viewController = R.storyboard.topUpViewController.paymentConfirmationViewController() else {
+                unableToResolve(PaymentConfirmationView.self)
+            }
+            viewController.viewModel = resolver.resolve(PaymentConfirmationViewModelProtocol.self,
+                                                        argument: request)
             return viewController
         }
     }

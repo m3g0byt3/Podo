@@ -8,11 +8,13 @@
 
 import Foundation
 import RxSwift
+import BSK
 
 protocol TransportCardViewModelProtocol {
 
     var input: TransportCardViewModelInputProtocol { get }
     var output: TransportCardViewModelOutputProtocol { get }
+    var link: TransportCardViewModelLinkProtocol { get }
 }
 
 protocol TransportCardViewModelInputProtocol {}
@@ -20,6 +22,11 @@ protocol TransportCardViewModelInputProtocol {}
 protocol TransportCardViewModelOutputProtocol {
 
     var cardTheme: Observable<TransportCardTheme> { get }
-    var cardTitle: Observable<String> { get }
+    var cardNumber: Observable<String> { get }
     var isCardValid: Observable<Bool> { get }
+}
+
+protocol TransportCardViewModelLinkProtocol {
+
+    var model: Observable<BSKTransportCard> { get }
 }
