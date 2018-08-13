@@ -9,8 +9,13 @@
 import Foundation
 import RxSwift
 import BSK
+import Result
 
 protocol NetworkServiceProtocol {
 
-    func topUp(transportCard: BSKTransportCard, from paymentType: BSKPaymentType, amount: Int) -> Observable<URLRequest>
+    func topUp(
+        transportCard: BSKTransportCard,
+        from paymentType: BSKPaymentType,
+        amount: Int
+    ) -> Observable<Result<URLRequest, BSKError>>
 }
