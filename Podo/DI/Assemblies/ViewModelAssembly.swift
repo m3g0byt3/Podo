@@ -11,7 +11,11 @@ import Swinject
 
 final class ViewModelAssembly: Assembly {
 
+    // swiftlint:disable:next type_name
+    private typealias T = TransportCardViewModelProtocol
+
     func assemble(container: Container) {
+        // swiftlint:disable:previous function_body_length
 
         container.register(AnyViewModel<MainMenuCellViewModelProtocol>.self) { _ in
             return AnyViewModel(MainMenuViewModel())
@@ -57,9 +61,10 @@ final class ViewModelAssembly: Assembly {
             return PaymentCardCellViewModel()
         }
 
-        container.register(PaymentCompositionViewModelProtocol.self) { (resolver, viewModel: TransportCardViewModelProtocol) in
+        container.register(PaymentCompositionViewModelProtocol.self) { (resolver, transportCardViewModel: T) in
             let paymentAmountDependencyType = PaymentAmountCellViewModelProtocol.self
             let paymentCardDependencyType = PaymentCardCellViewModelProtocol.self
+            let serviceDependencyType = NetworkServiceProtocol.self
 
             guard let paymentAmountViewModel = resolver.resolve(paymentAmountDependencyType) else {
                 unableToResolve(paymentAmountDependencyType)
@@ -67,10 +72,15 @@ final class ViewModelAssembly: Assembly {
             guard let paymentCardViewModel = resolver.resolve(paymentCardDependencyType) else {
                 unableToResolve(paymentCardDependencyType)
             }
+            guard let networkService = resolver.resolve(serviceDependencyType) else {
+                unableToResolve(serviceDependencyType)
+            }
 
-            return PaymentCompositionViewModel(transportCardViewModel: viewModel,
+            return PaymentCompositionViewModel(transportCardViewModel: transportCardViewModel,
                                                paymentAmountViewModel: paymentAmountViewModel,
-                                               paymentCardViewModel: paymentCardViewModel)
+                                               paymentCardViewModel: paymentCardViewModel,
+                                               service: networkService)
+        }
         }
     }
 }

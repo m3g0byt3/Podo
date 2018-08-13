@@ -8,23 +8,50 @@
 
 import Foundation
 import RxSwift
+import BSK
+import Result
 
-struct PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
-                                    PaymentCompositionViewModelInputProtocol,
-                                    PaymentCompositionViewModelOutputProtocol {
+final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
+                                         PaymentCompositionViewModelInputProtocol,
+                                         PaymentCompositionViewModelOutputProtocol {
 
     // MARK: - Private properties
 
     private let childViewModels: [PaymentCompositionSectionViewModelWrapper]
+    private let networkService: NetworkServiceProtocol
+    private let paymentCardModel: Observable<BSKPaymentMethod.CreditCard>
+    private let transportCardModel: Observable<BSKTransportCard>
+    private let amountModel: Observable<Int>
 
     // MARK: - PaymentCompositionViewModelProtocol protocol conformance
 
     var input: PaymentCompositionViewModelInputProtocol { return self }
     var output: PaymentCompositionViewModelOutputProtocol { return self }
 
+    // MARK: - PaymentCompositionViewModelInputProtocol protocol conformance
+
+    let startPayment = PublishSubject<Void>()
+
     // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
 
     let isPaymentValid: Observable<Bool>
+
+    lazy var confirmationRequest: Observable<Result<URLRequest, BSKError>> = {
+        let paymentDataObservable = Observable
+            .combineLatest(self.transportCardModel, self.paymentCardModel, self.amountModel)
+
+        return startPayment
+            .asObservable()
+            .withLatestFrom(paymentDataObservable)
+            .flatMapLatest { [unowned self] paymentData -> Observable<Result<URLRequest, BSKError>> in
+                let (transportCard, paymentCard, amount) = paymentData
+                return self.networkService.topUp(transportCard: transportCard,
+                                                 from: .creditCard(paymentCard),
+                                                 amount: amount)
+            }
+            .share(replay: 1, scope: .whileConnected)
+    }()
+
     var sections: Observable<[PaymentCompositionSectionViewModelWrapper]> {
         return Observable.just(childViewModels)
     }
@@ -33,11 +60,18 @@ struct PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
 
     init(transportCardViewModel: TransportCardViewModelProtocol,
          paymentAmountViewModel: PaymentAmountCellViewModelProtocol,
-         paymentCardViewModel: PaymentCardCellViewModelProtocol) {
+         paymentCardViewModel: PaymentCardCellViewModelProtocol,
+         service: NetworkServiceProtocol) {
 
-        let isPaymentCardValid = paymentCardViewModel.output.isCardValid
         let isTransportCardValid = transportCardViewModel.output.isCardValid
         let isPaymentAmoundValid = paymentAmountViewModel.output.isAmountValid
+        let isPaymentCardValid = paymentCardViewModel.output.isCardValid
+
+        self.networkService = service
+
+        self.paymentCardModel = paymentCardViewModel.link.model
+        self.amountModel = paymentAmountViewModel.link.model
+        self.transportCardModel = transportCardViewModel.link.model
 
         self.isPaymentValid = Observable
             .combineLatest(isTransportCardValid, isPaymentCardValid, isPaymentAmoundValid) { $0 && $1 && $2 }
@@ -47,7 +81,7 @@ struct PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
                                 .transportCardSection(title: R.string.localizable.transportCardSection(),
                                                       items: [.transportCardSectionItem(viewModel: transportCardViewModel)]),
                                 .amountFieldSection(title: R.string.localizable.amountFieldSection(),
-                                                    items: [.amountFieldSectionItem(viewModel: paymentAmountViewModel)])
-        ]
+                                                    items: [.amountFieldSectionItem(viewModel: paymentAmountViewModel)])]
+
     }
 }
