@@ -17,14 +17,14 @@ protocol AddNewCardViewModelProtocol {
 
 protocol AddNewCardViewModelInputProtocol {
 
-    var cardNumber: PublishSubject<String> { get }
+    var cardNumberInput: PublishSubject<String> { get }
     var saveState: PublishSubject<Void> { get }
     var themeChanged: PublishSubject<Int> { get }
 }
 
 protocol AddNewCardViewModelOutputProtocol {
 
-    var cardNumberText: Observable<String> { get }
+    var cardNumberOutput: Observable<String> { get }
     var isCardValid: Observable<Bool> { get }
     var cardTheme: Observable<TransportCardTheme> { get }
 }
