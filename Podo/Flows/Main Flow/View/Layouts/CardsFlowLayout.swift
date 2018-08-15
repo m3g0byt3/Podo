@@ -23,9 +23,7 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
     }()
 
     private var initialInsets: CGFloat {
-        guard let collectionView = collectionView else {
-            CardsFlowLayout.noCollectionView()
-        }
+        guard let collectionView = collectionView else { return 0.0 }
         return (collectionView.bounds.width - itemSize.width) / 2
     }
 
@@ -33,9 +31,7 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     override var itemSize: CGSize {
         get {
-            guard let collectionView = collectionView else {
-                CardsFlowLayout.noCollectionView()
-            }
+            guard let collectionView = collectionView else { return .zero }
             let edgesOffset = Constant.MainMenu.cellEdgesOffset
             let widthRatio = Constant.MainMenu.cellWidthToCollectionViewWidthRatio
             let aspectRatio = Constant.MainMenu.creditCardAspectRatio
@@ -64,19 +60,11 @@ final class CardsFlowLayout: UICollectionViewFlowLayout {
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint,
                                       withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = collectionView else {
-            CardsFlowLayout.noCollectionView()
-        }
+        guard let collectionView = collectionView else { return proposedContentOffset }
         let offsetStep = collectionView.contentSize.width / CGFloat(collectionView.numberOfItems(inSection: 0))
         let offsetMultiplier = round((proposedContentOffset.x + initialInsets) / offsetStep)
         let offset = offsetStep * offsetMultiplier - initialInsets
 
         return CGPoint(x: offset, y: 0)
-    }
-
-    // MARK: - Private API
-
-    private static func noCollectionView(_ function: StaticString = #function) -> Never {
-        fatalError("No collectionView passed to \(#function)")
     }
 }
