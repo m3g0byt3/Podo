@@ -63,7 +63,7 @@ final class AddNewCardViewController: UIViewController,
             .orEmpty
             .distinctUntilChanged()
             .throttle(Constant.ThrottleDuration.textField, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.input.cardNumber)
+            .bind(to: viewModel.input.cardNumberInput)
             .disposed(by: disposeBag)
 
         for (index, button) in colorButtons.enumerated() {
@@ -90,7 +90,7 @@ final class AddNewCardViewController: UIViewController,
             .bind(to: viewModel.input.saveState)
             .disposed(by: disposeBag)
 
-        viewModel.output.cardNumberText
+        viewModel.output.cardNumberOutput
             .asDriver(onErrorJustReturn: "")
             .drive(cardNumberTextField.rx.text)
             .disposed(by: disposeBag)

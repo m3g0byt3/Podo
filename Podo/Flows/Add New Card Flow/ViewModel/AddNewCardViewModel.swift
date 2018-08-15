@@ -20,13 +20,13 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
 
     // MARK: - AddNewCardViewModelInputProtocol protocol conformance
 
-    let cardNumber = PublishSubject<String>()
+    let cardNumberInput = PublishSubject<String>()
     let themeChanged = PublishSubject<Int>()
     let saveState = PublishSubject<Void>()
 
     // MARK: - AddNewCardViewModelOutputProtocol protocol conformance
 
-    let cardNumberText: Observable<String>
+    let cardNumberOutput: Observable<String>
     let cardTheme: Observable<TransportCardTheme>
     let isCardValid: Observable<Bool>
 
@@ -44,33 +44,30 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
 
         self.reportingService = reportingService
 
-        self.cardNumberText = cardNumber
+        self.cardNumberOutput = self.cardNumberInput
+            .asObservable()
             .filterNonNumeric()
 
-        self.cardTheme = themeChanged
+        self.cardTheme = self.themeChanged
             .asObservable()
             .startWith(0)
             .map { TransportCardTheme(rawValue: $0) ?? .green }
             .distinctUntilChanged()
 
         self.card = Observable
-            .combineLatest(cardNumberText.asObservable(), cardTheme.asObservable()) { number, theme in
-                let card = TransportCard(cardNumber: number)
-                card?.themeIdentifier = theme.rawValue
-                return card
-            }
+            .combineLatest(self.cardNumberOutput, self.cardTheme)
+            .flatMap(AddNewCardViewModel.mapTransportCard)
             .distinctUntilChanged()
             .share()
 
-        self.isCardValid = card
+        self.isCardValid = self.card
             .asObservable()
             .mapNil()
             .distinctUntilChanged()
 
-        // TODO: remove subscription (use Action instead)
-        _ = saveState
+        _ = self.saveState
             .asObservable()
-            .withLatestFrom(card)
+            .withLatestFrom(self.card)
             .filterNil()
             .subscribe(onNext: { [weak self] card in
                 let identifier = String(describing: card)
@@ -78,5 +75,15 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
                 try? self?.model.save(item: card)
             })
             .disposed(by: disposeBag)
+    }
+
+    // MARK: - Private API
+
+    private static func mapTransportCard(number: String, theme: TransportCardTheme) -> Observable<TransportCard?> {
+        let card = TransportCard(cardNumber: number)
+
+        card?.themeIdentifier = theme.rawValue
+
+        return .just(card)
     }
 }
