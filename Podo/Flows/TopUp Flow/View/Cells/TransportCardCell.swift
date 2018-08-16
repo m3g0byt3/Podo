@@ -41,7 +41,7 @@ extension TransportCardCell: Configurable {
     func configure(with viewModel: ViewModel) -> Self {
 
         viewModel.output.cardNumber
-            .asDriver(onErrorJustReturn: "")
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(transportCardLabel.rx.text)
             .disposed(by: disposeBag)
 

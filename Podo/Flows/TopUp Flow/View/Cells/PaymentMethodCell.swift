@@ -41,7 +41,7 @@ extension PaymentMethodCell: Configurable {
     func configure(with viewModel: PaymentMethodCellViewModelProtocol) -> Self {
 
         viewModel.output.title
-            .asDriver(onErrorJustReturn: "")
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(title.rx.text)
             .disposed(by: disposeBag)
 

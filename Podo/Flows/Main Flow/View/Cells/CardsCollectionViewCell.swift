@@ -46,7 +46,7 @@ extension CardsCollectionViewCell: Configurable {
     func configure(with viewModel: TransportCardViewModelProtocol) -> Self {
 
         viewModel.output.cardNumber
-            .asDriver(onErrorJustReturn: "")
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cardNumberLabel.rx.text)
             .disposed(by: disposeBag)
 

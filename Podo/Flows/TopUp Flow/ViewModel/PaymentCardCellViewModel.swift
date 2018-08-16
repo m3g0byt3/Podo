@@ -17,7 +17,6 @@ struct PaymentCardCellViewModel: PaymentCardCellViewModelProtocol,
 
     // MARK: - Constants
 
-    private static let cardNumberSeparator = " "
     private static let expiryDateSeparator = "/"
     private static let expiryCount = 2
     private static let chunkSize = 4
@@ -105,7 +104,7 @@ struct PaymentCardCellViewModel: PaymentCardCellViewModelProtocol,
             .share(replay: 1, scope: .whileConnected)
 
         self.cardNumberOutput = filteredCardNumber
-            .map { $0.split(size: PaymentCardCellViewModel.chunkSize, separator: PaymentCardCellViewModel.cardNumberSeparator) }
+            .map { $0.split(size: PaymentCardCellViewModel.chunkSize, separator: Constant.Placeholder.space) }
 
         self.expiryDateOutput = self.expiryDateInput
             .filterNonNumeric()

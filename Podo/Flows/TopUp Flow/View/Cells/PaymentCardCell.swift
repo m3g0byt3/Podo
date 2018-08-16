@@ -13,10 +13,6 @@ import RxCocoa
 
 final class PaymentCardCell: UITableViewCell {
 
-    // MARK: - Constants
-
-    private static let onErrorPlaceholder = ""
-
     // MARK: - IBOutlets
 
     @IBOutlet private weak var cardNumberTextField: LabeledTextField!
@@ -68,52 +64,52 @@ extension PaymentCardCell: Configurable {
             .disposed(by: disposeBag)
 
         viewModel.output.cardTitle
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cellTitle.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.output.cardNumberLabel
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cardNumberTextField.rx.labelText)
             .disposed(by: disposeBag)
 
         viewModel.output.expiryDateLabel
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(expirationTextField.rx.labelText)
             .disposed(by: disposeBag)
 
         viewModel.output.cvcNumberLabel
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cvcTextField.rx.labelText)
             .disposed(by: disposeBag)
 
         viewModel.output.cardNumberPlaceholder
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cardNumberTextField.rx.placeholder)
             .disposed(by: disposeBag)
 
         viewModel.output.expiryDatePlaceholder
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(expirationTextField.rx.placeholder)
             .disposed(by: disposeBag)
 
         viewModel.output.cvcNumberPlaceholder
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cvcTextField.rx.placeholder)
             .disposed(by: disposeBag)
 
         viewModel.output.cardNumberOutput
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cardNumberTextField.rx.textFieldText)
             .disposed(by: disposeBag)
 
         viewModel.output.expiryDateOutput
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(expirationTextField.rx.textFieldText)
             .disposed(by: disposeBag)
 
         viewModel.output.cvcNumberOutput
-            .asDriver(onErrorJustReturn: PaymentCardCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cvcTextField.rx.textFieldText)
             .disposed(by: disposeBag)
 

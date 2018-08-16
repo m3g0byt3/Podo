@@ -22,7 +22,6 @@ final class PaymentAmountCell: UITableViewCell {
 
     private static let buttonHeightToCornerRadiusRatio: CGFloat = 0.5
     private static let defaultButtonText = "%unassigned_label%"
-    private static let onErrorPlaceholder = ""
 
     private static var textFieldFont: UIFont {
         return UIFont.monospacedDigitSystemFont(ofSize: 44.0, weight: .thin)
@@ -219,12 +218,12 @@ extension PaymentAmountCell: Configurable {
             .disposed(by: disposeBag)
 
         viewModel.output.amountOutput
-            .asDriver(onErrorJustReturn: PaymentAmountCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(sumTextField.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.output.placeholder
-            .asDriver(onErrorJustReturn: PaymentAmountCell.onErrorPlaceholder)
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(sumTextField.rx.placeholder)
             .disposed(by: disposeBag)
 
