@@ -51,6 +51,13 @@ enum Constant {
         static let boundaryTransitionPercentageOffset: CGFloat = 0.05
     }
 
+    enum Placeholder {
+        /// Placeholder from empty character ("")
+        static let empty = ""
+        /// Placeholder from space character (" ")
+        static let space = " "
+    }
+
     enum MainMenu {
         /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 75

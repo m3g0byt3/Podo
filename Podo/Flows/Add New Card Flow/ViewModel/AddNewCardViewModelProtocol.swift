@@ -25,6 +25,8 @@ protocol AddNewCardViewModelInputProtocol {
 protocol AddNewCardViewModelOutputProtocol {
 
     var cardNumberOutput: Observable<String> { get }
+    var cardNumberPrefix: Single<String> { get }
+    var cardNumberPlaceholder: Single<String> { get }
     var isCardValid: Observable<Bool> { get }
     var cardTheme: Observable<TransportCardTheme> { get }
 }
