@@ -25,6 +25,7 @@ protocol PaymentCompositionViewModelInputProtocol {
 protocol PaymentCompositionViewModelOutputProtocol {
 
     var isPaymentValid: Observable<Bool> { get }
-    var confirmationRequest: Observable<Result<URLRequest, BSKError>> { get }
+    var paymentButtonTitle: Single<String> { get }
     var sections: Observable<[PaymentCompositionSectionViewModelWrapper]> { get }
+    var confirmationRequest: Observable<Result<URLRequest, BSKError>> { get }
 }

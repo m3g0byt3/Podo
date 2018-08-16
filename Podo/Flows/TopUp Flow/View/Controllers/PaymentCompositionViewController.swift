@@ -86,6 +86,11 @@ class PaymentCompositionViewController: UIViewController,
             .drive(paymentButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+        viewModel.output.paymentButtonTitle
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(paymentButton.rx.title)
+            .disposed(by: disposeBag)
+
         tableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)

@@ -243,8 +243,6 @@
 		41489635206698D200C3C000 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		41489637206698DF00C3C000 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		4148963A20669A8E00C3C000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ContactsViewController.storyboard; sourceTree = "<group>"; };
-		4148963D20669B8A00C3C000 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ContactsViewController.strings; sourceTree = "<group>"; };
-		4148963F20669B8D00C3C000 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HelpViewController.strings; sourceTree = "<group>"; };
 		4148964020669BF800C3C000 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		4148964220669C3C00C3C000 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		41494AA91FC6C6570089F088 /* Podo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,7 +268,6 @@
 		415523932084FFCB00EEADD8 /* PaymentMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsView.swift; sourceTree = "<group>"; };
 		415523962085005900EEADD8 /* PaymentMethodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsViewController.swift; sourceTree = "<group>"; };
 		4155239920850E7200EEADD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TopUpViewController.storyboard; sourceTree = "<group>"; };
-		4155239C20850EE800EEADD8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TopUpViewController.strings; sourceTree = "<group>"; };
 		41555A652049725D007ADBF0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		41555A672049727C007ADBF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		41555A6920497625007ADBF0 /* StartOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOption.swift; sourceTree = "<group>"; };
@@ -300,7 +297,6 @@
 		41787B3C20687DC000693FA1 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
 		41787B4020687E0300693FA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddNewCardViewController.storyboard; sourceTree = "<group>"; };
 		41787B42206894C900693FA1 /* AddNewCardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardCoordinator.swift; sourceTree = "<group>"; };
-		41787B452068982800693FA1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddNewCardViewController.strings; sourceTree = "<group>"; };
 		4179E9ED204603CE007CF219 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		4179E9F320460728007CF219 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceProtocol.swift; sourceTree = "<group>"; };
@@ -341,12 +337,6 @@
 		41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		41947BDE2100E05600EA803A /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		41968CE6206532EF00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RootViewController.strings; sourceTree = "<group>"; };
-		41968CE7206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenuViewController.strings; sourceTree = "<group>"; };
-		41968CE8206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CardsViewController.strings; sourceTree = "<group>"; };
-		41968CE9206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		41968CEA206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TutorialViewController.strings; sourceTree = "<group>"; };
-		41968CEB206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
 		41968CEC206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CF22065347A00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41968CF32065347D00501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1729,7 +1719,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				411F3E46204EF8B6002D466E /* Base */,
-				41968CE6206532EF00501112 /* ru */,
 			);
 			name = RootViewController.storyboard;
 			sourceTree = "<group>";
@@ -1738,7 +1727,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				414896332066988200C3C000 /* Base */,
-				4148963F20669B8D00C3C000 /* ru */,
 			);
 			name = HelpViewController.storyboard;
 			sourceTree = "<group>";
@@ -1747,7 +1735,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4148963A20669A8E00C3C000 /* Base */,
-				4148963D20669B8A00C3C000 /* ru */,
 			);
 			name = ContactsViewController.storyboard;
 			sourceTree = "<group>";
@@ -1756,7 +1743,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				41494AB11FC6C6570089F088 /* Base */,
-				41968CE7206532F000501112 /* ru */,
 			);
 			name = MainMenuViewController.storyboard;
 			sourceTree = "<group>";
@@ -1765,7 +1751,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				41494ADD1FC6C6950089F088 /* Base */,
-				41968CE9206532F000501112 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1774,7 +1759,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				415372852052FFA900B8C1EB /* Base */,
-				41968CEA206532F000501112 /* ru */,
 			);
 			name = TutorialViewController.storyboard;
 			sourceTree = "<group>";
@@ -1783,7 +1767,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4155239920850E7200EEADD8 /* Base */,
-				4155239C20850EE800EEADD8 /* ru */,
 			);
 			name = TopUpViewController.storyboard;
 			sourceTree = "<group>";
@@ -1792,7 +1775,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				41787B4020687E0300693FA1 /* Base */,
-				41787B452068982800693FA1 /* ru */,
 			);
 			name = AddNewCardViewController.storyboard;
 			sourceTree = "<group>";
@@ -1819,7 +1801,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				41A5E79F1FDB3AAF00A835F5 /* Base */,
-				41968CE8206532F000501112 /* ru */,
 			);
 			name = CardsViewController.storyboard;
 			sourceTree = "<group>";
@@ -1828,7 +1809,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				41AFD0BB205ECCE3006A8768 /* Base */,
-				41968CEB206532F000501112 /* ru */,
 			);
 			name = SettingsViewController.storyboard;
 			sourceTree = "<group>";

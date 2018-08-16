@@ -34,7 +34,12 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
 
     // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
 
+    let paymentButtonTitle: Single<String>
     let isPaymentValid: Observable<Bool>
+
+    var sections: Observable<[PaymentCompositionSectionViewModelWrapper]> {
+        return Observable.just(childViewModels)
+    }
 
     lazy var confirmationRequest: Observable<Result<URLRequest, BSKError>> = {
         let paymentDataObservable = Observable
@@ -52,10 +57,6 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
             .share(replay: 1, scope: .whileConnected)
     }()
 
-    var sections: Observable<[PaymentCompositionSectionViewModelWrapper]> {
-        return Observable.just(childViewModels)
-    }
-
     // MARK: - Initialization
 
     init(transportCardViewModel: TransportCardViewModelProtocol,
@@ -66,6 +67,9 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
         let isTransportCardValid = transportCardViewModel.output.isCardValid
         let isPaymentAmoundValid = paymentAmountViewModel.output.isAmountValid
         let isPaymentCardValid = paymentCardViewModel.output.isCardValid
+
+        self.paymentButtonTitle = Single
+            .just(R.string.localizable.startTopupButton())
 
         self.networkService = service
 
