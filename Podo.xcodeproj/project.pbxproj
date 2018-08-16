@@ -182,6 +182,8 @@
 		41DC8D882108D05B00119A4C /* PaymentAmountCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC8D872108D05B00119A4C /* PaymentAmountCellViewModel.swift */; };
 		41DC8D8C2108D08C00119A4C /* PaymentAmountCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC8D8B2108D08C00119A4C /* PaymentAmountCellViewModelProtocol.swift */; };
 		41DE34CA210FB9B20063E805 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DE34C9210FB9B10063E805 /* SideMenuViewModel.swift */; };
+		41DFDFFF2125DE7200975954 /* API-Keys.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 41DFDFFD2125DE7200975954 /* API-Keys.debug.xcconfig */; };
+		41DFE0002125DE7200975954 /* API-Keys.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 41DFDFFE2125DE7200975954 /* API-Keys.release.xcconfig */; };
 		41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */; };
 		41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */; };
 		41F0F2952066C524005C3631 /* AppDelegateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0F2942066C524005C3631 /* AppDelegateConfigurator.swift */; };
@@ -393,6 +395,8 @@
 		41DC8D872108D05B00119A4C /* PaymentAmountCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAmountCellViewModel.swift; sourceTree = "<group>"; };
 		41DC8D8B2108D08C00119A4C /* PaymentAmountCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAmountCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		41DE34C9210FB9B10063E805 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		41DFDFFD2125DE7200975954 /* API-Keys.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "API-Keys.debug.xcconfig"; sourceTree = "<group>"; };
+		41DFDFFE2125DE7200975954 /* API-Keys.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "API-Keys.release.xcconfig"; sourceTree = "<group>"; };
 		41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
 		41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
 		41F0F2942066C524005C3631 /* AppDelegateConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateConfigurator.swift; sourceTree = "<group>"; };
@@ -1112,6 +1116,8 @@
 		41F84A781FC6C6F20056698C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41DFDFFD2125DE7200975954 /* API-Keys.debug.xcconfig */,
+				41DFDFFE2125DE7200975954 /* API-Keys.release.xcconfig */,
 				41BF030B20EBFCDB00BCD2D3 /* paymentMethods.realm */,
 				415B8A5C208D0DC500BEAB93 /* sideMenuItems.realm */,
 				41BA55092075B62B00264837 /* PodoColors.clr */,
@@ -1274,10 +1280,12 @@
 				41968CEF2065347800501112 /* InfoPlist.strings in Resources */,
 				41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */,
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
+				41DFDFFF2125DE7200975954 /* API-Keys.debug.xcconfig in Resources */,
 				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
 				41787B4120687E0300693FA1 /* AddNewCardViewController.storyboard in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */,
+				41DFE0002125DE7200975954 /* API-Keys.release.xcconfig in Resources */,
 				41BA550A2075B62C00264837 /* PodoColors.clr in Resources */,
 				41BA550C2075BA6300264837 /* Apple HIG.clr in Resources */,
 				415372862052FFA900B8C1EB /* TutorialViewController.storyboard in Resources */,
@@ -1350,7 +1358,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" bc03b3b93fa09b597e2846970701531ee968395d 4cc9b434a62bf16aee517d844c76abe688999b5abfbcc1e6ca28bb70135830a4\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ${CRASHLYTICS_API_KEY} ${CRASHLYTICS_BUILD_SECRET}\n";
 		};
 		41F57F4B1FD4887500AD8D64 /* Copy colors pallete */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1931,7 +1939,7 @@
 		};
 		41494AD21FC6C6570089F088 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B615A5FF118833E14B0AC2E /* Pods-Podo.debug.xcconfig */;
+			baseConfigurationReference = 41DFDFFD2125DE7200975954 /* API-Keys.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1939,7 +1947,7 @@
 				DEVELOPMENT_TEAM = 49BLJJ9CJU;
 				INFOPLIST_FILE = "Podo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.m3g0byt3.Podo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.m3g0byt3.Podo-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1948,7 +1956,7 @@
 		};
 		41494AD31FC6C6570089F088 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3171AEBAEF479E5D8132E90 /* Pods-Podo.release.xcconfig */;
+			baseConfigurationReference = 41DFDFFE2125DE7200975954 /* API-Keys.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
