@@ -77,7 +77,7 @@
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
-		<string>bc03b3b93fa09b597e2846970701531ee968395d</string>
+		<string>$(CRASHLYTICS_API_KEY)</string>
 		<key>Kits</key>
 		<array>
 			<dict>

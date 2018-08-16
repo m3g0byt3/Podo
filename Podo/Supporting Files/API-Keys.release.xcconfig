@@ -1,0 +1,13 @@
+//
+//  API-Keys.release.xcconfig
+//  Podo
+//
+//  Created by m3g0byt3 on 16/08/2018.
+//  Copyright © 2018 m3g0byt3. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "./Pods/Target Support Files/Pods-Podo/Pods-Podo.release.xcconfig"
+#include "api-keys"
