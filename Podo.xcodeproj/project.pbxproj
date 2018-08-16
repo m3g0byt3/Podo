@@ -735,8 +735,8 @@
 				41C0CA75211DB3570039A5E3 /* BSKTransactionDelegateProxy.swift */,
 				4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */,
 				418EDE662062841600E54E33 /* RealmDatabaseService.swift */,
-                412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */,
-                412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */,
+				412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */,
+				412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1342,14 +1342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Crashlytics Run Script";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
