@@ -91,5 +91,10 @@ extension Reactive where Base: UIWebView {
         }
     }
 
+    /// Bindable sink for delegate property.
+    var setDelegate: Binder<UIWebViewDelegate> {
+        return Binder(self.base) { webView, value in
+            webView.delegate = value
+        }
     }
 }

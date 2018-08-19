@@ -33,7 +33,6 @@ class PaymentConfirmationViewController: UIViewController,
 
     // MARK: - PaymentConfirmationView protocol conformance
 
-    var onPaymentFinish: ((Result<Void, BSKError>) -> Void)?
     var onPaymentCancel: Completion?
 
     // MARK: - Lifecycle
@@ -54,8 +53,12 @@ class PaymentConfirmationViewController: UIViewController,
             .asDriver(onErrorJustReturn: .blank)
             .drive(webView.rx.loadRequest)
             .disposed(by: disposeBag)
-    }
 
+        viewModel.output.validator
+            .asObservable()
+            .map { $0 as UIWebViewDelegate }
+            .bind(to: webView.rx.setDelegate)
+            .disposed(by: disposeBag)
 
         cancelButton.rx.tap
             .asObservable()
