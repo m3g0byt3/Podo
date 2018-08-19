@@ -200,3 +200,15 @@ extension LabeledTextField {
         set { textField?.rightView?.tintColor = newValue }
     }
 }
+
+// MARK: UITextInputTraits protocol conformance
+
+extension LabeledTextField: UITextInputTraits {
+
+    @available(iOS 10.0, *)
+    var textContentType: UITextContentType! {
+        // swiftlint:disable:previous implicitly_unwrapped_optional
+        get { return textField?.textContentType ?? .creditCardNumber }
+        set { textField?.textContentType = newValue }
+    }
+}
