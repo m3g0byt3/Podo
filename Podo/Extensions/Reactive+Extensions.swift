@@ -90,33 +90,6 @@ extension Reactive where Base: UIWebView {
             webView.loadRequest(value)
         }
     }
-}
 
-extension BSKAdapter: ReactiveCompatible {}
-
-extension Reactive where Base: BSKAdapter {
-
-    /// Reactive wrapper for `delegate`.
-    /// For more information take a look at `DelegateProxyType` protocol documentation.
-    public var delegate: DelegateProxy<BSKAdapter, BSKTransactionDelegate> {
-        return BSKTransactionDelegateProxy.proxy(for: base)
-    }
-
-    /// Reactive wrapper for `delegate` message.
-    public var confirmationRequest: Observable<URLRequest> {
-        guard let delegate = delegate as? BSKTransactionDelegateProxy else { return .empty() }
-        return delegate.confirmationRequest
-    }
-
-    /// Reactive wrapper for `delegate` message.
-    public var transactionFailed: Observable<BSKError> {
-        guard let delegate = delegate as? BSKTransactionDelegateProxy else { return .empty() }
-        return delegate.transactionFailed
-    }
-
-    /// Reactive wrapper for `delegate` message.
-    public var transactionCompleted: Observable<Void> {
-        guard let delegate = delegate as? BSKTransactionDelegateProxy else { return .empty() }
-        return delegate.transactionCompleted
     }
 }

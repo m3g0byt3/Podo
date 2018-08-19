@@ -18,4 +18,6 @@ protocol NetworkServiceProtocol {
         from paymentType: BSKPaymentType,
         amount: Int
     ) -> Observable<Result<URLRequest, BSKError>>
+
+    var validator: Single<BSKWebViewHandlerProtocol> { get }
 }

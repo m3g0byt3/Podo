@@ -164,7 +164,6 @@
 		41BEC2F12059667400C656D1 /* InteractiveTransitioningCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */; };
 		41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */; };
 		41BF030C20EBFCDB00BCD2D3 /* paymentMethods.realm in Resources */ = {isa = PBXBuildFile; fileRef = 41BF030B20EBFCDB00BCD2D3 /* paymentMethods.realm */; };
-		41C0CA76211DB3570039A5E3 /* BSKTransactionDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C0CA75211DB3570039A5E3 /* BSKTransactionDelegateProxy.swift */; };
 		41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C8C2551FD42225007EC44B /* RoundShadowView.swift */; };
 		41C9EB4E1FD40A0B000D77DD /* MainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */; };
 		41C9EB4F1FD40A0B000D77DD /* MainMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */; };
@@ -377,7 +376,6 @@
 		41BEC2F02059667400C656D1 /* InteractiveTransitioningCapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningCapable.swift; sourceTree = "<group>"; };
 		41BEC2F220597FBE00C656D1 /* InteractiveTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioningDelegate.swift; sourceTree = "<group>"; };
 		41BF030B20EBFCDB00BCD2D3 /* paymentMethods.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = paymentMethods.realm; sourceTree = "<group>"; };
-		41C0CA75211DB3570039A5E3 /* BSKTransactionDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKTransactionDelegateProxy.swift; sourceTree = "<group>"; };
 		41C8C2551FD42225007EC44B /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		41C9EB4C1FD40A0B000D77DD /* MainMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		41C9EB4D1FD40A0B000D77DD /* MainMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuTableViewCell.xib; sourceTree = "<group>"; };
@@ -736,7 +734,6 @@
 			children = (
 				4179E9F320460728007CF219 /* NetworkServiceProtocol.swift */,
 				418874972118AD5D00FF7825 /* BSKNetworkService.swift */,
-				41C0CA75211DB3570039A5E3 /* BSKTransactionDelegateProxy.swift */,
 				4179E9F52046074D007CF219 /* DatabaseServiceProtocol.swift */,
 				418EDE662062841600E54E33 /* RealmDatabaseService.swift */,
 				412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */,
@@ -1581,7 +1578,6 @@
 				41BDD4EC2054562E0045A50A /* AbstractCoordinator.swift in Sources */,
 				41787B43206894C900693FA1 /* AddNewCardCoordinator.swift in Sources */,
 				41787B3B206879D900693FA1 /* AddNewCardView.swift in Sources */,
-				41C0CA76211DB3570039A5E3 /* BSKTransactionDelegateProxy.swift in Sources */,
 				41BC827320FDF48A003157D7 /* InputAccessoryViewProtocol.swift in Sources */,
 				41AFD0C3205ED7DD006A8768 /* SettingsViewController.swift in Sources */,
 				4130F2A9205C855B00DDFAD8 /* ViewModel.swift in Sources */,
