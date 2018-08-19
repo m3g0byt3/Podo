@@ -22,7 +22,7 @@ final class Router {
 
     // MARK: - Initialization
 
-    init(_ rootViewController: UINavigationController, assembler: Assembler) {
+    init(rootViewController: UINavigationController, assembler: Assembler) {
         self.rootViewController = rootViewController
         self.assembler = assembler
         self.themeProvider = assembler.resolver.resolve(ThemeProviderProtocol.self)

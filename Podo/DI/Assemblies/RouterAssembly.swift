@@ -17,9 +17,9 @@ final class RouterAssembly: Assembly {
             guard let rootView = resolver.resolve(UINavigationController.self) else {
                 unableToResolve(UINavigationController.self)
             }
-            return Router(rootView, assembler: ApplicationAssembler.defaultAssembler)
-        }
-        .inObjectScope(.container)
+            return Router(rootViewController: rootView, assembler: ApplicationAssembler.defaultAssembler)
+        }.inObjectScope(.weak)
+        // swiftlint:disable:previous multiline_function_chains
 
         container.register(InteractiveTransitioningDelegate.self) { _ in
             return SideMenuTransitioningDelegate()
