@@ -38,17 +38,23 @@ enum StartOption {
 
         switch shortcutIdentifier {
         case .addNewCard: self = .addNewCard
-        // TODO: Extract card identifier from `userInfo` of `UIApplicationShortcutItem`
-        case .topUpCard: notImplemented()
         case .openSettings: self = .settings
+        // TODO: Add actual implementation: extract card identifier from `userInfo` of `UIApplicationShortcutItem`
+        case .topUpCard:
+            assertionFailure("Not implemented")
+            return nil
         }
     }
 
     init?(with notificationUserInfo: NotificationUserInfo) {
-        notImplemented()
+        // TODO: Add actual implementation
+        assertionFailure("Not implemented")
+        return nil
     }
 
     init?(with userActivity: NSUserActivity) {
-        notImplemented()
+        // TODO: Add actual implementation
+        assertionFailure("Not implemented")
+        return nil
     }
 }

@@ -77,13 +77,13 @@ final class PaymentCoordinator: AbstractCoordinator {
 
     private func showCardScanner() {
         // TODO: Add actual implementation
-        notImplemented()
+        assertionFailure("Not implemented")
     }
 
     // MARK: - Coordinator protocol conformance
 
     override func start() {
-        preconditionFailure("Can't start without option")
+        assertionFailure("Can't start without option")
     }
 
     override func start(with option: StartOption?) {

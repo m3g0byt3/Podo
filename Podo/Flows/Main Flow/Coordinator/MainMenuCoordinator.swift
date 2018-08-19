@@ -24,7 +24,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     @available(*, unavailable, message: "Use init(router:assembler:reportingService:) instead")
     required init(router: RouterProtocol, assembler: Assembler) {
-        fatalError("Unable to initialize instance of class \(MainMenuCoordinator.self) without all dependencies.")
+        fatalError("Use init(router:assembler:reportingService:) instead")
     }
 
     // MARK: - Private API

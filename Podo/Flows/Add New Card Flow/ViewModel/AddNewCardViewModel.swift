@@ -47,7 +47,6 @@ final class AddNewCardViewModel: AddNewCardViewModelProtocol,
 
     // MARK: - Initialization
 
-    // swiftlint:disable:next function_body_length
     init(model: AnyDatabaseService<TransportCard>, reportingService: ReportingServiceProtocol) {
         self.model = model
 

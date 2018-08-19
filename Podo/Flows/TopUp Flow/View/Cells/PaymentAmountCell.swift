@@ -74,7 +74,7 @@ final class PaymentAmountCell: UITableViewCell {
 
     @available(*, unavailable, message: "This class cannot be instantiated from StoryBoard/XIB")
     required init?(coder aDecoder: NSCoder) {
-        notImplemented()
+        fatalError("This class cannot be instantiated from StoryBoard/XIB")
     }
 
     // MARK: - Public API

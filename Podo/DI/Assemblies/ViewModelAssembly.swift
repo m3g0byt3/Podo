@@ -14,8 +14,8 @@ final class ViewModelAssembly: Assembly {
     // swiftlint:disable:next type_name
     private typealias T = TransportCardViewModelProtocol
 
+    // swiftlint:disable:next function_body_length
     func assemble(container: Container) {
-        // swiftlint:disable:previous function_body_length
 
         container.register(AnyViewModel<MainMenuCellViewModelProtocol>.self) { _ in
             return AnyViewModel(MainMenuViewModel())

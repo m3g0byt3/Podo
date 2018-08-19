@@ -15,8 +15,8 @@ final class ViewAssembly: Assembly {
     // swiftlint:disable:next type_name
     private typealias T = TransportCardViewModelProtocol
 
+    // swiftlint:disable:next function_body_length
     func assemble(container: Container) {
-        // swiftlint:disable:previous function_body_length
 
         container.register(MainMenuView.self) { resolver in
             guard let viewController = MainMenuViewController.storyboardInstance() else {

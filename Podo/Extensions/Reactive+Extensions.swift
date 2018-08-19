@@ -86,8 +86,8 @@ extension Reactive where Base: UIWebView {
 
     /// Bindable sink for load(_:) method.
     var loadRequest: Binder<URLRequest> {
-        return Binder(self.base) { webView, request in
-            webView.loadRequest(request)
+        return Binder(self.base) { webView, value in
+            webView.loadRequest(value)
         }
     }
 }
