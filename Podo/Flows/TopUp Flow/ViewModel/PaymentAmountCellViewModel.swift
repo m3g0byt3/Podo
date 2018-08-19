@@ -21,7 +21,8 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
     private static let maxTopUpAmount = 14_500
     private static let defaultTopUpAmount = 0
     private static let currencySign = "₽"
-    private static let placeholder = "0".appending(PaymentAmountCellViewModel.currencySign)
+    // Appending/interpolating with `currencySign` static variable will cause memory leak, so just use literal.
+    private static let placeholder = "0₽"
     private static let buttonViewModelRange = [100, 250, 500]
 
     // MARK: - PaymentAmountCellViewModelProtocol protocol conformance
