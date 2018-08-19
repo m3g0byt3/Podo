@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="q7e-Ej-tvb">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="2eY-2u-436">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="2eY-2u-436">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="closeButtonHandler:" destination="fva-3e-mV4" id="dnE-sy-yu5"/>
@@ -119,7 +119,7 @@
                         <viewLayoutGuide key="safeArea" id="Iw0-43-bf4"/>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="2eY-2u-436" id="JAF-Dy-Rdi"/>
+                        <outlet property="cancelButton" destination="2eY-2u-436" id="1ce-8p-TvC"/>
                         <outlet property="webView" destination="Tez-Xf-eVe" id="ALt-wI-Gzv"/>
                     </connections>
                 </viewController>

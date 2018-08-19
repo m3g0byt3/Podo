@@ -18,7 +18,7 @@ class PaymentConfirmationViewController: UIViewController,
 
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var closeButton: UIBarButtonItem!
+    @IBOutlet private weak var cancelButton: UIBarButtonItem!
     @IBOutlet private weak var webView: UIWebView!
 
     // MARK: - Properties
@@ -56,10 +56,13 @@ class PaymentConfirmationViewController: UIViewController,
             .disposed(by: disposeBag)
     }
 
-    // MARK: - IBActions
 
-    @IBAction private func closeButtonHandler(_ sender: UIBarButtonItem) {
-        onPaymentCancel?()
+        cancelButton.rx.tap
+            .asObservable()
+            .subscribe { [weak self] _ in
+                self?.onPaymentCancel?()
+            }
+            .disposed(by: disposeBag)
     }
 }
 
