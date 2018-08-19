@@ -11,7 +11,7 @@ import RxSwift
 import BSK
 import Result
 
-protocol NetworkServiceProtocol {
+protocol NetworkServiceProtocol: class {
 
     func topUp(
         transportCard: BSKTransportCard,
