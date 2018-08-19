@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import BSK
 
 struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
                                      PaymentConfirmationViewModelInputProtocol,
@@ -21,11 +22,14 @@ struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
     // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
 
     let confirmationRequest: Single<URLRequest>
+    let validator: Single<BSKWebViewHandlerProtocol>
 
     // MARK: - Initialization
 
-    init(_ request: URLRequest) {
+    init(request: URLRequest, service: NetworkServiceProtocol) {
         self.confirmationRequest = Single
             .just(request)
+
+        self.validator = service.validator
     }
 }
