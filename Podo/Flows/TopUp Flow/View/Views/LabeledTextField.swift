@@ -94,13 +94,13 @@ final class LabeledTextField: UIControl {
     }
 
     override func becomeFirstResponder() -> Bool {
-        super.becomeFirstResponder()
-        return textField?.becomeFirstResponder() ?? false
+        _ = textField?.becomeFirstResponder()
+        return super.becomeFirstResponder()
     }
 
     override func resignFirstResponder() -> Bool {
-        super.resignFirstResponder()
-        return textField?.resignFirstResponder() ?? false
+        _ = textField?.resignFirstResponder()
+        return super.resignFirstResponder()
     }
 
     // MARK: - Private API
