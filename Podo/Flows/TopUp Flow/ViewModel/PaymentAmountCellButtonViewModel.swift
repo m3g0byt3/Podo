@@ -20,7 +20,7 @@ struct PaymentAmountCellButtonViewModel: PaymentAmountCellButtonViewModelProtoco
 
     // MARK: - PaymentAmountCellButtonViewModelInputProtocol protocol conformance
 
-    let selected: PublishSubject<Void>
+    let selected = PublishSubject<Void>()
 
     // MARK: - PaymentAmountCellButtonViewModelProtocol protocol conformance
 
@@ -30,8 +30,6 @@ struct PaymentAmountCellButtonViewModel: PaymentAmountCellButtonViewModelProtoco
 
     init(value: Int, sign: String) {
         let title = String(value).appending(sign)
-
-        self.selected = PublishSubject<Void>()
 
         self.title = self.selected
             .asObservable()

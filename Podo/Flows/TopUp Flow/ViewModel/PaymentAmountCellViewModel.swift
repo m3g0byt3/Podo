@@ -36,7 +36,7 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
 
     // MARK: - PaymentAmountCellViewModelInputProtocol protocol conformance
 
-    let amountInput: PublishSubject<String>
+    let amountInput = PublishSubject<String>()
 
     // MARK: - PaymentAmountCellViewModelOutputProtocol protocol conformance
 
@@ -50,8 +50,6 @@ struct PaymentAmountCellViewModel: PaymentAmountCellViewModelProtocol,
     init() {
         self.placeholder = Single
             .just(PaymentAmountCellViewModel.placeholder)
-
-        self.amountInput = PublishSubject<String>()
 
         let buttonViewModels = PaymentAmountCellViewModel.buttonViewModelRange
             .map { PaymentAmountCellButtonViewModel(value: $0, sign: PaymentAmountCellViewModel.currencySign) }

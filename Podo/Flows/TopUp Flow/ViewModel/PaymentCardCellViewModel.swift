@@ -37,9 +37,9 @@ struct PaymentCardCellViewModel: PaymentCardCellViewModelProtocol,
 
     // MARK: - PaymentCardCellViewModelInputProtocol protocol conformance
 
-    let cardNumberInput: PublishSubject<String>
-    let cvcNumberInput: PublishSubject<String>
-    let expiryDateInput: PublishSubject<String>
+    let cardNumberInput = PublishSubject<String>()
+    let cvcNumberInput = PublishSubject<String>()
+    let expiryDateInput = PublishSubject<String>()
 
     // MARK: - PaymentCardCellViewModelOutputProtocol protocol conformance
 
@@ -62,13 +62,6 @@ struct PaymentCardCellViewModel: PaymentCardCellViewModelProtocol,
     // MARK: - Initialization
 
     init() {
-        // swiftlint:disable:previous function_body_length
-
-        // MARK: - Inputs
-
-        self.cardNumberInput = PublishSubject<String>()
-        self.expiryDateInput = PublishSubject<String>()
-        self.cvcNumberInput = PublishSubject<String>()
 
         // MARK: - Labels
 
