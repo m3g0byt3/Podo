@@ -26,6 +26,13 @@ final class PaymentCardCell: UITableViewCell {
 
     // MARK: - Public API
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if #available(iOS 10, *) {
+            cardNumberTextField.textContentType = .creditCardNumber
+        }
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
         // Create new dispose bag on every re-use of the cell
