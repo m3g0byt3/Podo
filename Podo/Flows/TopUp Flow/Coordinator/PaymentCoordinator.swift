@@ -45,9 +45,16 @@ final class PaymentCoordinator: AbstractCoordinator {
                 case .failure(let error): print("❌ Error: \(error) ❌")
                 }
             }
+            view.onPaymentComplete = { [weak self] in
+                // TODO: Add actual implementation for `complete` case
+                self?.router.dismiss(animated: false, completion: nil)
+                self?.router.popToRootView(animated: true)
+            }
             view.onScanButtonTap = { [weak self] in
                 self?.showCardScanner()
             }
+            // No-op on payment cancel in `PaymentCompositionView`
+            view.onPaymentCancel = nil
             router.push(view, animated: true)
 
         case .applePay, .cellphoneBalance, .qiwiWallet, .yandexMoney:
@@ -63,13 +70,7 @@ final class PaymentCoordinator: AbstractCoordinator {
             return
         }
         view.onPaymentCancel = { [weak self] in
-            // TODO: Add actual implementation
-            self?.router.dismiss(animated: true, completion: nil)
-            self?.router.popToRootView(animated: true)
-        }
-        view.onPaymentFinish = { [weak self] _ in
-            // TODO: Add actual implementation
-            self?.router.dismiss(animated: true, completion: nil)
+            self?.router.dismiss(animated: false, completion: nil)
             self?.router.popToRootView(animated: true)
         }
         router.present(view, animated: true, completion: nil)

@@ -18,7 +18,8 @@ final class ServiceAssembly: Assembly {
         container.register(NetworkServiceProtocol.self) { _ in
             let adapter = BSKAdapter()
             return BSKNetworkService(adapter)
-        }
+        }.inObjectScope(.weak)
+        // swiftlint:disable:previous multiline_function_chains
 
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
             // Create custom configuration for bundled `sideMenuItemsRealm` database file

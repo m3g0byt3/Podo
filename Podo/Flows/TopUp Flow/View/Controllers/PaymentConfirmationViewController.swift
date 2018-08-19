@@ -18,7 +18,7 @@ class PaymentConfirmationViewController: UIViewController,
 
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var closeButton: UIBarButtonItem!
+    @IBOutlet private weak var cancelButton: UIBarButtonItem!
     @IBOutlet private weak var webView: UIWebView!
 
     // MARK: - Properties
@@ -33,7 +33,6 @@ class PaymentConfirmationViewController: UIViewController,
 
     // MARK: - PaymentConfirmationView protocol conformance
 
-    var onPaymentFinish: ((Result<Void, BSKError>) -> Void)?
     var onPaymentCancel: Completion?
 
     // MARK: - Lifecycle
@@ -54,12 +53,19 @@ class PaymentConfirmationViewController: UIViewController,
             .asDriver(onErrorJustReturn: .blank)
             .drive(webView.rx.loadRequest)
             .disposed(by: disposeBag)
-    }
 
-    // MARK: - IBActions
+        viewModel.output.validator
+            .asObservable()
+            .map { $0 as UIWebViewDelegate }
+            .bind(to: webView.rx.setDelegate)
+            .disposed(by: disposeBag)
 
-    @IBAction private func closeButtonHandler(_ sender: UIBarButtonItem) {
-        onPaymentCancel?()
+        cancelButton.rx.tap
+            .asObservable()
+            .subscribe { [weak self] _ in
+                self?.onPaymentCancel?()
+            }
+            .disposed(by: disposeBag)
     }
 }
 

@@ -12,6 +12,5 @@ import Result
 
 protocol PaymentConfirmationView: View {
 
-    var onPaymentFinish: ((Result<Void, BSKError>) -> Void)? { get set }
     var onPaymentCancel: Completion? { get set }
 }

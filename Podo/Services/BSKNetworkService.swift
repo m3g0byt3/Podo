@@ -11,16 +11,24 @@ import BSK
 import RxSwift
 import Result
 
-final class BSKNetworkService {
+final class BSKNetworkService: NetworkServiceProtocol {
+
+    // MARK: - Private properties
 
     private let adapter: BSKAdapter
+    private let delegateForwarder = PublishSubject<Result<URLRequest, BSKError>>()
+
+    // MARK: - Initialization
 
     init(_ adapter: BSKAdapter) {
         self.adapter = adapter
+        self.validator = Single.just(adapter.webViewHandler)
+        self.adapter.delegate = self
     }
-}
 
-extension BSKNetworkService: NetworkServiceProtocol {
+    // MARK: - NetworkServiceProtocol protocol conformance
+
+    let validator: Single<BSKWebViewHandlerProtocol>
 
     func topUp(
         transportCard: BSKTransportCard,
@@ -28,13 +36,23 @@ extension BSKNetworkService: NetworkServiceProtocol {
         amount: Int
     ) -> Observable<Result<URLRequest, BSKError>> {
         adapter.topUpTransportCard(transportCard, from: paymentType, amount: amount)
+        return delegateForwarder
+    }
+}
 
-        let success: Observable<Result<URLRequest, BSKError>> = adapter.rx.confirmationRequest
-            .map(Result.success)
+// MARK: - BSKTransactionDelegate protocol conformance
 
-        let failure: Observable<Result<URLRequest, BSKError>> = adapter.rx.transactionFailed
-            .map(Result.failure)
+extension BSKNetworkService: BSKTransactionDelegate {
 
-        return Observable.merge(success, failure)
+    func didReceiveConfirmationRequest(_ request: URLRequest) {
+        delegateForwarder.onNext(.success(request))
+    }
+
+    func transactionDidFailWithError(_ error: BSKError) {
+        delegateForwarder.onNext(.failure(error))
+    }
+
+    func transactionDidComplete() {
+        delegateForwarder.onCompleted()
     }
 }

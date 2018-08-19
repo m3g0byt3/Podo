@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import BSK
 
 protocol PaymentConfirmationViewModelProtocol {
 
@@ -20,4 +21,5 @@ protocol PaymentConfirmationViewModelInputProtocol {}
 protocol PaymentConfirmationViewModelOutputProtocol {
 
     var confirmationRequest: Single<URLRequest> { get }
+    var validator: Single<BSKWebViewHandlerProtocol> { get }
 }

@@ -47,6 +47,7 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
 
         return startPayment
             .asObservable()
+            .take(1)
             .withLatestFrom(paymentDataObservable)
             .flatMapLatest { [unowned self] paymentData -> Observable<Result<URLRequest, BSKError>> in
                 let (transportCard, paymentCard, amount) = paymentData
@@ -68,14 +69,14 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
         let isPaymentAmoundValid = paymentAmountViewModel.output.isAmountValid
         let isPaymentCardValid = paymentCardViewModel.output.isCardValid
 
-        self.paymentButtonTitle = Single
-            .just(R.string.localizable.startTopupButton())
-
         self.networkService = service
 
         self.paymentCardModel = paymentCardViewModel.link.model
         self.amountModel = paymentAmountViewModel.link.model
         self.transportCardModel = transportCardViewModel.link.model
+
+        self.paymentButtonTitle = Single
+            .just(R.string.localizable.startTopupButton())
 
         self.isPaymentValid = Observable
             .combineLatest(isTransportCardValid, isPaymentCardValid, isPaymentAmoundValid) { $0 && $1 && $2 }
@@ -86,6 +87,5 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
                                                       items: [.transportCardSectionItem(viewModel: transportCardViewModel)]),
                                 .amountFieldSection(title: R.string.localizable.amountFieldSection(),
                                                     items: [.amountFieldSectionItem(viewModel: paymentAmountViewModel)])]
-
     }
 }
