@@ -1,5 +1,5 @@
 //
-//  ThemeAssembly.swift
+//  HelperAssembly.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 08/03/2018.
@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import UIKit
 import Swinject
+import Moya
 
-final class ThemeAssembly: Assembly {
+final class HelperAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(ThemeProviderProtocol.self) { _ in
-            return ThemeProvider()
+        container.register(ThemeAdapterProtocol.self) { _ in
+            return ThemeAdapter()
         }
     }
 }

@@ -76,9 +76,9 @@
 		41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */; };
 		41607EA6204DA913009DCEA2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA5204DA913009DCEA2 /* View.swift */; };
 		41607EA8204DD7DB009DCEA2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41607EA7204DD7DB009DCEA2 /* Router.swift */; };
-		4160A50D205174EA00485C8B /* ThemeProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A50C205174EA00485C8B /* ThemeProviderProtocol.swift */; };
-		4160A5112051767B00485C8B /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5102051767B00485C8B /* ThemeProvider.swift */; };
-		4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5122051770E00485C8B /* ThemeAssembly.swift */; };
+		4160A50D205174EA00485C8B /* ThemeAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */; };
+		4160A5112051767B00485C8B /* ThemeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5102051767B00485C8B /* ThemeAdapter.swift */; };
+		4160A5132051770E00485C8B /* HelperAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5122051770E00485C8B /* HelperAssembly.swift */; };
 		416F52972085319300C519A6 /* PaymentMethodViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */; };
 		416F5299208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */; };
 		416F529D20853EAC00C519A6 /* PaymentMethodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */; };
@@ -286,9 +286,9 @@
 		41607EA0204DA77E009DCEA2 /* Swinject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swinject+Extensions.swift"; sourceTree = "<group>"; };
 		41607EA5204DA913009DCEA2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		41607EA7204DD7DB009DCEA2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		4160A50C205174EA00485C8B /* ThemeProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProviderProtocol.swift; sourceTree = "<group>"; };
-		4160A5102051767B00485C8B /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
-		4160A5122051770E00485C8B /* ThemeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAssembly.swift; sourceTree = "<group>"; };
+		4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAdapterProtocol.swift; sourceTree = "<group>"; };
+		4160A5102051767B00485C8B /* ThemeAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAdapter.swift; sourceTree = "<group>"; };
+		4160A5122051770E00485C8B /* HelperAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperAssembly.swift; sourceTree = "<group>"; };
 		416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModel.swift; sourceTree = "<group>"; };
@@ -494,7 +494,7 @@
 				41BDD4E8205450210045A50A /* Coordinator */,
 				41607EA9204E015A009DCEA2 /* Router */,
 				410D499121076C1C004A6E65 /* KeyboardHandling */,
-				4160A50F2051766900485C8B /* Themes */,
+				4160A50F2051766900485C8B /* Helpers */,
 				41A5E7931FDAC36800A835F5 /* Services */,
 				41BDD4E7205450070045A50A /* Protocols */,
 				418F79D0205C8D5900397B48 /* Wrappers */,
@@ -604,12 +604,12 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		4160A50F2051766900485C8B /* Themes */ = {
+		4160A50F2051766900485C8B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				4160A5102051767B00485C8B /* ThemeProvider.swift */,
+				4160A5102051767B00485C8B /* ThemeAdapter.swift */,
 			);
-			path = Themes;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		416FD02220DFE0E100558BCB /* Views */ = {
@@ -687,7 +687,7 @@
 				4179EA022046241E007CF219 /* ViewAssembly.swift */,
 				412C77DE2113AD45005943DD /* RootViewAssembly.swift */,
 				4179E9ED204603CE007CF219 /* ServiceAssembly.swift */,
-				4160A5122051770E00485C8B /* ThemeAssembly.swift */,
+				4160A5122051770E00485C8B /* HelperAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -757,7 +757,7 @@
 				4120E1082083B9640097B1E5 /* SideMenuCoordinator.swift */,
 				4180B4E5204C92810064529A /* RouterProtocol.swift */,
 				41607EA5204DA913009DCEA2 /* View.swift */,
-				4160A50C205174EA00485C8B /* ThemeProviderProtocol.swift */,
+				4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */,
 				4130F2A8205C855B00DDFAD8 /* ViewModel.swift */,
 				410F0A51207D1A57003DD5C0 /* Configurable.swift */,
 				41CDEAB520828DA0008D30D5 /* POP */,
@@ -1534,7 +1534,7 @@
 				417AB4232082A027004B6BE5 /* AnyMethodWrapper.swift in Sources */,
 				418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */,
 				41555A682049727C007ADBF0 /* Coordinator.swift in Sources */,
-				4160A5132051770E00485C8B /* ThemeAssembly.swift in Sources */,
+				4160A5132051770E00485C8B /* HelperAssembly.swift in Sources */,
 				41A4C63A2121AD500063C539 /* URLRequest+Extensions.swift in Sources */,
 				4119ED7521124BD5009EDA42 /* PaymentCompositionSectionViewModelWrapper.swift in Sources */,
 				415B8A5B208D0D3400BEAB93 /* PaymentMethod.swift in Sources */,
@@ -1614,7 +1614,7 @@
 				41AFD0BE205ED027006A8768 /* SettingsCoordinator.swift in Sources */,
 				41AFD0C0205ED375006A8768 /* SettingsView.swift in Sources */,
 				4151684520911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift in Sources */,
-				4160A50D205174EA00485C8B /* ThemeProviderProtocol.swift in Sources */,
+				4160A50D205174EA00485C8B /* ThemeAdapterProtocol.swift in Sources */,
 				41DC8D84210777E900119A4C /* PaymentCardCellViewModel.swift in Sources */,
 				41607EA1204DA77E009DCEA2 /* Swinject+Extensions.swift in Sources */,
 				41F0F2952066C524005C3631 /* AppDelegateConfigurator.swift in Sources */,
@@ -1679,7 +1679,7 @@
 				41CDEAB720828DB1008D30D5 /* SideMenuPresenting.swift in Sources */,
 				41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */,
 				410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */,
-				4160A5112051767B00485C8B /* ThemeProvider.swift in Sources */,
+				4160A5112051767B00485C8B /* ThemeAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

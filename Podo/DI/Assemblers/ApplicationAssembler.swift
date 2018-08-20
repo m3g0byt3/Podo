@@ -21,7 +21,7 @@ final class ApplicationAssembler {
             ViewModelAssembly(),
             ViewAssembly(),
             ServiceAssembly(),
-            ThemeAssembly()
+            HelperAssembly()
         ])
     }()
 

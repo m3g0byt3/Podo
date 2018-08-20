@@ -1,5 +1,5 @@
 //
-//  ThemeProvider.swift
+//  ThemeAdapter.swift
 //  Podo
 //
 //  Created by m3g0byt3 on 08/03/2018.
@@ -8,13 +8,11 @@
 
 import Foundation
 
-final class ThemeProvider: ThemeProviderProtocol {
+final class ThemeAdapter: ThemeAdapterProtocol {
 
-    // MARK: - Properties
+    // MARK: - ThemeAdapterProtocol protocol conformance
 
     var currentTheme: Theme = .light
-
-    // MARK: - Public API
 
     func changeTheme(_ theme: Theme) {}
 }
