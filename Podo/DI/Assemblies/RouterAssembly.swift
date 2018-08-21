@@ -14,10 +14,25 @@ final class RouterAssembly: Assembly {
     func assemble(container: Container) {
 
         container.register(RouterProtocol.self) { resolver in
-            guard let rootView = resolver.resolve(UINavigationController.self) else {
-                unableToResolve(UINavigationController.self)
+            let rootViewDependencyType = UINavigationController.self
+            let errorAdapterDependencyType = ErrorAdapterProtocol.self
+            let themeAdapterDependencyType = ThemeAdapterProtocol.self
+
+            guard let errorAdapter = resolver.resolve(errorAdapterDependencyType) else {
+                unableToResolve(errorAdapterDependencyType)
             }
-            return Router(rootViewController: rootView, assembler: ApplicationAssembler.defaultAssembler)
+            guard let themeAdapter = resolver.resolve(themeAdapterDependencyType) else {
+                unableToResolve(themeAdapterDependencyType)
+            }
+            guard let rootView = resolver.resolve(rootViewDependencyType) else {
+                unableToResolve(rootViewDependencyType)
+            }
+
+            return Router(rootViewController: rootView,
+                          errorAdapter: errorAdapter,
+                          themeAdapter: themeAdapter,
+                          assembler: ApplicationAssembler.defaultAssembler)
+
         }.inObjectScope(.weak)
         // swiftlint:disable:previous multiline_function_chains
 

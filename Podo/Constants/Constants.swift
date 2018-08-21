@@ -33,6 +33,13 @@ enum Constant {
         static let textField: TimeInterval = 0.3
     }
 
+    enum ErrorDisplayDuration {
+        /// Normal display duration
+        static let normal: TimeInterval = 1.5
+        /// Short display duration
+        static let short: TimeInterval = 0.9
+    }
+
     enum DimmingViewAlpha {
         /// Alpha level at the beginning of presentation
         static let initial: CGFloat = 0.0

@@ -15,18 +15,22 @@ final class Router {
     // MARK: - Properties
 
     private var transitioningDelegates = [UIViewController: InteractiveTransitioningDelegate]()
-    private let themeProvider: ThemeProviderProtocol?
+    private let errorAdapter: ErrorAdapterProtocol
     private let assembler: Assembler
     private weak var rootViewController: UINavigationController?
     private var visibleViewController: UIViewController? { return rootViewController?.visibleViewController }
 
     // MARK: - Initialization
 
-    init(rootViewController: UINavigationController, assembler: Assembler) {
+    init(rootViewController: UINavigationController,
+         errorAdapter: ErrorAdapterProtocol,
+         themeAdapter: ThemeAdapterProtocol,
+         assembler: Assembler) {
+
         self.rootViewController = rootViewController
         self.assembler = assembler
-        self.themeProvider = assembler.resolver.resolve(ThemeProviderProtocol.self)
-        self.themeProvider?.appearanceSetup()
+        self.errorAdapter = errorAdapter
+        themeAdapter.appearanceSetup()
     }
 
     // MARK: - Private API
@@ -93,5 +97,10 @@ extension Router: RouterProtocol {
 
     func popToRootView(animated: Bool) {
         rootViewController?.popToRootViewController(animated: animated)
+    }
+
+    // Error handling
+    func presentError(title: String?, message: String?) {
+        errorAdapter.presentError(title: title, message: message)
     }
 }

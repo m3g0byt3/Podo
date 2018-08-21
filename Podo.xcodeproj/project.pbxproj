@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		410176F92078047A00785469 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410176F82078047A00785469 /* GradientView.swift */; };
 		41023C51210667FB009AE7C4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023C50210667FB009AE7C4 /* Array+Extensions.swift */; };
+		410BB8FD212AF3F9005764AC /* ErrorAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BB8FC212AF3F9005764AC /* ErrorAdapterProtocol.swift */; };
+		410BB8FF212AF4EF005764AC /* PKHUDAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BB8FE212AF4EF005764AC /* PKHUDAdapter.swift */; };
 		410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A51207D1A57003DD5C0 /* Configurable.swift */; };
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
@@ -211,6 +213,8 @@
 		15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410176F82078047A00785469 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		41023C50210667FB009AE7C4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		410BB8FC212AF3F9005764AC /* ErrorAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAdapterProtocol.swift; sourceTree = "<group>"; };
+		410BB8FE212AF4EF005764AC /* PKHUDAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDAdapter.swift; sourceTree = "<group>"; };
 		410F0A51207D1A57003DD5C0 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -606,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				4160A5102051767B00485C8B /* ThemeAdapter.swift */,
+				410BB8FE212AF4EF005764AC /* PKHUDAdapter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */,
 				4130F2A8205C855B00DDFAD8 /* ViewModel.swift */,
 				410F0A51207D1A57003DD5C0 /* Configurable.swift */,
+				410BB8FC212AF3F9005764AC /* ErrorAdapterProtocol.swift */,
 				41CDEAB520828DA0008D30D5 /* POP */,
 			);
 			path = Protocols;
@@ -1623,6 +1629,7 @@
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				41FA0BB92117B98C00B7B602 /* ThreadSafeItems.swift in Sources */,
 				415523942084FFCB00EEADD8 /* PaymentMethodsView.swift in Sources */,
+				410BB8FF212AF4EF005764AC /* PKHUDAdapter.swift in Sources */,
 				41816E20206A315E00A0FFCC /* AddNewCardViewModel.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseServiceProtocol.swift in Sources */,
 				41D1313020F9073F00F2D7BB /* KeyboardNotification.swift in Sources */,
@@ -1656,6 +1663,7 @@
 				4157F52320F65B2200825816 /* KeyboardHandler.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
+				410BB8FD212AF3F9005764AC /* ErrorAdapterProtocol.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModel.swift in Sources */,
 				4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */,
 				4179E9FF204620E1007CF219 /* MainMenuView.swift in Sources */,
