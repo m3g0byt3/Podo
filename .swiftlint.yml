@@ -62,3 +62,4 @@ file_name:
     - Observable+Extensions.swift
     - Driver+Extensions.swift
     - Swinject+Extensions.swift
+    - BSK+Extensions.swift

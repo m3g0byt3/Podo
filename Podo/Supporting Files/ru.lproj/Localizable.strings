@@ -37,3 +37,16 @@
 "card-cell-expiration-label" = "Срок действия";
 "card-cell-cvv-label" = "CVC/CVV код";
 "start-topup-button" = "Пополнить";
+
+// MARK: Top-up errors
+
+"error-title" = "Ошибка пополнения";
+"Maintenance mode on back-end, please try again later." = "Техн. работы на сервере, пожалуйста попробуйте позже.";
+"Incorrect transport card number." = "Некорректный номер транспортной карты.";
+"Incorrect top-up amount. Allowed top-up amount: from 1₽ to 14500₽." = "Некорректная сумма пополнения. Допустимая сумма пополнения: от 1₽ до 14500₽.";
+"Unable to top-up transport card." = "Невозможно пополнить транспортную карту.";
+"Another payment request in progress." = "Выполняется предыдущий запрос.";
+"Currently supported payments methods: \"Credit card\"." = "На данный момент поддерживаются следующие способы оплаты: \"Банковская карта\".";
+"Unable to receive server's response." = "Невозможно получить ответ с сервера.";
+"Unknown underlying error: %d." = "Неизвестная внутренняя ошибка: %d.";
+"Unknown underlying error." = "Неизвестная внутренняя ошибка.";
