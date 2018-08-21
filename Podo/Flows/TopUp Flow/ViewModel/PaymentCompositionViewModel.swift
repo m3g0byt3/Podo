@@ -48,12 +48,18 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
         return startPayment
             .asObservable()
             .withLatestFrom(paymentDataObservable)
+            // Reporting
+            .do(onNext: { [weak self] paymentData in self?.reportInitiatedPayment(paymentData) })
+            // Network request
             .flatMapLatest { [unowned self] paymentData -> Observable<Result<URLRequest, BSKError>> in
                 let (transportCard, paymentCard, amount) = paymentData
                 return self.networkService.topUp(transportCard: transportCard,
                                                  from: .creditCard(paymentCard),
                                                  amount: amount)
             }
+            // Reporting
+            .do(onNext: { [weak self] result in self?.reportFailedPayment(result) },
+                onCompleted: { [weak self] in self?.reportSuccessfulPayment() })
             .share(replay: 1, scope: .whileConnected)
     }()
 
@@ -88,5 +94,25 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
                                                       items: [.transportCardSectionItem(viewModel: transportCardViewModel)]),
                                 .amountFieldSection(title: R.string.localizable.amountFieldSection(),
                                                     items: [.amountFieldSectionItem(viewModel: paymentAmountViewModel)])]
+    }
+
+    // MARK: - Private API
+
+    // swiftlint:disable:next large_tuple
+    private func reportInitiatedPayment(_ paymentData: (BSKTransportCard, BSKPaymentMethod.CreditCard, Int)) {
+        let (_, _, amount) = paymentData
+        let event: ReportingEvent = .paymentInitiated(type: .bankCard, sum: amount)
+        reportingService.report(event: event)
+    }
+
+    private func reportFailedPayment(_ result: Result<URLRequest, BSKError>) {
+        guard case .failure(let error) = result else { return }
+        let event: ReportingEvent = .paymentFailed(type: .bankCard, reason: error.description)
+        reportingService.report(event: event)
+    }
+
+    private func reportSuccessfulPayment() {
+        let event: ReportingEvent = .paymentSuccessful(type: .bankCard)
+        reportingService.report(event: event)
     }
 }
