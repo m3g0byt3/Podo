@@ -19,6 +19,7 @@ target 'Podo' do
   pod 'SwiftLint',          '~> 0.1'
   pod 'Fabric',             '~> 1.5'         
   pod 'Crashlytics',        '~> 3.0'
+  pod 'PKHUD', '~> 5.0'
   pod 'BSK', :git => 'https://github.com/m3g0byt3/BSK.git', :branch => 'experimental/strict-credit-card-initializer'
 
   target 'PodoTests' do
