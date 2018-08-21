@@ -13,4 +13,5 @@ import Result
 protocol PaymentConfirmationView: View {
 
     var onPaymentCancel: Completion? { get set }
+    var onPaymentComplete: Completion? { get set }
 }

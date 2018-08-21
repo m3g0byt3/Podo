@@ -23,13 +23,16 @@ struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
 
     let confirmationRequest: Single<URLRequest>
     let validator: Single<BSKWebViewHandlerProtocol>
+    let paymentCompleted: Completable
 
     // MARK: - Initialization
 
-    init(request: URLRequest, service: NetworkServiceProtocol) {
+    init(request: URLRequest, networkService: NetworkServiceProtocol) {
         self.confirmationRequest = Single
             .just(request)
 
-        self.validator = service.validator
+        self.validator = networkService.validator
+
+        self.paymentCompleted = networkService.paymentCompleted
     }
 }

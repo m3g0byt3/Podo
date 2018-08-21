@@ -37,7 +37,6 @@ class PaymentCompositionViewController: UIViewController,
     // MARK: - PaymentCompositionView protocol conformance
 
     var onPaymentConfirmation: ((Result<URLRequest, BSKError>) -> Void)?
-    var onPaymentComplete: Completion?
     var onPaymentCancel: Completion?
     var onScanButtonTap: Completion?
 
@@ -103,8 +102,6 @@ class PaymentCompositionViewController: UIViewController,
         viewModel.output.confirmationRequest
             .subscribe(onNext: { [weak self] result in
                 self?.onPaymentConfirmation?(result)
-            }, onCompleted: { [weak self] in
-                self?.onPaymentComplete?()
             })
             .disposed(by: disposeBag)
     }

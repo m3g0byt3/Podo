@@ -13,7 +13,6 @@ import Result
 protocol PaymentCompositionView: View {
 
     var onPaymentConfirmation: ((Result<URLRequest, BSKError>) -> Void)? { get set }
-    var onPaymentComplete: Completion? { get set }
     var onPaymentCancel: Completion? { get set }
     var onScanButtonTap: Completion? { get set }
 }

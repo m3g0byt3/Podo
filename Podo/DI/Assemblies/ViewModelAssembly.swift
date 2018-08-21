@@ -69,7 +69,8 @@ final class ViewModelAssembly: Assembly {
         container.register(PaymentCompositionViewModelProtocol.self) { (resolver, transportCardViewModel: T) in
             let paymentAmountDependencyType = PaymentAmountCellViewModelProtocol.self
             let paymentCardDependencyType = PaymentCardCellViewModelProtocol.self
-            let serviceDependencyType = NetworkServiceProtocol.self
+            let networkServiceDependencyType = NetworkServiceProtocol.self
+            let reportingServiceDependencyType = ReportingServiceProtocol.self
 
             guard let paymentAmountViewModel = resolver.resolve(paymentAmountDependencyType) else {
                 unableToResolve(paymentAmountDependencyType)
@@ -77,14 +78,18 @@ final class ViewModelAssembly: Assembly {
             guard let paymentCardViewModel = resolver.resolve(paymentCardDependencyType) else {
                 unableToResolve(paymentCardDependencyType)
             }
-            guard let networkService = resolver.resolve(serviceDependencyType) else {
-                unableToResolve(serviceDependencyType)
+            guard let networkService = resolver.resolve(networkServiceDependencyType) else {
+                unableToResolve(networkServiceDependencyType)
+            }
+            guard let reportingService = resolver.resolve(reportingServiceDependencyType) else {
+                unableToResolve(reportingServiceDependencyType)
             }
 
             return PaymentCompositionViewModel(transportCardViewModel: transportCardViewModel,
                                                paymentAmountViewModel: paymentAmountViewModel,
                                                paymentCardViewModel: paymentCardViewModel,
-                                               service: networkService)
+                                               networkService: networkService,
+                                               reportingService: reportingService)
         }
 
         container.register(PaymentConfirmationViewModelProtocol.self) { (resolver, request: URLRequest) in
@@ -92,7 +97,7 @@ final class ViewModelAssembly: Assembly {
             guard let networkService = resolver.resolve(serviceDependencyType) else {
                 unableToResolve(serviceDependencyType)
             }
-            return PaymentConfirmationViewModel(request: request, service: networkService)
+            return PaymentConfirmationViewModel(request: request, networkService: networkService)
         }
     }
 }

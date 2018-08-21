@@ -38,17 +38,14 @@ final class PaymentCoordinator: AbstractCoordinator {
                 let card = transportCard,
                 let view = assembler.resolver.resolve(PaymentCompositionView.self, argument: card)
             else { return }
+
             view.onPaymentConfirmation = { [weak self] result in
                 switch result {
+
                 case .success(let request): self?.showPaymentConfirmation(for: request)
-                // TODO: Add actual implementation for `failure` case
-                case .failure(let error): print("❌ Error: \(error) ❌")
+
+                case .failure(let error): self?.showPaymentError(error, isRecoverable: error.isRecoverable)
                 }
-            }
-            view.onPaymentComplete = { [weak self] in
-                // TODO: Add actual implementation for `complete` case
-                self?.router.dismiss(animated: false, completion: nil)
-                self?.router.popToRootView(animated: true)
             }
             view.onScanButtonTap = { [weak self] in
                 self?.showCardScanner()
@@ -69,6 +66,9 @@ final class PaymentCoordinator: AbstractCoordinator {
         guard let view = assembler.resolver.resolve(PaymentConfirmationView.self, argument: request) else {
             return
         }
+        view.onPaymentComplete = { [weak self] in
+            self?.showPaymentCompletion()
+        }
         view.onPaymentCancel = { [weak self] in
             self?.router.dismiss(animated: false, completion: nil)
             self?.router.popToRootView(animated: true)
@@ -76,9 +76,23 @@ final class PaymentCoordinator: AbstractCoordinator {
         router.present(view, animated: true, completion: nil)
     }
 
+    private func showPaymentCompletion() {
+        // TODO: Add actual implementation
+        router.dismiss(animated: false, completion: nil)
+        router.popToRootView(animated: true)
+    }
+
     private func showCardScanner() {
         // TODO: Add actual implementation
         assertionFailure("Not implemented")
+    }
+
+    private func showPaymentError(_ error: Error, isRecoverable: Bool) {
+        router.dismiss(animated: false, completion: nil)
+        if !isRecoverable {
+            router.popToRootView(animated: true)
+        }
+        router.presentError(title: R.string.localizable.errorTitle(), message: error.localizedDescription)
     }
 
     // MARK: - Coordinator protocol conformance

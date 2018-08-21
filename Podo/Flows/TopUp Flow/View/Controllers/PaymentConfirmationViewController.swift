@@ -34,6 +34,7 @@ class PaymentConfirmationViewController: UIViewController,
     // MARK: - PaymentConfirmationView protocol conformance
 
     var onPaymentCancel: Completion?
+    var onPaymentComplete: Completion?
 
     // MARK: - Lifecycle
 
@@ -58,6 +59,12 @@ class PaymentConfirmationViewController: UIViewController,
             .asObservable()
             .map { $0 as UIWebViewDelegate }
             .bind(to: webView.rx.setDelegate)
+            .disposed(by: disposeBag)
+
+        viewModel.output.paymentCompleted
+            .subscribe(onCompleted: { [weak self] in
+                self?.onPaymentComplete?()
+            })
             .disposed(by: disposeBag)
 
         cancelButton.rx.tap

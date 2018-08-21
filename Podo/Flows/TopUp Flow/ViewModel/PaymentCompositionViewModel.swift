@@ -19,9 +19,12 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
 
     private let childViewModels: [PaymentCompositionSectionViewModelWrapper]
     private let networkService: NetworkServiceProtocol
+    private let reportingService: ReportingServiceProtocol
     private let paymentCardModel: Observable<BSKPaymentMethod.CreditCard>
     private let transportCardModel: Observable<BSKTransportCard>
     private let amountModel: Observable<Int>
+    private lazy var paymentDataObservable = Observable
+        .combineLatest(transportCardModel, paymentCardModel, amountModel)
 
     // MARK: - PaymentCompositionViewModelProtocol protocol conformance
 
@@ -42,12 +45,8 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
     }
 
     lazy var confirmationRequest: Observable<Result<URLRequest, BSKError>> = {
-        let paymentDataObservable = Observable
-            .combineLatest(self.transportCardModel, self.paymentCardModel, self.amountModel)
-
         return startPayment
             .asObservable()
-            .take(1)
             .withLatestFrom(paymentDataObservable)
             .flatMapLatest { [unowned self] paymentData -> Observable<Result<URLRequest, BSKError>> in
                 let (transportCard, paymentCard, amount) = paymentData
@@ -63,13 +62,15 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
     init(transportCardViewModel: TransportCardViewModelProtocol,
          paymentAmountViewModel: PaymentAmountCellViewModelProtocol,
          paymentCardViewModel: PaymentCardCellViewModelProtocol,
-         service: NetworkServiceProtocol) {
+         networkService: NetworkServiceProtocol,
+         reportingService: ReportingServiceProtocol) {
 
         let isTransportCardValid = transportCardViewModel.output.isCardValid
         let isPaymentAmoundValid = paymentAmountViewModel.output.isAmountValid
         let isPaymentCardValid = paymentCardViewModel.output.isCardValid
 
-        self.networkService = service
+        self.networkService = networkService
+        self.reportingService = reportingService
 
         self.paymentCardModel = paymentCardViewModel.link.model
         self.amountModel = paymentAmountViewModel.link.model
