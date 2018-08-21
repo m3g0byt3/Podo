@@ -93,11 +93,19 @@ final class ViewModelAssembly: Assembly {
         }
 
         container.register(PaymentConfirmationViewModelProtocol.self) { (resolver, request: URLRequest) in
-            let serviceDependencyType = NetworkServiceProtocol.self
-            guard let networkService = resolver.resolve(serviceDependencyType) else {
-                unableToResolve(serviceDependencyType)
+            let networkServiceDependencyType = NetworkServiceProtocol.self
+            let reportingServiceDependencyType = ReportingServiceProtocol.self
+
+            guard let networkService = resolver.resolve(networkServiceDependencyType) else {
+                unableToResolve(networkServiceDependencyType)
             }
-            return PaymentConfirmationViewModel(request: request, networkService: networkService)
+            guard let reportingService = resolver.resolve(reportingServiceDependencyType) else {
+                unableToResolve(reportingServiceDependencyType)
+            }
+
+            return PaymentConfirmationViewModel(request: request,
+                                                networkService: networkService,
+                                                reportingService: reportingService)
         }
     }
 }

@@ -10,9 +10,14 @@ import Foundation
 import RxSwift
 import BSK
 
-struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
-                                     PaymentConfirmationViewModelInputProtocol,
-                                     PaymentConfirmationViewModelOutputProtocol {
+final class PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
+                                          PaymentConfirmationViewModelInputProtocol,
+                                          PaymentConfirmationViewModelOutputProtocol {
+
+    // MARK: - Private properties
+
+    private let reportingService: ReportingServiceProtocol
+    private let networkService: NetworkServiceProtocol
 
     // MARK: - PaymentAmountCellViewModelProtocol protocol conformance
 
@@ -22,17 +27,34 @@ struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
     // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
 
     let confirmationRequest: Single<URLRequest>
-    let validator: Single<BSKWebViewHandlerProtocol>
-    let paymentCompleted: Completable
+
+    var validator: Single<BSKWebViewHandlerProtocol> {
+        return networkService.validator
+    }
+
+    lazy var paymentCompleted: Completable = {
+        return networkService.paymentCompleted
+            .do(onCompleted: { [weak self] in self?.reportSuccessfulPayment() })
+    }()
 
     // MARK: - Initialization
 
-    init(request: URLRequest, networkService: NetworkServiceProtocol) {
+    init(request: URLRequest,
+         networkService: NetworkServiceProtocol,
+         reportingService: ReportingServiceProtocol) {
+
+        self.networkService = networkService
+
+        self.reportingService = reportingService
+
         self.confirmationRequest = Single
             .just(request)
+    }
 
-        self.validator = networkService.validator
+    // MARK: - Private API
 
-        self.paymentCompleted = networkService.paymentCompleted
+    private func reportSuccessfulPayment() {
+        let event: ReportingEvent = .paymentSuccessful(type: .bankCard)
+        reportingService.report(event: event)
     }
 }

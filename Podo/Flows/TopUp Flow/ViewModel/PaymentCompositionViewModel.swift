@@ -58,8 +58,7 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
                                                  amount: amount)
             }
             // Reporting
-            .do(onNext: { [weak self] result in self?.reportFailedPayment(result) },
-                onCompleted: { [weak self] in self?.reportSuccessfulPayment() })
+            .do(onNext: { [weak self] result in self?.reportFailedPayment(result) })
             .share(replay: 1, scope: .whileConnected)
     }()
 
@@ -108,11 +107,6 @@ final class PaymentCompositionViewModel: PaymentCompositionViewModelProtocol,
     private func reportFailedPayment(_ result: Result<URLRequest, BSKError>) {
         guard case .failure(let error) = result else { return }
         let event: ReportingEvent = .paymentFailed(type: .bankCard, reason: error.description)
-        reportingService.report(event: event)
-    }
-
-    private func reportSuccessfulPayment() {
-        let event: ReportingEvent = .paymentSuccessful(type: .bankCard)
         reportingService.report(event: event)
     }
 }
