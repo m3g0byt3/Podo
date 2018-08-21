@@ -71,15 +71,21 @@ private class _CrashlyticsReportingService: ReportingServiceProtocol {
         let customAttributes: [String: Any]?
 
         switch event {
-        case .transportCardAdded(let identifier):
+        case let .transportCardAdded(identifier):
             customAttributes = ["card identifier": identifier]
-        case let .paymentInitiated(type, sum),
-             let .paymentSuccessful(type, sum),
-             let .paymentFailed(type, sum):
-            customAttributes = ["payment type": type.rawValue,
-                                "payment sum": sum]
-        case .sideMenuItemSelected(let type):
+
+        case let .paymentInitiated(type, sum):
+            customAttributes = ["payment type": type.rawValue, "payment sum": sum]
+
+        case let .paymentSuccessful(type):
+            customAttributes = ["payment type": type.rawValue]
+
+        case let .paymentFailed(type, reason):
+            customAttributes = ["payment type": type.rawValue, "failure reason": reason]
+
+        case let .sideMenuItemSelected(type):
             customAttributes = ["menu item type": type.rawValue]
+
         case .onBoardCompleted, .onBoardSkipped:
             customAttributes = nil
         }

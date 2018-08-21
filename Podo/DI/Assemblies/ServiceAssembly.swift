@@ -10,13 +10,22 @@ import Foundation
 import Swinject
 import RealmSwift
 import BSK
+import Moya
 
 final class ServiceAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(NetworkServiceProtocol.self) { _ in
-            let adapter = BSKAdapter()
+        container.register(BSKAdapter.self) { resolver in
+            let plugins = resolver.resolve(PluginType.self).flatMap { [$0] } ?? []
+            return BSKAdapter(providerPlugins: plugins)
+        }
+
+        container.register(NetworkServiceProtocol.self) { resolver in
+            let dependencyType = BSKAdapter.self
+            guard let adapter = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
+            }
             return BSKNetworkService(adapter)
         }.inObjectScope(.weak)
         // swiftlint:disable:previous multiline_function_chains

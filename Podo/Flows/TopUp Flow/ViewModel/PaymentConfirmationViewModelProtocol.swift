@@ -22,4 +22,5 @@ protocol PaymentConfirmationViewModelOutputProtocol {
 
     var confirmationRequest: Single<URLRequest> { get }
     var validator: Single<BSKWebViewHandlerProtocol> { get }
+    var paymentCompleted: Completable { get }
 }

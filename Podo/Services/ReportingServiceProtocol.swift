@@ -11,9 +11,7 @@ import Foundation
 protocol ReportingServiceProtocol {
 
     func beginReporting()
-
     func endReporting()
-
     func report(event: ReportingEvent)
 }
 
@@ -21,9 +19,9 @@ enum ReportingEvent {
 
     case sideMenuItemSelected(type: SideMenuItemType)
     case transportCardAdded(identifier: String)
-    case paymentInitiated(type: PaymentMethodType, sum: Double)
-    case paymentSuccessful(type: PaymentMethodType, sum: Double)
-    case paymentFailed(type: PaymentMethodType, sum: Double)
+    case paymentInitiated(type: PaymentMethodType, sum: Int)
+    case paymentSuccessful(type: PaymentMethodType)
+    case paymentFailed(type: PaymentMethodType, reason: String)
     case onBoardCompleted
     case onBoardSkipped
 }

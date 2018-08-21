@@ -142,6 +142,7 @@
 		41A3906420DC1821004D3499 /* TransportCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3906220DC1821004D3499 /* TransportCardCell.swift */; };
 		41A3906520DC1821004D3499 /* TransportCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A3906320DC1821004D3499 /* TransportCardCell.xib */; };
 		41A3906820DC1837004D3499 /* PaymentAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3906620DC1837004D3499 /* PaymentAmountCell.swift */; };
+		41A3F0B8212A288700CFA96B /* BSK+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3F0B7212A288700CFA96B /* BSK+Extensions.swift */; };
 		41A4C63A2121AD500063C539 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A4C6392121AD500063C539 /* URLRequest+Extensions.swift */; };
 		41A4C63E2121B7DB0063C539 /* PaymentCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A4C63D2121B7DA0063C539 /* PaymentCompositionViewController.swift */; };
 		41A4C6402121B7FD0063C539 /* PaymentConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A4C63F2121B7FD0063C539 /* PaymentConfirmationViewController.swift */; };
@@ -354,6 +355,7 @@
 		41A3906220DC1821004D3499 /* TransportCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardCell.swift; sourceTree = "<group>"; };
 		41A3906320DC1821004D3499 /* TransportCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransportCardCell.xib; sourceTree = "<group>"; };
 		41A3906620DC1837004D3499 /* PaymentAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAmountCell.swift; sourceTree = "<group>"; };
+		41A3F0B7212A288700CFA96B /* BSK+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BSK+Extensions.swift"; sourceTree = "<group>"; };
 		41A4C6392121AD500063C539 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		41A4C63D2121B7DA0063C539 /* PaymentCompositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCompositionViewController.swift; sourceTree = "<group>"; };
 		41A4C63F2121B7FD0063C539 /* PaymentConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -1081,6 +1083,7 @@
 				4135F38020EAEEAD0078AFFB /* UITableView+Extensions.swift */,
 				4135F38220EB01130078AFFB /* UIButton+Extensions.swift */,
 				41A4C6392121AD500063C539 /* URLRequest+Extensions.swift */,
+				41A3F0B7212A288700CFA96B /* BSK+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1604,6 +1607,7 @@
 				419DC7381FC70FBA003A3C45 /* SideMenuViewController.swift in Sources */,
 				41CDEAB420828C6C008D30D5 /* Customizable.swift in Sources */,
 				415B8A63208D163800BEAB93 /* Driver+Extensions.swift in Sources */,
+				41A3F0B8212A288700CFA96B /* BSK+Extensions.swift in Sources */,
 				411C322720E00B60008964AD /* CustomMargin.swift in Sources */,
 				418F79DA205D145500397B48 /* SideMenuCellViewModel.swift in Sources */,
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,

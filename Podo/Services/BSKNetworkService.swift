@@ -30,6 +30,12 @@ final class BSKNetworkService: NetworkServiceProtocol {
 
     let validator: Single<BSKWebViewHandlerProtocol>
 
+    var paymentCompleted: Completable {
+        return delegateForwarder
+            .asObservable()
+            .ignoreElements()
+    }
+
     func topUp(
         transportCard: BSKTransportCard,
         from paymentType: BSKPaymentType,

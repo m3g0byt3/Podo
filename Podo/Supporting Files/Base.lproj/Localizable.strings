@@ -38,3 +38,15 @@
 "card-cell-cvv-label" = "CVC/CVV code";
 "start-topup-button" = "Top-up";
 
+// MARK: Top-up errors
+
+"error-title" = "Top-up error";
+"Maintenance mode on back-end, please try again later." = "Maintenance mode, please try again later.";
+"Incorrect transport card number." = "Incorrect transport card number.";
+"Incorrect top-up amount. Allowed top-up amount: from 1₽ to 14500₽." = "Incorrect top-up amount. Allowed top-up amount: from 1₽ to 14500₽.";
+"Unable to top-up transport card." = "Unable to top-up transport card.";
+"Another payment request in progress." = "Another payment request in progress.";
+"Currently supported payments methods: \"Credit card\"." = "Currently supported payments methods: \"Credit card\".";
+"Unable to receive server's response." = "Unable to receive server's response.";
+"Unknown underlying error: %d." = "Unknown underlying error: %d.";
+"Unknown underlying error." = "Unknown underlying error.";

@@ -13,11 +13,13 @@ import Result
 
 protocol NetworkServiceProtocol: class {
 
+    var validator: Single<BSKWebViewHandlerProtocol> { get }
+
+    var paymentCompleted: Completable { get }
+
     func topUp(
         transportCard: BSKTransportCard,
         from paymentType: BSKPaymentType,
         amount: Int
     ) -> Observable<Result<URLRequest, BSKError>>
-
-    var validator: Single<BSKWebViewHandlerProtocol> { get }
 }
