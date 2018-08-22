@@ -36,6 +36,14 @@ final class MainMenuViewController: UIViewController,
         setupCardsViewController()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let splashImage = R.image.leafWithInsetsMask() else { return }
+        SplashView.show(for: Constant.MainMenu.splashScreenDuration,
+                        image: splashImage,
+                        outerColor: R.clr.podoColors.green())
+    }
+
     // MARK: - Private API
 
     private func setupCardsViewController() {
