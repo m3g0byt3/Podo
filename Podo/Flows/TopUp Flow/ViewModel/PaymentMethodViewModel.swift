@@ -6,11 +6,8 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
-// Still imports RxCocoa because BehaviorRelay not available without RxCocoa until RxSwift 5.0
-// See https://github.com/ReactiveX/RxSwift/issues/1501 and https://github.com/ReactiveX/RxSwift/issues/1502
 import Foundation
 import RxSwift
-import class RxCocoa.BehaviorRelay
 
 final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
                                     PaymentMethodViewModelInputProtocol,
@@ -19,7 +16,6 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
     // MARK: - Properties
 
     private let model: AnyDatabaseService<PaymentMethod>
-    private let viewModels: BehaviorRelay<[PaymentMethodCellViewModelProtocol]>
 
     // MARK: - PaymentMethodViewModelProtocol protocol conformance
 
@@ -29,20 +25,27 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
     // MARK: - PaymentMethodViewModelOutputProtocol protocol conformance
 
     let title: Observable<String>
-    var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> {
-        return viewModels.asObservable()
-    }
+    
+    lazy var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> = {
+        return Observable.create { [weak self] observer in
+            do {
+                let predicate = PaymentMethodViewModel.filterPredicate
+                try self?.model.fetch(predicate: predicate, sorted: nil) { methods in
+                    let viewModels = methods.map(PaymentMethodCellViewModel.init)
+                    observer.onNext(viewModels)
+                }
+            } catch {
+                observer.onError(error)
+            }
+            return Disposables.create()
+        }
+    }()
 
     // MARK: - Initialization
 
     init(_ model: AnyDatabaseService<PaymentMethod>) {
         self.title = Observable.just(R.string.localizable.paymentSelectionTitle())
-        self.viewModels = BehaviorRelay(value: [PaymentMethodCellViewModelProtocol]())
         self.model = model
-        try? model.fetch(predicate: PaymentMethodViewModel.filterPredicate, sorted: nil) { [weak self] result in
-            let viewModels = result.map(PaymentMethodCellViewModel.init)
-            self?.viewModels.accept(viewModels)
-        }
     }
 
     // MARK: - Private API
