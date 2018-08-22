@@ -30,7 +30,6 @@ final class CardsViewModel: CardsViewModelProtocol,
                 try self?.model.fetch(predicate: nil, sorted: nil) { cards in
                     let viewModels = cards.map(TransportCardViewModel.init)
                     observer.onNext(viewModels)
-                    observer.onCompleted()
                 }
             } catch {
                 observer.onError(error)

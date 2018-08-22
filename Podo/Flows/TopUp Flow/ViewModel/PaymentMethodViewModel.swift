@@ -25,7 +25,7 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
     // MARK: - PaymentMethodViewModelOutputProtocol protocol conformance
 
     let title: Observable<String>
-    
+
     lazy var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> = {
         return Observable.create { [weak self] observer in
             do {
@@ -33,6 +33,7 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
                 try self?.model.fetch(predicate: predicate, sorted: nil) { methods in
                     let viewModels = methods.map(PaymentMethodCellViewModel.init)
                     observer.onNext(viewModels)
+                    observer.onCompleted()
                 }
             } catch {
                 observer.onError(error)
