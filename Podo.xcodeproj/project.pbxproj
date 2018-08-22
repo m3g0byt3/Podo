@@ -1103,13 +1103,13 @@
 				411F3E45204EF8B6002D466E /* RootViewController.storyboard */,
 				41494AB01FC6C6570089F088 /* MainMenuViewController.storyboard */,
 				41A5E79E1FDB3AAF00A835F5 /* CardsViewController.storyboard */,
-				41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */,
 				415372842052FFA900B8C1EB /* TutorialViewController.storyboard */,
 				41AFD0BA205ECCE3006A8768 /* SettingsViewController.storyboard */,
 				4148963920669A8E00C3C000 /* ContactsViewController.storyboard */,
 				414896322066988200C3C000 /* HelpViewController.storyboard */,
 				41787B3F20687E0300693FA1 /* AddNewCardViewController.storyboard */,
 				4155239820850E7200EEADD8 /* TopUpViewController.storyboard */,
+				41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";

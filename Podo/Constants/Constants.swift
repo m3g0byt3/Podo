@@ -66,6 +66,8 @@ enum Constant {
     }
 
     enum MainMenu {
+        /// Splash screen display duration
+        static let splashScreenDuration = 0.8
         /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 75
         /// Ratio between screen height and height of CardsViewController
