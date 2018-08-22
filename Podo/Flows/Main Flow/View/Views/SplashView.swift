@@ -31,6 +31,8 @@ final class SplashView: UIView {
 
     // MARK: - Private properties
 
+    // swiftlint:disable:next strict_fileprivate
+    fileprivate static var wasShown = false
     private weak var shapeMaskLayer: CALayer?
     private var dimmingToValue: UIColor?
     private var completion: Completion?
@@ -61,6 +63,9 @@ final class SplashView: UIView {
                      outerColor: UIColor? = .black,
                      innerColor: UIColor? = .white,
                      completion: Completion? = nil) {
+
+        // Early exit if splash view already was shown
+        guard !wasShown else { return }
 
         // MARK: - Create required instances
 
@@ -111,6 +116,7 @@ final class SplashView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
+        // Early exit if splash view was removed from superview ( superview = nil)
         guard superview != nil else { return }
 
         // MARK: - Setup animations
@@ -157,6 +163,7 @@ private class AnimationDelegate: NSObject, CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         view?.removeFromSuperview()
+        SplashView.wasShown = true
         completion?()
     }
 }
