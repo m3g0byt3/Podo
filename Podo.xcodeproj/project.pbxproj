@@ -186,6 +186,9 @@
 		41DE34CA210FB9B20063E805 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DE34C9210FB9B10063E805 /* SideMenuViewModel.swift */; };
 		41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */; };
 		41E18D94204DA5F400E4C935 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */; };
+		41E95B75212D8DE000AAE9B5 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E95B74212D8DE000AAE9B5 /* SplashView.swift */; };
+		41E95B79212D90D400AAE9B5 /* UIBezierPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E95B78212D90D400AAE9B5 /* UIBezierPath+Extensions.swift */; };
+		41E95B7B212D90E400AAE9B5 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E95B7A212D90E400AAE9B5 /* CALayer+Extensions.swift */; };
 		41F0F2952066C524005C3631 /* AppDelegateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0F2942066C524005C3631 /* AppDelegateConfigurator.swift */; };
 		41FA0BB92117B98C00B7B602 /* ThreadSafeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA0BB82117B98C00B7B602 /* ThreadSafeItems.swift */; };
 		B438AD4EF8B6D5C6728C2D38 /* Pods_Podo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E865E6A7AB82EF0857539F7C /* Pods_Podo.framework */; };
@@ -401,6 +404,9 @@
 		41DFDFFE2125DE7200975954 /* API-Keys.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "API-Keys.release.xcconfig"; sourceTree = "<group>"; };
 		41E18D8E204D74FE00E4C935 /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
 		41E18D93204DA5F400E4C935 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
+		41E95B74212D8DE000AAE9B5 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		41E95B78212D90D400AAE9B5 /* UIBezierPath+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extensions.swift"; sourceTree = "<group>"; };
+		41E95B7A212D90E400AAE9B5 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		41F0F2942066C524005C3631 /* AppDelegateConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateConfigurator.swift; sourceTree = "<group>"; };
 		41FA0BB82117B98C00B7B602 /* ThreadSafeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeItems.swift; sourceTree = "<group>"; };
 		4BA72AAB145BA82807D0FF27 /* Pods-PodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodoTests/Pods-PodoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1006,6 +1012,7 @@
 				41C8C2551FD42225007EC44B /* RoundShadowView.swift */,
 				415C64C1203C54A000B77589 /* CheckMarkView.swift */,
 				41BDD5062055EBFC0045A50A /* TrainIconView.swift */,
+				41E95B74212D8DE000AAE9B5 /* SplashView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1084,6 +1091,8 @@
 				4135F38220EB01130078AFFB /* UIButton+Extensions.swift */,
 				41A4C6392121AD500063C539 /* URLRequest+Extensions.swift */,
 				41A3F0B7212A288700CFA96B /* BSK+Extensions.swift */,
+				41E95B78212D90D400AAE9B5 /* UIBezierPath+Extensions.swift */,
+				41E95B7A212D90E400AAE9B5 /* CALayer+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1610,6 +1619,7 @@
 				41A3F0B8212A288700CFA96B /* BSK+Extensions.swift in Sources */,
 				411C322720E00B60008964AD /* CustomMargin.swift in Sources */,
 				418F79DA205D145500397B48 /* SideMenuCellViewModel.swift in Sources */,
+				41E95B7B212D90E400AAE9B5 /* CALayer+Extensions.swift in Sources */,
 				417F964B207171D60089C7B0 /* TransportCardTheme.swift in Sources */,
 				410176F92078047A00785469 /* GradientView.swift in Sources */,
 				4179EA0120462256007CF219 /* ViewModelAssembly.swift in Sources */,
@@ -1660,12 +1670,14 @@
 				41C8C2561FD42225007EC44B /* RoundShadowView.swift in Sources */,
 				4119ED7621124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift in Sources */,
 				419EBEFE20E4054700952FDA /* DoubleMarginView.swift in Sources */,
+				41E95B75212D8DE000AAE9B5 /* SplashView.swift in Sources */,
 				412A15C52119E2830014E694 /* CrashlyticsReportingService.swift in Sources */,
 				4119ED7221124AD1009EDA42 /* PaymentCompositionViewModelProtocol.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
 				4157F52120F658A900825816 /* KeyboardHandling.swift in Sources */,
 				4157F52320F65B2200825816 /* KeyboardHandler.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
+				41E95B79212D90D400AAE9B5 /* UIBezierPath+Extensions.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
 				410BB8FD212AF3F9005764AC /* ErrorAdapterProtocol.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModel.swift in Sources */,

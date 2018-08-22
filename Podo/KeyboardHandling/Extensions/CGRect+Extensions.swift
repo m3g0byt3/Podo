@@ -50,3 +50,20 @@ extension CGRect {
         return leftBaselinePredicate && rightBaselinePredicate
     }
 }
+
+extension CGRect {
+
+    /// Create new `CGRect` scaled on X and Y axes by given multipliers.
+    /// - parameters:
+    ///     - dx: X axis multiplier
+    ///     - dy: Y axis multiplier
+    /// - returns: rect scaled by given multipliers.
+    func scaledBy(dx: CGFloat, dy: CGFloat) -> CGRect {
+        // swiftlint:disable:previous identifier_name
+        let newWidth = width * dx
+        let newHeight = height * dy
+        let newX = midX - newWidth / 2
+        let newY = midY - newHeight / 2
+        return CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
+    }
+}
