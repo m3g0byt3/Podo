@@ -31,13 +31,8 @@ final class SplashView: UIView {
 
     // MARK: - Private properties
 
-    private weak var shapeMaskLayer: CALayer?
-    private var dimmingToValue: UIColor?
-    private var completion: Completion?
-    private var duration: TimeInterval = 0
-    private var dimmingDelay: TimeInterval {
-        return duration * SplashView.dimmingDelayRatio
-    }
+    // swiftlint:disable:next strict_fileprivate
+    fileprivate static var wasShown = false
 
     // MARK: - Initialization
 
@@ -62,11 +57,16 @@ final class SplashView: UIView {
                      innerColor: UIColor? = .white,
                      completion: Completion? = nil) {
 
+        // Early exit if splash view was shown already
+        guard !wasShown else { return }
+
         // MARK: - Create required instances
 
         guard let baseRect = UIApplication.shared.keyWindow?.frame else { return }
         let maskView = UIView(frame: baseRect)
         let dimmingView = SplashView(frame: baseRect)
+        let dimmingDelay = duration * SplashView.dimmingDelayRatio
+        let dimmingToValue = innerColor?.withAlphaComponent(SplashView.alphaValue).cgColor
         let imageMaskLayer = CALayer()
         let shapeMaskLayer = CAShapeLayer()
         let innerRect = baseRect.scaledBy(dx: SplashView.innerRectScale, dy: SplashView.innerRectScale)
@@ -89,29 +89,15 @@ final class SplashView: UIView {
         shapeMaskLayer.fillRule = SplashView.fillRule
         shapeMaskLayer.addSublayer(imageMaskLayer)
 
-        // MARK: - Setup splash view
+        // MARK: - Setup mask view
 
         maskView.backgroundColor = outerColor
         maskView.layer.mask = shapeMaskLayer
 
-        // MARK: - Setup dimming view (placed below splash view) and save required references.
+        // MARK: - Setup dimming view (placed below mask view)
 
         dimmingView.backgroundColor = innerColor
-        dimmingView.duration = duration
-        dimmingView.shapeMaskLayer = shapeMaskLayer
-        dimmingView.dimmingToValue = innerColor?.withAlphaComponent(SplashView.alphaValue)
-        dimmingView.completion = completion
         dimmingView.addSubview(maskView)
-
-        // MARK: - Add view to hierarchy
-
-        UIApplication.shared.keyWindow?.addSubview(dimmingView)
-    }
-
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-
-        guard superview != nil else { return }
 
         // MARK: - Setup animations
 
@@ -123,18 +109,22 @@ final class SplashView: UIView {
         scaleAnimation.isRemovedOnCompletion = false
 
         let dimmingAnimation = CABasicAnimation(keyPath: SplashView.colorKeyPath)
-        dimmingAnimation.toValue = dimmingToValue?.cgColor
+        dimmingAnimation.toValue = dimmingToValue
         // Convert absolute time to the layer's time space
-        dimmingAnimation.beginTime = layer.currentTime + dimmingDelay
+        dimmingAnimation.beginTime = dimmingView.layer.currentTime + dimmingDelay
         dimmingAnimation.duration = duration - dimmingDelay
         scaleAnimation.fillMode = SplashView.fillMode
         dimmingAnimation.isRemovedOnCompletion = false
-        dimmingAnimation.delegate = AnimationDelegate(self, completion: completion)
+        dimmingAnimation.delegate = AnimationDelegate(dimmingView, completion: completion)
 
         // MARK: - Apply animations
 
-        shapeMaskLayer?.add(scaleAnimation, forKey: SplashView.scaleKeyPath)
-        layer.add(dimmingAnimation, forKey: SplashView.colorKeyPath)
+        shapeMaskLayer.add(scaleAnimation, forKey: SplashView.scaleKeyPath)
+        dimmingView.layer.add(dimmingAnimation, forKey: SplashView.colorKeyPath)
+
+        // MARK: - Add view to hierarchy
+
+        UIApplication.shared.keyWindow?.addSubview(dimmingView)
     }
 }
 
@@ -157,6 +147,7 @@ private class AnimationDelegate: NSObject, CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         view?.removeFromSuperview()
+        SplashView.wasShown = true
         completion?()
     }
 }
