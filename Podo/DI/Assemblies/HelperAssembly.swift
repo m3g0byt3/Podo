@@ -31,7 +31,7 @@ final class HelperAssembly: Assembly {
 
                 switch change {
                 case .began:
-                    errorAdapter?.presentProgress(title: nil)
+                    errorAdapter?.presentProgress(title: nil, completion: nil)
                     isIndicatorVisible = true
                 case .ended:
                     errorAdapter?.dismiss()

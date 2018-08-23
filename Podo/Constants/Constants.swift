@@ -35,7 +35,7 @@ enum Constant {
 
     enum ErrorDisplayDuration {
         /// Normal display duration
-        static let normal: TimeInterval = 1.5
+        static let normal: TimeInterval = 2.0
         /// Short display duration
         static let short: TimeInterval = 0.9
     }

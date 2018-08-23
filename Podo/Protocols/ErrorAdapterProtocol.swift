@@ -10,7 +10,7 @@ import Foundation
 
 protocol ErrorAdapterProtocol {
 
-    func presentError(title: String?, message: String?)
-    func presentProgress(title: String?)
+    func presentError(title: String?, message: String?, completion: Completion?)
+    func presentProgress(title: String?, completion: Completion?)
     func dismiss()
 }

@@ -99,5 +99,9 @@ final class ViewModelAssembly: Assembly {
             }
             return PaymentConfirmationViewModel(request: request, networkService: networkService)
         }
+
+        container.register(ErrorViewModelProtocol.self) { _, error in
+            return ErrorViewModel(error: error)
+        }
     }
 }

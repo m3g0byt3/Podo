@@ -19,15 +19,19 @@ final class PKHUDAdapter: ErrorAdapterProtocol {
 
     // MARK: - ErrorAdapterProtocol protocol conformance
 
-    func presentError(title: String?, message: String?) {
+    func presentError(title: String?, message: String?, completion: Completion?) {
         UIResponder.current?.resignFirstResponder()
-        HUD.flash(.labeledError(title: title, subtitle: message),
-                  delay: Constant.ErrorDisplayDuration.normal)
+        HUD.allowsInteraction = true
+        HUD.flash(.labeledError(title: title, subtitle: message), delay: Constant.ErrorDisplayDuration.normal) { _ in
+            completion?()
+        }
     }
 
-    func presentProgress(title: String?) {
+    func presentProgress(title: String?, completion: Completion?) {
         UIResponder.current?.resignFirstResponder()
+        HUD.allowsInteraction = false
         HUD.show(.labeledProgress(title: title, subtitle: nil))
+        completion?()
     }
 
     func dismiss() {

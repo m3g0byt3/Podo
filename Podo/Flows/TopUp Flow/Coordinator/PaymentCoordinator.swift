@@ -92,7 +92,8 @@ final class PaymentCoordinator: AbstractCoordinator {
         if !isRecoverable {
             router.popToRootView(animated: true)
         }
-        router.presentError(title: R.string.localizable.errorTitle(), message: error.localizedDescription)
+        guard let view = assembler.resolver.resolve(ErrorView.self, argument: error) else { return }
+        router.present(view, animated: false, completion: nil)
     }
 
     // MARK: - Coordinator protocol conformance

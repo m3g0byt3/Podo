@@ -19,7 +19,4 @@ protocol RouterProtocol: class {
     func dismiss(animated: Bool, completion: Completion?)
     func popToRootView(animated: Bool)
     func pop(animated: Bool)
-
-    // Error handling
-    func presentError(title: String?, message: String?)
 }

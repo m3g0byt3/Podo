@@ -102,5 +102,14 @@ final class ViewAssembly: Assembly {
                                                         argument: request)
             return viewController
         }
+
+        container.register(ErrorView.self) { (resolver: Resolver, error: Error) in
+            let viewController = ErrorViewController()
+
+            viewController.adapter = resolver.resolve(ErrorAdapterProtocol.self)
+            viewController.viewModel = resolver.resolve(ErrorViewModelProtocol.self, argument: error)
+
+            return viewController
+        }
     }
 }

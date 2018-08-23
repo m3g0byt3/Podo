@@ -98,9 +98,4 @@ extension Router: RouterProtocol {
     func popToRootView(animated: Bool) {
         rootViewController?.popToRootViewController(animated: animated)
     }
-
-    // Error handling
-    func presentError(title: String?, message: String?) {
-        errorAdapter.presentError(title: title, message: message)
-    }
 }
