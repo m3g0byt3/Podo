@@ -25,10 +25,6 @@ final class SplashView: UIView {
     static let scaleToValue = 8.0
     static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
 
-    // MARK: - Typealias
-
-    typealias Completion = () -> Void
-
     // MARK: - Private properties
 
     // swiftlint:disable:next strict_fileprivate
