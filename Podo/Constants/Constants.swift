@@ -47,6 +47,13 @@ enum Constant {
         static let final: CGFloat = 0.5
     }
 
+    enum CardView {
+        static let cornerRadiusToWidthRatio: CGFloat = 15
+        static let shadowOpacity: Float  = 0.44
+        static let shadowRadius: CGFloat = 13.0
+        static let shadowOffset = CGSize(width: 0, height: -6)
+    }
+
     enum SideMenu {
         /// tableView's rowHeight
         static let rowHeight: CGFloat = 50
