@@ -11,16 +11,33 @@ import UIKit
 
 final class CardViewTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
 
+    // MARK: - Private properties
+
+    private weak var presentedViewController: UIViewController?
+
+    // MARK: - UIViewControllerTransitioningDelegate protocol conformance
+
     func presentationController(
         forPresented presented: UIViewController,
         presenting: UIViewController?,
         source: UIViewController
     ) -> UIPresentationController? {
+        self.presentedViewController = presented
         return CardViewPresentationController(presentedViewController: presented,
                                               presenting: presenting)
     }
 
-    deinit {
-        print("🔴 deinit \(self) 🔴")
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return CardViewTransitioningAnimator()
+    }
+
+    func interactionControllerForDismissal(
+        using animator: UIViewControllerAnimatedTransitioning
+    ) -> UIViewControllerInteractiveTransitioning? {
+        guard
+            let cardViewPresentable = presentedViewController as? CardViewPresentable,
+            let recognizer = cardViewPresentable.panGesture
+        else { return nil }
+        return CardViewTransitioningInteractor(recognizer: recognizer)
     }
 }

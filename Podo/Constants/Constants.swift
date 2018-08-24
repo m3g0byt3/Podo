@@ -49,9 +49,11 @@ enum Constant {
 
     enum CardView {
         static let cornerRadiusToWidthRatio: CGFloat = 15
-        static let shadowOpacity: Float  = 0.44
+        static let shadowOpacity: Float = 0.44
         static let shadowRadius: CGFloat = 13.0
         static let shadowOffset = CGSize(width: 0, height: -6)
+        static let presentationDuration: TimeInterval = 0.40
+        static let displayDuration: TimeInterval = 3.0
     }
 
     enum SideMenu {

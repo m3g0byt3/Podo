@@ -26,6 +26,9 @@ final class CardViewPresentationController: UIPresentationController {
 
     // MARK: - Private properties
 
+    private var dimmingView: UIView?
+    private var wrapperView: UIView?
+
     private var boundsOfPresentedViewInContainerView: CGRect {
         return CGRect(origin: .zero, size: frameOfPresentedViewInContainerView.size)
     }
@@ -34,9 +37,6 @@ final class CardViewPresentationController: UIPresentationController {
         guard let container = containerView else { return 0 }
         return container.frame.width / Constant.CardView.cornerRadiusToWidthRatio
     }
-
-    private var dimmingView: UIView?
-    private var wrapperView: UIView?
 
     // MARK: - Public API
 
@@ -54,13 +54,6 @@ final class CardViewPresentationController: UIPresentationController {
 
         wrapperView = bottomWrapperView
         dimmingView = dimmingViewFactory()
-
-        // FIXME: - debug only
-        dimmingView?.tag = 10_000
-        bottomWrapperView.tag = 20_000
-        cornerWrapperView.tag = 30_000
-        topWrapperView.tag = 40_000
-        presentedView.tag = 50_000
 
         presentingViewController.transitionCoordinator?.animate(alongsideTransition: { _ in
             self.dimmingView?.alpha = Constant.DimmingViewAlpha.final
@@ -123,11 +116,9 @@ final class CardViewPresentationController: UIPresentationController {
         return UIView(frame: boundsOfPresentedViewInContainerView)
     }
 
+    // MARK: - Control handlers
+
     @objc private func tapGestureHandler(_ sender: UITapGestureRecognizer) {
         presentingViewController.dismiss(animated: true)
-    }
-
-    deinit {
-        print("🔴 deinit \(self) 🔴")
     }
 }

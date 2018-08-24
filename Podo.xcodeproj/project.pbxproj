@@ -109,6 +109,9 @@
 		418874942118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418874932118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift */; };
 		418874962118AA3700FF7825 /* PaymentConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418874952118AA3700FF7825 /* PaymentConfirmationViewModel.swift */; };
 		418874982118AD5D00FF7825 /* BSKNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418874972118AD5D00FF7825 /* BSKNetworkService.swift */; };
+		4188C88B2131D422004FA3B2 /* CardViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188C8882131D422004FA3B2 /* CardViewPresentable.swift */; };
+		4188C88C2131D422004FA3B2 /* CardViewTransitioningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188C8892131D422004FA3B2 /* CardViewTransitioningInteractor.swift */; };
+		4188C88D2131D422004FA3B2 /* CardViewTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188C88A2131D422004FA3B2 /* CardViewTransitioningAnimator.swift */; };
 		4188E970206FBB5C0097D3DF /* TransportCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188E96F206FBB5C0097D3DF /* TransportCardType.swift */; };
 		418A84032043254000A950AE /* MainMenuViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A84022043254000A950AE /* MainMenuViewModelProtocol.swift */; };
 		418A840520432C5400A950AE /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418A840420432C5400A950AE /* MainMenuViewModel.swift */; };
@@ -329,6 +332,9 @@
 		418874932118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationViewModelProtocol.swift; sourceTree = "<group>"; };
 		418874952118AA3700FF7825 /* PaymentConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationViewModel.swift; sourceTree = "<group>"; };
 		418874972118AD5D00FF7825 /* BSKNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKNetworkService.swift; sourceTree = "<group>"; };
+		4188C8882131D422004FA3B2 /* CardViewPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewPresentable.swift; sourceTree = "<group>"; };
+		4188C8892131D422004FA3B2 /* CardViewTransitioningInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewTransitioningInteractor.swift; sourceTree = "<group>"; };
+		4188C88A2131D422004FA3B2 /* CardViewTransitioningAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewTransitioningAnimator.swift; sourceTree = "<group>"; };
 		4188E96F206FBB5C0097D3DF /* TransportCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardType.swift; sourceTree = "<group>"; };
 		418A84022043254000A950AE /* MainMenuViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModelProtocol.swift; sourceTree = "<group>"; };
 		418A840420432C5400A950AE /* MainMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
@@ -1056,6 +1062,9 @@
 		41D2390D212EFB2100FDA8D9 /* Card View */ = {
 			isa = PBXGroup;
 			children = (
+				4188C8882131D422004FA3B2 /* CardViewPresentable.swift */,
+				4188C88A2131D422004FA3B2 /* CardViewTransitioningAnimator.swift */,
+				4188C8892131D422004FA3B2 /* CardViewTransitioningInteractor.swift */,
 				41D2390E212EFBED00FDA8D9 /* CardViewTransitioningDelegate.swift */,
 				41D23910212EFE3400FDA8D9 /* CardViewPresentationController.swift */,
 			);
@@ -1691,6 +1700,7 @@
 				41EE98A32131C96600B151CC /* KeyboardNotification.swift in Sources */,
 				4135F38320EB01130078AFFB /* UIButton+Extensions.swift in Sources */,
 				418F79E0205D9B5000397B48 /* CardsViewModel.swift in Sources */,
+				4188C88B2131D422004FA3B2 /* CardViewPresentable.swift in Sources */,
 				419007B520FD4BD500675B13 /* UIResponder+Extensions.swift in Sources */,
 				4179E9F420460728007CF219 /* NetworkServiceProtocol.swift in Sources */,
 				41DC8D8C2108D08C00119A4C /* PaymentAmountCellViewModelProtocol.swift in Sources */,
@@ -1712,6 +1722,7 @@
 				412A15C52119E2830014E694 /* CrashlyticsReportingService.swift in Sources */,
 				4119ED7221124AD1009EDA42 /* PaymentCompositionViewModelProtocol.swift in Sources */,
 				41E18D8F204D74FE00E4C935 /* CoordinatorAssembly.swift in Sources */,
+				4188C88D2131D422004FA3B2 /* CardViewTransitioningAnimator.swift in Sources */,
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				41E95B79212D90D400AAE9B5 /* UIBezierPath+Extensions.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
@@ -1720,6 +1731,7 @@
 				4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */,
 				4179E9FF204620E1007CF219 /* MainMenuView.swift in Sources */,
 				419DC7361FC705CE003A3C45 /* Constants.swift in Sources */,
+				4188C88C2131D422004FA3B2 /* CardViewTransitioningInteractor.swift in Sources */,
 				415B8A53208D0BCD00BEAB93 /* SideMenuItem.swift in Sources */,
 				4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */,
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModelProtocol.swift in Sources */,
