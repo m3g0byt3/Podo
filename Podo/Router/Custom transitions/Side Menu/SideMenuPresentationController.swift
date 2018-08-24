@@ -21,6 +21,7 @@ final class SideMenuPresentationController: UIPresentationController {
         this.addGestureRecognizer(tapGestureRecognizer)
         this.frame = container.frame
         this.backgroundColor = .black
+        this.isOpaque = false
         this.alpha = Constant.DimmingViewAlpha.initial
         this.clipsToBounds = true
         return this
