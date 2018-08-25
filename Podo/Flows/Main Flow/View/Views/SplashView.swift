@@ -22,8 +22,8 @@ final class SplashView: UIView {
     static let outerRectScale: CGFloat = 3.0
     static let imageInset: CGFloat = -2
     static let dimmingDelayRatio = 0.3
-    static let scaleToValue = 8.0
     static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
+    private static let scaleToValue = 10.0
 
     // MARK: - Private properties
 
@@ -109,7 +109,7 @@ final class SplashView: UIView {
         // Convert absolute time to the layer's time space
         dimmingAnimation.beginTime = dimmingView.layer.currentTime + dimmingDelay
         dimmingAnimation.duration = duration - dimmingDelay
-        scaleAnimation.fillMode = SplashView.fillMode
+        dimmingAnimation.fillMode = SplashView.fillMode
         dimmingAnimation.isRemovedOnCompletion = false
         dimmingAnimation.delegate = AnimationDelegate(dimmingView, completion: completion)
 
