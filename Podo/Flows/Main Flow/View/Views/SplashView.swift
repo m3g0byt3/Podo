@@ -13,17 +13,17 @@ final class SplashView: UIView {
 
     // MARK: - Constants
 
-    static let fillRule = "even-odd"
-    static let fillMode = "forwards"
-    static let scaleKeyPath = "transform.scale"
-    static let colorKeyPath = "backgroundColor"
-    static let alphaValue: CGFloat = 0
-    static let innerRectScale: CGFloat = 0.4
-    static let outerRectScale: CGFloat = 3.0
-    static let imageInset: CGFloat = -2
-    static let dimmingDelayRatio = 0.3
-    static let scaleToValue = 8.0
-    static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
+    private static let fillRule = "even-odd"
+    private static let fillMode = "forwards"
+    private static let scaleKeyPath = "transform.scale"
+    private static let colorKeyPath = "backgroundColor"
+    private static let alphaValue: CGFloat = 0
+    private static let innerRectScale: CGFloat = 0.2
+    private static let outerRectScale: CGFloat = 3.0
+    private static let imageInset: CGFloat = -2
+    private static let dimmingDelayRatio = 0.3
+    private static let scaleToValue = 10.0
+    private static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
 
     // MARK: - Private properties
 
@@ -109,7 +109,7 @@ final class SplashView: UIView {
         // Convert absolute time to the layer's time space
         dimmingAnimation.beginTime = dimmingView.layer.currentTime + dimmingDelay
         dimmingAnimation.duration = duration - dimmingDelay
-        scaleAnimation.fillMode = SplashView.fillMode
+        dimmingAnimation.fillMode = SplashView.fillMode
         dimmingAnimation.isRemovedOnCompletion = false
         dimmingAnimation.delegate = AnimationDelegate(dimmingView, completion: completion)
 
