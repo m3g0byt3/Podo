@@ -19,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaf-with-insets" translatesAutoresizingMaskIntoConstraints="NO" id="esj-b1-neY">
-                                <rect key="frame" x="112.5" y="210" width="150" height="267"/>
+                                <rect key="frame" x="150" y="277" width="75" height="133"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.83529411760000005" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="esj-b1-neY" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.4" id="6WM-FS-Xiv"/>
+                            <constraint firstItem="esj-b1-neY" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.2" id="6WM-FS-Xiv"/>
                             <constraint firstItem="esj-b1-neY" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="WcR-yj-OHf"/>
                             <constraint firstItem="esj-b1-neY" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="Ykq-pc-M5d"/>
-                            <constraint firstItem="esj-b1-neY" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.4" id="dtv-Ti-AuV"/>
+                            <constraint firstItem="esj-b1-neY" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.2" id="dtv-Ti-AuV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>

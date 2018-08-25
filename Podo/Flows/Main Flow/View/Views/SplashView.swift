@@ -18,11 +18,11 @@ final class SplashView: UIView {
     static let scaleKeyPath = "transform.scale"
     static let colorKeyPath = "backgroundColor"
     static let alphaValue: CGFloat = 0
-    static let innerRectScale: CGFloat = 0.4
     static let outerRectScale: CGFloat = 3.0
     static let imageInset: CGFloat = -2
     static let dimmingDelayRatio = 0.3
     static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
+    private static let innerRectScale: CGFloat = 0.2
     private static let scaleToValue = 10.0
 
     // MARK: - Private properties
