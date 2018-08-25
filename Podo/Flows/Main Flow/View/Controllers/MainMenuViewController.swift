@@ -39,9 +39,11 @@ final class MainMenuViewController: UIViewController,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let splashImage = R.image.leafWithInsetsMask() else { return }
+        #if SHOW_SPLASH_SCREEN
         SplashView.show(for: Constant.MainMenu.splashScreenDuration,
                         image: splashImage,
                         outerColor: R.clr.podoColors.green())
+        #endif
     }
 
     // MARK: - Private API
