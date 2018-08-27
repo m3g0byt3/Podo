@@ -80,6 +80,11 @@ final class CardViewPresentationController: UIPresentationController {
         }
     }
 
+    override func containerViewWillLayoutSubviews() {
+        super.containerViewWillLayoutSubviews()
+        presentedViewController.view.frame = boundsOfPresentedViewInContainerView
+    }
+
     // MARK: - Private API
 
     private func dimmingViewFactory() -> UIView? {

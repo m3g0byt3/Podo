@@ -25,7 +25,7 @@ final class CardViewTransitioningAnimator: NSObject, UIViewControllerAnimatedTra
         let finalFrame = transitionContext.finalFrame(for: fromVC)
         var calculatedEndFrame = finalFrame
 
-        calculatedEndFrame.origin.y += finalFrame.height
+        calculatedEndFrame.origin.y += finalFrame.height * 2
 
         UIView.animate(withDuration: transitionDuration(using: nil),
                        animations: {
