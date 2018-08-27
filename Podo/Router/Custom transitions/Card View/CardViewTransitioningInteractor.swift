@@ -12,7 +12,7 @@ final class CardViewTransitioningInteractor: UIPercentDrivenInteractiveTransitio
 
     // MARK: - Constants
 
-    private static let boundaryPercent: CGFloat = 0.5
+    private static let boundaryPercent: CGFloat = 0.25
     private static let defaultPercentComplete: CGFloat = 0.0
 
     // MARK: - Private properties
