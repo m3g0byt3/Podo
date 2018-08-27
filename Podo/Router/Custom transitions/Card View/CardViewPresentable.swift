@@ -11,5 +11,5 @@ import UIKit
 
 protocol CardViewPresentable {
 
-    var panGesture: UIPanGestureRecognizer? { get }
+    var panGesture: UIPanGestureRecognizer { get }
 }
