@@ -80,10 +80,6 @@ final class KeyboardHandler {
         return delegate?.manageableViews.filter { !($0 is UIScrollView) } ?? []
     }
 
-    private var offsetRatio: CGFloat {
-        return delegate?.keyboardOffsetRatio ?? 1.0
-    }
-
     private var initialNonScrollableViewsOffsets: EphemeralDictionaryWrapper<UIView, CGFloat>
     private var initialScrollableViewsInsets: [UIView: UIEdgeInsets]
 
