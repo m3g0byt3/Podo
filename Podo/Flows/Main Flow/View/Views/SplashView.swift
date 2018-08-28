@@ -8,19 +8,18 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 final class SplashView: UIView {
 
     // MARK: - Constants
 
-    private static let fillRule = "even-odd"
-    private static let fillMode = "forwards"
     private static let scaleKeyPath = "transform.scale"
     private static let colorKeyPath = "backgroundColor"
     private static let alphaValue: CGFloat = 0
     private static let innerRectScale: CGFloat = 0.2
     private static let outerRectScale: CGFloat = 3.0
-    private static let imageInset: CGFloat = -2
+    private static let imageInset: CGFloat = -1.0
     private static let dimmingDelayRatio = 0.3
     private static let scaleToValue = 10.0
     private static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
@@ -47,6 +46,7 @@ final class SplashView: UIView {
 
     // MARK: - Public API
 
+    // swiftlint:disable:next function_body_length
     static func show(for duration: TimeInterval,
                      image: UIImage,
                      outerColor: UIColor? = .black,
@@ -65,24 +65,27 @@ final class SplashView: UIView {
         let dimmingToValue = innerColor?.withAlphaComponent(SplashView.alphaValue).cgColor
         let imageMaskLayer = CALayer()
         let shapeMaskLayer = CAShapeLayer()
-        let innerRect = baseRect.scaledBy(dx: SplashView.innerRectScale, dy: SplashView.innerRectScale)
-        let outerRect = baseRect.scaledBy(dx: SplashView.outerRectScale, dy: SplashView.outerRectScale)
+        let innerBoundingRect = baseRect.scaledBy(dx: SplashView.innerRectScale, dy: SplashView.innerRectScale)
+        let outerBoundingRect = baseRect.scaledBy(dx: SplashView.outerRectScale, dy: SplashView.outerRectScale)
+        let innerRect = AVMakeRect(aspectRatio: image.size, insideRect: innerBoundingRect)
+        let outerRect = AVMakeRect(aspectRatio: image.size, insideRect: outerBoundingRect)
         let innerPath = UIBezierPath(rect: innerRect)
         let outerPath = UIBezierPath(rect: outerRect)
         guard let shapeMaskPath = UIBezierPath(paths: outerPath, innerPath) else { return }
 
         // MARK: - Setup inner mask (masked by the image)
 
-        // Small insents equal 1pt on the each side to prevent
+        // Small insets equal 0.5pt on the each side to prevent
         // some visual glithes while layer scaled animatedly
         imageMaskLayer.frame = innerRect.insetBy(dx: SplashView.imageInset, dy: SplashView.imageInset)
+        imageMaskLayer.contentsGravity = kCAGravityResizeAspect
         imageMaskLayer.contents = image.cgImage
 
         // MARK: - Setup outer mask (masked by the path)
 
         shapeMaskLayer.frame = baseRect
         shapeMaskLayer.path = shapeMaskPath.cgPath
-        shapeMaskLayer.fillRule = SplashView.fillRule
+        shapeMaskLayer.fillRule = kCAFillRuleEvenOdd
         shapeMaskLayer.addSublayer(imageMaskLayer)
 
         // MARK: - Setup mask view
@@ -101,7 +104,7 @@ final class SplashView: UIView {
         scaleAnimation.toValue = SplashView.scaleToValue
         scaleAnimation.duration = duration
         scaleAnimation.timingFunction = SplashView.scaleTiming
-        scaleAnimation.fillMode = SplashView.fillMode
+        scaleAnimation.fillMode = kCAFillModeForwards
         scaleAnimation.isRemovedOnCompletion = false
 
         let dimmingAnimation = CABasicAnimation(keyPath: SplashView.colorKeyPath)
@@ -109,7 +112,7 @@ final class SplashView: UIView {
         // Convert absolute time to the layer's time space
         dimmingAnimation.beginTime = dimmingView.layer.currentTime + dimmingDelay
         dimmingAnimation.duration = duration - dimmingDelay
-        dimmingAnimation.fillMode = SplashView.fillMode
+        dimmingAnimation.fillMode = kCAFillModeForwards
         dimmingAnimation.isRemovedOnCompletion = false
         dimmingAnimation.delegate = AnimationDelegate(dimmingView, completion: completion)
 
