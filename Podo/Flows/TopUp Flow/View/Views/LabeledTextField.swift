@@ -191,6 +191,12 @@ extension LabeledTextField {
         get { return textField?.rightView?.tintColor }
         set { textField?.rightView?.tintColor = newValue }
     }
+
+    @IBInspectable
+    var secureText: Bool {
+        get { return textField?.isSecureTextEntry ?? false }
+        set { textField?.isSecureTextEntry = newValue }
+    }
 }
 
 // MARK: UITextInputTraits protocol conformance
