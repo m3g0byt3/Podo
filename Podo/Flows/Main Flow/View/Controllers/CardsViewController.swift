@@ -114,6 +114,34 @@ final class CardsViewController: UIViewController,
                 }
             })
             .disposed(by: disposeBag)
+
+        // numberOfPages for pageControl
+        viewModel.output.childViewModels
+            .flatMap(CardsViewController.wrapViewModels)
+            .map { $0.count }
+            .asDriver(onErrorJustReturn: 0)
+            .drive(pageControl.rx.numberOfPages)
+            .disposed(by: disposeBag)
+
+        // pageControl -> collectionView
+        pageControl.rx.value
+            .skip(1)
+            .map { IndexPath(item: $0, section: 0) }
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        // collectionView -> pageControl
+        collectionView.rx.didScroll
+            .map { [weak self] _ in
+                self?.collectionView.currentRow(inSection: 0, alongAxis: .horizontal)
+            }
+            .filterNil()
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: 0)
+            .drive(pageControl.rx.currentPage)
+            .disposed(by: disposeBag)
     }
 
     /// Wraps view models inside simple wrapper enum `ViewModelWrapper` and appends `ViewModelWrapper.empty`
