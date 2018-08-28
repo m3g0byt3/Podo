@@ -103,12 +103,15 @@ final class ViewAssembly: Assembly {
             return viewController
         }
 
-        container.register(ErrorView.self) { (resolver: Resolver, error: Error) in
-            let viewController = ErrorViewController()
+        container.register(PaymentResultView.self) { resolver in
+            let viewController = PaymentResultViewController()
+            viewController.viewModel = resolver.resolve(PaymentResultViewModelProtocol.self)
+            return viewController
+        }
 
-            viewController.adapter = resolver.resolve(ErrorAdapterProtocol.self)
-            viewController.viewModel = resolver.resolve(ErrorViewModelProtocol.self, argument: error)
-
+        container.register(PaymentResultView.self) { (resolver: Resolver, error: Error) in
+            let viewController = PaymentResultViewController()
+            viewController.viewModel = resolver.resolve(PaymentResultViewModelProtocol.self, argument: error)
             return viewController
         }
     }

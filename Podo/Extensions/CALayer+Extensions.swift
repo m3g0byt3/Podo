@@ -15,4 +15,16 @@ extension CALayer {
     var currentTime: CFTimeInterval {
         return convertTime(CACurrentMediaTime(), from: nil)
     }
+
+    /// Appends the layer to the layer’s list of sublayers only
+    /// if the given layer not yet added to the layer’s list of sublayers.
+    /// - parameter layer: The layer to be added.
+    func addSublayerIfNotContains(_ layer: CALayer) {
+        if let sublayers = sublayers {
+            guard !sublayers.contains(layer) else { return }
+            addSublayer(layer)
+        } else {
+            addSublayer(layer)
+        }
+    }
 }

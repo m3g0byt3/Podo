@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreGraphics
+import UIKit
 
 extension CGRect {
 
@@ -65,5 +65,16 @@ extension CGRect {
         let newX = midX - newWidth / 2
         let newY = midY - newHeight / 2
         return CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
+    }
+}
+
+// Dunno why this function from `UIGeometry` not available, so just re-declare it.
+extension CGRect {
+
+    /// Adjusts a rectangle by the given edge insets.
+    /// - parameter insets: The edge insets to be applied to the adjustment.
+    /// - returns: A rectangle that is adjusted by the UIEdgeInsets structure passed in insets.
+    func inset(by insets: UIEdgeInsets) -> CGRect {
+        return UIEdgeInsetsInsetRect(self, insets)
     }
 }

@@ -49,4 +49,11 @@ extension UIImage {
         draw(in: drawRect)
         return UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(renderingMode)
     }
+
+    /// Returns the data for the specified image in PNG format.
+    /// - returns: A data object containing the PNG data,
+    /// or nil if there was a problem generating the data.
+    func pngData() -> Data? {
+        return UIImagePNGRepresentation(self)
+    }
 }
