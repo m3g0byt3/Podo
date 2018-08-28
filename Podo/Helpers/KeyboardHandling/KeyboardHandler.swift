@@ -184,9 +184,9 @@ final class KeyboardHandler {
             }
 
             guard let currentResponder = UIResponder.current as? UIView else { return }
-            let currentResponderConvertedBounds = view.convert(currentResponder.frame, from: currentResponder)
-            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedBounds, basedOn: info)
-            let contentOffset = CGPoint(x: view.contentOffset.x, y: yAxisContentOffset)
+            let currentResponderConvertedFrame = currentResponder.normalizedFrame
+            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedFrame, basedOn: info)
+            let contentOffset = CGPoint(x: view.contentOffset.x, y: view.contentOffset.y + yAxisContentOffset)
             var contentInset = initialScrollableViewsInsets[view] ?? .zero
             contentInset.bottom += info.offset
 
