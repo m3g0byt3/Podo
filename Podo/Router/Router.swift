@@ -15,7 +15,6 @@ final class Router {
 
     // MARK: - Properties
 
-    private let errorAdapter: ErrorAdapterProtocol
     private let assembler: Assembler
     private weak var rootViewController: UINavigationController?
     private var visibleViewController: UIViewController? { return rootViewController?.visibleViewController }
@@ -25,13 +24,11 @@ final class Router {
     // MARK: - Initialization
 
     init(rootViewController: UINavigationController,
-         errorAdapter: ErrorAdapterProtocol,
          themeAdapter: ThemeAdapterProtocol,
          assembler: Assembler) {
 
         self.rootViewController = rootViewController
         self.assembler = assembler
-        self.errorAdapter = errorAdapter
         themeAdapter.appearanceSetup()
     }
 

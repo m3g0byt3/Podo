@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		410176F92078047A00785469 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410176F82078047A00785469 /* GradientView.swift */; };
 		41023C51210667FB009AE7C4 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41023C50210667FB009AE7C4 /* Array+Extensions.swift */; };
-		410BB8FD212AF3F9005764AC /* ErrorAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BB8FC212AF3F9005764AC /* ErrorAdapterProtocol.swift */; };
-		410BB8FF212AF4EF005764AC /* PKHUDAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410BB8FE212AF4EF005764AC /* PKHUDAdapter.swift */; };
 		410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A51207D1A57003DD5C0 /* Configurable.swift */; };
 		410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */; };
 		410FCAA6206BCC2800713E38 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */; };
@@ -178,10 +176,6 @@
 		41D1F1711FC7873500F12C20 /* SideMenuTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */; };
 		41D1F1791FC7908F00F12C20 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F1781FC7908E00F12C20 /* R.generated.swift */; };
 		41D1F17B1FC7957E00F12C20 /* SideMenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */; };
-		41D23902212EB2B500FDA8D9 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D23901212EB2B500FDA8D9 /* ErrorViewController.swift */; };
-		41D23904212EB30C00FDA8D9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D23903212EB30C00FDA8D9 /* ErrorView.swift */; };
-		41D23906212EBF7F00FDA8D9 /* ErrorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D23905212EBF7F00FDA8D9 /* ErrorViewModelProtocol.swift */; };
-		41D23908212EBFDC00FDA8D9 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D23907212EBFDC00FDA8D9 /* ErrorViewModel.swift */; };
 		41D23906212EBF7F00FDA8D9 /* PaymentResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D23905212EBF7F00FDA8D9 /* PaymentResultViewModelProtocol.swift */; };
 		41D23908212EBFDC00FDA8D9 /* PaymentResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D23907212EBFDC00FDA8D9 /* PaymentResultViewModel.swift */; };
 		41D2390C212EF6B300FDA8D9 /* PaymentResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2390B212EF6B300FDA8D9 /* PaymentResultViewController.swift */; };
@@ -231,8 +225,6 @@
 		15107E1F7454B60DA14F60AE /* Pods_PodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410176F82078047A00785469 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		41023C50210667FB009AE7C4 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		410BB8FC212AF3F9005764AC /* ErrorAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAdapterProtocol.swift; sourceTree = "<group>"; };
-		410BB8FE212AF4EF005764AC /* PKHUDAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHUDAdapter.swift; sourceTree = "<group>"; };
 		410F0A51207D1A57003DD5C0 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		410F0A55207D9158003DD5C0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		410FCAA5206BCC2800713E38 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -408,10 +400,6 @@
 		41D1F1701FC7873500F12C20 /* SideMenuTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTransitioningAnimator.swift; sourceTree = "<group>"; };
 		41D1F1781FC7908E00F12C20 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		41D1F17A1FC7957E00F12C20 /* SideMenuPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresentationController.swift; sourceTree = "<group>"; };
-		41D23901212EB2B500FDA8D9 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
-		41D23903212EB30C00FDA8D9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		41D23905212EBF7F00FDA8D9 /* ErrorViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModelProtocol.swift; sourceTree = "<group>"; };
-		41D23907212EBFDC00FDA8D9 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
 		41D23905212EBF7F00FDA8D9 /* PaymentResultViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewModelProtocol.swift; sourceTree = "<group>"; };
 		41D23907212EBFDC00FDA8D9 /* PaymentResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewModel.swift; sourceTree = "<group>"; };
 		41D2390B212EF6B300FDA8D9 /* PaymentResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewController.swift; sourceTree = "<group>"; };
@@ -583,7 +571,6 @@
 				415523962085005900EEADD8 /* PaymentMethodsViewController.swift */,
 				41A4C63D2121B7DA0063C539 /* PaymentCompositionViewController.swift */,
 				41A4C63F2121B7FD0063C539 /* PaymentConfirmationViewController.swift */,
-				41D23901212EB2B500FDA8D9 /* ErrorViewController.swift */,
 				41D2390B212EF6B300FDA8D9 /* PaymentResultViewController.swift */,
 			);
 			path = Controllers;
@@ -635,7 +622,6 @@
 			children = (
 				41EE989D2131C96600B151CC /* KeyboardHandling */,
 				4160A5102051767B00485C8B /* ThemeAdapter.swift */,
-				410BB8FE212AF4EF005764AC /* PKHUDAdapter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -789,7 +775,6 @@
 				4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */,
 				4130F2A8205C855B00DDFAD8 /* ViewModel.swift */,
 				410F0A51207D1A57003DD5C0 /* Configurable.swift */,
-				410BB8FC212AF3F9005764AC /* ErrorAdapterProtocol.swift */,
 				4188C8882131D422004FA3B2 /* CardViewPresentable.swift */,
 				41CDEAB520828DA0008D30D5 /* POP */,
 			);
@@ -821,7 +806,6 @@
 				415523932084FFCB00EEADD8 /* PaymentMethodsView.swift */,
 				41CD4CC820939BB80029800B /* PaymentCompositionView.swift */,
 				4119ED6F21124718009EDA42 /* PaymentConfirmationView.swift */,
-				41D23903212EB30C00FDA8D9 /* ErrorView.swift */,
 				4188C8982133F96B004FA3B2 /* PaymentResultView.swift */,
 			);
 			path = View;
@@ -846,8 +830,6 @@
 				413D8CDE210B8F34005D388E /* PaymentAmountCellButtonViewModel.swift */,
 				418874932118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift */,
 				418874952118AA3700FF7825 /* PaymentConfirmationViewModel.swift */,
-				41D23905212EBF7F00FDA8D9 /* ErrorViewModelProtocol.swift */,
-				41D23907212EBFDC00FDA8D9 /* ErrorViewModel.swift */,
 				41D23905212EBF7F00FDA8D9 /* PaymentResultViewModelProtocol.swift */,
 				41D23907212EBFDC00FDA8D9 /* PaymentResultViewModel.swift */,
 			);
@@ -1605,7 +1587,6 @@
 				418F79D2205C8F8600397B48 /* AnyViewModel.swift in Sources */,
 				41555A682049727C007ADBF0 /* Coordinator.swift in Sources */,
 				4160A5132051770E00485C8B /* HelperAssembly.swift in Sources */,
-				41D23902212EB2B500FDA8D9 /* ErrorViewController.swift in Sources */,
 				41A4C63A2121AD500063C539 /* URLRequest+Extensions.swift in Sources */,
 				4119ED7521124BD5009EDA42 /* PaymentCompositionSectionViewModelWrapper.swift in Sources */,
 				41EE98A52131C96600B151CC /* EphemeralDictionaryWrapper.swift in Sources */,
@@ -1613,7 +1594,6 @@
 				4179E9FA20461B3F007CF219 /* MainMenuCellViewModel.swift in Sources */,
 				415372922053168D00B8C1EB /* TutorialView.swift in Sources */,
 				41AA3C7E20D94B6900A3D298 /* Global+Extensions.swift in Sources */,
-				41D23904212EB30C00FDA8D9 /* ErrorView.swift in Sources */,
 				418874982118AD5D00FF7825 /* BSKNetworkService.swift in Sources */,
 				410F0A52207D1A57003DD5C0 /* Configurable.swift in Sources */,
 				41DC8D7B21076CAE00119A4C /* UIView.AnimationOptions+Extensions.swift in Sources */,
@@ -1623,7 +1603,6 @@
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				41A4C63E2121B7DB0063C539 /* PaymentCompositionViewController.swift in Sources */,
 				417F964920712DBF0089C7B0 /* RoundShadowButton.swift in Sources */,
-				41D23906212EBF7F00FDA8D9 /* ErrorViewModelProtocol.swift in Sources */,
 				41D23906212EBF7F00FDA8D9 /* PaymentResultViewModelProtocol.swift in Sources */,
 				41D23911212EFE3400FDA8D9 /* CardViewPresentationController.swift in Sources */,
 				418874942118A98300FF7825 /* PaymentConfirmationViewModelProtocol.swift in Sources */,
@@ -1703,12 +1682,10 @@
 				4180B4E6204C92810064529A /* RouterProtocol.swift in Sources */,
 				415B8A65208D16A900BEAB93 /* OptionalType.swift in Sources */,
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
-				41D23908212EBFDC00FDA8D9 /* ErrorViewModel.swift in Sources */,
 				41D23908212EBFDC00FDA8D9 /* PaymentResultViewModel.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
 				41FA0BB92117B98C00B7B602 /* ThreadSafeItems.swift in Sources */,
 				415523942084FFCB00EEADD8 /* PaymentMethodsView.swift in Sources */,
-				410BB8FF212AF4EF005764AC /* PKHUDAdapter.swift in Sources */,
 				41816E20206A315E00A0FFCC /* AddNewCardViewModel.swift in Sources */,
 				4179E9F62046074D007CF219 /* DatabaseServiceProtocol.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModelProtocol.swift in Sources */,
@@ -1746,7 +1723,6 @@
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				41E95B79212D90D400AAE9B5 /* UIBezierPath+Extensions.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
-				410BB8FD212AF3F9005764AC /* ErrorAdapterProtocol.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModel.swift in Sources */,
 				4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */,
 				4179E9FF204620E1007CF219 /* MainMenuView.swift in Sources */,

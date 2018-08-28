@@ -15,12 +15,8 @@ final class RouterAssembly: Assembly {
 
         container.register(RouterProtocol.self) { resolver in
             let rootViewDependencyType = UINavigationController.self
-            let errorAdapterDependencyType = ErrorAdapterProtocol.self
             let themeAdapterDependencyType = ThemeAdapterProtocol.self
 
-            guard let errorAdapter = resolver.resolve(errorAdapterDependencyType) else {
-                unableToResolve(errorAdapterDependencyType)
-            }
             guard let themeAdapter = resolver.resolve(themeAdapterDependencyType) else {
                 unableToResolve(themeAdapterDependencyType)
             }
@@ -29,7 +25,6 @@ final class RouterAssembly: Assembly {
             }
 
             return Router(rootViewController: rootView,
-                          errorAdapter: errorAdapter,
                           themeAdapter: themeAdapter,
                           assembler: ApplicationAssembler.defaultAssembler)
 

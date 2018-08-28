@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Swinject
 import Moya
+import PKHUD
 
 final class HelperAssembly: Assembly {
 
@@ -19,22 +20,16 @@ final class HelperAssembly: Assembly {
             return ThemeAdapter()
         }
 
-        container.register(ErrorAdapterProtocol.self) { _ in
-            return PKHUDAdapter()
-        }
-
-        container.register(PluginType.self) { resolver in
-            let errorAdapter = resolver.resolve(ErrorAdapterProtocol.self)
-
+        container.register(PluginType.self) { _ in
             return NetworkActivityPlugin { change, _ in
                 let isIndicatorVisible: Bool
 
                 switch change {
                 case .began:
-                    errorAdapter?.presentProgress(title: nil, completion: nil)
+                    HUD.show(.progress)
                     isIndicatorVisible = true
                 case .ended:
-                    errorAdapter?.dismiss()
+                    HUD.hide()
                     isIndicatorVisible = false
                 }
 
