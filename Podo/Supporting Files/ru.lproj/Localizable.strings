@@ -38,9 +38,14 @@
 "card-cell-cvv-label" = "CVC/CVV код";
 "start-topup-button" = "Пополнить";
 
-// MARK: Top-up errors
+// MARK: - Payment Confirmation Localization
 
 "error-title" = "Ошибка пополнения";
+"success-title" = "Успешное пополнение";
+"success-message" = "Не забудьте активировать ваш платеж на валидаторе.";
+
+// MARK: - Payment errors Localization
+
 "Maintenance mode on back-end, please try again later." = "Техн. работы на сервере, пожалуйста попробуйте позже.";
 "Incorrect transport card number." = "Некорректный номер транспортной карты.";
 "Incorrect top-up amount. Allowed top-up amount: from 1₽ to 14500₽." = "Некорректная сумма пополнения. Допустимая сумма пополнения: от 1₽ до 14500₽.";

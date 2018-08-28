@@ -20,6 +20,7 @@ final class PaymentCoordinator: AbstractCoordinator {
 
     private func showPaymentMethods() {
         guard let view = assembler.resolver.resolve(PaymentMethodsView.self) else { return }
+
         view.onPaymentMethodSelection = { [weak self] paymentMethod in
             self?.showPaymentComposition(for: paymentMethod)
         }
@@ -27,6 +28,7 @@ final class PaymentCoordinator: AbstractCoordinator {
             self?.transportCard = nil
             self?.onFlowFinish?()
         }
+
         router.push(view, animated: true)
     }
 
@@ -52,6 +54,7 @@ final class PaymentCoordinator: AbstractCoordinator {
             }
             // No-op on payment cancel in `PaymentCompositionView`
             view.onPaymentCancel = nil
+
             router.push(view, animated: true)
 
         case .applePay, .cellphoneBalance, .qiwiWallet, .yandexMoney:
@@ -66,6 +69,7 @@ final class PaymentCoordinator: AbstractCoordinator {
         guard let view = assembler.resolver.resolve(PaymentConfirmationView.self, argument: request) else {
             return
         }
+
         view.onPaymentComplete = { [weak self] in
             self?.showPaymentCompletion()
         }
@@ -73,13 +77,21 @@ final class PaymentCoordinator: AbstractCoordinator {
             self?.router.dismiss(animated: false, completion: nil)
             self?.router.popToRootView(animated: true)
         }
+
         router.present(view, animated: true, completion: nil)
     }
 
     private func showPaymentCompletion() {
-        // TODO: Add actual implementation
         router.dismiss(animated: false, completion: nil)
         router.popToRootView(animated: true)
+
+        guard let view = assembler.resolver.resolve(PaymentResultView.self) else { return }
+
+        view.onPaymentResultClose = { [weak router = self.router] in
+            router?.dismiss(animated: true, completion: nil)
+        }
+
+        router.present(view, animated: true, completion: nil)
     }
 
     private func showCardScanner() {
@@ -89,11 +101,18 @@ final class PaymentCoordinator: AbstractCoordinator {
 
     private func showPaymentError(_ error: Error, isRecoverable: Bool) {
         router.dismiss(animated: false, completion: nil)
+
         if !isRecoverable {
             router.popToRootView(animated: true)
         }
-        guard let view = assembler.resolver.resolve(ErrorView.self, argument: error) else { return }
-        router.present(view, animated: false, completion: nil)
+
+        guard let view = assembler.resolver.resolve(PaymentResultView.self, argument: error) else { return }
+
+        view.onPaymentResultClose = { [weak router = self.router] in
+            router?.dismiss(animated: true, completion: nil)
+        }
+
+        router.present(view, animated: true, completion: nil)
     }
 
     // MARK: - Coordinator protocol conformance

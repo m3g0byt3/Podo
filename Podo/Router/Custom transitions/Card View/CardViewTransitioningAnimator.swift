@@ -17,19 +17,15 @@ final class CardViewTransitioningAnimator: NSObject, UIViewControllerAnimatedTra
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard
-            let fromView = transitionContext.view(forKey: .from),
-            let fromVC = transitionContext.viewController(forKey: .from)
-        else { return }
+        guard let fromView = transitionContext.view(forKey: .from) else { return }
 
-        let finalFrame = transitionContext.finalFrame(for: fromVC)
-        var calculatedEndFrame = finalFrame
+        var endFrame = fromView.frame
 
-        calculatedEndFrame.origin.y += finalFrame.height * 2
+        endFrame.origin.y += endFrame.height
 
         UIView.animate(withDuration: transitionDuration(using: nil),
                        animations: {
-                            fromView.frame = calculatedEndFrame
+                            fromView.frame = endFrame
                        },
                        completion: { _ in
                             let isSuccessful = !transitionContext.transitionWasCancelled

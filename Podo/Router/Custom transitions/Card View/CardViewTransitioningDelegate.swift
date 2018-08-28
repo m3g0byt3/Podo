@@ -34,9 +34,7 @@ final class CardViewTransitioningDelegate: NSObject, UIViewControllerTransitioni
     func interactionControllerForDismissal(
         using animator: UIViewControllerAnimatedTransitioning
     ) -> UIViewControllerInteractiveTransitioning? {
-        guard
-            let cardViewPresentable = presentedViewController as? CardViewPresentable
-        else { return nil }
+        guard let cardViewPresentable = presentedViewController as? CardViewPresentable else { return nil }
         let recognizer = cardViewPresentable.panGesture
         // Return interaction controller for interactive dismissal or nil for non-interactive dismissal 
         return recognizer.state == .began ? CardViewTransitioningInteractor(recognizer: recognizer) : nil

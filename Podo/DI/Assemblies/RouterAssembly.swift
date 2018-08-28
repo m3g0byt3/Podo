@@ -39,5 +39,9 @@ final class RouterAssembly: Assembly {
         container.register(InteractiveTransitioningDelegate.self) { _ in
             return SideMenuTransitioningDelegate()
         }
+
+        container.register(UIViewControllerTransitioningDelegate.self) { _ in
+            return CardViewTransitioningDelegate()
+        }
     }
 }

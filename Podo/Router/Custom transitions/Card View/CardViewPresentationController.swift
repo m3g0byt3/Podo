@@ -14,10 +14,10 @@ final class CardViewPresentationController: UIPresentationController {
     // MARK: - Public properties
 
     override var frameOfPresentedViewInContainerView: CGRect {
-        return CGRect(x: presentingViewController.view.frame.minX,
-                      y: presentingViewController.view.frame.midY,
-                      width: presentingViewController.view.frame.width,
-                      height: presentingViewController.view.frame.midY)
+        guard let cardViewController = presentedViewController as? CardViewPresentable else {
+            return presentingViewController.view.frame
+        }
+        return cardViewController.frameInPresentingView(presentingViewController.view)
     }
 
     override var presentedView: UIView? {
