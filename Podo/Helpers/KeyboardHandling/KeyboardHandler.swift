@@ -191,9 +191,12 @@ final class KeyboardHandler {
             contentInset.bottom += info.offset
 
             UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
-                view.contentOffset = contentOffset
                 view.contentInset = contentInset
                 view.scrollIndicatorInsets = contentInset
+                // Setting `contentOffset` directly will cause an overscroll glitch on iOS 11,
+                // so just set `contentOffset` using `setContentOffset(_:animated:)` without animation,
+                // inside another `UIView` animation block.
+                view.setContentOffset(contentOffset, animated: false)
             })
 
             // Redudant, but prevents absent of inputAccessoryView when current First Responder
