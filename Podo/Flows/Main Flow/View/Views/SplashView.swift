@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 final class SplashView: UIView {
 
@@ -20,7 +21,7 @@ final class SplashView: UIView {
     private static let alphaValue: CGFloat = 0
     private static let innerRectScale: CGFloat = 0.2
     private static let outerRectScale: CGFloat = 3.0
-    private static let imageInset: CGFloat = -2
+    private static let imageInset: CGFloat = -1.0
     private static let dimmingDelayRatio = 0.3
     private static let scaleToValue = 10.0
     private static let scaleTiming = CAMediaTimingFunction(controlPoints: 0.3, -0.20, 0.55, 0.33)
@@ -65,17 +66,20 @@ final class SplashView: UIView {
         let dimmingToValue = innerColor?.withAlphaComponent(SplashView.alphaValue).cgColor
         let imageMaskLayer = CALayer()
         let shapeMaskLayer = CAShapeLayer()
-        let innerRect = baseRect.scaledBy(dx: SplashView.innerRectScale, dy: SplashView.innerRectScale)
-        let outerRect = baseRect.scaledBy(dx: SplashView.outerRectScale, dy: SplashView.outerRectScale)
+        let innerBoundingRect = baseRect.scaledBy(dx: SplashView.innerRectScale, dy: SplashView.innerRectScale)
+        let outerBoundingRect = baseRect.scaledBy(dx: SplashView.outerRectScale, dy: SplashView.outerRectScale)
+        let innerRect = AVMakeRect(aspectRatio: image.size, insideRect: innerBoundingRect)
+        let outerRect = AVMakeRect(aspectRatio: image.size, insideRect: outerBoundingRect)
         let innerPath = UIBezierPath(rect: innerRect)
         let outerPath = UIBezierPath(rect: outerRect)
         guard let shapeMaskPath = UIBezierPath(paths: outerPath, innerPath) else { return }
 
         // MARK: - Setup inner mask (masked by the image)
 
-        // Small insents equal 1pt on the each side to prevent
+        // Small insets equal 0.5pt on the each side to prevent
         // some visual glithes while layer scaled animatedly
         imageMaskLayer.frame = innerRect.insetBy(dx: SplashView.imageInset, dy: SplashView.imageInset)
+        imageMaskLayer.contentsGravity = kCAGravityResizeAspect
         imageMaskLayer.contents = image.cgImage
 
         // MARK: - Setup outer mask (masked by the path)
