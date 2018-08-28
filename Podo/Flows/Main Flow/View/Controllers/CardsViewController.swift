@@ -64,10 +64,7 @@ final class CardsViewController: UIViewController,
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        if let ratio = parentViewHeightRatio {
-            collectionView.alpha = min(1, ratio)
-            collectionView.transform = CGAffineTransform(scaleX: max(1, ratio), y: max(1, ratio))
-        }
+        transformCollectionView()
     }
 
     // MARK: - MainMenuChildView protocol conformance
@@ -159,5 +156,15 @@ final class CardsViewController: UIViewController,
         collectionView.register(R.nib.addNewCardCollectionViewCell)
         // Apply offset to bottom-to-superview IB constrait
         collectionViewBottomConstraint.constant = Constant.MainMenu.collectionViewBottomOffset
+    }
+
+    private func transformCollectionView() {
+        guard let ratio = parentViewHeightRatio else { return }
+        let scrollUpAlpha = 2 - pow(ratio, 4)
+        let scrollDownAlpha = min(1, pow(ratio, 1.5))
+        let scale = max(1, ratio)
+        pageControl.alpha = ratio > 1 ? scrollUpAlpha : scrollDownAlpha
+        collectionView.alpha = scrollDownAlpha
+        collectionView.transform = CGAffineTransform(scaleX: scale, y: scale)
     }
 }
