@@ -29,14 +29,6 @@ final class LabeledTextField: UIControl {
 
     var buttonHandler: ButtonHandler?
 
-    override var canBecomeFirstResponder: Bool {
-        return textField?.canBecomeFirstResponder ?? false
-    }
-
-    override var canResignFirstResponder: Bool {
-        return textField?.canResignFirstResponder ?? false
-    }
-
     override var isFirstResponder: Bool {
         return textField?.isFirstResponder ?? false
     }

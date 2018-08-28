@@ -21,17 +21,6 @@ protocol KeyboardHandling: class {
 
     /// (Required) Array of views that should be managed.
     var manageableViews: [UIView] { get }
-
-    /// (Optional) Ratio by which the keyboard height is multiplied.
-    /// By default equals `1.0`.
-    var keyboardOffsetRatio: CGFloat { get }
-}
-
-// MARK: - Default implementation for optional protocol requirements
-
-extension KeyboardHandling {
-
-    var keyboardOffsetRatio: CGFloat { return 1.0 }
 }
 
 // MARK: - Control methods

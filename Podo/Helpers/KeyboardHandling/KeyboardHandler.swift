@@ -80,17 +80,15 @@ final class KeyboardHandler {
         return delegate?.manageableViews.filter { !($0 is UIScrollView) } ?? []
     }
 
-    private var offsetRatio: CGFloat {
-        return delegate?.keyboardOffsetRatio ?? 1.0
-    }
-
     private var initialNonScrollableViewsOffsets: EphemeralDictionaryWrapper<UIView, CGFloat>
+    private var initialScrollableViewsInsets: [UIView: UIEdgeInsets]
 
     // MARK: - Lifecycle
 
     init(delegate: KeyboardHandling) {
         self.delegate = delegate
         self.initialNonScrollableViewsOffsets = [:]
+        self.initialScrollableViewsInsets = [:]
         delegate.manageableViews.forEach(setupInputAccessoryView(in:))
         registerForNotifications(in: NotificationCenter.default)
     }
@@ -177,17 +175,24 @@ final class KeyboardHandler {
         switch action {
 
         case .show:
-            if info.endFrame != info.beginFrame {
-                view.contentInset.bottom += info.offset * offsetRatio
+            if initialScrollableViewsInsets[view] == nil {
+                initialScrollableViewsInsets[view] = view.contentInset
             }
 
             guard let currentResponder = UIResponder.current as? UIView else { return }
-            let currentResponderConvertedBounds = view.convert(currentResponder.frame, from: currentResponder)
-            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedBounds, basedOn: info)
-            let contentOffset = CGPoint(x: view.contentOffset.x, y: yAxisContentOffset)
+            let currentResponderConvertedFrame = currentResponder.normalizedFrame
+            let yAxisContentOffset = yAxisOffset(for: currentResponderConvertedFrame, basedOn: info)
+            let contentOffset = CGPoint(x: view.contentOffset.x, y: view.contentOffset.y + yAxisContentOffset)
+            var contentInset = initialScrollableViewsInsets[view] ?? .zero
+            contentInset.bottom += info.offset
 
             UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
-                view.contentOffset = contentOffset
+                view.contentInset = contentInset
+                view.scrollIndicatorInsets = contentInset
+                // Setting `contentOffset` directly will cause an overscroll glitch on iOS 11,
+                // so just set `contentOffset` using `setContentOffset(_:animated:)` without animation,
+                // inside another `UIView` animation block.
+                view.setContentOffset(contentOffset, animated: false)
             })
 
             // Redudant, but prevents absent of inputAccessoryView when current First Responder
@@ -195,9 +200,12 @@ final class KeyboardHandler {
             setupInputAccessoryView(in: view)
 
         case .hide:
-            if info.endFrame != info.beginFrame {
-                view.contentInset.bottom -= info.offset * offsetRatio
-            }
+            let initialInset = initialScrollableViewsInsets[view] ?? .zero
+
+            UIView.animate(withDuration: info.duration, delay: 0, options: info.options, animations: {
+                view.contentInset = initialInset
+                view.scrollIndicatorInsets = initialInset
+            })
         }
     }
 
