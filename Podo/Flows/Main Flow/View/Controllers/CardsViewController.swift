@@ -18,6 +18,7 @@ final class CardsViewController: UIViewController,
     // MARK: - IBOutlets
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var collectionViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var collectionViewBottomConstraint: NSLayoutConstraint!
 
