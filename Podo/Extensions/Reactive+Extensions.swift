@@ -98,3 +98,19 @@ extension Reactive where Base: UIWebView {
         }
     }
 }
+
+extension Reactive where Base: UIPageControl {
+
+    /// Reactive wrapper for `value` property.
+    var value: ControlProperty<Int> {
+        return base.rx.controlProperty(
+            editingEvents: [.valueChanged],
+            getter: { controller in
+                return controller.currentPage
+            },
+            setter: { controller, value in
+                controller.currentPage = value
+            }
+        )
+    }
+}

@@ -49,6 +49,7 @@
 		41494AC21FC6C6570089F088 /* PodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494AC11FC6C6570089F088 /* PodoTests.swift */; };
 		41494ACD1FC6C6570089F088 /* PodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41494ACC1FC6C6570089F088 /* PodoUITests.swift */; };
 		41494ADE1FC6C6950089F088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41494ADC1FC6C6950089F088 /* LaunchScreen.storyboard */; };
+		414A2A382135657F00D7E5E2 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A2A372135657F00D7E5E2 /* UICollectionView+Extensions.swift */; };
 		414BB4A820630683006A5C74 /* AnyDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414BB4A720630683006A5C74 /* AnyDatabaseService.swift */; };
 		4151684520911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151684420911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift */; };
 		415168472091201300AEB905 /* TrainIconTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415168462091201300AEB905 /* TrainIconTitleView.swift */; };
@@ -271,6 +272,7 @@
 		41494ACC1FC6C6570089F088 /* PodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodoUITests.swift; sourceTree = "<group>"; };
 		41494ACE1FC6C6570089F088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41494ADD1FC6C6950089F088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		414A2A372135657F00D7E5E2 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		414BB4A720630683006A5C74 /* AnyDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDatabaseService.swift; sourceTree = "<group>"; };
 		4151684420911F5000AEB905 /* NavigationBarTitleViewCustomizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleViewCustomizable.swift; sourceTree = "<group>"; };
 		415168462091201300AEB905 /* TrainIconTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainIconTitleView.swift; sourceTree = "<group>"; };
@@ -1117,6 +1119,7 @@
 				41023C50210667FB009AE7C4 /* Array+Extensions.swift */,
 				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
 				41947BDE2100E05600EA803A /* CGRect+Extensions.swift */,
+				414A2A372135657F00D7E5E2 /* UICollectionView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1642,6 +1645,7 @@
 				419CFEA9206BBD44004F4897 /* Reactive+Extensions.swift in Sources */,
 				412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */,
 				41294883213195FE00203BD8 /* MarkView.swift in Sources */,
+				414A2A382135657F00D7E5E2 /* UICollectionView+Extensions.swift in Sources */,
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				41D60A9C205DBAF1004C5802 /* SideMenuViewModelProtocol.swift in Sources */,
 				41A3906820DC1837004D3499 /* PaymentAmountCell.swift in Sources */,
