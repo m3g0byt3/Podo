@@ -14,8 +14,6 @@ final class SplashView: UIView {
 
     // MARK: - Constants
 
-    private static let fillRule = "even-odd"
-    private static let fillMode = "forwards"
     private static let scaleKeyPath = "transform.scale"
     private static let colorKeyPath = "backgroundColor"
     private static let alphaValue: CGFloat = 0
@@ -48,6 +46,7 @@ final class SplashView: UIView {
 
     // MARK: - Public API
 
+    // swiftlint:disable:next function_body_length
     static func show(for duration: TimeInterval,
                      image: UIImage,
                      outerColor: UIColor? = .black,
@@ -86,7 +85,7 @@ final class SplashView: UIView {
 
         shapeMaskLayer.frame = baseRect
         shapeMaskLayer.path = shapeMaskPath.cgPath
-        shapeMaskLayer.fillRule = SplashView.fillRule
+        shapeMaskLayer.fillRule = kCAFillRuleEvenOdd
         shapeMaskLayer.addSublayer(imageMaskLayer)
 
         // MARK: - Setup mask view
@@ -105,7 +104,7 @@ final class SplashView: UIView {
         scaleAnimation.toValue = SplashView.scaleToValue
         scaleAnimation.duration = duration
         scaleAnimation.timingFunction = SplashView.scaleTiming
-        scaleAnimation.fillMode = SplashView.fillMode
+        scaleAnimation.fillMode = kCAFillModeForwards
         scaleAnimation.isRemovedOnCompletion = false
 
         let dimmingAnimation = CABasicAnimation(keyPath: SplashView.colorKeyPath)
@@ -113,7 +112,7 @@ final class SplashView: UIView {
         // Convert absolute time to the layer's time space
         dimmingAnimation.beginTime = dimmingView.layer.currentTime + dimmingDelay
         dimmingAnimation.duration = duration - dimmingDelay
-        dimmingAnimation.fillMode = SplashView.fillMode
+        dimmingAnimation.fillMode = kCAFillModeForwards
         dimmingAnimation.isRemovedOnCompletion = false
         dimmingAnimation.delegate = AnimationDelegate(dimmingView, completion: completion)
 
