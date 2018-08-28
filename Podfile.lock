@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
-  - BSK (0.4.1):
+  - BSK (0.4.2):
     - Moya
   - Crashlytics (3.10.7):
     - Fabric (~> 1.7.11)
@@ -90,12 +90,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   BSK:
-    :commit: d5068531968f85983aea9f22cd76409ebc33cb61
+    :commit: ddf4f602a087acf38597b9db6c23f578a4a44112
     :git: https://github.com/m3g0byt3/BSK.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  BSK: 13088603141987fc4cc18b113c72dbe27dc9154f
+  BSK: a7981a60011e4247cb5efc6d4f98c89e8e35701b
   Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   EmptyDataSet-Swift: a25810f50c3adfaa3840aa33ae8b5ba12ac29279

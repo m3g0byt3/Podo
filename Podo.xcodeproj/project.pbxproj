@@ -1070,18 +1070,6 @@
 			path = "Card View";
 			sourceTree = "<group>";
 		};
-		41DC8D7C21076CE600119A4C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				41DC8D7A21076CAE00119A4C /* UIView.AnimationOptions+Extensions.swift */,
-				41947BDC20FF95EA00EA803A /* UIView+Extensions.swift */,
-				41023C50210667FB009AE7C4 /* Array+Extensions.swift */,
-				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
-				41947BDE2100E05600EA803A /* CGRect+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		41E18D90204D813300E4C935 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
@@ -1422,7 +1410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ~/Library/Colors/PodoColors.clr -nt $SRCROOT/Podo/Supporting\\ Files/PodoColors.clr ]]\n    then cp ~/Library/Colors/PodoColors.clr $SRCROOT/Podo/Supporting\\ Files/\nfi";
+			shellScript = "if [[ ~/Library/Colors/PodoColors.clr -nt $SRCROOT/Podo/Supporting\\ Files/PodoColors.clr ]]\n    then cp ~/Library/Colors/PodoColors.clr $SRCROOT/Podo/Supporting\\ Files/\nfi\n";
 		};
 		5DCD34022B29AAE6B003589E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
