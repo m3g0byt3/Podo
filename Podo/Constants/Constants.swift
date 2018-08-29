@@ -82,7 +82,7 @@ enum Constant {
         /// TableView's estimatedHeightForRowAt
         static let estimatedRowHeight: CGFloat = 75.0
         /// Ratio between screen height and height of CardsViewController
-        static let verticalInsetRatio: CGFloat = 0.25
+        static let verticalInsetRatio: CGFloat = 0.30
         /// Ratio between UICollectionViewCell width and width of UICollectionView
         static let cellWidthToCollectionViewWidthRatio: CGFloat = 0.65
         /// Top, bottom, leading, trailing constant for UICollectionViewCell's view constraints to the superview (set in the IB)
