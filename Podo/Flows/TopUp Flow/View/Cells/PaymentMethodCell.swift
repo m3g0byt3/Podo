@@ -8,10 +8,15 @@
 
 import Foundation
 import UIKit
+import SnapKit
 import RxSwift
 import RxCocoa
 
 final class PaymentMethodCell: UITableViewCell {
+
+    // MARK: - Constants
+
+    private static let alphaValue: CGFloat = 0.5
 
     // MARK: - IBOutlets
 
@@ -28,6 +33,24 @@ final class PaymentMethodCell: UITableViewCell {
         super.prepareForReuse()
         // Create new dispose bag on every re-use of the cell
         disposeBag = DisposeBag()
+    }
+
+    // MARK: - Private API
+
+    private func disable() -> Completable {
+        return Completable.create { [weak self] completable in
+            let view = UIView(frame: .zero)
+            let alphaValue = PaymentMethodCell.alphaValue
+
+            self?.contentView.superview?.addSubview(view)
+            self?.isUserInteractionEnabled = false
+            view.backgroundColor = UIColor.white.withAlphaComponent(alphaValue)
+            view.snp.makeConstraints { $0.edges.equalToSuperview() }
+
+            completable(.completed)
+
+            return Disposables.create()
+        }
     }
 }
 
@@ -50,6 +73,14 @@ extension PaymentMethodCell: Configurable {
             .filterNil()
             .asDriver(onErrorJustReturn: UIImage())
             .drive(icon.rx.image)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isEnabled
+            .filter(!)
+            .flatMap { [weak self] _ -> Completable in
+                self?.disable() ?? .empty()
+            }
+            .subscribe()
             .disposed(by: disposeBag)
 
         return self
