@@ -77,6 +77,9 @@ class PaymentCompositionViewController: UIViewController,
 
         paymentButton.rx.tap
             .throttle(Constant.ThrottleDuration.button, scheduler: MainScheduler.instance)
+            .do(onNext: { _ in
+                UIResponder.current?.resignFirstResponder()
+            })
             .bind(to: viewModel.input.startPayment)
             .disposed(by: disposeBag)
 
