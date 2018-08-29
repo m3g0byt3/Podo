@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +23,7 @@
                         <rect key="frame" x="8" y="8" width="489" height="334"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TransportCardIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vbg-km-4nc">
-                                <rect key="frame" x="144.5" y="42" width="200" height="250.5"/>
+                                <rect key="frame" x="144.5" y="50" width="200" height="234"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="●●●●0000" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd3-A1-8Qp">
@@ -42,7 +40,7 @@
                             <constraint firstItem="Vbg-km-4nc" firstAttribute="centerX" secondItem="bCR-71-336" secondAttribute="centerX" id="eOj-5c-8XJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="sd3-A1-8Qp" secondAttribute="bottom" id="nfh-Mm-4u4"/>
                             <constraint firstItem="sd3-A1-8Qp" firstAttribute="leading" secondItem="bCR-71-336" secondAttribute="leadingMargin" constant="8" id="rPp-3d-coF"/>
-                            <constraint firstItem="Vbg-km-4nc" firstAttribute="height" secondItem="bCR-71-336" secondAttribute="height" multiplier="0.75" id="y6M-Ob-GbJ"/>
+                            <constraint firstItem="Vbg-km-4nc" firstAttribute="height" secondItem="bCR-71-336" secondAttribute="height" multiplier="0.7" id="y6M-Ob-GbJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="gradientDirection">

@@ -19,6 +19,8 @@ final class ScanCardTextField: UITextField {
     // MARK: - Constants
 
     private static let overlayViewOffset: CGFloat = 4
+    private static let placeholderLabelKeypath = "_placeholderLabel"
+    private static let scaleFactor: CGFloat = 0.5
 
     // MARK: - Properties
 
@@ -28,6 +30,12 @@ final class ScanCardTextField: UITextField {
     var isScanButtonHidden: Bool = false {
         didSet {
             rightViewMode = isScanButtonHidden ? .never : .always
+        }
+    }
+
+    override var placeholder: String? {
+        didSet {
+            setupPlaceholder()
         }
     }
 
@@ -61,6 +69,15 @@ final class ScanCardTextField: UITextField {
         rightView = button
         rightViewMode = .always
     }
+
+    private func setupPlaceholder() {
+        if let placeholderLabel = value(forKey: type(of: self).placeholderLabelKeypath) as? UILabel {
+            placeholderLabel.adjustsFontSizeToFitWidth = true
+            placeholderLabel.minimumScaleFactor = type(of: self).scaleFactor
+        }
+    }
+
+    // MARK: - Control handlers
 
     @objc private func buttonAction() {
         buttonHandler?(self)
