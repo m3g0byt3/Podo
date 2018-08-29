@@ -52,7 +52,7 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
     // MARK: - Private API
 
     private static var filterPredicate: NSPredicate = {
-        let lhs = NSExpression(forKeyPath: \PaymentMethod.isEnabled)
+        let lhs = NSExpression(forKeyPath: \PaymentMethod.isVisible)
         let rhs = NSExpression(forConstantValue: true)
         return NSComparisonPredicate(leftExpression: lhs,
                                      rightExpression: rhs,

@@ -22,6 +22,7 @@ struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol,
 
     let title: Observable<String>
     let iconBlob: Observable<Data>
+    let isEnabled: Observable<Bool>
     let type: PaymentMethodType
 
     // MARK: - Initialization
@@ -33,6 +34,8 @@ struct PaymentMethodCellViewModel: PaymentMethodCellViewModelProtocol,
 
         self.iconBlob = Observable.just(model.imageBlob)
             .filterNil()
+
+        self.isEnabled = Observable.just(model.isEnabled)
 
         self.type = model.type
     }

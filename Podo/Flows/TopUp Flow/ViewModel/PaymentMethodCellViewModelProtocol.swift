@@ -21,5 +21,6 @@ protocol PaymentMethodCellViewModelOutputProtocol {
 
     var title: Observable<String> { get }
     var iconBlob: Observable<Data> { get }
+    var isEnabled: Observable<Bool> { get }
     var type: PaymentMethodType { get }
 }
