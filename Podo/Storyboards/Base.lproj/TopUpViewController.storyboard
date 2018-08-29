@@ -120,6 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="2eY-2u-436" id="1ce-8p-TvC"/>
+                        <outlet property="navigationBar" destination="4MV-Yh-QWe" id="ffq-go-txs"/>
                         <outlet property="webView" destination="Tez-Xf-eVe" id="ALt-wI-Gzv"/>
                     </connections>
                 </viewController>

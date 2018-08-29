@@ -16,16 +16,25 @@ import RxCocoa
 class PaymentConfirmationViewController: UIViewController,
                                          PaymentConfirmationView {
 
+    // MARK: - Constants
+
+    private static let keyPath = #keyPath(UIApplication.isNetworkActivityIndicatorVisible)
+
     // MARK: - IBOutlets
 
+    @IBOutlet private weak var navigationBar: UINavigationBar!
     @IBOutlet private weak var cancelButton: UIBarButtonItem!
     @IBOutlet private weak var webView: UIWebView!
 
-    // MARK: - Properties
+    // MARK: - Private properties
+
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    private let disposeBag = DisposeBag()
+
+    // MARK: - Public properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
     var viewModel: PaymentConfirmationViewModelProtocol!
-    private let disposeBag = DisposeBag()
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -38,16 +47,18 @@ class PaymentConfirmationViewController: UIViewController,
 
     // MARK: - Lifecycle
 
-    deinit {
-        print("🔴 deinit \(self) 🔴")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupBindings()
     }
 
     // MARK: - Private API
+
+    private func setupUI() {
+        let activityButton = UIBarButtonItem(customView: activityIndicator)
+        navigationBar.items?.first?.leftBarButtonItem = activityButton
+    }
 
     private func setupBindings() {
         viewModel.output.confirmationRequest
@@ -73,8 +84,16 @@ class PaymentConfirmationViewController: UIViewController,
                 self?.onPaymentCancel?()
             }
             .disposed(by: disposeBag)
+
+        UIApplication.shared.rx.observeWeakly(Bool.self, type(of: self).keyPath)
+            .filterNil()
+            .asDriver(onErrorJustReturn: false)
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
 }
+
+// MARK: - UINavigationBarDelegate protocol conformance
 
 extension PaymentConfirmationViewController: UINavigationBarDelegate {
 
