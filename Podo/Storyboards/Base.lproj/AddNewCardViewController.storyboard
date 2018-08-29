@@ -30,7 +30,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="%Placeholder%" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="%Placeholder%" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
                                                 <rect key="frame" x="67.5" y="0.0" width="254" height="20"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

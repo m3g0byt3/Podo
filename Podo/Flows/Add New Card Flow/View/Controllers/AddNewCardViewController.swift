@@ -26,9 +26,7 @@ final class AddNewCardViewController: UIViewController,
 
     @IBOutlet private weak var cardView: GradientView!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
-    // TODO: Calculate minimum font that fits for `cardNumberTextField`
     @IBOutlet private weak var cardNumberTextField: UITextField!
-    // TODO: Calculate minimum font that fits for `cardNumberPrefixLabel`
     @IBOutlet private weak var cardNumberPrefixLabel: UILabel!
     @IBOutlet private var colorButtons: [UIButton]!
 
