@@ -55,7 +55,7 @@ enum Constant {
         static let presentationDuration: TimeInterval = 0.40
         static let displayDuration: TimeInterval = 3.0
         static let successHeightRatio: CGFloat = 1.0 / 2.0
-        static let errorHeightRatio: CGFloat = 1.0 / 4.0
+        static let errorHeightRatio: CGFloat = 1.0 / 3.8
     }
 
     enum SideMenu {
