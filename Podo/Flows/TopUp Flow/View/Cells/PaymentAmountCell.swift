@@ -57,7 +57,7 @@ final class PaymentAmountCell: UITableViewCell {
     private let sumTextField = UITextField()
     private let sumButtons = (0..<3).map { _ in RoundShadowButton(type: .system) }
     private let buttonStackView = UIStackView()
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
 
     // MARK: - Public properties
 
@@ -104,6 +104,12 @@ final class PaymentAmountCell: UITableViewCell {
 
     override func draw(_ rect: CGRect) {
         drawSeparator(in: rect)
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Create new dispose bag on every re-use of the cell
+        disposeBag = DisposeBag()
     }
 
     // MARK: - Private API
