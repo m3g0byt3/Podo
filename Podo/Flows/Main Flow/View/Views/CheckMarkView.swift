@@ -14,9 +14,9 @@ final class CheckMarkView: UIView {
 
     // MARK: - Constants
 
-    private static let lineWidth: CGFloat = 2
-    private static let rightMargin: CGFloat = 3
-    private static let checkMarkRadius: CGFloat = 7
+    private static let lineWidth: CGFloat = 2.0
+    private static let rightMargin: CGFloat = 3.0
+    private static let checkMarkRadius: CGFloat = 7.0
 
     // MARK: - Public API
 

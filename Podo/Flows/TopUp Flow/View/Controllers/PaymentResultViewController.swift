@@ -18,11 +18,11 @@ final class PaymentResultViewController: UIViewController,
 
     private static let alphaValue: CGFloat = 0.25
     private static let cornerRadiusRatio: CGFloat = 0.5
-    private static let smallMargin: CGFloat = 8
-    private static let normalMargin: CGFloat = 16
-    private static let dragViewWidthRatio: CGFloat = 1 / 8
-    private static let dragViewAspectRatio: CGFloat = 1 / 6
-    private static let markViewWidthRatio: CGFloat = 1 / 6
+    private static let smallMargin: CGFloat = 8.0
+    private static let normalMargin: CGFloat = 16.0
+    private static let dragViewWidthRatio: CGFloat = 1.0 / 8.0
+    private static let dragViewAspectRatio: CGFloat = 1.0 / 6.0
+    private static let markViewWidthRatio: CGFloat = 1.0 / 6.0
     private static let markViewDuration: TimeInterval = 0.5
 
     // MARK: - Private properties

@@ -19,7 +19,7 @@ final class LabeledTextField: UIControl {
 
     // MARK: - Private Properties
 
-    private static var underlineWidth: CGFloat { return 1 / UIScreen.main.scale }
+    private static var underlineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
     private weak var textField: ScanCardTextField?
     private weak var label: UILabel?
     private var colorObserver: NSKeyValueObservation?

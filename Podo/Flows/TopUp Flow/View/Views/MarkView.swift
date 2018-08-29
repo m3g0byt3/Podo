@@ -31,7 +31,7 @@ final class MarkView: UIView {
     private static let markOffsetMultiplier: CGFloat = 0.1
     private static let fillColor: UIColor = .clear
     private static let startAngle: CGFloat = 0.0
-    private static let endAngle: CGFloat = .pi * 2
+    private static let endAngle: CGFloat = .pi * 2.0
     private static let fromValue: CGFloat = 0.0
     private static let toValue: CGFloat = 1.0
     private static let parameters: AnimationParameters = (8.0, -50.0, 150.0)

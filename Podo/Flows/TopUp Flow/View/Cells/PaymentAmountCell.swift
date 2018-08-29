@@ -32,11 +32,11 @@ final class PaymentAmountCell: UITableViewCell {
     }
 
     private static var separatorWidth: CGFloat {
-        return 1 / UIScreen.main.scale
+        return 1.0 / UIScreen.main.scale
     }
 
     private static var buttonBorderWidth: CGFloat {
-        return 1 / UIScreen.main.scale
+        return 1.0 / UIScreen.main.scale
     }
 
     private static var buttonContentInset: UIEdgeInsets {

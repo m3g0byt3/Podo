@@ -14,7 +14,7 @@ final class TrainIconView: UIView {
 
     // MARK: - Constants
 
-    private static let imageInset: CGFloat = 5
+    private static let imageInset: CGFloat = 5.0
 
     // MARK: - Initialization
 

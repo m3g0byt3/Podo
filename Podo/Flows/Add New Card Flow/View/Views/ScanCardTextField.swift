@@ -18,7 +18,7 @@ final class ScanCardTextField: UITextField {
 
     // MARK: - Constants
 
-    private static let overlayViewOffset: CGFloat = 4
+    private static let overlayViewOffset: CGFloat = 4.0
     private static let placeholderLabelKeypath = "_placeholderLabel"
     private static let scaleFactor: CGFloat = 0.5
 
