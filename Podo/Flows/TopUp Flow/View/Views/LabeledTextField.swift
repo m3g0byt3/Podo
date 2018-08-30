@@ -17,9 +17,14 @@ final class LabeledTextField: UIControl {
 
     typealias ButtonHandler = (LabeledTextField?) -> Void
 
+    // MARK: - Constants
+
+    private static var underlineWidth: CGFloat {
+        return 1.0 / UIScreen.main.scale
+    }
+
     // MARK: - Private Properties
 
-    private static var underlineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
     private weak var textField: ScanCardTextField?
     private weak var label: UILabel?
     private var colorObserver: NSKeyValueObservation?

@@ -14,8 +14,11 @@ import RealmSwift
 
     // MARK: - Properties
 
+    /// Item unique identifier.
     dynamic var identifier = 0
+    /// Side menu entry title.
     dynamic var title = ""
+    /// PNG Representation of side menu entry icon.
     dynamic var imageBlob: Data?
 
     // MARK: - Initialization

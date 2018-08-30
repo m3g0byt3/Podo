@@ -52,7 +52,6 @@ final class PaymentMethodsViewController: UIViewController,
     }
 
     private func setupBindings() {
-
         let identifier = R.nib.paymentMethodCell.identifier
         let type = PaymentMethodCell.self
 

@@ -23,7 +23,9 @@ final class TransportCard: Object {
     // MARK: - Properties
 
     /// Type of card
-    var cardType: TransportCardType { return TransportCardType(rawValue: _cardType) ?? .unknown }
+    var cardType: TransportCardType {
+        return TransportCardType(rawValue: _cardType) ?? .unknown
+    }
     /// Identifier of card, used by an API
     var cardIdentifier: Int {
         switch self.cardType {

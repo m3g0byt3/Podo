@@ -13,16 +13,29 @@ final class PaymentMethod: Object {
 
     // MARK: - Properties
 
-    var type: PaymentMethodType { return PaymentMethodType(rawValue: _type) ?? .unknown }
-    @objc private dynamic var _type = ""
+    /// PNG Representation of payment icon.
     @objc dynamic var imageBlob: Data?
+    /// The payment method is displayed or not.
     @objc dynamic var isVisible = false
+    /// The payment method is enabled or not.
     @objc dynamic var isEnabled = false
+    /// Unique identifier (`UUID`).
     @objc dynamic var identifier = ""
+    /// Private property for serialization/deserialization `PaymentMethodType` property.
+    @objc private dynamic var _type = ""
+    /// Type of payment method.
+    var type: PaymentMethodType {
+        return PaymentMethodType(rawValue: _type) ?? .unknown
+    }
 
     // MARK: - Initialization
 
-    convenience required init(type: PaymentMethodType, image: UIImage, enabled: Bool = false, visible: Bool = false) {
+    convenience required init(
+        type: PaymentMethodType,
+        image: UIImage,
+        enabled: Bool = false,
+        visible: Bool = false
+    ) {
         self.init()
         self._type = type.rawValue
         self.isEnabled = enabled

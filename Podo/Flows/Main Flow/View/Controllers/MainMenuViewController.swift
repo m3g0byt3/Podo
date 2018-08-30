@@ -129,7 +129,6 @@ final class MainMenuViewController: UIViewController,
 
         let image = viewModel.output.emptyImageBlob
             .asDriver(onErrorJustReturn: nil)
-            .debug()
             .filterNil()
             .map(UIImage.init)
             .filterNil()

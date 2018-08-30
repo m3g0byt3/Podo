@@ -982,8 +982,8 @@
 		41BDD5012055E85F0045A50A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4188E96F206FBB5C0097D3DF /* TransportCardType.swift */,
 				41541246206D701B0032B33C /* TransportCard.swift */,
+				4188E96F206FBB5C0097D3DF /* TransportCardType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
