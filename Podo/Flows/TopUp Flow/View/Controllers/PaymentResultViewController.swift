@@ -78,6 +78,7 @@ final class PaymentResultViewController: UIViewController,
 
     private lazy var imageView: UIImageView = { this in
         this.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        this.tintColor = R.clr.podoColors.grayText()
         this.contentMode = .scaleAspectFit
         return this
     }(UIImageView(image: image))
@@ -163,7 +164,9 @@ final class PaymentResultViewController: UIViewController,
     private func setupBindings() {
         titleLabel.text = viewModel.output.title
         messageLabel.text = viewModel.output.message
-        imageView.image = viewModel.output.imageBlob.flatMap(UIImage.init)
+        imageView.image = viewModel.output.imageBlob
+            .flatMap(UIImage.init)?
+            .withRenderingMode(.alwaysTemplate)
     }
 
     private func setupAutoDismissal() {
