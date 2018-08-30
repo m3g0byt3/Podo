@@ -19,6 +19,7 @@
 		4119ED7621124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4119ED7421124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift */; };
 		411C322520E00AA5008964AD /* PaymentCardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C322420E00AA5008964AD /* PaymentCardBackgroundView.swift */; };
 		411C322720E00B60008964AD /* CustomMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411C322620E00B60008964AD /* CustomMargin.swift */; };
+		411D37132137E0E900B497B2 /* AnyDatabaseService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411D37122137E0E900B497B2 /* AnyDatabaseService+Extensions.swift */; };
 		411F3E44204E1123002D466E /* RouterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411F3E43204E1123002D466E /* RouterAssembly.swift */; };
 		411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411F3E45204EF8B6002D466E /* RootViewController.storyboard */; };
 		412097461FDD701900AA16DB /* CardsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412097451FDD701900AA16DB /* CardsFlowLayout.swift */; };
@@ -236,6 +237,7 @@
 		4119ED7421124BD5009EDA42 /* PaymentCompositionSectionItemViewModelWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCompositionSectionItemViewModelWrapper.swift; sourceTree = "<group>"; };
 		411C322420E00AA5008964AD /* PaymentCardBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCardBackgroundView.swift; sourceTree = "<group>"; };
 		411C322620E00B60008964AD /* CustomMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMargin.swift; sourceTree = "<group>"; };
+		411D37122137E0E900B497B2 /* AnyDatabaseService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyDatabaseService+Extensions.swift"; sourceTree = "<group>"; };
 		411F3E43204E1123002D466E /* RouterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAssembly.swift; sourceTree = "<group>"; };
 		411F3E46204EF8B6002D466E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RootViewController.storyboard; sourceTree = "<group>"; };
 		412097451FDD701900AA16DB /* CardsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFlowLayout.swift; sourceTree = "<group>"; };
@@ -1108,6 +1110,7 @@
 				419007B420FD4BD500675B13 /* UIResponder+Extensions.swift */,
 				41947BDE2100E05600EA803A /* CGRect+Extensions.swift */,
 				414A2A372135657F00D7E5E2 /* UICollectionView+Extensions.swift */,
+				411D37122137E0E900B497B2 /* AnyDatabaseService+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1682,6 +1685,7 @@
 				4179E9F62046074D007CF219 /* DatabaseServiceProtocol.swift in Sources */,
 				418F79DE205D9B2800397B48 /* CardsViewModelProtocol.swift in Sources */,
 				417F78BF2119AA1900E87C82 /* AppDelegateConfigurable.swift in Sources */,
+				411D37132137E0E900B497B2 /* AnyDatabaseService+Extensions.swift in Sources */,
 				418AD788210DDEC6008E54E7 /* LabeledTextField.swift in Sources */,
 				4148964320669C3C00C3C000 /* HelpView.swift in Sources */,
 				41D1F16F1FC7864E00F12C20 /* SideMenuTransitioningDelegate.swift in Sources */,
