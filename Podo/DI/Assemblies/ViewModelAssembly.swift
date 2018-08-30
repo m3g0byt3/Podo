@@ -29,12 +29,12 @@ final class ViewModelAssembly: Assembly {
             return CardsViewModel(model)
         }
 
-        container.register(AnyViewModel<SideMenuCellViewModelProtocol>.self) { resolver in
+        container.register(SideMenuViewModelProtocol.self) { resolver in
             let dependencyType = AnyDatabaseService<SideMenuItem>.self
             guard let model = resolver.resolve(dependencyType) else {
                 unableToResolve(dependencyType)
             }
-            return AnyViewModel(SideMenuViewModel(model))
+            return SideMenuViewModel(model)
         }
 
         container.register(AddNewCardViewModelProtocol.self) { resolver in

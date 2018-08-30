@@ -37,7 +37,7 @@ final class ViewAssembly: Assembly {
 
         container.register(SideMenuView.self) { resolver in
             let viewController = SideMenuViewController()
-            viewController.viewModel = resolver.resolve(AnyViewModel<SideMenuCellViewModelProtocol>.self)
+            viewController.viewModel = resolver.resolve(SideMenuViewModelProtocol.self)
             return viewController
         }
 
