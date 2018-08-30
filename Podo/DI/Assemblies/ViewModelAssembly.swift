@@ -17,8 +17,12 @@ final class ViewModelAssembly: Assembly {
     // swiftlint:disable:next function_body_length
     func assemble(container: Container) {
 
-        container.register(AnyViewModel<MainMenuCellViewModelProtocol>.self) { _ in
-            return AnyViewModel(MainMenuViewModel())
+        container.register(MainMenuViewModel.self) { resolver in
+            let dependencyType = AnyDatabaseService<PaymentItem>.self
+            guard let model = resolver.resolve(dependencyType) else {
+                unableToResolve(dependencyType)
+            }
+            return MainMenuViewModel(model)
         }
 
         container.register(CardsViewModelProtocol.self) { resolver in

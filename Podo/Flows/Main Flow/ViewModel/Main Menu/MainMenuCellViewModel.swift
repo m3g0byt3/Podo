@@ -16,4 +16,8 @@ struct MainMenuCellViewModel: MainMenuCellViewModelProtocol,
 
     var input: MainMenuCellViewModelInputProtocol { return self }
     var output: MainMenuCellViewModelOutputProtocol { return self }
+
+    // MARK: - Initialization
+
+    init(_ model: PaymentItem) {}
 }

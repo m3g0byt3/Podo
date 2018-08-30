@@ -7,18 +7,48 @@
 //
 
 import Foundation
+import RxSwift
 
-final class MainMenuViewModel: MainMenuViewModelProtocol {
+final class MainMenuViewModel: MainMenuViewModelProtocol,
+                               MainMenuViewModelInputProtocol,
+                               MainMenuViewModelOutputProtocol {
 
-    // MARK: - MainMenuViewModel protocol conformance
+    // MARK: - MainMenuViewModelProtocol protocol conformance
 
-    func numberOfChildViewModels(in section: Int) -> Int {
-        // TODO: Add actual implementation
-        return 10
-    }
+    var input: MainMenuViewModelInputProtocol { return self }
+    var output: MainMenuViewModelOutputProtocol { return self }
 
-    func childViewModel(for indexPath: IndexPath) -> MainMenuCellViewModelProtocol {
-        // TODO: Add actual implementation
-        return MainMenuCellViewModel()
+    // MARK: - MainMenuViewModelOutputProtocol protocol conformance
+
+    let emptyTitle: Single<String>
+    let emptyMessage: Single<String>
+    let emptyImageBlob: Single<Data?>
+    let paymentResults: Observable<[MainMenuCellViewModelProtocol]>
+
+    // MARK: - Constants
+
+    private static let keyPath = #keyPath(PaymentItem.date)
+    private static let sortOption = SortOption.descending(keyPath: keyPath)
+
+    // MARK: - Private properties
+
+    private let model: AnyDatabaseService<PaymentItem>
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<PaymentItem>) {
+        self.model = model
+
+        self.emptyTitle = Single
+            .just(R.string.localizable.noTransaction())
+
+        self.emptyMessage = Single
+            .just(R.string.localizable.addCard())
+
+        self.emptyImageBlob = Single
+            .just(R.image.cryingCard()?.pngData())
+
+        self.paymentResults = model.itemsObservable(sorted: MainMenuViewModel.sortOption)
+            .map { $0.map(MainMenuCellViewModel.init) }
     }
 }
