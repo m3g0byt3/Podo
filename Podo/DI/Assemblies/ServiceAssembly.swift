@@ -39,6 +39,15 @@ final class ServiceAssembly: Assembly {
             return AnyDatabaseService<PaymentItem>(service)
         }
 
+        container.register(AnyDatabaseService<TransportCard>.self) { _ in
+            // Create custom configuration without `Object` subclasses shipped in bundled database files
+            let configuration = Realm.Configuration(objectTypes: [TransportCard.self, PaymentItem.self])
+            guard let service = try? RealmDatabaseService<TransportCard>(configuration: configuration) else {
+                unableToResolve(RealmDatabaseService<TransportCard>.self)
+            }
+            return AnyDatabaseService<TransportCard>(service)
+        }
+
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
             // Create custom configuration for bundled `sideMenuItemsRealm` database file
             let configuration = Realm.Configuration(fileURL: R.file.sideMenuItemsRealm(),
@@ -48,13 +57,6 @@ final class ServiceAssembly: Assembly {
                 unableToResolve(RealmDatabaseService<SideMenuItem>.self)
             }
             return AnyDatabaseService<SideMenuItem>(service)
-        }
-
-        container.register(AnyDatabaseService<TransportCard>.self) { _ in
-            guard let service = try? RealmDatabaseService<TransportCard>() else {
-                unableToResolve(RealmDatabaseService<TransportCard>.self)
-            }
-            return AnyDatabaseService<TransportCard>(service)
         }
 
         container.register(AnyDatabaseService<PaymentMethod>.self) { _ in
