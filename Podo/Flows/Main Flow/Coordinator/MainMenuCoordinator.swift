@@ -7,8 +7,25 @@
 //
 
 import Foundation
+import Swinject
 
 final class MainMenuCoordinator: AbstractCoordinator {
+
+    // MARK: - Private Properties
+
+    private let reportingService: ReportingServiceProtocol
+
+    // MARK: - Initialization
+
+    init(router: RouterProtocol, assembler: Assembler, reportingService: ReportingServiceProtocol) {
+        self.reportingService = reportingService
+        super.init(router: router, assembler: assembler)
+    }
+
+    @available(*, unavailable, message: "Use init(router:assembler:reportingService:) instead")
+    required init(router: RouterProtocol, assembler: Assembler) {
+        fatalError("Use init(router:assembler:reportingService:) instead")
+    }
 
     // MARK: - Private API
 
@@ -23,7 +40,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
             self?.startAddNewCardFlow()
         }
         view.onCardSelection = { [weak self] card in
-            self?.startTopUpFlowForCard(card)
+            self?.startTopUpFlowFor(card)
         }
         router.setRootView(view, animated: true, fullscreen: false)
     }
@@ -31,12 +48,15 @@ final class MainMenuCoordinator: AbstractCoordinator {
     private func showSideMenu() {
         guard let view = assembler.resolver.resolve(SideMenuView.self) else { return }
         view.onSideMenuEntrySelection = { [weak self] sideMenuItem in
+            let itemType = sideMenuItem.output.type
+            self?.reportingService.report(event: .sideMenuItemSelected(type: itemType))
             self?.router.dismiss(animated: true, completion: nil)
-            switch sideMenuItem.type {
+            switch sideMenuItem.output.type {
             case .main: self?.router.popToRootView(animated: false)
             case .settings: self?.startSettingsFlow()
             case .contacts: self?.showContacts()
             case .help: self?.showAbout()
+            case .unknown: break
             }
         }
         view.onSideMenuClose = { [weak self] in
@@ -65,8 +85,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func startSettingsFlow() {
         let coordinator = assembler.resolver.resolve(SideMenuCoordinator.self,
-                                                     flow: .settings,
-                                                     argument: router)
+                                                     flow: .settings)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
@@ -79,8 +98,7 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     private func startAddNewCardFlow() {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
-                                                     flow: .addNewCard,
-                                                     argument: router)
+                                                     flow: .addNewCard)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
@@ -88,17 +106,14 @@ final class MainMenuCoordinator: AbstractCoordinator {
         coordinator?.start()
     }
 
-    // FIXME: Use concrete type for `card` instance
-    private func startTopUpFlowForCard(_ card: Any) {
+    private func startTopUpFlowFor(_ card: TransportCardViewModelProtocol) {
         let coordinator = assembler.resolver.resolve(Coordinator.self,
-                                                     flow: .topUp,
-                                                     argument: router)
+                                                     flow: .topUp)
         addChild(coordinator)
         coordinator?.onFlowFinish = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
         }
-        // TODO: init `StartOption` with received card identifier
-        let option: StartOption = .topUp(cardIdentifier: "PASS_REAL_CARD_IDENTIFIER_HERE")
+        let option: StartOption = .topUp(transpordCard: card)
         coordinator?.start(with: option)
     }
 
@@ -110,8 +125,8 @@ final class MainMenuCoordinator: AbstractCoordinator {
 
     override func start(with option: StartOption?) {
         switch option {
-        // TODO: Find transport card by `cardIdentifier` and pass it to the `startTopUpFlowForCard` func
-        case .some(.topUp(let cardIdentifier)): startTopUpFlowForCard(cardIdentifier)
+        // TODO: Find transport card by `cardIdentifier` and pass it to the `startTopUpFlowFor(_:)` func
+        case .some(.topUp(let cardIdentifier)): assertionFailure("Using identifier \(cardIdentifier) not supported yet")
         case .some(.addNewCard): startAddNewCardFlow()
         case .some(.settings): startSettingsFlow()
         default: break

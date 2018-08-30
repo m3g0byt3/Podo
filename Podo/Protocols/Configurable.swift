@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- An object (UITableViewCell for example) that can be configured with view model
- */
+/// An object (UITableViewCell for example) that can be configured with view model
 protocol Configurable {
 
     associatedtype ViewModel

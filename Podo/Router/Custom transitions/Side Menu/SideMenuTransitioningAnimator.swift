@@ -6,6 +6,7 @@
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 final class SideMenuTransitioningAnimator: NSObject {
@@ -49,16 +50,18 @@ extension SideMenuTransitioningAnimator: UIViewControllerAnimatedTransitioning {
             animatedView = fromView
         }
 
-        UIView.animate(withDuration: Constant.AnimationDuration.normal, animations: {
-            animatedView.frame = finalViewFrame
-        }, completion: { _ in
-            let status = !transitionContext.transitionWasCancelled
-            // After a failed presentation or successful dismissal, remove the view.
-            if (self.presentationType == .dismissal && status) || (self.presentationType == .presentation && !status) {
-                animatedView.removeFromSuperview()
-            }
+        UIView.animate(
+            withDuration: Constant.AnimationDuration.normal,
+            animations: { animatedView.frame = finalViewFrame },
+            completion: { _ in
+                let status = !transitionContext.transitionWasCancelled
+                // After a failed presentation or successful dismissal, remove the view.
+                if (self.presentationType == .dismissal && status) || (self.presentationType == .presentation && !status) {
+                    animatedView.removeFromSuperview()
+                }
 
-            transitionContext.completeTransition(status)
-        })
+                transitionContext.completeTransition(status)
+            }
+        )
     }
 }

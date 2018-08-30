@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iKk-oP-fFi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iKk-oP-fFi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,9 +29,14 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-l0-fgk">
+                                <rect key="frame" x="187.5" y="363.5" width="0.0" height="0.0"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.83529411760000005" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="HY8-l0-fgk" firstAttribute="centerX" secondItem="61Q-Iz-yXF" secondAttribute="centerX" id="3wt-DZ-fFP"/>
+                            <constraint firstItem="HY8-l0-fgk" firstAttribute="bottom" secondItem="Ikm-v2-32J" secondAttribute="bottomMargin" multiplier="0.99" id="FPi-uP-Xu8"/>
                             <constraint firstItem="Ikm-v2-32J" firstAttribute="bottom" secondItem="61Q-Iz-yXF" secondAttribute="bottom" id="fso-Uo-Df2"/>
                             <constraint firstItem="Ikm-v2-32J" firstAttribute="top" secondItem="61Q-Iz-yXF" secondAttribute="top" id="iZ4-l8-hhr"/>
                             <constraint firstItem="Ikm-v2-32J" firstAttribute="leading" secondItem="61Q-Iz-yXF" secondAttribute="leading" id="pvj-tF-RNl"/>
@@ -55,6 +60,7 @@
                         <outlet property="collectionView" destination="Ikm-v2-32J" id="bQF-9C-aRT"/>
                         <outlet property="collectionViewBottomConstraint" destination="fso-Uo-Df2" id="apU-PY-oev"/>
                         <outlet property="collectionViewTopConstraint" destination="iZ4-l8-hhr" id="Iel-HP-yH9"/>
+                        <outlet property="pageControl" destination="HY8-l0-fgk" id="EFO-ba-njS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOX-pT-Stf" userLabel="First Responder" sceneMemberID="firstResponder"/>

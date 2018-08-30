@@ -2,15 +2,37 @@
 //  PaymentConfirmationViewModel.swift
 //  Podo
 //
-//  Created by m3g0byt3 on 21/06/2018.
+//  Created by m3g0byt3 on 06/08/2018.
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
 import Foundation
 import RxSwift
-import RxCocoa
+import BSK
 
-protocol PaymentConfirmationViewModel {
+struct PaymentConfirmationViewModel: PaymentConfirmationViewModelProtocol,
+                                     PaymentConfirmationViewModelInputProtocol,
+                                     PaymentConfirmationViewModelOutputProtocol {
 
-    var sections: Driver<[PaymentConfirmationSectionViewModelImpl]> { get }
+    // MARK: - PaymentAmountCellViewModelProtocol protocol conformance
+
+    var input: PaymentConfirmationViewModelInputProtocol { return self }
+    var output: PaymentConfirmationViewModelOutputProtocol { return self }
+
+    // MARK: - PaymentConfirmationViewModelOutputProtocol protocol conformance
+
+    let confirmationRequest: Single<URLRequest>
+    let validator: Single<BSKWebViewHandlerProtocol>
+    let paymentCompleted: Completable
+
+    // MARK: - Initialization
+
+    init(request: URLRequest, networkService: NetworkServiceProtocol) {
+        self.confirmationRequest = Single
+            .just(request)
+
+        self.validator = networkService.validator
+
+        self.paymentCompleted = networkService.paymentCompleted
+    }
 }

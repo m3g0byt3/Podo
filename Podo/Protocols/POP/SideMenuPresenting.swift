@@ -6,21 +6,18 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
-import ObjectiveC
+import ObjectiveC.runtime
 
-/**
- Constants for associated objects
- */
+/// Constants for associated objects
 private enum AssociatedKeys {
 
     static var buttonHandler: Void?
     static var recognizerHandler: Void?
 }
 
-/**
- Object that can present side menu.
- */
+/// Object that can present side menu.
 protocol SideMenuPresenting: class, Customizable {
 
     var onSideMenuSelection: Completion? { get set }

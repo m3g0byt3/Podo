@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Type-erasure wrapper for DatabaseService protocol
- */
+/// Type-erasure wrapper for DatabaseServiceProtocol protocol
 final class AnyDatabaseService<ItemType> {
 
     // MARK: - Properties
@@ -21,11 +19,11 @@ final class AnyDatabaseService<ItemType> {
     private let _deleteItem: (ItemType) throws -> Void
     private let _deleteItems: ([ItemType]) throws -> Void
     private let _fetch: (NSPredicate?, SortOption?, (@escaping ([ItemType]) -> Void)) throws -> Void
-    private let _update: (@escaping () -> Void) throws -> Void
+    private let _update: ([ItemType], @escaping ([ItemType]) -> Void) throws -> Void
 
     // MARK: - Initialization
 
-    init<DatabaseType: DatabaseService>(_ database: DatabaseType) where DatabaseType.Item == ItemType {
+    init<DatabaseType: DatabaseServiceProtocol>(_ database: DatabaseType) where DatabaseType.Item == ItemType {
         _saveItem = database.save
         _saveItems = database.save
         _deleteItem = database.delete
@@ -36,9 +34,9 @@ final class AnyDatabaseService<ItemType> {
     }
 }
 
-// MARK: - DatabaseService protocol conformance
+// MARK: - DatabaseServiceProtocol protocol conformance
 
-extension AnyDatabaseService: DatabaseService {
+extension AnyDatabaseService: DatabaseServiceProtocol {
 
     func save(item: ItemType) throws {
         return try _saveItem(item)
@@ -64,7 +62,7 @@ extension AnyDatabaseService: DatabaseService {
         return try _fetch(predicate, sorted, completion)
     }
 
-    func update(in block: @escaping () -> Void) throws {
-        return try _update(block)
+    func update(_ items: [ItemType], in block: @escaping ([ItemType]) -> Void) throws {
+        return try _update(items, block)
     }
 }

@@ -6,11 +6,10 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-/**
- Object that can initiate and update interactive transitions (presentation/dismissal).
- */
+/// Object that can initiate and update interactive transitions (presentation/dismissal).
 protocol InteractiveTransitioningCapable: class {
 
     var isTransitionInteractive: Bool { get set }

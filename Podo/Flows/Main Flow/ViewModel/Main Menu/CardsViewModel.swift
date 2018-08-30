@@ -8,9 +8,31 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
-protocol CardsViewModel {
+final class CardsViewModel: CardsViewModelProtocol,
+                            CardsViewModelInputProtocol,
+                            CardsViewModelOutputProtocol {
 
-    var childViewModels: Driver<[CardsCellViewModel]> { get }
+    // MARK: - Properties
+
+    private let model: AnyDatabaseService<TransportCard>
+
+    // MARK: - CardsViewModelProtocol protocol conformance
+
+    var input: CardsViewModelInputProtocol { return self }
+    var output: CardsViewModelOutputProtocol { return self }
+
+    // MARK: - CardsViewModelOutputProtocol protocol conformance
+
+    lazy var cardsViewModels: Observable<[TransportCardViewModelProtocol]> = {
+        return model.itemsObservable()
+            .map { $0.map(TransportCardViewModel.init) }
+            .share()
+    }()
+
+    // MARK: - Initialization
+
+    init(_ model: AnyDatabaseService<TransportCard>) {
+        self.model = model
+    }
 }

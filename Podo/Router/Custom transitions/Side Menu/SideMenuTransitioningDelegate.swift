@@ -6,9 +6,11 @@
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class SideMenuTransitioningDelegate: NSObject, InteractiveTransitioningDelegate {
+final class SideMenuTransitioningDelegate: NSObject,
+                                           InteractiveTransitioningDelegate {
 
     // MARK: - Properties
 
@@ -42,13 +44,15 @@ final class SideMenuTransitioningDelegate: NSObject, InteractiveTransitioningDel
 
 extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
 
+    typealias AnimatorProtocol = UIViewControllerAnimatedTransitioning
+
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
-                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+                             source: UIViewController) -> AnimatorProtocol? {
         return SideMenuTransitioningAnimator(for: .presentation)
     }
 
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> AnimatorProtocol? {
         return SideMenuTransitioningAnimator(for: .dismissal)
     }
 
@@ -58,11 +62,11 @@ extension SideMenuTransitioningDelegate: UIViewControllerTransitioningDelegate {
         return SideMenuPresentationController(presentedViewController: presented, presenting: presenting)
     }
 
-    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForPresentation(using animator: AnimatorProtocol) -> UIViewControllerInteractiveTransitioning? {
         return isTransitionInteractive ? interactorForPresentationOfType(.presentation) : nil
     }
 
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForDismissal(using animator: AnimatorProtocol) -> UIViewControllerInteractiveTransitioning? {
         return isTransitionInteractive ? interactorForPresentationOfType(.dismissal) : nil
     }
 }

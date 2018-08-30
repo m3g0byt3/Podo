@@ -6,6 +6,7 @@
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
@@ -39,17 +40,19 @@ final class CardsCollectionViewCell: UICollectionViewCell {
 
 extension CardsCollectionViewCell: Configurable {
 
-    typealias ViewModel = CardsCellViewModel
+    typealias ViewModel = TransportCardViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: CardsCellViewModel) -> Self {
+    func configure(with viewModel: TransportCardViewModelProtocol) -> Self {
 
-        viewModel.cardTitle
+        viewModel.output.cardNumber
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(cardNumberLabel.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel.cardTheme
+        viewModel.output.cardTheme
             .map { [$0.firstGradientColor, $0.secondGradientColor] }
+            .asDriver(onErrorJustReturn: [])
             .drive(cardView.rx.gradientColors)
             .disposed(by: disposeBag)
 

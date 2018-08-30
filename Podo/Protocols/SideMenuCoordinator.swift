@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Represents `Coordinator` instance that can handle side menu requests from its view.
- */
+/// Represents `Coordinator` instance that can handle side menu requests from its view.
 protocol SideMenuCoordinator: Coordinator {
 
     var onSideMenuFlowStart: Completion? { get set }

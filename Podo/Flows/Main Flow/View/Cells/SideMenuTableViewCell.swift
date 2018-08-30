@@ -6,6 +6,7 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 final class SideMenuTableViewCell: UITableViewCell {
@@ -37,12 +38,13 @@ final class SideMenuTableViewCell: UITableViewCell {
 
 extension SideMenuTableViewCell: Configurable {
 
-    typealias ViewModel = SideMenuCellViewModel
+    typealias ViewModel = SideMenuCellViewModelProtocol
 
     @discardableResult
-    func configure(with viewModel: SideMenuCellViewModel) -> Self {
-        customTextLabel.text = viewModel.title
-        customImageView.image = viewModel.image
+    func configure(with viewModel: SideMenuCellViewModelProtocol) -> Self {
+        customTextLabel.text = viewModel.output.title
+        customImageView.image = viewModel.output.imageBlob.flatMap(UIImage.init)
+
         return self
     }
 }

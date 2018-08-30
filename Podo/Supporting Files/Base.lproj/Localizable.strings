@@ -26,3 +26,32 @@
 "yandexMoney" = "Yandex.Money";
 "qiwiWallet" = "QIWI Wallet";
 "cellphoneBalance" = "Cellphone balance";
+
+// MARK: - Payment Confirmation Localization
+
+"payment-card-section" = "Payment card";
+"transport-card-section" = "Transport card";
+"amount-field-section" = "Amount to pay";
+"card-cell-title" = "Enter card details";
+"card-cell-number-label" = "Card number";
+"card-cell-expiration-label" = "Expiration";
+"card-cell-cvv-label" = "CVC/CVV code";
+"start-topup-button" = "Top-up";
+
+// MARK: - Payment Confirmation Localization
+
+"error-title" = "Payment error";
+"success-title" = "Successful payment";
+"success-message" = "Don't forget to activate your payment using validator.";
+
+// MARK: - Payment errors Localization
+
+"Maintenance mode on back-end, please try again later." = "Maintenance mode, please try again later.";
+"Incorrect transport card number." = "Incorrect transport card number.";
+"Incorrect top-up amount. Allowed top-up amount: from 1₽ to 14500₽." = "Incorrect top-up amount. Allowed top-up amount: from 1₽ to 14500₽.";
+"Unable to top-up transport card." = "Unable to top-up transport card.";
+"Another payment request in progress." = "Another payment request in progress.";
+"Currently supported payments methods: \"Credit card\"." = "Currently supported payments methods: \"Credit card\".";
+"Unable to receive server's response." = "Unable to receive server's response.";
+"Unknown underlying error: %d." = "Unknown underlying error: %d.";
+"Unknown underlying error." = "Unknown underlying error.";

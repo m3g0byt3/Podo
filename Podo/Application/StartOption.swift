@@ -6,14 +6,14 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 enum StartOption {
 
     case tutorial
     case settings
-    // swiftlint:disable:next identifier_name
-    case topUp(cardIdentifier: String)
+    case topUp(transpordCard: TransportCardViewModelProtocol)
     case addNewCard
 
     // MARK: - Constants
@@ -31,24 +31,30 @@ enum StartOption {
     // MARK: - Initialization
 
     init?(with shortcutItem: UIApplicationShortcutItem) {
-        guard let shortcutType = shortcutItem.type.components(separatedBy: ".").last,
-            let shortcutIdentifier = ShortcutItemIdentifiers(rawValue: shortcutType) else {
-                return nil
-        }
+        guard
+            let shortcutType = shortcutItem.type.components(separatedBy: ".").last,
+            let shortcutIdentifier = ShortcutItemIdentifiers(rawValue: shortcutType)
+        else { return nil }
 
         switch shortcutIdentifier {
         case .addNewCard: self = .addNewCard
-        // TODO: Extract card identifier from `userInfo` of `UIApplicationShortcutItem`
-        case .topUpCard: self = .topUp(cardIdentifier: "cardIdentifier")
         case .openSettings: self = .settings
+        // TODO: Add actual implementation: extract card identifier from `userInfo` of `UIApplicationShortcutItem`
+        case .topUpCard:
+            assertionFailure("Not implemented")
+            return nil
         }
     }
 
     init?(with notificationUserInfo: NotificationUserInfo) {
-        notImplemented()
+        // TODO: Add actual implementation
+        assertionFailure("Not implemented")
+        return nil
     }
 
     init?(with userActivity: NSUserActivity) {
-        notImplemented()
+        // TODO: Add actual implementation
+        assertionFailure("Not implemented")
+        return nil
     }
 }

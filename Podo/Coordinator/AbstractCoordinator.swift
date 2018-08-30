@@ -13,14 +13,14 @@ class AbstractCoordinator: Coordinator {
 
     // MARK: - Properties
 
-    let router: Router
+    let router: RouterProtocol
     let assembler: Assembler
     var coordinators = [Coordinator]()
     var onFlowFinish: Completion?
 
     // MARK: - Initialization
 
-    required init(router: Router, assembler: Assembler) {
+    required init(router: RouterProtocol, assembler: Assembler) {
         // Avoid initialization of abstract class
         guard type(of: self) != AbstractCoordinator.self else {
             fatalError("Create a subclass instance of abstract class \(AbstractCoordinator.self).")
@@ -35,8 +35,10 @@ class AbstractCoordinator: Coordinator {
     }
 
     final func removeChild(_ coordinator: Coordinator?) {
-        guard let coordinator = coordinator,
-            let index = coordinators.index(where: { $0 === coordinator }) else { return }
+        guard
+            let coordinator = coordinator,
+            let index = coordinators.index(where: { $0 === coordinator })
+        else { return }
         coordinators.remove(at: index)
     }
 

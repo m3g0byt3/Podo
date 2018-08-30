@@ -6,9 +6,12 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class ContactsViewController: UIViewController, ContactsView, TrainIconTitleView {
+final class ContactsViewController: UIViewController,
+                                    ContactsView,
+                                    TrainIconTitleView {
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
 

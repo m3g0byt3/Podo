@@ -6,28 +6,26 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-/**
- Gradient view with up to four gradient colors.
- */
+/// Gradient view with up to four gradient colors.
 @IBDesignable
 class GradientView: UIView {
-    /**
-     Represents direction of the gradient.
 
-     Raw values:
-     - Left To Right = 0
-     - Right To Left = 1
-     - Top To Bottom = 2
-     - Bottom To Top = 3
-     - Top Left To Bottom Right = 4
-     - Bottom Left To Top Right = 5
-     - Top Right To Bottom Left = 6
-     - Bottom Right To Top Left = 7
-     */
+    /// Represents direction of the gradient.
+    ///
+    /// Raw values:
+    /// - Left To Right = 0
+    /// - Right To Left = 1
+    /// - Top To Bottom = 2
+    /// - Bottom To Top = 3
+    /// - Top Left To Bottom Right = 4
+    /// - Bottom Left To Top Right = 5
+    /// - Top Right To Bottom Left = 6
+    /// - Bottom Right To Top Left = 7
     enum Direction: Int {
-
+        // swiftlint:disable:next strict_fileprivate
         fileprivate var points: (startPoint: CGPoint, endPoint: CGPoint) {
             switch self {
             case .leftToRight: return (CGPoint(x: 0, y: 0.5), CGPoint(x: 1, y: 0.5))

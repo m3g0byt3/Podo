@@ -8,10 +8,8 @@
 
 import Foundation
 
-/**
- Strongly-typed representation of model type
- - Remark: Raw value is `String` - for serialization/deserialization
- */
+/// Strongly-typed representation of model type
+/// - Remark: Raw value is `String` - for serialization/deserialization
 enum PaymentMethodType: String {
 
     case applePay
@@ -19,4 +17,5 @@ enum PaymentMethodType: String {
     case cellphoneBalance
     case yandexMoney
     case qiwiWallet
+    case unknown
 }

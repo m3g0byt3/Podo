@@ -9,9 +9,7 @@
 import Foundation
 import UIKit.UIColor
 
-/**
- Represents color theme for transport card.
- */
+/// Represents color theme for transport card.
 enum TransportCardTheme: Int {
 
     case green

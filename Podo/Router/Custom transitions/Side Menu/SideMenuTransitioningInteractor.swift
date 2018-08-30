@@ -6,6 +6,7 @@
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransition {
@@ -43,7 +44,7 @@ final class SideMenuTransitioningInteractor: UIPercentDrivenInteractiveTransitio
         case .changed:
             update(transitionPercentageFor(gestureRecognizer, in: container))
         default:
-            if (transitionPercentageFor(gestureRecognizer, in: container) > boundaryTransitionPercentage) {
+            if transitionPercentageFor(gestureRecognizer, in: container) > boundaryTransitionPercentage {
                 finish()
             } else {
                 cancel()

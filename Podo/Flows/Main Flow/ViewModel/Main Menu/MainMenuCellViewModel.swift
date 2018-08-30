@@ -8,7 +8,16 @@
 
 import Foundation
 
-protocol MainMenuCellViewModel {
+struct MainMenuCellViewModel: MainMenuCellViewModelProtocol,
+                              MainMenuCellViewModelInputProtocol,
+                              MainMenuCellViewModelOutputProtocol {
 
-    // TODO: Add actual implementation
+    // MARK: - MainMenuCellViewModelProtocol protocol conformance
+
+    var input: MainMenuCellViewModelInputProtocol { return self }
+    var output: MainMenuCellViewModelOutputProtocol { return self }
+
+    // MARK: - Initialization
+
+    init(_ model: PaymentItem) {}
 }

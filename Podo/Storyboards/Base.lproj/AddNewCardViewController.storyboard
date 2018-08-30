@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="26I-fw-nSe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="26I-fw-nSe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,22 +19,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmv-6a-fgN" customClass="RoundShadowView" customModule="Podo" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="20" width="300" height="188.5"/>
+                                <rect key="frame" x="19" y="20" width="337.5" height="212"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="Enter card number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="157" width="284" height="24"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xb-iK-97Z">
+                                        <rect key="frame" x="8" y="184" width="321.5" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" text="%prefix%" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egM-Nx-svu">
+                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="20"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" placeholder="%Placeholder%" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-mh-FZG" customClass="ScanCardTextField" customModule="Podo" customModuleProvider="target">
+                                                <rect key="frame" x="67.5" y="0.0" width="254" height="20"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kmv-6a-fgN" secondAttribute="height" multiplier="1:0.628" id="O1l-qP-s4t" userLabel="Credit Card Aspect Ratio"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="XMw-mh-FZG" secondAttribute="bottom" id="R4h-ne-CPG"/>
-                                    <constraint firstItem="XMw-mh-FZG" firstAttribute="leadingMargin" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" constant="8" id="plt-Zc-JNM"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="XMw-mh-FZG" secondAttribute="trailingMargin" constant="8" id="w6F-nE-Ava"/>
+                                    <constraint firstItem="5Xb-iK-97Z" firstAttribute="leading" secondItem="Kmv-6a-fgN" secondAttribute="leadingMargin" id="bbK-5M-nmR"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="5Xb-iK-97Z" secondAttribute="trailing" id="eVa-1W-0I7"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="5Xb-iK-97Z" secondAttribute="bottom" id="rSd-dQ-bKY"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="gradientDirection">
@@ -49,7 +57,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-Kq-w2a">
-                                <rect key="frame" x="16" y="228.5" width="343" height="36.5"/>
+                                <rect key="frame" x="16" y="252" width="343" height="36"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-Ul-4Gt" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -76,7 +84,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-56-ZzX" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="88" y="0.0" width="35.5" height="36.5"/>
+                                        <rect key="frame" x="88" y="0.0" width="35.5" height="36"/>
                                         <color key="backgroundColor" red="0.99055147170000002" green="0.50925779339999999" blue="0.032983742650000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SU7-56-ZzX" secondAttribute="height" multiplier="1:1" id="Uqh-JA-gyK"/>
@@ -124,7 +132,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Db-rM3" customClass="RoundShadowButton" customModule="Podo" customModuleProvider="target">
-                                        <rect key="frame" x="263.5" y="0.0" width="35.5" height="36.5"/>
+                                        <rect key="frame" x="263.5" y="0.0" width="35.5" height="36"/>
                                         <color key="backgroundColor" red="0.27237486840000003" green="0.23386213180000001" blue="0.80089795590000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Fe-Db-rM3" secondAttribute="height" multiplier="1:1" id="aPN-VT-w0a"/>
@@ -154,7 +162,7 @@
                         <constraints>
                             <constraint firstItem="Kmv-6a-fgN" firstAttribute="centerX" secondItem="AQw-3e-Onh" secondAttribute="centerX" id="LBy-yh-XXh"/>
                             <constraint firstItem="Kmv-6a-fgN" firstAttribute="top" secondItem="AQw-3e-Onh" secondAttribute="topMargin" constant="20" id="Yuu-7H-15Z"/>
-                            <constraint firstItem="Kmv-6a-fgN" firstAttribute="width" secondItem="AQw-3e-Onh" secondAttribute="width" multiplier="0.8" id="dsq-Fl-0qz"/>
+                            <constraint firstItem="Kmv-6a-fgN" firstAttribute="width" secondItem="AQw-3e-Onh" secondAttribute="width" multiplier="0.9" id="dsq-Fl-0qz"/>
                             <constraint firstItem="c9i-Kq-w2a" firstAttribute="top" secondItem="Kmv-6a-fgN" secondAttribute="bottom" constant="20" id="lfC-oS-bnF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c9i-Kq-w2a" secondAttribute="trailingMargin" id="q0J-ql-T6E"/>
                             <constraint firstItem="c9i-Kq-w2a" firstAttribute="leadingMargin" secondItem="AQw-3e-Onh" secondAttribute="leadingMargin" id="tcp-rR-puZ"/>
@@ -166,6 +174,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="cardNumberPrefixLabel" destination="egM-Nx-svu" id="a5F-30-2Z0"/>
                         <outlet property="cardNumberTextField" destination="XMw-mh-FZG" id="PBX-Cp-bEt"/>
                         <outlet property="cardView" destination="Kmv-6a-fgN" id="BHy-g7-d7l"/>
                         <outlet property="saveButton" destination="Fwe-79-lKU" id="Lgg-W8-Fzf"/>

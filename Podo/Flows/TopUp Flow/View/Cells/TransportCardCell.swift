@@ -6,6 +6,51 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
-class TransportCardCell: UITableViewCell {}
+final class TransportCardCell: UITableViewCell {
+
+    // MARK: - IBOutlets
+
+    @IBOutlet private weak var transportCardView: RoundShadowView!
+    @IBOutlet private weak var transportCardLabel: UILabel!
+
+    // MARK: - Properties
+
+    private var disposeBag = DisposeBag()
+
+    // MARK: - Public API
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Create new dispose bag on every re-use of the cell
+        disposeBag = DisposeBag()
+    }
+}
+
+// MARK: - Configurable protocol conformance
+
+extension TransportCardCell: Configurable {
+
+    typealias ViewModel = TransportCardViewModelProtocol
+
+    @discardableResult
+    func configure(with viewModel: ViewModel) -> Self {
+
+        viewModel.output.cardNumber
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(transportCardLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.cardTheme
+            .map { [$0.firstGradientColor, $0.secondGradientColor] }
+            .asDriver(onErrorJustReturn: [])
+            .drive(transportCardView.rx.gradientColors)
+            .disposed(by: disposeBag)
+
+        return self
+    }
+}

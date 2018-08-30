@@ -7,11 +7,27 @@
 //
 
 import Foundation
-import UIKit.UIImage
 
-protocol SideMenuCellViewModel {
+struct SideMenuCellViewModel: SideMenuCellViewModelProtocol,
+                              SideMenuCellViewModelInputProtocol,
+                              SideMenuCellViewModelOutputProtocol {
 
-    var title: String { get }
-    var type: SideMenuItemType { get }
-    var image: UIImage? { get }
+    // MARK: - SideMenuCellViewModelProtocol protocol conformance
+
+    var input: SideMenuCellViewModelInputProtocol { return self }
+    var output: SideMenuCellViewModelOutputProtocol { return self }
+
+    // MARK: - SideMenuCellViewModelOutputProtocol protocol conformance
+
+    let title: String
+    let type: SideMenuItemType
+    let imageBlob: Data?
+
+    // MARK: - Initialization
+
+    init(_ model: SideMenuItem) {
+        self.title = model.title.localized
+        self.imageBlob = model.imageBlob
+        self.type = SideMenuItemType(rawValue: model.title) ?? .unknown
+    }
 }

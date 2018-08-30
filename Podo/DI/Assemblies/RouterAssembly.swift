@@ -13,12 +13,30 @@ final class RouterAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(Router.self) { _, rootViewController in
-            return RouterImpl(rootViewController, assembler: ApplicationAssembler.defaultAssembler)
-        }
+        container.register(RouterProtocol.self) { resolver in
+            let rootViewDependencyType = UINavigationController.self
+            let themeAdapterDependencyType = ThemeAdapterProtocol.self
+
+            guard let themeAdapter = resolver.resolve(themeAdapterDependencyType) else {
+                unableToResolve(themeAdapterDependencyType)
+            }
+            guard let rootView = resolver.resolve(rootViewDependencyType) else {
+                unableToResolve(rootViewDependencyType)
+            }
+
+            return Router(rootViewController: rootView,
+                          themeAdapter: themeAdapter,
+                          assembler: ApplicationAssembler.defaultAssembler)
+
+        }.inObjectScope(.weak)
+        // swiftlint:disable:previous multiline_function_chains
 
         container.register(InteractiveTransitioningDelegate.self) { _ in
             return SideMenuTransitioningDelegate()
+        }
+
+        container.register(UIViewControllerTransitioningDelegate.self) { _ in
+            return CardViewTransitioningDelegate()
         }
     }
 }

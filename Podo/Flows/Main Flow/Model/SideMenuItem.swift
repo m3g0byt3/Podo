@@ -9,15 +9,16 @@
 import Foundation
 import RealmSwift
 
-/**
- Represents entry in side menu, stored in bundled Realm database
- */
+/// Represents entry in side menu, stored in bundled Realm database
 @objcMembers final class SideMenuItem: Object {
 
     // MARK: - Properties
 
+    /// Item unique identifier.
     dynamic var identifier = 0
+    /// Side menu entry title.
     dynamic var title = ""
+    /// PNG Representation of side menu entry icon.
     dynamic var imageBlob: Data?
 
     // MARK: - Initialization

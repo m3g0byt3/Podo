@@ -1,9 +1,0 @@
-
-/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "0U0-hj-xWj"; */
-"0U0-hj-xWj.normalTitle" = "Next";
-
-/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "Ej5-0X-Cyo"; */
-"Ej5-0X-Cyo.normalTitle" = "Skip";
-
-/* Class = "UILabel"; text = "TutorialViewController"; ObjectID = "IEn-fa-qtU"; */
-"IEn-fa-qtU.text" = "TutorialViewController";

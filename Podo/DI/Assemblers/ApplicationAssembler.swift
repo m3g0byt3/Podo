@@ -12,9 +12,8 @@ import Swinject
 final class ApplicationAssembler {
 
     // MARK: - Properties
-    /**
-     Default assembler with bundled assemblies
-     */
+
+    /// Default assembler with bundled assemblies
     static var defaultAssembler = {
         return Assembler([
             CoordinatorAssembly(),
@@ -22,18 +21,17 @@ final class ApplicationAssembler {
             ViewModelAssembly(),
             ViewAssembly(),
             ServiceAssembly(),
-            ThemeAssembly()
+            HelperAssembly()
         ])
     }()
 
     var assembler: Assembler
 
     // MARK: - Initialization
-    /**
-     Create custom assembler with given assemblies
-     - parameter assemblies: Array of assemblies
-     */
+
+    /// Create custom assembler with given assemblies
+    /// - parameter assemblies: Array of assemblies
     init(assemblies: [Assembly]) {
-        assembler = Assembler(assemblies)
+        self.assembler = Assembler(assemblies)
     }
 }

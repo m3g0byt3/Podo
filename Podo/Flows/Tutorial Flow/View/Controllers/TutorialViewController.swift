@@ -6,9 +6,11 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class TutorialViewController: UIViewController, TutorialView {
+final class TutorialViewController: UIViewController,
+                                    TutorialView {
 
     // MARK: - TutorialView protocol conformance
 

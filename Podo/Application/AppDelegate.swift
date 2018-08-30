@@ -5,34 +5,35 @@
 //  Created by m3g0byt3 on 23/11/2017.
 //  Copyright © 2017 m3g0byt3. All rights reserved.
 //
-// swiftlint:disable force_try force_cast
 
+import Foundation
 import UIKit
 
 @UIApplicationMain
-final class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder,
+                         UIApplicationDelegate,
+                         AppDelegateConfigurable {
 
     // MARK: - Properties
 
     var window: UIWindow?
-    var coordinator: Coordinator?
-    var rootViewController: UINavigationController {
-        return window!.rootViewController as! UINavigationController
-    }
+    var rootView: UIViewController? { return window?.rootViewController }
+    var rootCoordinator: Coordinator?
 
     // MARK: - UIApplicationDelegate protocol conformance
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Perform initial DI
-        try! AppDelegateAssembler().assemble(appDelegate: self)
+        // swiftlint:disable:next force_try
+        try! AppDelegateConfigurator().configure(self)
         // Handle cold start from 3Dtouch shortcuts
         var startOption: StartOption?
 
         if let shortcutItem = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {
             startOption = StartOption(with: shortcutItem)
         }
-        coordinator?.start(with: startOption)
+        rootCoordinator?.start(with: startOption)
 
         return startOption == nil
     }
@@ -43,7 +44,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                      performActionFor shortcutItem: UIApplicationShortcutItem,
                      completionHandler: @escaping (Bool) -> Void) {
         let startOption = StartOption(with: shortcutItem)
-        coordinator?.start(with: startOption)
+        rootCoordinator?.start(with: startOption)
         completionHandler(startOption != nil)
     }
 
@@ -52,7 +53,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         let startOption = StartOption(with: userInfo)
-        coordinator?.start(with: startOption)
+        rootCoordinator?.start(with: startOption)
     }
 
     // MARK: - Handle Handoff
@@ -61,7 +62,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         let startOption = StartOption(with: userActivity)
-        coordinator?.start(with: startOption)
+        rootCoordinator?.start(with: startOption)
         return true
     }
 }

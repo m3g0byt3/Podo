@@ -6,9 +6,12 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class HelpViewController: UIViewController, HelpView, TrainIconTitleView {
+final class HelpViewController: UIViewController,
+                                HelpView,
+                                TrainIconTitleView {
 
     // MARK: - InteractiveTransitioningCapable protocol conformance
 

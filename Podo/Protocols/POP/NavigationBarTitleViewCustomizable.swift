@@ -6,11 +6,10 @@
 //  Copyright © 2018 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-/**
- `UIViewController` instance with custom `UIView` set as `UINavigationItem's titleView`
- */
+/// `UIViewController` instance with custom `UIView` set as `UINavigationItem's titleView`
 protocol NavigationBarTitleViewCustomizable: Customizable {
 
     var titleView: UIView { get }
