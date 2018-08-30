@@ -29,8 +29,8 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-l0-fgk">
-                                <rect key="frame" x="152" y="326.5" width="71" height="37"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="HY8-l0-fgk">
+                                <rect key="frame" x="187.5" y="363.5" width="0.0" height="0.0"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352939999997" green="0.83529411760000005" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
