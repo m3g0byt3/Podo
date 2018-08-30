@@ -18,6 +18,7 @@ final class TransportCard: Object {
     private static let unknownIdentifier = 0
     private static let podorozhnikIdentifier = 1
     private static let sputnikIdentifier = 2
+    private static let paymentItemProperty = #keyPath(PaymentItem.transportCard)
 
     // MARK: - Properties
 
@@ -37,6 +38,8 @@ final class TransportCard: Object {
     @objc private dynamic var _cardType = 0
     /// Visual theme identifier for a card
     @objc dynamic var themeIdentifier = 0
+    // All payments made to this card
+    let payments = LinkingObjects(fromType: PaymentItem.self, property: TransportCard.paymentItemProperty)
 
     // MARK: - Initialization
 
