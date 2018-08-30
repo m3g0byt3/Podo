@@ -50,5 +50,6 @@ final class MainMenuViewModel: MainMenuViewModelProtocol,
 
         self.paymentResults = model.itemsObservable(sorted: MainMenuViewModel.sortOption)
             .map { $0.map(MainMenuCellViewModel.init) }
+            .share()
     }
 }

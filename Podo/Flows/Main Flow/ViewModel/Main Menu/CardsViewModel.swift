@@ -27,6 +27,7 @@ final class CardsViewModel: CardsViewModelProtocol,
     lazy var cardsViewModels: Observable<[TransportCardViewModelProtocol]> = {
         return model.itemsObservable()
             .map { $0.map(TransportCardViewModel.init) }
+            .share()
     }()
 
     // MARK: - Initialization

@@ -41,6 +41,7 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
         let predicate = PaymentMethodViewModel.filterPredicate
         return model.itemsObservable(isCompleted: true, predicate: predicate)
             .map { $0.map(PaymentMethodCellViewModel.init) }
+            .share()
     }()
 
     // MARK: - Initialization

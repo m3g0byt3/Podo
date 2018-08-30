@@ -33,6 +33,7 @@ final class SideMenuViewModel: SideMenuViewModelProtocol,
         let sortOption = SideMenuViewModel.sortOption
         return model.itemsObservable(isCompleted: true, sorted: sortOption)
             .map { $0.map(SideMenuCellViewModel.init) }
+            .share()
     }()
 
     // MARK: - Initialization
