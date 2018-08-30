@@ -30,6 +30,15 @@ final class ServiceAssembly: Assembly {
         }.inObjectScope(.weak)
         // swiftlint:disable:previous multiline_function_chains
 
+        container.register(AnyDatabaseService<PaymentItem>.self) { _ in
+            // Create custom configuration without `Object` subclasses shipped in bundled database files.
+            let configuration = Realm.Configuration(objectTypes: [TransportCard.self, PaymentItem.self])
+            guard let service = try? RealmDatabaseService<PaymentItem>(configuration: configuration) else {
+                unableToResolve(RealmDatabaseService<PaymentItem>.self)
+            }
+            return AnyDatabaseService<PaymentItem>(service)
+        }
+
         container.register(AnyDatabaseService<SideMenuItem>.self) { _ in
             // Create custom configuration for bundled `sideMenuItemsRealm` database file
             let configuration = Realm.Configuration(fileURL: R.file.sideMenuItemsRealm(),

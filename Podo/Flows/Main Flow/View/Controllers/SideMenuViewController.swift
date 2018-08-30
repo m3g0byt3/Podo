@@ -9,63 +9,12 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class SideMenuViewController: UIViewController,
                                     SideMenuView,
                                     InteractiveTransitioningCapable {
-
-    // MARK: - Properties
-
-    // swiftlint:disable:next implicitly_unwrapped_optional
-    private weak var navigationBar: UINavigationBar!
-    // swiftlint:disable:next implicitly_unwrapped_optional
-    var viewModel: AnyViewModel<SideMenuCellViewModelProtocol>!
-
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-
-    // MARK: - Lifecycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupMiscellaneousUI()
-        setupTableView()
-    }
-
-    // MARK: - Private API
-
-    private func setupTableView() {
-        let rowCount = viewModel.numberOfChildViewModels(in: 0)
-        // `-1` for hidden bottom separator
-        let tableViewHeight = CGFloat(rowCount) * Constant.SideMenu.rowHeight - 1
-        let tableView = UITableView()
-
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.isScrollEnabled = false
-        tableView.separatorStyle = .singleLine
-        tableView.separatorColor = R.clr.podoColors.white()
-        tableView.rowHeight = Constant.SideMenu.rowHeight
-        tableView.register(R.nib.sideMenuTableViewCell)
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(navigationBar.snp.bottom)
-            make.height.equalTo(tableViewHeight)
-        }
-    }
-
-    private func setupMiscellaneousUI() {
-        let navigationBar = UINavigationBar()
-
-        navigationBar.delegate = self
-        self.navigationBar = navigationBar
-        view.addSubview(navigationBar)
-        view.backgroundColor = R.clr.podoColors.green()
-        navigationBar.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-        }
-    }
 
     // MARK: - SideMenuView protocol conformance
 
@@ -76,38 +25,92 @@ final class SideMenuViewController: UIViewController,
 
     var isTransitionInteractive = false
     var onInteractiveTransition: ((UIPanGestureRecognizer) -> Void)?
-}
 
-// MARK: - UINavigationBarDelegate protocol conformance
+    // MARK: - Public Properties
 
-extension SideMenuViewController: UINavigationBarDelegate {
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    var viewModel: SideMenuViewModelProtocol!
 
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
-
-// MARK: - UITableViewDataSource protocol conformance
-
-extension SideMenuViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfChildViewModels(in: section)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_unwrapping
-        return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sideMenuTableViewCell, for: indexPath)!
-            .configure(with: viewModel.childViewModel(for: indexPath))
+    // MARK: - Private Properties
+
+    private let disposeBag = DisposeBag()
+
+    private var tableViewHeight: CGFloat {
+        let rowCount = tableView.numberOfRows(inSection: 0)
+        // Subtract 1 pt to hide bottom separator
+        return CGFloat(rowCount) * Constant.SideMenu.rowHeight - 1
     }
-}
 
-// MARK: - UITableViewDelegate protocol conformance
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(R.nib.sideMenuTableViewCell)
+        tableView.isScrollEnabled = false
+        tableView.separatorColor = R.clr.podoColors.white()
+        tableView.rowHeight = Constant.SideMenu.rowHeight
+        return tableView
+    }()
 
-extension SideMenuViewController: UITableViewDelegate {
+    private lazy var navigationBar = UINavigationBar()
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        onSideMenuEntrySelection?(viewModel.childViewModel(for: indexPath))
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        setupBindings()
+    }
+
+    // MARK: - Public API
+
+    override func updateViewConstraints() {
+        tableView.snp.updateConstraints { maker in
+            maker.top.equalTo(navigationBar.snp.bottom)
+            maker.leading.trailing.equalToSuperview()
+            maker.height.equalTo(tableViewHeight)
+        }
+
+        navigationBar.snp.updateConstraints { maker in
+            maker.leading.trailing.equalToSuperview()
+            maker.top.equalTo(safeAreaLayoutGuide.snp.top)
+        }
+
+        super.updateViewConstraints()
+    }
+
+    // MARK: - Private API
+
+    private func setupBindings() {
+        let identifier = R.nib.sideMenuTableViewCell.identifier
+        let type = SideMenuTableViewCell.self
+
+        viewModel.output.sideMenuItems
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
+                cell.configure(with: viewModel)
+            }
+            .disposed(by: disposeBag)
+
+        tableView.rx.itemSelected
+            . subscribe(onNext: { [weak self] indexPath in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(SideMenuCellViewModelProtocol.self)
+            .subscribe(onNext: { [weak self] sideMenuEntry in
+                self?.onSideMenuEntrySelection?(sideMenuEntry)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func setupUI() {
+        view.backgroundColor = R.clr.podoColors.green()
+        view.setNeedsUpdateConstraints()
+        view.addSubview(navigationBar)
+        view.addSubview(tableView)
     }
 }

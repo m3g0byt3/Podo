@@ -7,5 +7,17 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol SideMenuViewModelProtocol: ViewModel {}
+protocol SideMenuViewModelProtocol {
+
+    var input: SideMenuViewModelInputProtocol { get }
+    var output: SideMenuViewModelOutputProtocol { get }
+}
+
+protocol SideMenuViewModelInputProtocol {}
+
+protocol SideMenuViewModelOutputProtocol {
+
+    var sideMenuItems: Observable<[SideMenuCellViewModelProtocol]> { get }
+}

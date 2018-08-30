@@ -7,5 +7,20 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol MainMenuViewModelProtocol: ViewModel {}
+protocol MainMenuViewModelProtocol {
+
+    var input: MainMenuViewModelInputProtocol { get }
+    var output: MainMenuViewModelOutputProtocol { get }
+}
+
+protocol MainMenuViewModelInputProtocol {}
+
+protocol MainMenuViewModelOutputProtocol {
+
+    var emptyTitle: Single<String> { get }
+    var emptyMessage: Single<String> { get }
+    var emptyImageBlob: Single<Data?> { get }
+    var paymentResults: Observable<[MainMenuCellViewModelProtocol]> { get }
+}

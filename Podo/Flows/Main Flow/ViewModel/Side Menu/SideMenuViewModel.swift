@@ -7,35 +7,37 @@
 //
 
 import Foundation
+import RxSwift
 
-final class SideMenuViewModel {
+final class SideMenuViewModel: SideMenuViewModelProtocol,
+                               SideMenuViewModelInputProtocol,
+                               SideMenuViewModelOutputProtocol {
+
+    // MARK: - Constants
+
+    private static let keyPath = #keyPath(SideMenuItem.identifier)
+    private static let sortOption = SortOption.ascending(keyPath: SideMenuViewModel.keyPath)
 
     // MARK: - Properties
 
     private let model: AnyDatabaseService<SideMenuItem>
-    private var items = [SideMenuItem]()
+
+    // MARK: - SideMenuViewModelProtocol protocol conformance
+
+    var input: SideMenuViewModelInputProtocol { return self }
+    var output: SideMenuViewModelOutputProtocol { return self }
+
+    // MARK: - SideMenuViewModelOutputProtocol protocol conformance
+
+    lazy var sideMenuItems: Observable<[SideMenuCellViewModelProtocol]> = {
+        let sortOption = SideMenuViewModel.sortOption
+        return model.itemsObservable(isCompleted: true, sorted: sortOption)
+            .map { $0.map(SideMenuCellViewModel.init) }
+    }()
 
     // MARK: - Initialization
 
     init(_ model: AnyDatabaseService<SideMenuItem>) {
         self.model = model
-        let sortKeyPath = #keyPath(SideMenuItem.identifier)
-        let sortOption = SortOption.ascending(keyPath: sortKeyPath)
-        try? model.fetch(predicate: nil, sorted: sortOption) { [weak self] items in
-            self?.items = items
-        }
-    }
-}
-
-// MARK: - SideMenuViewModelProtocol protocol conformance
-
-extension SideMenuViewModel: SideMenuViewModelProtocol {
-
-    func numberOfChildViewModels(in section: Int) -> Int {
-        return items.count
-    }
-
-    func childViewModel(for indexPath: IndexPath) -> SideMenuCellViewModelProtocol {
-        return SideMenuCellViewModel(items[indexPath.row])
     }
 }

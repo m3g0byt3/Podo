@@ -13,6 +13,17 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
                                     PaymentMethodViewModelInputProtocol,
                                     PaymentMethodViewModelOutputProtocol {
 
+    // MARK: - Constants
+
+    private static var filterPredicate: NSPredicate = {
+        let lhs = NSExpression(forKeyPath: \PaymentMethod.isVisible)
+        let rhs = NSExpression(forConstantValue: true)
+        return NSComparisonPredicate(leftExpression: lhs,
+                                     rightExpression: rhs,
+                                     modifier: .direct,
+                                     type: .equalTo)
+    }()
+
     // MARK: - Properties
 
     private let model: AnyDatabaseService<PaymentMethod>
@@ -27,19 +38,9 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
     let title: Observable<String>
 
     lazy var paymentMethods: Observable<[PaymentMethodCellViewModelProtocol]> = {
-        return Observable.create { [weak self] observer in
-            do {
-                let predicate = PaymentMethodViewModel.filterPredicate
-                try self?.model.fetch(predicate: predicate, sorted: nil) { methods in
-                    let viewModels = methods.map(PaymentMethodCellViewModel.init)
-                    observer.onNext(viewModels)
-                    observer.onCompleted()
-                }
-            } catch {
-                observer.onError(error)
-            }
-            return Disposables.create()
-        }
+        let predicate = PaymentMethodViewModel.filterPredicate
+        return model.itemsObservable(isCompleted: true, predicate: predicate)
+            .map { $0.map(PaymentMethodCellViewModel.init) }
     }()
 
     // MARK: - Initialization
@@ -48,15 +49,4 @@ final class PaymentMethodViewModel: PaymentMethodViewModelProtocol,
         self.title = Observable.just(R.string.localizable.paymentSelectionTitle())
         self.model = model
     }
-
-    // MARK: - Private API
-
-    private static var filterPredicate: NSPredicate = {
-        let lhs = NSExpression(forKeyPath: \PaymentMethod.isVisible)
-        let rhs = NSExpression(forConstantValue: true)
-        return NSComparisonPredicate(leftExpression: lhs,
-                                     rightExpression: rhs,
-                                     modifier: .direct,
-                                     type: .equalTo)
-    }()
 }

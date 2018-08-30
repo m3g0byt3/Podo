@@ -83,7 +83,7 @@ final class CardsViewController: UIViewController,
 
     private func setupBindings() {
         // Cell factory
-        viewModel.output.childViewModels
+        viewModel.output.cardsViewModels
             .flatMap(CardsViewController.wrapViewModels)
             .asDriver(onErrorJustReturn: [])
             .drive(collectionView.rx.items) { collectionView, index, wrappedViewModel in
@@ -113,7 +113,7 @@ final class CardsViewController: UIViewController,
             .disposed(by: disposeBag)
 
         // numberOfPages for pageControl
-        viewModel.output.childViewModels
+        viewModel.output.cardsViewModels
             .flatMap(CardsViewController.wrapViewModels)
             .map { $0.count }
             .asDriver(onErrorJustReturn: 0)
