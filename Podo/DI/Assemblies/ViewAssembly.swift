@@ -22,8 +22,8 @@ final class ViewAssembly: Assembly {
             guard let viewController = MainMenuViewController.storyboardInstance() else {
                 unableToResolve(MainMenuView.self)
             }
-            viewController.assembler = ApplicationAssembler.defaultAssembler
             viewController.viewModel = resolver.resolve(MainMenuViewModel.self)
+            viewController.childView = resolver.resolve(MainMenuChildView.self)
             return viewController
         }
 

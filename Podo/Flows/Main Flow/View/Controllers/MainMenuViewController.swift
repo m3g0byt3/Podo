@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import Swinject
 import EmptyDataSet_Swift
 import RxSwift
 import RxCocoa
@@ -43,8 +42,8 @@ final class MainMenuViewController: UIViewController,
     // MARK: - Public properties
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var assembler: Assembler?
     var viewModel: MainMenuViewModelProtocol!
+    var childView: MainMenuChildView?
 
     // MARK: - Private properties
 
@@ -76,14 +75,11 @@ final class MainMenuViewController: UIViewController,
 
     // MARK: - Private API
 
-    private func setupCardsViewController() {
-        guard let childView = assembler?.resolver.resolve(MainMenuChildView.self),
-            let childViewController = childView.presentableEntity else {
-                return
-        }
+    private func setupChildViewController() {
+        guard let childViewController = childView?.presentableEntity else { return }
         // Forward callbacks to the childView
-        childView.onCardSelection = onCardSelection
-        childView.onAddNewCardSelection = onAddNewCardSelection
+        childView?.onCardSelection = onCardSelection
+        childView?.onAddNewCardSelection = onAddNewCardSelection
 
         // UIKit calls .willMove implicitly before .addChildViewController
         addChildViewController(childViewController)
@@ -133,6 +129,7 @@ final class MainMenuViewController: UIViewController,
 
         let image = viewModel.output.emptyImageBlob
             .asDriver(onErrorJustReturn: nil)
+            .debug()
             .filterNil()
             .map(UIImage.init)
             .filterNil()
