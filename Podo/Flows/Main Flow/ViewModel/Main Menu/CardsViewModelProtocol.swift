@@ -19,5 +19,5 @@ protocol CardsViewModelInputProtocol {}
 
 protocol CardsViewModelOutputProtocol {
 
-    var childViewModels: Observable<[TransportCardViewModelProtocol]> { get }
+    var cardsViewModels: Observable<[TransportCardViewModelProtocol]> { get }
 }

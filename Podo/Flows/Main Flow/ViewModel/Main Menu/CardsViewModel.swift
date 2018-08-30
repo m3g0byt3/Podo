@@ -24,18 +24,9 @@ final class CardsViewModel: CardsViewModelProtocol,
 
     // MARK: - CardsViewModelOutputProtocol protocol conformance
 
-    lazy var childViewModels: Observable<[TransportCardViewModelProtocol]> = {
-        return Observable.create { [weak self] observer in
-            do {
-                try self?.model.fetch(predicate: nil, sorted: nil) { cards in
-                    let viewModels = cards.map(TransportCardViewModel.init)
-                    observer.onNext(viewModels)
-                }
-            } catch {
-                observer.onError(error)
-            }
-            return Disposables.create()
-        }
+    lazy var cardsViewModels: Observable<[TransportCardViewModelProtocol]> = {
+        return model.itemsObservable()
+            .map { $0.map(TransportCardViewModel.init) }
     }()
 
     // MARK: - Initialization
