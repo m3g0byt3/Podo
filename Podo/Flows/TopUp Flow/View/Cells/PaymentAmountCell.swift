@@ -131,7 +131,7 @@ final class PaymentAmountCell: UITableViewCell {
         sumTextField.font = PaymentAmountCell.textFieldFont
 
         // Buttons setup
-        let buttonTextAttributes: [NSAttributedString.Key: Any] = [
+        let buttonTextAttributes: [NSAttributedStringKey: Any] = [
             .font: PaymentAmountCell.buttonFont,
             .foregroundColor: R.clr.podoColors.empty()
         ]
