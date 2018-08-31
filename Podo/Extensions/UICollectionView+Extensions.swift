@@ -11,7 +11,7 @@ import UIKit
 
 extension UICollectionView {
 
-    typealias Axis = UICollectionView.ScrollDirection
+    typealias Axis = UICollectionViewScrollDirection
 
     /// Current row (based on `.contentOffset` property) in collection view's section along given axis.
     /// - parameters:

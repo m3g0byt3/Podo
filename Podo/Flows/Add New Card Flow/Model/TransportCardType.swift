@@ -41,6 +41,7 @@ extension TransportCardType: RawRepresentable {
 
     var rawValue: Int {
         switch self {
+        case .sputnik: fatalError("Not supported yet")
         case .podorozhnikShort: return RawValues.podorozhnikShort
         case .podorozhnikLong: return RawValues.podorozhnikLong
         case .unknown: return RawValues.unknown

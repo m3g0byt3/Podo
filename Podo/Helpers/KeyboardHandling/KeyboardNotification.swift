@@ -19,10 +19,10 @@ struct KeyboardNotification {
     /// `UIKeyboardAnimationDurationUserInfoKey` key. Equals `0` if key not found in the `userInfo` dictionary.
     let duration: TimeInterval
     /// `UIKeyboardAnimationCurveUserInfoKey` key.  Equals `.easeInOut` if key not found in the `userInfo` dictionary.
-    let curve: UIView.AnimationCurve
+    let curve: UIViewAnimationCurve
     /// Based on `curve` property. Equals `.curveEaseInOut` if key not found in the `userInfo` dictionary.
-    var options: UIView.AnimationOptions {
-        return UIView.AnimationOptions(curve: curve)
+    var options: UIViewAnimationOptions {
+        return UIViewAnimationOptions(curve: curve)
     }
     /// Based on `frame` property. Equals `0` if key not found in the `userInfo` dictionary.
     var offset: CGFloat {
@@ -42,6 +42,6 @@ struct KeyboardNotification {
         self.beginFrame = beginFrame ?? CGRect.zero
         self.endFrame = endFrame ?? CGRect.zero
         self.duration = duration ?? 0
-        self.curve = curveRaw.flatMap(UIView.AnimationCurve.init) ?? .easeInOut
+        self.curve = curveRaw.flatMap(UIViewAnimationCurve.init) ?? .easeInOut
     }
 }
