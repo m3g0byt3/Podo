@@ -80,6 +80,9 @@
 		4160A50D205174EA00485C8B /* ThemeAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */; };
 		4160A5112051767B00485C8B /* ThemeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5102051767B00485C8B /* ThemeAdapter.swift */; };
 		4160A5132051770E00485C8B /* HelperAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5122051770E00485C8B /* HelperAssembly.swift */; };
+		4163F544214268E100895349 /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F543214268E100895349 /* LocationServiceProtocol.swift */; };
+		4163F5482142696F00895349 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F5472142696F00895349 /* Location.swift */; };
+		4163F54A21426A3200895349 /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F54921426A3200895349 /* CoreLocationService.swift */; };
 		416F52972085319300C519A6 /* PaymentMethodViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */; };
 		416F5299208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */; };
 		416F529D20853EAC00C519A6 /* PaymentMethodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */; };
@@ -303,6 +306,9 @@
 		4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAdapterProtocol.swift; sourceTree = "<group>"; };
 		4160A5102051767B00485C8B /* ThemeAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAdapter.swift; sourceTree = "<group>"; };
 		4160A5122051770E00485C8B /* HelperAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperAssembly.swift; sourceTree = "<group>"; };
+		4163F543214268E100895349 /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
+		4163F5472142696F00895349 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4163F54921426A3200895349 /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
 		416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModel.swift; sourceTree = "<group>"; };
@@ -754,6 +760,8 @@
 				418EDE662062841600E54E33 /* RealmDatabaseService.swift */,
 				412A15C22119E0980014E694 /* ReportingServiceProtocol.swift */,
 				412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */,
+				4163F543214268E100895349 /* LocationServiceProtocol.swift */,
+				4163F54921426A3200895349 /* CoreLocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -975,6 +983,7 @@
 			children = (
 				415B8A5A208D0D3400BEAB93 /* PaymentMethod.swift */,
 				415B8A58208D0D1200BEAB93 /* PaymentMethodType.swift */,
+				4163F5472142696F00895349 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1635,6 +1644,7 @@
 				41A5E79B1FDB3A7200A835F5 /* CardsViewController.swift in Sources */,
 				41D60A9C205DBAF1004C5802 /* SideMenuViewModelProtocol.swift in Sources */,
 				41A3906820DC1837004D3499 /* PaymentAmountCell.swift in Sources */,
+				4163F544214268E100895349 /* LocationServiceProtocol.swift in Sources */,
 				4153728D2053036C00B8C1EB /* TutorialCoordinator.swift in Sources */,
 				4148964120669BF800C3C000 /* ContactsView.swift in Sources */,
 				41BDD5072055EBFC0045A50A /* TrainIconView.swift in Sources */,
@@ -1715,6 +1725,7 @@
 				4153728B2053001D00B8C1EB /* TutorialViewController.swift in Sources */,
 				41E95B79212D90D400AAE9B5 /* UIBezierPath+Extensions.swift in Sources */,
 				4135F38120EAEEAD0078AFFB /* UITableView+Extensions.swift in Sources */,
+				4163F54A21426A3200895349 /* CoreLocationService.swift in Sources */,
 				418A840520432C5400A950AE /* MainMenuViewModel.swift in Sources */,
 				4135F37F20EAE90C0078AFFB /* UITableViewCell+Extensions.swift in Sources */,
 				4179E9FF204620E1007CF219 /* MainMenuView.swift in Sources */,
@@ -1734,6 +1745,7 @@
 				413D8CDD210B8E87005D388E /* PaymentAmountCellButtonViewModelProtocol.swift in Sources */,
 				41947BDD20FF95EA00EA803A /* UIView+Extensions.swift in Sources */,
 				4179EA032046241E007CF219 /* ViewAssembly.swift in Sources */,
+				4163F5482142696F00895349 /* Location.swift in Sources */,
 				41CDEAB720828DB1008D30D5 /* SideMenuPresenting.swift in Sources */,
 				41555A662049725D007ADBF0 /* ApplicationCoordinator.swift in Sources */,
 				410F0A56207D9158003DD5C0 /* UIFont+Extensions.swift in Sources */,
