@@ -90,5 +90,11 @@
 			</dict>
 		</array>
 	</dict>
+    <key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+    <string>NO</string>
+    <key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
+    <string>YES</string>
+    <key>FirebaseScreenReportingEnabled</key>
+    <false/>
 </dict>
 </plist>

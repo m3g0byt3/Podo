@@ -83,6 +83,8 @@
 		4163F544214268E100895349 /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F543214268E100895349 /* LocationServiceProtocol.swift */; };
 		4163F5482142696F00895349 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F5472142696F00895349 /* Location.swift */; };
 		4163F54A21426A3200895349 /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F54921426A3200895349 /* CoreLocationService.swift */; };
+		4163F54D21429BB100895349 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4163F54B21429BB000895349 /* GoogleService-Info-dev.plist */; };
+		4163F54E21429BB100895349 /* GoogleService-Info-prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4163F54C21429BB000895349 /* GoogleService-Info-prod.plist */; };
 		416F52972085319300C519A6 /* PaymentMethodViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */; };
 		416F5299208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */; };
 		416F529D20853EAC00C519A6 /* PaymentMethodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */; };
@@ -309,6 +311,8 @@
 		4163F543214268E100895349 /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
 		4163F5472142696F00895349 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4163F54921426A3200895349 /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
+		4163F54B21429BB000895349 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
+		4163F54C21429BB000895349 /* GoogleService-Info-prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-prod.plist"; sourceTree = "<group>"; };
 		416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModel.swift; sourceTree = "<group>"; };
@@ -1172,6 +1176,8 @@
 				41BA55092075B62B00264837 /* PodoColors.clr */,
 				41BA550B2075BA6300264837 /* Apple HIG.clr */,
 				41494AB81FC6C6570089F088 /* Info.plist */,
+				4163F54B21429BB000895349 /* GoogleService-Info-dev.plist */,
+				4163F54C21429BB000895349 /* GoogleService-Info-prod.plist */,
 				41494AB31FC6C6570089F088 /* Assets.xcassets */,
 				41968CDD20652DEE00501112 /* Localizable.strings */,
 				41968CF12065347800501112 /* InfoPlist.strings */,
@@ -1211,6 +1217,7 @@
 			buildPhases = (
 				7859FDCFD688373B0060AEB3 /* [CP] Check Pods Manifest.lock */,
 				41F57F4B1FD4887500AD8D64 /* Copy colors pallete */,
+				4163F54F21429BE200895349 /* Copy Firebase config */,
 				41D1F1721FC78CD900F12C20 /* R.swift run script */,
 				419423E6202F4681004FCB8E /* Swiftlint run script */,
 				41494AA51FC6C6560089F088 /* Sources */,
@@ -1328,9 +1335,11 @@
 				41968CDB20652DEE00501112 /* Localizable.strings in Resources */,
 				41968CEF2065347800501112 /* InfoPlist.strings in Resources */,
 				41A5E7A01FDB3AAF00A835F5 /* CardsViewController.storyboard in Resources */,
+				4163F54E21429BB100895349 /* GoogleService-Info-prod.plist in Resources */,
 				411F3E47204EF8B6002D466E /* RootViewController.storyboard in Resources */,
 				41AFD0BC205ECCE3006A8768 /* SettingsViewController.storyboard in Resources */,
 				41787B4120687E0300693FA1 /* AddNewCardViewController.storyboard in Resources */,
+				4163F54D21429BB100895349 /* GoogleService-Info-dev.plist in Resources */,
 				41A5E78C1FD97FC300A835F5 /* CardsCollectionViewCell.xib in Resources */,
 				4148963B20669A8E00C3C000 /* ContactsViewController.storyboard in Resources */,
 				41BA550A2075B62C00264837 /* PodoColors.clr in Resources */,
@@ -1364,6 +1373,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4163F54F21429BE200895349 /* Copy Firebase config */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Firebase config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    cp -r \"${PROJECT_DIR}/Podo/Supporting Files/GoogleService-Info-dev.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    cp -r \"${PROJECT_DIR}/Podo/Supporting Files/GoogleService-Info-prod.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n    echo \"Unable to find Firebase configuration file for configuration \\\"${CONFIGURATION}\\\", aborting.\"\n    exit 1\nfi\n";
+		};
 		419423E6202F4681004FCB8E /* Swiftlint run script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
