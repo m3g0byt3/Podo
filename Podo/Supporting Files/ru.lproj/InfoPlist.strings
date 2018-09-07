@@ -10,3 +10,4 @@
 "NSHumanReadableCopyright" = "Copyright © 2018 Андрей Федоров. Все права защищены.";
 "ADD_TRANSPORT_CARD_SHORTCUT_TITLE" = "Добавить новый проездной";
 "SETTINGS_SHORTCUT_TITLE" = "Настройки";
+"NSLocationWhenInUseUsageDescription" = "Разрешите доступ к геолокации для поиска ближайших станций метро.";
