@@ -28,8 +28,8 @@ class CoreLocationService: NSObject {
         switch status {
         case .notDetermined: manager.requestWhenInUseAuthorization()
         case .authorizedWhenInUse, .authorizedAlways: manager.requestLocation()
-        case .denied: break // TODO: Handle an error
-        case .restricted: break // TODO: Handle an error
+        case .denied: completion?(.failure(.accessDenied))
+        case .restricted: completion?(.failure(.accessRestricted))
         }
     }
 }
@@ -38,7 +38,7 @@ class CoreLocationService: NSObject {
 
 extension CoreLocationService: LocationServiceProtocol {
 
-    func getCurrentLocation(completion: (Result<Location, AnyError>) -> Void) {
+    func getCurrentLocation(completion: (Result<Location, LocationError>) -> Void) {
         handle(status: CLLocationManager.authorizationStatus())
     }
 }
@@ -52,16 +52,16 @@ extension CoreLocationService: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let coordinate = locations.last?.coordinate else {
-            // TODO: Handle an error
-            return
+        if let coordinate = locations.last?.coordinate {
+            let wrapped = Location(coordinate2D: coordinate)
+            completion?(.success(wrapped))
+        } else {
+            completion?(.failure(.unableToLocate))
         }
-        let wrapped = Location(coordinate2D: coordinate)
-        completion?(.success(wrapped))
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // TODO: Handle an error
+        completion?(.failure(.underlying(error)))
     }
 }
 

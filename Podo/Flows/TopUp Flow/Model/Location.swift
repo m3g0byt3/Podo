@@ -25,7 +25,7 @@ struct Location {
     let longitude: Degrees
 
     /// Calculates distance between other location.
-    /// - Note: Based in Haversine formula https://www.movable-type.co.uk/scripts/latlong.html
+    /// - Note: Based in Haversine formula: https://www.movable-type.co.uk/scripts/latlong.html
     /// - Parameter location: Ohter location
     /// - Returns: Distance bewteen this location and other location in meters.
     func distance(to location: Location) -> Double {

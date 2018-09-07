@@ -9,9 +9,17 @@
 import Foundation
 import Result
 
+enum LocationError: Error, LocalizedError {
+
+    case accessDenied
+    case accessRestricted
+    case unableToLocate
+    case underlying(Error)
+}
+
 protocol LocationServiceProtocol {
 
-    typealias Completion = (Result<Location, AnyError>) -> Void
+    typealias Completion = (Result<Location, LocationError>) -> Void
 
     func getCurrentLocation(completion: Completion)
 }
