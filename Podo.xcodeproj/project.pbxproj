@@ -80,11 +80,14 @@
 		4160A50D205174EA00485C8B /* ThemeAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */; };
 		4160A5112051767B00485C8B /* ThemeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5102051767B00485C8B /* ThemeAdapter.swift */; };
 		4160A5132051770E00485C8B /* HelperAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160A5122051770E00485C8B /* HelperAssembly.swift */; };
+		4163F5402142683200895349 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F53F2142683200895349 /* Station.swift */; };
 		4163F544214268E100895349 /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F543214268E100895349 /* LocationServiceProtocol.swift */; };
 		4163F5482142696F00895349 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F5472142696F00895349 /* Location.swift */; };
 		4163F54A21426A3200895349 /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F54921426A3200895349 /* CoreLocationService.swift */; };
 		4163F54D21429BB100895349 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4163F54B21429BB000895349 /* GoogleService-Info-dev.plist */; };
 		4163F54E21429BB100895349 /* GoogleService-Info-prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4163F54C21429BB000895349 /* GoogleService-Info-prod.plist */; };
+		4163F5512142CBE500895349 /* StationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F5502142CBE500895349 /* StationServiceProtocol.swift */; };
+		4163F5532142CC5800895349 /* FirebaseStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163F5522142CC5800895349 /* FirebaseStationService.swift */; };
 		416F52972085319300C519A6 /* PaymentMethodViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */; };
 		416F5299208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */; };
 		416F529D20853EAC00C519A6 /* PaymentMethodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */; };
@@ -308,11 +311,14 @@
 		4160A50C205174EA00485C8B /* ThemeAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAdapterProtocol.swift; sourceTree = "<group>"; };
 		4160A5102051767B00485C8B /* ThemeAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAdapter.swift; sourceTree = "<group>"; };
 		4160A5122051770E00485C8B /* HelperAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperAssembly.swift; sourceTree = "<group>"; };
+		4163F53F2142683200895349 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		4163F543214268E100895349 /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
 		4163F5472142696F00895349 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4163F54921426A3200895349 /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
 		4163F54B21429BB000895349 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		4163F54C21429BB000895349 /* GoogleService-Info-prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-prod.plist"; sourceTree = "<group>"; };
+		4163F5502142CBE500895349 /* StationServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationServiceProtocol.swift; sourceTree = "<group>"; };
+		4163F5522142CC5800895349 /* FirebaseStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStationService.swift; sourceTree = "<group>"; };
 		416F52962085319300C519A6 /* PaymentMethodViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F5298208531E700C519A6 /* PaymentMethodCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		416F529C20853EAC00C519A6 /* PaymentMethodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCellViewModel.swift; sourceTree = "<group>"; };
@@ -766,6 +772,8 @@
 				412A15C42119E2830014E694 /* CrashlyticsReportingService.swift */,
 				4163F543214268E100895349 /* LocationServiceProtocol.swift */,
 				4163F54921426A3200895349 /* CoreLocationService.swift */,
+				4163F5502142CBE500895349 /* StationServiceProtocol.swift */,
+				4163F5522142CC5800895349 /* FirebaseStationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -988,6 +996,7 @@
 				415B8A5A208D0D3400BEAB93 /* PaymentMethod.swift */,
 				415B8A58208D0D1200BEAB93 /* PaymentMethodType.swift */,
 				4163F5472142696F00895349 /* Location.swift */,
+				4163F53F2142683200895349 /* Station.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1718,6 +1727,7 @@
 				41BEC2F320597FBE00C656D1 /* InteractiveTransitioningDelegate.swift in Sources */,
 				41D23908212EBFDC00FDA8D9 /* PaymentResultViewModel.swift in Sources */,
 				41494AAD1FC6C6570089F088 /* AppDelegate.swift in Sources */,
+				4163F5532142CC5800895349 /* FirebaseStationService.swift in Sources */,
 				41FA0BB92117B98C00B7B602 /* ThreadSafeItems.swift in Sources */,
 				415523942084FFCB00EEADD8 /* PaymentMethodsView.swift in Sources */,
 				41816E20206A315E00A0FFCC /* AddNewCardViewModel.swift in Sources */,
@@ -1737,6 +1747,7 @@
 				4179E9F420460728007CF219 /* NetworkServiceProtocol.swift in Sources */,
 				41DC8D8C2108D08C00119A4C /* PaymentAmountCellViewModelProtocol.swift in Sources */,
 				41A3906020DC1806004D3499 /* PaymentCardCell.swift in Sources */,
+				4163F5402142683200895349 /* Station.swift in Sources */,
 				41BDD5052055EBD70045A50A /* MainMenuViewController.swift in Sources */,
 				41A4C6402121B7FD0063C539 /* PaymentConfirmationViewController.swift in Sources */,
 				41C9EB4E1FD40A0B000D77DD /* MainMenuTableViewCell.swift in Sources */,
@@ -1766,6 +1777,7 @@
 				4188C88C2131D422004FA3B2 /* CardViewTransitioningInteractor.swift in Sources */,
 				415B8A53208D0BCD00BEAB93 /* SideMenuItem.swift in Sources */,
 				4179E9EE204603CE007CF219 /* ServiceAssembly.swift in Sources */,
+				4163F5512142CBE500895349 /* StationServiceProtocol.swift in Sources */,
 				4179E9F8204618EC007CF219 /* MainMenuCellViewModelProtocol.swift in Sources */,
 				4120E1092083B9640097B1E5 /* SideMenuCoordinator.swift in Sources */,
 				41555A6A20497625007ADBF0 /* StartOption.swift in Sources */,
