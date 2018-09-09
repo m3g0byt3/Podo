@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import Result
 import CoreLocation
 
-class CoreLocationService: NSObject {
+final class CoreLocationService: NSObject {
 
     // MARK: - Private properties
 
@@ -20,7 +19,7 @@ class CoreLocationService: NSObject {
         return this
     }(CLLocationManager())
 
-    private var completion: LocationServiceProtocol.Completion?
+    private var _completion: LocationServiceProtocol.Completion?
 
     // MARK: - Private API
 
@@ -28,8 +27,8 @@ class CoreLocationService: NSObject {
         switch status {
         case .notDetermined: manager.requestWhenInUseAuthorization()
         case .authorizedWhenInUse, .authorizedAlways: manager.requestLocation()
-        case .denied: completion?(.failure(.accessDenied))
-        case .restricted: completion?(.failure(.accessRestricted))
+        case .denied: _completion?(.failure(.accessDenied))
+        case .restricted: _completion?(.failure(.accessRestricted))
         }
     }
 }
@@ -38,8 +37,13 @@ class CoreLocationService: NSObject {
 
 extension CoreLocationService: LocationServiceProtocol {
 
-    func getCurrentLocation(completion: (Result<Location, LocationError>) -> Void) {
+    func getCurrentLocation(completion: @escaping LocationServiceProtocol.Completion) {
+        _completion = completion
         handle(status: CLLocationManager.authorizationStatus())
+    }
+
+    func cancel() {
+        manager.stopUpdatingLocation()
     }
 }
 
@@ -54,14 +58,14 @@ extension CoreLocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             let wrapped = Location(coordinate2D: coordinate)
-            completion?(.success(wrapped))
+            _completion?(.success(wrapped))
         } else {
-            completion?(.failure(.unableToLocate))
+            _completion?(.failure(.unableToLocate))
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        completion?(.failure(.underlying(error)))
+        _completion?(.failure(.underlying(error)))
     }
 }
 

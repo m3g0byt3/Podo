@@ -21,5 +21,7 @@ protocol LocationServiceProtocol {
 
     typealias Completion = (Result<Location, LocationError>) -> Void
 
-    func getCurrentLocation(completion: Completion)
+    func getCurrentLocation(completion: @escaping Completion)
+
+    func cancel()
 }

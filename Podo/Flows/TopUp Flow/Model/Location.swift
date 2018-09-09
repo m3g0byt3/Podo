@@ -14,6 +14,7 @@ struct Location {
     // MARK: - Typealiases
 
     typealias Degrees = Double
+    typealias Distance = Double
 
     // MARK: - Constants
 
@@ -26,9 +27,9 @@ struct Location {
 
     /// Calculates distance between other location.
     /// - Note: Based in Haversine formula: https://www.movable-type.co.uk/scripts/latlong.html
-    /// - Parameter location: Ohter location
+    /// - Parameter location: Other location
     /// - Returns: Distance bewteen this location and other location in meters.
-    func distance(to location: Location) -> Double {
+    func distance(to location: Location) -> Distance {
         let deltaLatitude = (self.latitude - location.latitude).radians
         let deltaLongitude = (self.longitude - location.longitude).radians
         let aValue =
