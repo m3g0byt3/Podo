@@ -55,3 +55,6 @@
 "Unable to receive server's response." = "Unable to receive server's response.";
 "Unknown underlying error: %d." = "Unknown underlying error: %d.";
 "Unknown underlying error." = "Unknown underlying error.";
+
+// MARK: - Payment result Localization
+"distance-suffix" = "km";

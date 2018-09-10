@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PaymentResultViewModelProtocol {
 
@@ -17,8 +18,9 @@ protocol PaymentResultViewModelProtocol {
 protocol PaymentResultViewModelInputProtocol {}
 protocol PaymentResultViewModelOutputProtocol {
 
-    var title: String { get }
-    var message: String { get }
-    var imageBlob: Data? { get }
     var isError: Bool { get }
+    var title: Single<String> { get }
+    var message: Single<String> { get }
+    var stations: Observable<[String]> { get }
+    var isLoading: Observable<Bool> { get }
 }

@@ -55,3 +55,6 @@
 "Unable to receive server's response." = "Невозможно получить ответ с сервера.";
 "Unknown underlying error: %d." = "Неизвестная внутренняя ошибка: %d.";
 "Unknown underlying error." = "Неизвестная внутренняя ошибка.";
+
+// MARK: - Payment result Localization
+"distance-suffix" = "км";
