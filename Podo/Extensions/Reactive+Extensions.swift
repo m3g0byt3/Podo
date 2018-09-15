@@ -113,3 +113,12 @@ extension Reactive where Base: UIPageControl {
         )
     }
 }
+
+extension Reactive where Base: UIGestureRecognizer {
+
+    /// Reactive wrapper for `state` property.
+    var state: Observable<UIGestureRecognizer.State> {
+        return base.rx.event
+            .map { $0.state }
+    }
+}
