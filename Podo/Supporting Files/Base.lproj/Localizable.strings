@@ -58,3 +58,4 @@
 
 // MARK: - Payment result Localization
 "distance-suffix" = "km";
+"nearest-subway-station" = "Nearest subway station:";

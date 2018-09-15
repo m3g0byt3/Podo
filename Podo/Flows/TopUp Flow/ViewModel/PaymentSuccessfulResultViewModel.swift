@@ -62,7 +62,9 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
             .just(R.string.localizable.successTitle())
 
         self.message = Single
-            .just(R.string.localizable.successMessage())
+            .just(R.string.localizable.successMessage() +
+                  "\n" +
+                  R.string.localizable.nearestSubwayStation())
     }
 
     // MARK: - Private API
