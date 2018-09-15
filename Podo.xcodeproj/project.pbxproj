@@ -142,6 +142,7 @@
 		41947BDF2100E05600EA803A /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947BDE2100E05600EA803A /* CGRect+Extensions.swift */; };
 		4195527A2146882C003776B5 /* PaymentFailedResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419552792146882C003776B5 /* PaymentFailedResultViewModel.swift */; };
 		4195527C21468A0F003776B5 /* PaymentSuccessfulResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195527B21468A0F003776B5 /* PaymentSuccessfulResultViewModel.swift */; };
+		4195527E21472A7B003776B5 /* PaymentResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195527D21472A7B003776B5 /* PaymentResultCell.swift */; };
 		41968CDB20652DEE00501112 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CDD20652DEE00501112 /* Localizable.strings */; };
 		41968CEF2065347800501112 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41968CF12065347800501112 /* InfoPlist.strings */; };
 		419CFEA9206BBD44004F4897 /* Reactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CFEA8206BBD44004F4897 /* Reactive+Extensions.swift */; };
@@ -376,6 +377,7 @@
 		41947BDE2100E05600EA803A /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		419552792146882C003776B5 /* PaymentFailedResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFailedResultViewModel.swift; sourceTree = "<group>"; };
 		4195527B21468A0F003776B5 /* PaymentSuccessfulResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessfulResultViewModel.swift; sourceTree = "<group>"; };
+		4195527D21472A7B003776B5 /* PaymentResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultCell.swift; sourceTree = "<group>"; };
 		41968CDE20652F7600501112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CEC206532F000501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41968CF22065347A00501112 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				41A3906220DC1821004D3499 /* TransportCardCell.swift */,
 				41A3906320DC1821004D3499 /* TransportCardCell.xib */,
 				41A3906620DC1837004D3499 /* PaymentAmountCell.swift */,
+				4195527D21472A7B003776B5 /* PaymentResultCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1650,6 +1653,7 @@
 				41DC8D7B21076CAE00119A4C /* UIView.AnimationOptions+Extensions.swift in Sources */,
 				418733E120EFD88B00E77905 /* PaymentCardCellViewModelProtocol.swift in Sources */,
 				412C77DF2113AD45005943DD /* RootViewAssembly.swift in Sources */,
+				4195527E21472A7B003776B5 /* PaymentResultCell.swift in Sources */,
 				419CFEAB206BBD9F004F4897 /* String+Extensions.swift in Sources */,
 				41541247206D701B0032B33C /* TransportCard.swift in Sources */,
 				41A4C63E2121B7DB0063C539 /* PaymentCompositionViewController.swift in Sources */,
