@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
 
 final class PaymentResultViewController: UIViewController,
                                          PaymentResultView,
@@ -27,14 +28,12 @@ final class PaymentResultViewController: UIViewController,
 
     // MARK: - Private properties
 
+    private let disposeBag = DisposeBag()
+
     private var allowAutoDismissal = true
 
     private var deadline: DispatchTime {
         return DispatchTime.now() + Constant.CardView.displayDuration
-    }
-
-    private var image: UIImage? {
-        return viewModel.output.imageBlob.flatMap(UIImage.init)
     }
 
     private lazy var dragView: RoundShadowView = { this in
@@ -76,12 +75,14 @@ final class PaymentResultViewController: UIViewController,
         return this
     }(UIStackView(arrangedSubviews: [markView, titleLabel]))
 
-    private lazy var imageView: UIImageView = { this in
-        this.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        this.tintColor = R.clr.podoColors.grayText()
-        this.contentMode = .scaleAspectFit
+    private lazy var tableView: UITableView = { this in
+        this.isScrollEnabled = false
+        this.separatorColor = .clear
+        this.register(PaymentResultCell.self)
         return this
-    }(UIImageView(image: image))
+    }(UITableView())
+
+    private lazy var indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
     // MARK: - Public properties
 
@@ -99,11 +100,7 @@ final class PaymentResultViewController: UIViewController,
         return isError ? Constant.CardView.errorHeightRatio : Constant.CardView.successHeightRatio
     }
 
-    lazy var panGesture: UIPanGestureRecognizer = {
-        let panSelector = #selector(panGestureHandler(_:))
-        let panGesture = UIPanGestureRecognizer(target: self, action: panSelector)
-        return panGesture
-    }()
+    lazy var panGesture = UIPanGestureRecognizer()
 
     // MARK: - Lifecycle
 
@@ -140,11 +137,13 @@ final class PaymentResultViewController: UIViewController,
             maker.leadingMargin.trailingMargin.equalToSuperview()
         }
 
-        imageView.snp.updateConstraints { maker in
-            let priority: ConstraintPriority = viewModel.output.isError ? .medium : .required
-            maker.top.equalTo(messageLabel.snp.bottom).offset(type(of: self).normalMargin)
-            maker.bottom.equalToSuperview().inset(type(of: self).smallMargin).priority(priority)
-            maker.leading.trailing.equalTo(stackView)
+        tableView.snp.updateConstraints { maker in
+            maker.top.equalTo(messageLabel.snp.bottom)
+            maker.leading.trailing.bottom.equalToSuperview()
+        }
+
+        indicator.snp.updateConstraints { maker in
+            maker.center.equalToSuperview()
         }
 
         super.updateViewConstraints()
@@ -156,32 +155,55 @@ final class PaymentResultViewController: UIViewController,
         view.backgroundColor = .white
         view.addSubview(dragView)
         view.addSubview(messageLabel)
-        view.addSubview(imageView)
         view.addGestureRecognizer(panGesture)
         view.setNeedsUpdateConstraints()
+        view.addSubview(tableView)
+        tableView.addSubview(indicator)
     }
 
     private func setupBindings() {
-        titleLabel.text = viewModel.output.title
-        messageLabel.text = viewModel.output.message
-        imageView.image = viewModel.output.imageBlob
-            .flatMap(UIImage.init)?
-            .withRenderingMode(.alwaysTemplate)
+        let identifier = PaymentResultCell.reuseIdentifier
+        let type = PaymentResultCell.self
+
+        viewModel.output.stations
+            .asDriver(onErrorJustReturn: [])
+            .do(onNext: { [unowned tableView = self.tableView] viewModels in
+                tableView.rowHeight = tableView.frame.height / CGFloat(viewModels.count)
+            })
+            .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
+                _ = cell.configure(with: viewModel)
+            }
+            .disposed(by: disposeBag)
+
+        viewModel.output.title
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.message
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(messageLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isLoading
+            .asDriver(onErrorJustReturn: false)
+            .drive(indicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+
+        panGesture.rx.state
+            .distinctUntilChanged()
+            .filter { $0 == .began }
+            .subscribe(onNext: { [unowned self] _ in
+                self.allowAutoDismissal = false
+                self.onPaymentResultClose?()
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setupAutoDismissal() {
         DispatchQueue.main.asyncAfter(deadline: deadline) { [weak self] in
             guard let allow = self?.allowAutoDismissal, allow else { return }
             self?.onPaymentResultClose?()
-        }
-    }
-
-    // MARK: - Control handlers
-
-    @objc private func panGestureHandler(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began {
-            allowAutoDismissal = false
-            self.onPaymentResultClose?()
         }
     }
 }
