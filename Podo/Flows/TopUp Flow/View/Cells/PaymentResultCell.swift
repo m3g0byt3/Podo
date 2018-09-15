@@ -62,6 +62,7 @@ extension PaymentResultCell: Configurable {
 
     typealias ViewModel = PaymentResultCellViewModelProtocol
 
+    @discardableResult
     func configure(with viewModel: ViewModel) -> Self {
         stationLabel.text = viewModel.output.title
         setNeedsUpdateConstraints()

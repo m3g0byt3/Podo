@@ -171,7 +171,7 @@ final class PaymentResultViewController: UIViewController,
                 tableView.rowHeight = tableView.frame.height / CGFloat(viewModels.count)
             })
             .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
-                _ = cell.configure(with: viewModel)
+                cell.configure(with: viewModel)
             }
             .disposed(by: disposeBag)
 
