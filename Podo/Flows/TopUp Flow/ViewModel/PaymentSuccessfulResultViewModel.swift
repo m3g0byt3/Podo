@@ -36,11 +36,11 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
         .withLatestFrom(Observable.just(false))
         .startWith(true)
 
-    lazy var stations: Observable<[String]> = self.location()
+    lazy var stations: Observable<[PaymentResultCellViewModelProtocol]> = self.location()
         .flatMap { [unowned self] location in
             self.stations(for: location)
         }
-        .map(PaymentSuccessfulResultViewModel.stationNames)
+        .map(PaymentSuccessfulResultViewModel.childViewModels)
         .asObservable()
         .share()
 
@@ -100,16 +100,16 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
         }
     }
 
-    private static func stationNames(_ stations: [(Station, Double)]) -> [String] {
+    private static func childViewModels(_ stations: [(Station, Double)]) -> [PaymentResultCellViewModelProtocol] {
         let divider = PaymentSuccessfulResultViewModel.distanceDivider
         let suffix = PaymentSuccessfulResultViewModel.distanceSuffix
 
-        return stations.map { tuple -> String in
+        return stations.map { tuple -> PaymentResultCellViewModel in
             let (station, distance) = tuple
             let distanceString = String(format: "%.2f \(suffix)", distance / divider)
             let nameString = station.name
 
-            return "\(nameString) \(distanceString)"
+            return PaymentResultCellViewModel(title: "\(nameString) \(distanceString)")
         }
     }
 }

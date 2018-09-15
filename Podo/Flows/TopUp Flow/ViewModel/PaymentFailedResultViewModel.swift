@@ -23,7 +23,7 @@ struct PaymentFailedResultViewModel: PaymentResultViewModelProtocol,
     let isError: Bool
     let title: Single<String>
     let message: Single<String>
-    let stations: Observable<[String]>
+    let stations: Observable<[PaymentResultCellViewModelProtocol]>
     let isLoading: Observable<Bool>
 
     // MARK: - Initialization

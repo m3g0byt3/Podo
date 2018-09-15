@@ -21,6 +21,6 @@ protocol PaymentResultViewModelOutputProtocol {
     var isError: Bool { get }
     var title: Single<String> { get }
     var message: Single<String> { get }
-    var stations: Observable<[String]> { get }
+    var stations: Observable<[PaymentResultCellViewModelProtocol]> { get }
     var isLoading: Observable<Bool> { get }
 }
