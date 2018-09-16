@@ -74,8 +74,6 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
 
     // MARK: - Private API
 
-    // TODO: Optimize usage of private methods
-
     private func location() -> Single<Location> {
         return .create { [weak self] single in
             self?.locationService?.getCurrentLocation { result in

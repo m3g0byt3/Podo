@@ -17,8 +17,6 @@ struct PaymentResultCellViewModel: PaymentResultCellViewModelProtocol,
     var input: PaymentResultCellViewModelInputProtocol { return self }
     var output: PaymentResultCellViewModelOutputProtocol { return self }
 
-    // MARK: - PaymentResultCellViewModelInputProtocol protocol conformance
-
     // MARK: - PaymentResultCellViewModelOutputProtocol protocol conformance
 
     let title: String
