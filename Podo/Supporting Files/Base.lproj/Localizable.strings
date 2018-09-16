@@ -59,3 +59,4 @@
 // MARK: - Payment result Localization
 "distance-suffix" = "km";
 "nearest-subway-station" = "Nearest subway station:";
+"location-error" = "Unable to get current location, please allow access to the location services in Settings to find nearest subway stations around you.";
