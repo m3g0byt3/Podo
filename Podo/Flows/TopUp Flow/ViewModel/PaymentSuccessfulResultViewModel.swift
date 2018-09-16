@@ -15,8 +15,6 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
 
     // MARK: - Constants
 
-    private static let distanceDivider = 1_000.0
-    private static let distanceSuffix = R.string.localizable.distanceSuffix()
     private static let stationsLimit = 3
 
     // MARK: - PaymentResultViewModelProtocol protocol conformance
@@ -45,8 +43,7 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
         .flatMap { [unowned self] location in
             self.stations(for: location)
         }
-        .map(PaymentSuccessfulResultViewModel.childViewModels)
-        .asObservable()
+        .map { $0.map(PaymentResultCellViewModel.init) }
         .share()
 
     // MARK: - Private properties
@@ -105,19 +102,6 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
             return Disposables.create {
                 self?.stationService?.cancel()
             }
-        }
-    }
-
-    private static func childViewModels(_ stations: [(Station, Double)]) -> [PaymentResultCellViewModelProtocol] {
-        let divider = PaymentSuccessfulResultViewModel.distanceDivider
-        let suffix = PaymentSuccessfulResultViewModel.distanceSuffix
-
-        return stations.map { tuple -> PaymentResultCellViewModel in
-            let (station, distance) = tuple
-            let distanceString = String(format: "%.2f \(suffix)", distance / divider)
-            let nameString = station.name
-
-            return PaymentResultCellViewModel(title: "\(nameString) \(distanceString)")
         }
     }
 }

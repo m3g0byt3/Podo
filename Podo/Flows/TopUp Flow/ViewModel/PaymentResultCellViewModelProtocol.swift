@@ -18,4 +18,5 @@ protocol PaymentResultCellViewModelInputProtocol {}
 protocol PaymentResultCellViewModelOutputProtocol {
 
     var title: String { get }
+    var url: URL? { get }
 }
