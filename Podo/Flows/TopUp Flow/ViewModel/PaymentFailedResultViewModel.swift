@@ -23,6 +23,7 @@ struct PaymentFailedResultViewModel: PaymentResultViewModelProtocol,
     let isError: Bool
     let title: Single<String>
     let message: Single<String>
+    let errorMessage: Single<String>
     let stations: Observable<[PaymentResultCellViewModelProtocol]>
     let isLoading: Observable<Bool>
 
@@ -36,6 +37,10 @@ struct PaymentFailedResultViewModel: PaymentResultViewModelProtocol,
 
         self.message = Single
             .just(error.localizedDescription)
+
+        self.errorMessage = Observable
+            .empty()
+            .asSingle()
 
         self.stations = Observable
             .empty()

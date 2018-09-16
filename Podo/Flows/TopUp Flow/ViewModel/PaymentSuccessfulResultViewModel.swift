@@ -32,11 +32,16 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
 
     let message: Single<String>
 
-    lazy var isLoading: Observable<Bool> = self.stations
+    lazy var errorMessage = self.lastLocation
+        .thenIfError()
+        .map { R.string.localizable.locationError() }
+        .asSingle()
+
+    lazy var isLoading = self.stations
         .withLatestFrom(Observable.just(false))
         .startWith(true)
 
-    lazy var stations: Observable<[PaymentResultCellViewModelProtocol]> = self.location()
+    lazy var stations: Observable<[PaymentResultCellViewModelProtocol]> = self.lastLocation
         .flatMap { [unowned self] location in
             self.stations(for: location)
         }
@@ -48,6 +53,9 @@ final class PaymentSuccessfulResultViewModel: PaymentResultViewModelProtocol,
 
     private var locationService: LocationServiceProtocol?
     private var stationService: StationServiceProtocol?
+    private lazy var lastLocation = self.location()
+        .asObservable()
+        .share()
 
     // MARK: - Initialization
 
