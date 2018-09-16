@@ -91,6 +91,12 @@ final class PaymentCoordinator: AbstractCoordinator {
             router?.dismiss(animated: true, completion: nil)
         }
 
+        view.onStationSelection = { [weak router = self.router] station in
+            if let url = station.output.url {
+                router?.open(url: url)
+            }
+        }
+
         router.present(view, animated: true, completion: nil)
     }
 

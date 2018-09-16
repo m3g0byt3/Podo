@@ -11,4 +11,5 @@ import Foundation
 protocol PaymentResultView: View {
 
     var onPaymentResultClose: Completion? { get set }
+    var onStationSelection: ((PaymentResultCellViewModelProtocol) -> Void)? { get set }
 }

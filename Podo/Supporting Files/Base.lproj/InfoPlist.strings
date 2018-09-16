@@ -10,3 +10,4 @@
 "NSHumanReadableCopyright" = "Copyright © 2018 Andrey Fedorov. All rights reserved.";
 "ADD_TRANSPORT_CARD_SHORTCUT_TITLE" = "Add new transport card";
 "SETTINGS_SHORTCUT_TITLE" = "Settings";
+"NSLocationWhenInUseUsageDescription" = "Allow access to the location services to find nearest subway stations around you.";

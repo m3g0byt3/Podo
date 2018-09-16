@@ -54,7 +54,7 @@ extension UIViewController {
     /// Custom layoutGuide identifier.
     @available(iOS 9, *)
     private static var identifier: String {
-        return "com.m3g0byt3.safeAreaLayoutGuide"
+        return "com.m3g0byt3.podo.safeAreaLayoutGuide"
     }
 
     /// `safeAreaLayoutGuide` for `UIViewController` on iOS 9.x and above.

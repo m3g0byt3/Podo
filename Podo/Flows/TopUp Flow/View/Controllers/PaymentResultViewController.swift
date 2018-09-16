@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class PaymentResultViewController: UIViewController,
                                          PaymentResultView,
@@ -27,15 +29,7 @@ final class PaymentResultViewController: UIViewController,
 
     // MARK: - Private properties
 
-    private var allowAutoDismissal = true
-
-    private var deadline: DispatchTime {
-        return DispatchTime.now() + Constant.CardView.displayDuration
-    }
-
-    private var image: UIImage? {
-        return viewModel.output.imageBlob.flatMap(UIImage.init)
-    }
+    private let disposeBag = DisposeBag()
 
     private lazy var dragView: RoundShadowView = { this in
         let alphaValue = type(of: self).alphaValue
@@ -68,6 +62,14 @@ final class PaymentResultViewController: UIViewController,
         return this
     }(UILabel())
 
+    private lazy var errorLabel: UILabel = { this in
+        this.numberOfLines = 0
+        this.textAlignment = .center
+        this.textColor = R.clr.podoColors.grayText()
+        this.font = UIFont.preferredFont(forTextStyle: .footnote)
+        return this
+    }(UILabel())
+
     private lazy var stackView: UIStackView = { this in
         this.axis = .horizontal
         this.distribution = .fillProportionally
@@ -76,12 +78,14 @@ final class PaymentResultViewController: UIViewController,
         return this
     }(UIStackView(arrangedSubviews: [markView, titleLabel]))
 
-    private lazy var imageView: UIImageView = { this in
-        this.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        this.tintColor = R.clr.podoColors.grayText()
-        this.contentMode = .scaleAspectFit
+    private lazy var tableView: UITableView = { this in
+        this.isScrollEnabled = false
+        this.separatorColor = .clear
+        this.register(PaymentResultCell.self)
         return this
-    }(UIImageView(image: image))
+    }(UITableView())
+
+    private lazy var indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
     // MARK: - Public properties
 
@@ -90,6 +94,7 @@ final class PaymentResultViewController: UIViewController,
 
     // MARK: - PaymentResultView protocol conformance
 
+    var onStationSelection: ((PaymentResultCellViewModelProtocol) -> Void)?
     var onPaymentResultClose: Completion?
 
     // MARK: - CardViewPresentable protocol conformance
@@ -99,11 +104,7 @@ final class PaymentResultViewController: UIViewController,
         return isError ? Constant.CardView.errorHeightRatio : Constant.CardView.successHeightRatio
     }
 
-    lazy var panGesture: UIPanGestureRecognizer = {
-        let panSelector = #selector(panGestureHandler(_:))
-        let panGesture = UIPanGestureRecognizer(target: self, action: panSelector)
-        return panGesture
-    }()
+    lazy var panGesture = UIPanGestureRecognizer()
 
     // MARK: - Lifecycle
 
@@ -111,7 +112,6 @@ final class PaymentResultViewController: UIViewController,
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        setupAutoDismissal()
     }
 
     // MARK: - Public API
@@ -140,11 +140,17 @@ final class PaymentResultViewController: UIViewController,
             maker.leadingMargin.trailingMargin.equalToSuperview()
         }
 
-        imageView.snp.updateConstraints { maker in
-            let priority: ConstraintPriority = viewModel.output.isError ? .medium : .required
-            maker.top.equalTo(messageLabel.snp.bottom).offset(type(of: self).normalMargin)
-            maker.bottom.equalToSuperview().inset(type(of: self).smallMargin).priority(priority)
-            maker.leading.trailing.equalTo(stackView)
+        tableView.snp.updateConstraints { maker in
+            maker.top.equalTo(messageLabel.snp.bottom)
+            maker.leading.trailing.bottom.equalToSuperview()
+        }
+
+        indicator.snp.updateConstraints { maker in
+            maker.center.equalToSuperview()
+        }
+
+        errorLabel.snp.updateConstraints { maker in
+            maker.center.leadingMargin.trailingMargin.equalToSuperview()
         }
 
         super.updateViewConstraints()
@@ -156,32 +162,60 @@ final class PaymentResultViewController: UIViewController,
         view.backgroundColor = .white
         view.addSubview(dragView)
         view.addSubview(messageLabel)
-        view.addSubview(imageView)
         view.addGestureRecognizer(panGesture)
         view.setNeedsUpdateConstraints()
+        view.addSubview(tableView)
+        tableView.addSubview(indicator)
+        tableView.addSubview(errorLabel)
     }
 
     private func setupBindings() {
-        titleLabel.text = viewModel.output.title
-        messageLabel.text = viewModel.output.message
-        imageView.image = viewModel.output.imageBlob
-            .flatMap(UIImage.init)?
-            .withRenderingMode(.alwaysTemplate)
-    }
+        let identifier = PaymentResultCell.reuseIdentifier
+        let type = PaymentResultCell.self
 
-    private func setupAutoDismissal() {
-        DispatchQueue.main.asyncAfter(deadline: deadline) { [weak self] in
-            guard let allow = self?.allowAutoDismissal, allow else { return }
-            self?.onPaymentResultClose?()
-        }
-    }
+        viewModel.output.stations
+            .asDriver(onErrorJustReturn: [])
+            .do(onNext: { [unowned tableView = self.tableView] viewModels in
+                let divider = max(CGFloat(viewModels.count), CGFloat.leastNonzeroMagnitude)
+                tableView.rowHeight = tableView.frame.height / divider
+            })
+            .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
+                cell.configure(with: viewModel)
+            }
+            .disposed(by: disposeBag)
 
-    // MARK: - Control handlers
+        tableView.rx.modelSelected(PaymentResultCellViewModelProtocol.self)
+            .subscribe(onNext: { [weak self] viewModel in
+                self?.onStationSelection?(viewModel)
+            })
+            .disposed(by: disposeBag)
 
-    @objc private func panGestureHandler(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began {
-            allowAutoDismissal = false
-            self.onPaymentResultClose?()
-        }
+        viewModel.output.title
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.message
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(messageLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.errorMessage
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(errorLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.isLoading
+            .asDriver(onErrorJustReturn: false)
+            .drive(indicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+
+        panGesture.rx.state
+            .distinctUntilChanged()
+            .filter { $0 == .began }
+            .subscribe(onNext: { [weak self] _ in
+                self?.onPaymentResultClose?()
+            })
+            .disposed(by: disposeBag)
     }
 }

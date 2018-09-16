@@ -8,18 +8,20 @@ target 'Podo' do
   use_frameworks!
 
   # Pods for main target
-  pod 'SnapKit', 	          '~> 4.0'
-  pod 'R.swift', 	          '~> 4.0'
-  pod 'RxSwift', 	          '~> 4.0'
-  pod 'RxCocoa', 	          '~> 4.0'
-  pod 'Swinject', 	        '~> 2.0'
-  pod 'RealmSwift', 	      '~> 3.2'
+  pod 'SnapKit', 	    '~> 4.0'
+  pod 'R.swift', 	    '~> 4.0'
+  pod 'RxSwift', 	    '~> 4.0'
+  pod 'RxCocoa', 	    '~> 4.0'
+  pod 'Swinject', 	    '~> 2.0'
+  pod 'RealmSwift', 	    '~> 3.2'
   pod 'EmptyDataSet-Swift', '~> 4.0'
   pod 'RxDataSources',      '~> 3.0'
   pod 'SwiftLint',          '~> 0.1'
   pod 'Fabric',             '~> 1.5'         
   pod 'Crashlytics',        '~> 3.0'
-  pod 'PKHUD', '~> 5.0'
+  pod 'PKHUD',              '~> 5.0'
+  pod 'Firebase/Core',      '~> 5.1'
+  pod 'Firebase/Database',  '~> 5.0'
   pod 'BSK', :git => 'https://github.com/m3g0byt3/BSK.git', :branch => 'experimental/strict-credit-card-initializer'
 
   target 'PodoTests' do

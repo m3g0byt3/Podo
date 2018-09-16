@@ -52,3 +52,16 @@ extension ObservableType where E == String {
         }
     }
 }
+
+extension ObservableType {
+
+    /// Map `error` event from source observable to the `Observable<Void>`.
+    /// - Returns: `Observable<Void>` when source observable emits an error.
+    public func thenIfError() -> Observable<Void> {
+        return self.map(Optional.init)
+            .catchErrorJustReturn(nil)
+            .mapNil()
+            .filter(!)
+            .map { _ in }
+    }
+}

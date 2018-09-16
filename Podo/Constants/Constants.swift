@@ -19,6 +19,13 @@ enum Constant {
         case main
     }
 
+    enum Firebase {
+        static let path = "subways"
+        static let nameKey = "na"
+        static let latitudeKey = "la"
+        static let longitudeKey = "lo"
+    }
+
     enum AnimationDuration {
         /// Normal animation duration
         static let normal: TimeInterval = 0.30
@@ -53,7 +60,6 @@ enum Constant {
         static let shadowRadius: CGFloat = 13.0
         static let shadowOffset = CGSize(width: 0, height: -6)
         static let presentationDuration: TimeInterval = 0.40
-        static let displayDuration: TimeInterval = 3.0
         static let successHeightRatio: CGFloat = 1.0 / 2.0
         static let errorHeightRatio: CGFloat = 1.0 / 3.8
     }
