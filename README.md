@@ -6,7 +6,7 @@ Non-official iOS application for top-up russian contactless metropolitan multi-t
 Using [Moya](https://github.com/Moya/Moya) for network layer, [Swinject](https://github.com/Swinject/Swinject) assemblies for dependency injection, 
  [RealmSwift](https://github.com/realm/realm-cocoa) for persistence layer and [RxSwift & RxCocoa](https://github.com/ReactiveX/RxSwift) for MVVM bindings.
 
-![](Screenshots/iPhone1.png)
+![](Screenshots/mockup.png)
 
 
 Project Status
@@ -32,7 +32,6 @@ Using following payment methods for top-up:
 TODO
 ----------------
 
-- Show nearest subways stations on successful top-up (Firebase and CoreLocation)
 - Payment history persistence (Realm)
 - Add more payment methods
 - Scan and recognize payment card (CardIO)
@@ -58,7 +57,9 @@ git clone https://github.com/m3g0byt3/Podo.git\
    && open Podo.xcworkspace
 ```
 
-Optional: replace non-valid random generated Crashlytics API key and Build secret with working ones in the `api-keys` file.
+Replace non-valid randomly-generated Firebase configuration files (`./Podo/Supporting\ Files/GoogleService-Info-dev.plist` and `./Podo/Supporting\ Files/GoogleService-Info-prod.plist`) with your own valid configuration files.
+
+Replace non-valid randomly-generated Crashlytics API key and Build secret with working ones in the `api-keys` file.
 
 
 Contributing
@@ -81,6 +82,7 @@ Used 3rd party libraries and frameworks
 * [EmptyDataSet-Swift](https://github.com/Xiaoye220/EmptyDataSet-Swift)
 * [R.swift](https://github.com/mac-cain13/R.swift)
 * [Fabric Crashlytics & Answers](https://www.fabric.io/kits)
+* [Google Firebase](https://firebase.google.com)
 * [PKHUD](https://github.com/pkluz/PKHUD)
 * [Quick](https://github.com/Quick/Quick)
 * [Nimble](https://github.com/Quick/Nimble)
