@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 import RxSwift
+import RxCocoa
 
 final class PaymentResultViewController: UIViewController,
                                          PaymentResultView,
@@ -64,6 +65,14 @@ final class PaymentResultViewController: UIViewController,
         this.textAlignment = .center
         this.lineBreakMode = .byClipping
         this.font = UIFont.preferredFont(forTextStyle: .title3)
+        return this
+    }(UILabel())
+
+    private lazy var errorLabel: UILabel = { this in
+        this.numberOfLines = 0
+        this.textAlignment = .center
+        this.textColor = R.clr.podoColors.grayText()
+        this.font = UIFont.preferredFont(forTextStyle: .footnote)
         return this
     }(UILabel())
 
@@ -146,6 +155,10 @@ final class PaymentResultViewController: UIViewController,
             maker.center.equalToSuperview()
         }
 
+        errorLabel.snp.updateConstraints { maker in
+            maker.center.leadingMargin.trailingMargin.equalToSuperview()
+        }
+
         super.updateViewConstraints()
     }
 
@@ -159,6 +172,7 @@ final class PaymentResultViewController: UIViewController,
         view.setNeedsUpdateConstraints()
         view.addSubview(tableView)
         tableView.addSubview(indicator)
+        tableView.addSubview(errorLabel)
     }
 
     private func setupBindings() {
@@ -168,7 +182,8 @@ final class PaymentResultViewController: UIViewController,
         viewModel.output.stations
             .asDriver(onErrorJustReturn: [])
             .do(onNext: { [unowned tableView = self.tableView] viewModels in
-                tableView.rowHeight = tableView.frame.height / CGFloat(viewModels.count)
+                let divider = max(CGFloat(viewModels.count), CGFloat.leastNonzeroMagnitude)
+                tableView.rowHeight = tableView.frame.height / divider
             })
             .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
                 cell.configure(with: viewModel)
@@ -183,6 +198,11 @@ final class PaymentResultViewController: UIViewController,
         viewModel.output.message
             .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
             .drive(messageLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.output.errorMessage
+            .asDriver(onErrorJustReturn: Constant.Placeholder.empty)
+            .drive(errorLabel.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.output.isLoading
