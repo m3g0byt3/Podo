@@ -100,6 +100,7 @@ final class PaymentResultViewController: UIViewController,
 
     // MARK: - PaymentResultView protocol conformance
 
+    var onStationSelection: ((PaymentResultCellViewModelProtocol) -> Void)?
     var onPaymentResultClose: Completion?
 
     // MARK: - CardViewPresentable protocol conformance
@@ -188,6 +189,12 @@ final class PaymentResultViewController: UIViewController,
             .drive(tableView.rx.items(cellIdentifier: identifier, cellType: type)) { _, viewModel, cell in
                 cell.configure(with: viewModel)
             }
+            .disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(PaymentResultCellViewModelProtocol.self)
+            .subscribe(onNext: { [weak self] viewModel in
+                self?.onStationSelection?(viewModel)
+            })
             .disposed(by: disposeBag)
 
         viewModel.output.title
