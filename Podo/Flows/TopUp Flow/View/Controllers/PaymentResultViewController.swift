@@ -31,12 +31,6 @@ final class PaymentResultViewController: UIViewController,
 
     private let disposeBag = DisposeBag()
 
-    private var allowAutoDismissal = true
-
-    private var deadline: DispatchTime {
-        return DispatchTime.now() + Constant.CardView.displayDuration
-    }
-
     private lazy var dragView: RoundShadowView = { this in
         let alphaValue = type(of: self).alphaValue
         this.backgroundColor = R.clr.podoColors.grayText().withAlphaComponent(alphaValue)
@@ -118,7 +112,6 @@ final class PaymentResultViewController: UIViewController,
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        setupAutoDismissal()
     }
 
     // MARK: - Public API
@@ -220,17 +213,9 @@ final class PaymentResultViewController: UIViewController,
         panGesture.rx.state
             .distinctUntilChanged()
             .filter { $0 == .began }
-            .subscribe(onNext: { [unowned self] _ in
-                self.allowAutoDismissal = false
-                self.onPaymentResultClose?()
+            .subscribe(onNext: { [weak self] _ in
+                self?.onPaymentResultClose?()
             })
             .disposed(by: disposeBag)
-    }
-
-    private func setupAutoDismissal() {
-        DispatchQueue.main.asyncAfter(deadline: deadline) { [weak self] in
-            guard let allow = self?.allowAutoDismissal, allow else { return }
-            self?.onPaymentResultClose?()
-        }
     }
 }
