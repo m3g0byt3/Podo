@@ -95,4 +95,13 @@ extension Router: RouterProtocol {
     func popToRootView(animated: Bool) {
         rootViewController?.popToRootViewController(animated: animated)
     }
+
+    // URL Schemes and Universal Links handling
+    func open(url: URL) {
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
 }
