@@ -1427,7 +1427,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "#!/usr/bin/env bash\n\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nfi\n";
 		};
 		41D1F1721FC78CD900F12C20 /* R.swift run script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1441,7 +1441,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "#!/usr/bin/env bash\n\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
 		};
 		41F3A1FF2119E70400B9013F /* Crashlytics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1456,7 +1456,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" ${CRASHLYTICS_API_KEY} ${CRASHLYTICS_BUILD_SECRET}\n";
+			shellScript = "#!/usr/bin/env bash\n\n\"${PODS_ROOT}/Fabric/run\" ${CRASHLYTICS_API_KEY} ${CRASHLYTICS_BUILD_SECRET}\n";
 		};
 		41F57F4B1FD4887500AD8D64 /* Copy colors pallete */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1470,7 +1470,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ~/Library/Colors/PodoColors.clr -nt $SRCROOT/Podo/Supporting\\ Files/PodoColors.clr ]]\n    then cp ~/Library/Colors/PodoColors.clr $SRCROOT/Podo/Supporting\\ Files/\nfi\n";
+			shellScript = "#!/usr/bin/env bash\n\nif [[ \"~/Library/Colors/PodoColors.clr\" -nt \"$SRCROOT/Podo/Supporting Files/PodoColors.clr\" ]]\n    then cp -r \"~/Library/Colors/PodoColors.clr\" \"$SRCROOT/Podo/Supporting Files/\"\nfi\n";
 		};
 		5DCD34022B29AAE6B003589E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
