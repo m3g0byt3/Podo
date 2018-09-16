@@ -19,6 +19,13 @@ enum Constant {
         case main
     }
 
+    enum Firebase {
+        static let path = "subways"
+        static let nameKey = "na"
+        static let latitudeKey = "la"
+        static let longitudeKey = "lo"
+    }
+
     enum AnimationDuration {
         /// Normal animation duration
         static let normal: TimeInterval = 0.30
