@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-2017384285016874/8640717883</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-2017384285016874/7966662458</string>
+	<key>CLIENT_ID</key>
+	<string>1516002162626-j34pmzvpy53br4thp49z5ue6wp26mji0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1516002162626-j34pmzvpy53br4thp49z5ue6wp26mji0</string>
+	<key>API_KEY</key>
+	<string>474crggs717lr6tkl825zyhxq092dlpx-gsAdss</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1516002162626</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.m3g0byt3.Podo</string>
+	<key>PROJECT_ID</key>
+	<string>podo-subways</string>
+	<key>STORAGE_BUCKET</key>
+	<string>podo-subways.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1516002162626:ios:kaslktxnb00dpsev</string>
+	<key>DATABASE_URL</key>
+	<string>https://podo-subways.firebaseio.com</string>
+</dict>
+</plist>
