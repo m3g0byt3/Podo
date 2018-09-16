@@ -23,7 +23,7 @@ final class RealmDatabaseService<T> where T: Object {
     private let configuration: Realm.Configuration
     private var tokens = [NotificationToken]()
     private let semaphore = DispatchSemaphore(value: 1)
-    private let queue = DispatchQueue(label: "com.m3g0byt3.databaseServiceQueue.\(UUID().uuidString)",
+    private let queue = DispatchQueue(label: "com.m3g0byt3.podo.database.\(UUID().uuidString)",
                                       qos: .background,
                                       attributes: .concurrent)
 
