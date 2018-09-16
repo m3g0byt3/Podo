@@ -41,10 +41,3 @@ struct Location {
         return Location.earthRadius * cValue
     }
 }
-
-private extension Double {
-
-    var radians: Double {
-        return self * Double.pi / 180.0
-    }
-}
