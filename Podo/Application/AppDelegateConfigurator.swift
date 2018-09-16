@@ -8,6 +8,7 @@
 
 import Foundation
 import Swinject
+import Firebase
 
 enum AppDelegateConfigurationError: Error {
 
@@ -56,5 +57,7 @@ struct AppDelegateConfigurator {
         // Initialize reporting
         let reportingService = assembler.resolver.resolve(ReportingServiceProtocol.self)
         reportingService?.beginReporting()
+        // Initialize Firebase
+        FirebaseApp.configure()
     }
 }

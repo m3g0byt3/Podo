@@ -19,4 +19,7 @@ protocol RouterProtocol: class {
     func dismiss(animated: Bool, completion: Completion?)
     func popToRootView(animated: Bool)
     func pop(animated: Bool)
+
+    // URL Schemes and Universal Links handling
+    func open(url: URL)
 }

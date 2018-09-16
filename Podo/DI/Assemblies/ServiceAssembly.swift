@@ -73,5 +73,14 @@ final class ServiceAssembly: Assembly {
         container.register(ReportingServiceProtocol.self) { _ in
             return CrashlyticsReportingService()
         }
+
+        container.register(LocationServiceProtocol.self) { _ in
+            return CoreLocationService()
+        }
+
+        container.register(StationServiceProtocol.self) { _ in
+            return FirebaseStationService(path: Constant.Firebase.path)
+        }
+
     }
 }

@@ -71,3 +71,4 @@ xcshareddata/
 **/*.lock
 R.generated.swift
 api-keys
+Google*.plist

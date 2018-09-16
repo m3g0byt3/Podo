@@ -104,12 +104,23 @@ final class ViewModelAssembly: Assembly {
             return PaymentConfirmationViewModel(request: request, networkService: networkService)
         }
 
-        container.register(PaymentResultViewModelProtocol.self) { _ in
-            return PaymentResultViewModel(type: .success)
+        container.register(PaymentResultViewModelProtocol.self) { resolver in
+            let locationDependencyType = LocationServiceProtocol.self
+            let stationDependencyType = StationServiceProtocol.self
+
+            guard let locationService = resolver.resolve(locationDependencyType) else {
+                unableToResolve(locationDependencyType)
+            }
+            guard let stationService = resolver.resolve(stationDependencyType) else {
+                unableToResolve(stationDependencyType)
+            }
+
+            return PaymentSuccessfulResultViewModel(locationService: locationService,
+                                                    stationService: stationService)
         }
 
         container.register(PaymentResultViewModelProtocol.self) { _, error in
-            return PaymentResultViewModel(type: .error(error))
+            return PaymentFailedResultViewModel(error: error)
         }
     }
 }
